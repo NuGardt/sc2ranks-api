@@ -235,13 +235,13 @@ Namespace SC2Ranks.API
                                       ByVal Region As Nullable(Of eRegion),
                                       ByVal League As Nullable(Of eLeague),
                                       ByVal Bracket As eBracket,
-                                      <Out()> ByRef Result As DivisionInfoDivision(),
+                                      <Out()> ByRef Result As PlayerInfoDivision(),
                                       <Out()> Optional ByRef ResponseRaw As String = Nothing) As Exception
       Dim Ex As Exception = Nothing
 
       Dim url As String = String.Format("http://sc2ranks.com/api/clist/{0}/{1}/{2}/{3}/{4}.json?appKey={5}", CustomDivisionID, If(Region.HasValue, Enums.RegionBuffer.GetValue(Region.Value), "all"), If(League.HasValue, Enums.LeaguesBuffer.GetValue(League.Value), "all"), Bracket, If(IsRandomBracket(Bracket), 1, 0), Me.m_AppKey)
 
-      Result = GetDataAndParse(Of DivisionInfoDivision())(url, Ex, ResponseRaw)
+      Result = GetDataAndParse(Of PlayerInfoDivision())(url, Ex, ResponseRaw)
 
       Return Ex
     End Function
@@ -261,7 +261,7 @@ Namespace SC2Ranks.API
                                          ByVal Password As String,
                                          ByVal Action As eCustomDivisionAction,
                                          ByVal Players As IEnumerable(Of PlayerInfoBase),
-                                         <Out()> ByRef Result As DivisionInfoDivision(),
+                                         <Out()> ByRef Result As PlayerInfoDivision(),
                                          <Out()> Optional ByRef ResponseRaw As String = Nothing) As Exception
       Result = Nothing
       ResponseRaw = Nothing
@@ -281,7 +281,7 @@ Namespace SC2Ranks.API
           End With
         Next p
 
-        Result = GetDataAndParse(Of DivisionInfoDivision())(String.Format("http://sc2ranks.com/api/custom/{0}/{1}/{2}/{3}.json?appKey={4}", CustomDivisionID, Password, Enums.CustomDivisionActionBuffer.GetValue(Action), Chars, Me.m_AppKey), Ex, ResponseRaw)
+        Result = GetDataAndParse(Of PlayerInfoDivision())(String.Format("http://sc2ranks.com/api/custom/{0}/{1}/{2}/{3}.json?appKey={4}", CustomDivisionID, Password, Enums.CustomDivisionActionBuffer.GetValue(Action), Chars, Me.m_AppKey), Ex, ResponseRaw)
       End If
 
       Return Ex

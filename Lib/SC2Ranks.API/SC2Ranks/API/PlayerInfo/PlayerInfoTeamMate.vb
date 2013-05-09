@@ -7,8 +7,8 @@ Namespace SC2Ranks.API.PlayerInfo
   ''' Class containing information for a team mate.
   ''' </summary>
   ''' <remarks></remarks>
-    <DataContract(Name := "member")>
-  Public Class DivisionInfoTeamMate
+  <DataContract(Name:="member")>
+  Public Class PlayerInfoTeamMate
     Protected m_BattleNetID As Int32
     Protected m_CharacterCode As Nullable(Of Int16)
     Protected m_CharacterName As String
@@ -37,7 +37,7 @@ Namespace SC2Ranks.API.PlayerInfo
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    <DataMember(Name := "bnet_id")>
+    <DataMember(Name:="bnet_id")>
     Public Property BattleNetID() As Int32
       Get
         Return Me.m_BattleNetID
@@ -53,7 +53,7 @@ Namespace SC2Ranks.API.PlayerInfo
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    <DataMember(Name := "character_code")>
+    <DataMember(Name:="character_code")>
     Public Property CharacterCode() As Nullable(Of Int16)
       Get
         Return Me.m_CharacterCode
@@ -69,7 +69,7 @@ Namespace SC2Ranks.API.PlayerInfo
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    <DataMember(Name := "name")>
+    <DataMember(Name:="name")>
     Public Property CharacterName() As String
       Get
         Return Me.m_CharacterName
@@ -95,7 +95,7 @@ Namespace SC2Ranks.API.PlayerInfo
       End Get
     End Property
 
-    <DataMember(Name := "fav_race")>
+    <DataMember(Name:="fav_race")>
     Protected Property FavoriteRaceRaw() As String
       Get
         Return Me.m_FavoriteRaceRaw
@@ -117,7 +117,7 @@ Namespace SC2Ranks.API.PlayerInfo
       End Get
     End Property
 
-    <DataMember(Name := "region")>
+    <DataMember(Name:="region")>
     Protected Property RegionRaw() As String
       Get
         Return Me.m_RegionRaw
@@ -145,7 +145,7 @@ Namespace SC2Ranks.API.PlayerInfo
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    <DataMember(Name := "tag", EmitDefaultValue := False)>
+    <DataMember(Name:="tag", EmitDefaultValue:=False)>
     Public Property Tag() As String
       Get
         Return Me.m_Tag

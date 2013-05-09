@@ -9,7 +9,7 @@ Namespace SC2Ranks.API.PlayerInfo
   ''' <remarks></remarks>
     <DataContract()>
   Public Class PlayerInfoTeam
-    Inherits DivisionInfoDivision
+    Inherits PlayerInfoDivision
 
     Private m_ID As Integer
     Private m_FavoriteRaceRaw As String

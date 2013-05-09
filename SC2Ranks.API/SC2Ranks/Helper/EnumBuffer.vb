@@ -128,35 +128,43 @@ Namespace SC2Ranks.Helper
       Dim AttrList() As Object
       Dim Value As String
 
-      Try
-        Call DictValueToEnum.Clear()
-        Call DictEnumToValue.Clear()
+      If DictValueToEnum Is Nothing Then
+        Ex = New ArgumentNullException("DictValueToEnum")
+      ElseIf DictEnumToValue Is Nothing Then
+        Ex = New ArgumentNullException("DictEnumToValue")
+      Else
+        Try
+          Call DictValueToEnum.Clear()
+          Call DictEnumToValue.Clear()
 
-        With System.Enum.GetValues([Enum]).GetEnumerator
-          Call .Reset()
+          With System.Enum.GetValues([Enum]).GetEnumerator
+            Call .Reset()
 
-          Do While .MoveNext
-            cKey = DirectCast(.Current, TEnum)
-            AttrList = [Enum].GetField(cKey.ToString).GetCustomAttributes(False)
-            If AttrList IsNot Nothing Then
-              With AttrList.GetEnumerator
-                Call .Reset()
+            Do While .MoveNext
+              cKey = DirectCast(.Current, TEnum)
+              AttrList = [Enum].GetField(cKey.ToString).GetCustomAttributes(False)
+              If AttrList IsNot Nothing Then
+                With AttrList.GetEnumerator
+                  Call .Reset()
 
-                If .MoveNext Then
-                  If TypeOf .Current Is TAttribute Then
-                    Value = ParseAttributeValue(DirectCast(.Current, Attribute))
+                  Do While .MoveNext
+                    If TypeOf .Current Is TAttribute Then
+                      Value = ParseAttributeValue(DirectCast(.Current, Attribute))
 
-                    Call DictValueToEnum.Add(Value, cKey)
-                    Call DictEnumToValue.Add(cKey, Value)
-                  End If
-                End If
-              End With
-            End If
-          Loop
-        End With
-      Catch iEx As Exception
-        Ex = iEx
-      End Try
+                      Call DictValueToEnum.Add(Value, cKey)
+                      Call DictEnumToValue.Add(cKey, Value)
+
+                      Exit Do
+                    End If
+                  Loop
+                End With
+              End If
+            Loop
+          End With
+        Catch iEx As Exception
+          Ex = iEx
+        End Try
+      End If
 
       Return (Ex Is Nothing)
     End Function
@@ -173,7 +181,7 @@ Namespace SC2Ranks.Helper
           Erg = DirectCast(Attribute, NotationAttribute).Value
         ElseIf TypeOf Attribute Is TagAttribute Then
           Erg = DirectCast(Attribute, TagAttribute).Value
-        ElseIf Me.ParseCustomAttribute IsNot Nothing Then
+        ElseIf (Me.ParseCustomAttribute IsNot Nothing) Then
           Erg = Me.ParseCustomAttribute.Invoke(Attribute)
         Else
           Erg = Attribute.ToString

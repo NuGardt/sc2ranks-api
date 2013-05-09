@@ -13,6 +13,7 @@ Namespace SC2Ranks.API
     ''' </summary>
     ''' <remarks></remarks>
       <EnumMember(Value := "all")>
+      <Notation("All")>
     All
 
     ''' <summary>
@@ -59,8 +60,8 @@ Namespace SC2Ranks.API
     ''' China
     ''' </summary>
     ''' <remarks></remarks>
-      <Notation("China")>
       <EnumMember(Value := "cn")>
+      <Notation("China")>
     CN
 
     ''' <summary>
@@ -72,6 +73,7 @@ Namespace SC2Ranks.API
     US
 
     <EnumMember(Value := "fea")>
+    <Notation("FEA")>
     FEA
 
     ''' <summary>

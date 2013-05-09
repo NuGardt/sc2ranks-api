@@ -94,10 +94,10 @@ Namespace SC2Ranks
 
       Try
         Call Me.WriteLine(String.Format("Physical memory: {0}/{1}bytes, Virtual memory: {2}/{3}bytes, OS: {4}, Platform: {5}, Version: {6}, User name: {7}, Computer Name: {8}, Culture: {9}", My.Computer.Info.AvailablePhysicalMemory.ToString("N0"), My.Computer.Info.TotalPhysicalMemory.ToString("N0"), My.Computer.Info.AvailableVirtualMemory.ToString("N0"), My.Computer.Info.TotalVirtualMemory.ToString("N0"), My.Computer.Info.OSFullName, My.Computer.Info.OSPlatform, My.Computer.Info.OSVersion, My.User.Name, My.Computer.Name, My.Computer.Info.InstalledUICulture.ToString))
-      Catch iEx As System.Exception
+      Catch iEx As Exception
         Call Trace.WriteLine("Unable to query system: " + iEx.ToString())
       End Try
-      
+
       Call Me.WriteLine(String.Format("Product Name: {0}, Assembly Name: {1}, Version: {2}, Loaded Assemblies: {3}", My.Application.Info.ProductName, My.Application.Info.AssemblyName, My.Application.Info.Version, LoadedAssemblies.ToString))
     End Sub
 

@@ -111,7 +111,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SC2Ranks API\NuGardt.SC2Ranks.API.vbproj">
+    <ProjectReference Include="..\..\Lib\SC2Ranks.API\NuGardt.SC2Ranks.API.vbproj">
       <Project>{3054F387-8A8C-4C4A-8330-A64FC23C3D14}</Project>
       <Name>NuGardt.SC2Ranks.API</Name>
     </ProjectReference>

@@ -26,7 +26,7 @@ Namespace SC2Ranks
       Dim ResponseRaw As String = Nothing
       Dim Result As String = Nothing
       Dim Ex As Exception
-      
+
       'Test Switches
       Const PauseOnMismatch As Boolean = True
       Const OutputJson As Boolean = False

@@ -17,7 +17,7 @@ Namespace SC2Ranks
     ''' </summary>
     ''' <remarks></remarks>
     Sub Main()
-      Dim RankService As Sc2RanksService
+      Dim RankService As Sc2RanksService = Nothing
       Dim BaseArray() As DivisionInfoDivision = Nothing
       Dim Player As PlayerInfoExtended = Nothing
       Dim PlayerBase As PlayerInfoBase = Nothing

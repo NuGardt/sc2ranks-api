@@ -7,7 +7,7 @@ Namespace SC2Ranks.API.PlayerInfo
   ''' Class containing information about a team in a division.
   ''' </summary>
   ''' <remarks></remarks>
-  <DataContract()>
+    <DataContract()>
   Public Class PlayerInfoDivision
     Private m_Bracket As Integer
     Private m_Division As String
@@ -43,7 +43,7 @@ Namespace SC2Ranks.API.PlayerInfo
 
 #Region "Properties"
 
-    <DataMember(Name:="bracket")>
+    <DataMember(Name := "bracket")>
     Protected Property BracketRaw() As Int32
       Get
         Return Me.m_Bracket
@@ -53,7 +53,6 @@ Namespace SC2Ranks.API.PlayerInfo
       End Set
     End Property
 
-    'ToDo: Bracket enum flagging
     ''' <summary>
     ''' Returns the bracket of the team.
     ''' </summary>
@@ -62,30 +61,22 @@ Namespace SC2Ranks.API.PlayerInfo
     ''' <remarks></remarks>
     Public ReadOnly Property Bracket As eBracket
       Get
+        Dim tBracket As eBracket
+
         Select Case Me.m_Bracket
-          Case 1
-            Return eBracket._1V1
           Case 2
-            If Me.m_IsRandom Then
-              Return eBracket._2V2R
-            Else
-              Return eBracket._2V2
-            End If
+            tBracket = eBracket._2V2
           Case 3
-            If Me.m_IsRandom Then
-              Return eBracket._3V3R
-            Else
-              Return eBracket._3V3
-            End If
+            tBracket = eBracket._3V3
           Case 4
-            If Me.m_IsRandom Then
-              Return eBracket._4V4R
-            Else
-              Return eBracket._4V4
-            End If
+            tBracket = eBracket._4V4
+          Case Else
+            tBracket = eBracket._1V1
         End Select
 
-        Return eBracket._1V1
+        If Me.m_IsRandom Then tBracket = tBracket Or eBracket.Random
+
+        Return tBracket
       End Get
     End Property
 
@@ -95,7 +86,7 @@ Namespace SC2Ranks.API.PlayerInfo
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    <DataMember(Name:="division")>
+    <DataMember(Name := "division")>
     Public Property Division() As String
       Get
         Return Me.m_Division
@@ -111,7 +102,7 @@ Namespace SC2Ranks.API.PlayerInfo
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    <DataMember(Name:="division_id", IsRequired:=False, EmitDefaultValue:=False)>
+    <DataMember(Name := "division_id", IsRequired := False, EmitDefaultValue := False)>
     Public Property DivisionID() As Int32
       Get
         Return Me.m_DivisionID
@@ -127,7 +118,7 @@ Namespace SC2Ranks.API.PlayerInfo
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    <DataMember(Name:="division_rank")>
+    <DataMember(Name := "division_rank")>
     Public Property DivisionRank() As Int32
       Get
         Return Me.m_DivisionRank
@@ -137,7 +128,7 @@ Namespace SC2Ranks.API.PlayerInfo
       End Set
     End Property
 
-    <DataMember(Name:="expansion")>
+    <DataMember(Name := "expansion")>
     Protected Property ExpansionRaw() As Int32
       Get
         Return Me.m_ExpansionRaw
@@ -159,7 +150,7 @@ Namespace SC2Ranks.API.PlayerInfo
       End Get
     End Property
 
-    <DataMember(Name:="is_random")>
+    <DataMember(Name := "is_random")>
     Protected Property IsRandom() As Boolean
       Get
         Return Me.m_IsRandom
@@ -169,7 +160,7 @@ Namespace SC2Ranks.API.PlayerInfo
       End Set
     End Property
 
-    <DataMember(Name:="league")>
+    <DataMember(Name := "league")>
     Protected Property LeagueRaw() As String
       Get
         Return Me.m_LeagueRaw
@@ -197,7 +188,7 @@ Namespace SC2Ranks.API.PlayerInfo
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    <DataMember(Name:="losses")>
+    <DataMember(Name := "losses")>
     Public Property Losses() As Int32
       Get
         Return Me.m_Losses
@@ -213,7 +204,7 @@ Namespace SC2Ranks.API.PlayerInfo
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    <DataMember(Name:="members", IsRequired:=False, EmitDefaultValue:=False)>
+    <DataMember(Name := "members", IsRequired := False, EmitDefaultValue := False)>
     Public Property Members() As PlayerInfoTeamMate()
       Get
         Return Me.m_Members
@@ -229,7 +220,7 @@ Namespace SC2Ranks.API.PlayerInfo
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    <DataMember(Name:="points")>
+    <DataMember(Name := "points")>
     Public Property Points() As Int32
       Get
         Return Me.m_Points
@@ -245,7 +236,7 @@ Namespace SC2Ranks.API.PlayerInfo
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    <DataMember(Name:="ratio")>
+    <DataMember(Name := "ratio")>
     Public Property Ratio() As Double
       Get
         Return Me.m_Ratio
@@ -261,7 +252,7 @@ Namespace SC2Ranks.API.PlayerInfo
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    <DataMember(Name:="wins")>
+    <DataMember(Name := "wins")>
     Public Property Wins() As Int32
       Get
         Return Me.m_Wins

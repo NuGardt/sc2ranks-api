@@ -190,8 +190,11 @@ Namespace SC2Ranks.API
                                            <Out()> ByRef Result As PlayerInfoExtended,
                                            <Out()> Optional ByRef ResponseRaw As String = Nothing) As Exception
       Dim Ex As Exception = Nothing
+      Dim IsRandom As Boolean = IsRandomBracket(Bracket)
 
-      Result = GetDataAndParse(Of PlayerInfoExtended)(String.Format("http://sc2ranks.com/api/char/teams/{0}/{1}${2}/{3}/{4}.json?appKey={5}", Enums.RegionBuffer.GetValue(Region), CharacterName, CharacterCode, Bracket, If(IsRandomBracket(Bracket), 1, 0), Me.m_AppKey), Ex, ResponseRaw)
+      If (Bracket And eBracket.Random) = eBracket.Random Then Bracket = CType(Bracket - eBracket.Random, eBracket)
+
+      Result = GetDataAndParse(Of PlayerInfoExtended)(String.Format("http://sc2ranks.com/api/char/teams/{0}/{1}${2}/{3}/{4}.json?appKey={5}", Enums.RegionBuffer.GetValue(Region), CharacterName, CharacterCode, Helper.Enums.BracketBuffer.GetValue(Bracket), If(IsRandom, 1, 0), Me.m_AppKey), Ex, ResponseRaw)
 
       Return Ex
     End Function
@@ -214,8 +217,11 @@ Namespace SC2Ranks.API
                                          <Out()> ByRef Result As PlayerInfoExtended,
                                          <Out()> Optional ByRef ResponseRaw As String = Nothing) As Exception
       Dim Ex As Exception = Nothing
+      Dim IsRandom As Boolean = IsRandomBracket(Bracket)
 
-      Result = GetDataAndParse(Of PlayerInfoExtended)(String.Format("http://sc2ranks.com/api/char/teams/{0}/{1}!{2}/{3}/{4}.json?appKey={5}", Enums.RegionBuffer.GetValue(Region), CharacterName, BattleNetID, Bracket, If(IsRandomBracket(Bracket), 1, 0), Me.m_AppKey), Ex, ResponseRaw)
+      If (Bracket And eBracket.Random) = eBracket.Random Then Bracket = CType(Bracket - eBracket.Random, eBracket)
+
+      Result = GetDataAndParse(Of PlayerInfoExtended)(String.Format("http://sc2ranks.com/api/char/teams/{0}/{1}!{2}/{3}/{4}.json?appKey={5}", Enums.RegionBuffer.GetValue(Region), CharacterName, BattleNetID, Enums.BracketBuffer.GetValue(Bracket), If(IsRandom, 1, 0), Me.m_AppKey), Ex, ResponseRaw)
 
       Return Ex
     End Function
@@ -238,10 +244,11 @@ Namespace SC2Ranks.API
                                       <Out()> ByRef Result As PlayerInfoDivision(),
                                       <Out()> Optional ByRef ResponseRaw As String = Nothing) As Exception
       Dim Ex As Exception = Nothing
+      Dim IsRandom As Boolean = IsRandomBracket(Bracket)
 
-      Dim url As String = String.Format("http://sc2ranks.com/api/clist/{0}/{1}/{2}/{3}/{4}.json?appKey={5}", CustomDivisionID, If(Region.HasValue, Enums.RegionBuffer.GetValue(Region.Value), "all"), If(League.HasValue, Enums.LeaguesBuffer.GetValue(League.Value), "all"), Bracket, If(IsRandomBracket(Bracket), 1, 0), Me.m_AppKey)
-
-      Result = GetDataAndParse(Of PlayerInfoDivision())(url, Ex, ResponseRaw)
+      If (Bracket And eBracket.Random) = eBracket.Random Then Bracket = CType(Bracket - eBracket.Random, eBracket)
+      
+      Result = GetDataAndParse(Of PlayerInfoDivision())(String.Format("http://sc2ranks.com/api/clist/{0}/{1}/{2}/{3}/{4}.json?appKey={5}", CustomDivisionID, If(Region.HasValue, Enums.RegionBuffer.GetValue(Region.Value), "all"), If(League.HasValue, Enums.LeaguesBuffer.GetValue(League.Value), "all"), Enums.BracketBuffer.GetValue(Bracket), If(IsRandom, 1, 0), Me.m_AppKey), Ex, ResponseRaw)
 
       Return Ex
     End Function
@@ -367,7 +374,11 @@ Namespace SC2Ranks.API
       Dim SB As New StringBuilder
 
       If UseTeam Then
-        If IsRandomBracket(Bracket) Then
+        Dim IsRandom As Boolean = IsRandomBracket(Bracket)
+
+        If (Bracket And eBracket.Random) = eBracket.Random Then Bracket = CType(Bracket - eBracket.Random, eBracket)
+
+        If IsRandom Then
           Call SB.AppendFormat("team[bracket]={0}&team[is_random]=1", Bracket)
         Else
           Call SB.AppendFormat("team[bracket]={0}&team[is_random]=0", Bracket)

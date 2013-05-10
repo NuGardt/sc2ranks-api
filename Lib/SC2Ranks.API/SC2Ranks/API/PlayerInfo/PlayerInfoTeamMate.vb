@@ -85,7 +85,7 @@ Namespace SC2Ranks.API.PlayerInfo
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public ReadOnly Property NameWithTag As String
+    Public ReadOnly Property CharacterNameWithTag As String
       Get
         If String.IsNullOrEmpty(Me.m_Tag) Then
           Return Me.m_CharacterName

@@ -12,7 +12,7 @@ Namespace SC2Ranks.API.PlayerInfo
     Protected m_BattleNetID As Int32
     Protected m_CharacterCode As Nullable(Of Int16)
     Protected m_CharacterName As String
-    Private m_FavoriteRaceRaw As String
+    Private m_FavouriteRaceRaw As String
     Protected m_RegionRaw As String
     Private m_Tag As String
 
@@ -24,7 +24,7 @@ Namespace SC2Ranks.API.PlayerInfo
       Me.m_BattleNetID = Nothing
       Me.m_CharacterCode = Nothing
       Me.m_CharacterName = Nothing
-      Me.m_FavoriteRaceRaw = Nothing
+      Me.m_FavouriteRaceRaw = Nothing
       Me.m_RegionRaw = Nothing
       Me.m_Tag = Nothing
     End Sub
@@ -96,12 +96,12 @@ Namespace SC2Ranks.API.PlayerInfo
     End Property
 
     <DataMember(Name := "fav_race")>
-    Protected Property FavoriteRaceRaw() As String
+    Protected Property FavouriteRaceRaw() As String
       Get
-        Return Me.m_FavoriteRaceRaw
+        Return Me.m_FavouriteRaceRaw
       End Get
       Set(ByVal Value As String)
-        Me.m_FavoriteRaceRaw = Value
+        Me.m_FavouriteRaceRaw = Value
       End Set
     End Property
 
@@ -111,9 +111,9 @@ Namespace SC2Ranks.API.PlayerInfo
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public ReadOnly Property FavoriteRace() As eRace
+    Public ReadOnly Property FavouriteRace() As eRace
       Get
-        Return Enums.RacesBuffer.GetEnum(FavoriteRaceRaw)
+        Return Enums.RacesBuffer.GetEnum(FavouriteRaceRaw)
       End Get
     End Property
 
@@ -164,7 +164,7 @@ Namespace SC2Ranks.API.PlayerInfo
         Call .AppendFormat("Battle.net ID: {0}{1}", Me.BattleNetID.ToString(), vbCrLf)
         Call .AppendFormat("Character Code: {0}{1}", Me.CharacterCode.ToString(), vbCrLf)
         Call .AppendFormat("Character Name: {0}{1}", Me.CharacterName, vbCrLf)
-        Call .AppendFormat("Favourite Race: {0}{1}", Me.FavoriteRace, vbCrLf)
+        Call .AppendFormat("Favourite Race: {0}{1}", Me.FavouriteRace, vbCrLf)
         Call .AppendFormat("Tag: {0}{1}", Me.Tag, vbCrLf)
         Call .AppendFormat("Region: {0}{1}", Me.Region.ToString(), vbCrLf)
       End With

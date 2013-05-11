@@ -12,7 +12,7 @@ Namespace SC2Ranks.API.PlayerInfo
     Inherits PlayerInfoDivision
 
     Private m_ID As Integer
-    Private m_FavoriteRaceRaw As String
+    Private m_FavouriteRaceRaw As String
     Private m_RegionRank As Integer
     Private m_UpdatedAtRaw As String
     Private m_WorldRank As Integer
@@ -25,7 +25,7 @@ Namespace SC2Ranks.API.PlayerInfo
       Call MyBase.New()
 
       Me.m_ID = Nothing
-      Me.m_FavoriteRaceRaw = Nothing
+      Me.m_FavouriteRaceRaw = Nothing
       Me.m_RegionRank = Nothing
       Me.m_UpdatedAtRaw = Nothing
       Me.m_WorldRank = Nothing
@@ -51,12 +51,12 @@ Namespace SC2Ranks.API.PlayerInfo
     End Property
 
     <DataMember(Name := "fav_race")>
-    Protected Property FavoriteRaceRaw() As String
+    Protected Property FavouriteRaceRaw() As String
       Get
-        Return Me.m_FavoriteRaceRaw
+        Return Me.m_FavouriteRaceRaw
       End Get
       Set(ByVal Value As String)
-        Me.m_FavoriteRaceRaw = Value
+        Me.m_FavouriteRaceRaw = Value
       End Set
     End Property
 
@@ -66,9 +66,9 @@ Namespace SC2Ranks.API.PlayerInfo
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public ReadOnly Property FavoriteRace() As eRace
+    Public ReadOnly Property FavouriteRace() As eRace
       Get
-        Return Enums.RacesBuffer.GetEnum(FavoriteRaceRaw)
+        Return Enums.RacesBuffer.GetEnum(FavouriteRaceRaw)
       End Get
     End Property
 

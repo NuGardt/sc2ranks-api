@@ -1,4 +1,21 @@
-﻿Imports System.Runtime.Serialization
+﻿' NuGardt SC2Ranks API
+' Copyright (C) 2011-2013 NuGardt Software
+' http://www.nugardt.com
+'
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+'
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+'
+Imports System.Runtime.Serialization
 Imports com.NuGardt.SC2Ranks.Helper
 
 Namespace SC2Ranks.API.PlayerInfo
@@ -54,13 +71,14 @@ Namespace SC2Ranks.API.PlayerInfo
     End Sub
     
     ''' <summary>
-    '''   Creates a search info basesd on character code. Not reliable when searching as character codes may not be set or are incorrect.
+    '''   Creates a search info basesd on character code.
     ''' </summary>
     ''' <param name="Region">Region of the player. All may not be specified.</param>
     ''' <param name="CharacterName">Name of the character.</param>
     ''' <param name="CharacterCode">Character code. Not reliable when searching as character codes may not be set or are incorrect.</param>
     ''' <returns></returns>
-    ''' <remarks>Not reliable when searching as character codes may not be set or are incorrect.</remarks>
+    ''' <remarks></remarks>
+    <Obsolete("Not reliable with character codes. SC2Ranks may have incorrect or no character codes. Blizzard no longer provides these codes publicly.")>
     Public Shared Function CreateByCharacterCode(ByVal Region As eRegion,
                                                  ByVal CharacterName As String,
                                                  ByVal CharacterCode As Int16) As PlayerInfoBase

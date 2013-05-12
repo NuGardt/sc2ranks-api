@@ -2,18 +2,18 @@
 Imports System.Text
 
 Namespace SC2Ranks.API.PlayerInfo
-  ''' <summary>
-  ''' Class containing extended player information.
-  ''' </summary>
-  ''' <remarks></remarks>
-    <DataContract()>
+''' <summary>
+'''   Class containing extended player information.
+''' </summary>
+''' <remarks></remarks>
+  <DataContract()>
   Public Class PlayerInfoExtended
     Inherits PlayerInfoBase
 
     Private m_Teams As PlayerInfoTeam()
-
+    
     ''' <summary>
-    ''' Construct.
+    '''   Construct.
     ''' </summary>
     ''' <remarks>Should not instantiate from outside.</remarks>
     Private Sub New()
@@ -23,9 +23,9 @@ Namespace SC2Ranks.API.PlayerInfo
     End Sub
 
 #Region "Properties"
-
+    
     ''' <summary>
-    ''' Teams
+    '''   Teams
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>

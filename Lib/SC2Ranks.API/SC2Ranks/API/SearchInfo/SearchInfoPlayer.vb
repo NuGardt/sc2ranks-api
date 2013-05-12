@@ -2,17 +2,17 @@
 Imports System.Text
 
 Namespace SC2Ranks.API.SearchInfo
-  ''' <summary>
-  ''' Class conatining information of found players.
-  ''' </summary>
-  ''' <remarks></remarks>
-    <DataContract()>
+''' <summary>
+'''   Class conatining information of found players.
+''' </summary>
+''' <remarks></remarks>
+  <DataContract()>
   Public Class SearchInfoPlayer
     Private m_BattleNetID As Integer
     Private m_CharacterName As String
-
+    
     ''' <summary>
-    ''' Construct.
+    '''   Construct.
     ''' </summary>
     ''' <remarks>Should not instantiate from outside.</remarks>
     Private Sub New()
@@ -21,9 +21,9 @@ Namespace SC2Ranks.API.SearchInfo
     End Sub
 
 #Region "Properties"
-
+    
     ''' <summary>
-    ''' Returns the Battle.net identifier.
+    '''   Returns the Battle.net identifier.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -37,9 +37,9 @@ Namespace SC2Ranks.API.SearchInfo
         Me.m_BattleNetID = Value
       End Set
     End Property
-
+    
     ''' <summary>
-    ''' Return the character name.
+    '''   Return the character name.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>

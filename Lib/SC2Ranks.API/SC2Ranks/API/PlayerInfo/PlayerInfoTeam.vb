@@ -3,11 +3,11 @@ Imports System.ComponentModel
 Imports com.NuGardt.SC2Ranks.Helper
 
 Namespace SC2Ranks.API.PlayerInfo
-  ''' <summary>
-  ''' Class containing team information for the division.
-  ''' </summary>
-  ''' <remarks></remarks>
-    <DataContract()>
+''' <summary>
+'''   Class containing team information for the division.
+''' </summary>
+''' <remarks></remarks>
+  <DataContract()>
   Public Class PlayerInfoTeam
     Inherits PlayerInfoDivision
 
@@ -16,9 +16,9 @@ Namespace SC2Ranks.API.PlayerInfo
     Private m_RegionRank As Integer
     Private m_UpdatedAtRaw As String
     Private m_WorldRank As Integer
-
+    
     ''' <summary>
-    ''' Construct.
+    '''   Construct.
     ''' </summary>
     ''' <remarks>Should not instantiate from outside.</remarks>
     Protected Sub New()
@@ -32,9 +32,9 @@ Namespace SC2Ranks.API.PlayerInfo
     End Sub
 
 #Region "Properties"
-
+    
     ''' <summary>
-    ''' Returns the SC2Ranks identifier.
+    '''   Returns the SC2Ranks identifier.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -59,9 +59,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Me.m_FavouriteRaceRaw = Value
       End Set
     End Property
-
+    
     ''' <summary>
-    ''' Returns the favourite race of the player.
+    '''   Returns the favourite race of the player.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -71,9 +71,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Return Enums.RacesBuffer.GetEnum(FavouriteRaceRaw)
       End Get
     End Property
-
+    
     ''' <summary>
-    ''' Returns the region rank of the current league.
+    '''   Returns the region rank of the current league.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -97,9 +97,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Me.m_UpdatedAtRaw = Value
       End Set
     End Property
-
+    
     ''' <summary>
-    ''' Return the last time the profile was updated.
+    '''   Return the last time the profile was updated.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -109,9 +109,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Return DateTimeOffset.Parse(UpdatedAtRaw)
       End Get
     End Property
-
+    
     ''' <summary>
-    ''' Returns of the world rank in the current league.
+    '''   Returns of the world rank in the current league.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>

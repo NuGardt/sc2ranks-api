@@ -3,11 +3,11 @@ Imports com.NuGardt.SC2Ranks.Helper
 Imports System.Text
 
 Namespace SC2Ranks.API.PlayerInfo
-  ''' <summary>
-  ''' Class containing information for a team mate.
-  ''' </summary>
-  ''' <remarks></remarks>
-    <DataContract(Name := "member")>
+''' <summary>
+'''   Class containing information for a team mate.
+''' </summary>
+''' <remarks></remarks>
+  <DataContract(Name := "member")>
   Public Class PlayerInfoTeamMate
     Protected m_BattleNetID As Int32
     Protected m_CharacterCode As Nullable(Of Int16)
@@ -15,9 +15,9 @@ Namespace SC2Ranks.API.PlayerInfo
     Private m_FavouriteRaceRaw As String
     Protected m_RegionRaw As String
     Private m_Tag As String
-
+    
     ''' <summary>
-    ''' Construct.
+    '''   Construct.
     ''' </summary>
     ''' <remarks>Should not instantiate from outside.</remarks>
     Protected Sub New()
@@ -30,9 +30,9 @@ Namespace SC2Ranks.API.PlayerInfo
     End Sub
 
 #Region "Properties"
-
+    
     ''' <summary>
-    ''' Returns the Battle.net Identifier.
+    '''   Returns the Battle.net Identifier.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -46,9 +46,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Me.m_BattleNetID = Value
       End Set
     End Property
-
+    
     ''' <summary>
-    ''' Returns the character code. Value maybe incorrect.
+    '''   Returns the character code. Value maybe incorrect.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -62,9 +62,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Me.m_CharacterCode = Value
       End Set
     End Property
-
+    
     ''' <summary>
-    ''' Returns the character name.
+    '''   Returns the character name.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -78,9 +78,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Me.m_CharacterName = Value
       End Set
     End Property
-
+    
     ''' <summary>
-    ''' Returns the character name with clan tag ("[Clan] Name")
+    '''   Returns the character name with clan tag ("[Clan] Name")
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -104,9 +104,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Me.m_FavouriteRaceRaw = Value
       End Set
     End Property
-
+    
     ''' <summary>
-    ''' Favourite Race.
+    '''   Favourite Race.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -126,9 +126,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Me.m_RegionRaw = Value
       End Set
     End Property
-
+    
     ''' <summary>
-    ''' Returns the region of the player.
+    '''   Returns the region of the player.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -138,9 +138,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Return Enums.RegionBuffer.GetEnum(Me.RegionRaw)
       End Get
     End Property
-
+    
     ''' <summary>
-    ''' Returns the clan tag.
+    '''   Returns the clan tag.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>

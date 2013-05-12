@@ -2,11 +2,11 @@
 Imports com.NuGardt.SC2Ranks.Helper
 
 Namespace SC2Ranks.API.PlayerInfo
-  ''' <summary>
-  ''' Class containing basic player information.
-  ''' </summary>
-  ''' <remarks></remarks>
-    <DataContract()>
+''' <summary>
+'''   Class containing basic player information.
+''' </summary>
+''' <remarks></remarks>
+  <DataContract()>
   Public Class PlayerInfoBase
     Protected m_AchievementPoints As Integer
     Protected m_BattleNetID As Int32
@@ -18,9 +18,9 @@ Namespace SC2Ranks.API.PlayerInfo
     Protected m_RegionRaw As String
     Protected m_Tag As String
     Protected m_UpdatedAtRaw As String
-
+    
     ''' <summary>
-    ''' Construct.
+    '''   Construct.
     ''' </summary>
     ''' <remarks>Should not instantiate from outside.</remarks>
     Protected Sub New()
@@ -52,9 +52,9 @@ Namespace SC2Ranks.API.PlayerInfo
       Me.m_BattleNetID = BattleNetID
       Me.m_CharacterCode = Nothing
     End Sub
-
+    
     ''' <summary>
-    ''' Creates a search info basesd on character code. Not reliable when searching as character codes may not be set or are incorrect.
+    '''   Creates a search info basesd on character code. Not reliable when searching as character codes may not be set or are incorrect.
     ''' </summary>
     ''' <param name="Region">Region of the player. All may not be specified.</param>
     ''' <param name="CharacterName">Name of the character.</param>
@@ -66,9 +66,9 @@ Namespace SC2Ranks.API.PlayerInfo
                                                  ByVal CharacterCode As Int16) As PlayerInfoBase
       Return New PlayerInfoBase(CharacterName := CharacterName, Region := Region, CharacterCode := CharacterCode)
     End Function
-
+    
     ''' <summary>
-    ''' Created a search info based on Battle.net ID.
+    '''   Created a search info based on Battle.net ID.
     ''' </summary>
     ''' <param name="Region">Region of the player. All may not be specified.</param>
     ''' <param name="CharacterName">Name of the character.</param>
@@ -82,9 +82,9 @@ Namespace SC2Ranks.API.PlayerInfo
     End Function
 
 #Region "Properties"
-
+    
     ''' <summary>
-    ''' Achievement Points
+    '''   Achievement Points
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -98,9 +98,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Me.m_AchievementPoints = Value
       End Set
     End Property
-
+    
     ''' <summary>
-    ''' Returns the Battle.net Identifier.
+    '''   Returns the Battle.net Identifier.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -114,9 +114,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Me.m_BattleNetID = Value
       End Set
     End Property
-
+    
     ''' <summary>
-    ''' Returns the character code. Value maybe incorrect.
+    '''   Returns the character code. Value maybe incorrect.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -130,9 +130,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Me.m_CharacterCode = Value
       End Set
     End Property
-
+    
     ''' <summary>
-    ''' Returns the character name.
+    '''   Returns the character name.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -146,9 +146,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Me.m_CharacterName = Value
       End Set
     End Property
-
+    
     ''' <summary>
-    ''' Returns the SC2Ranks identifier.
+    '''   Returns the SC2Ranks identifier.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -162,9 +162,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Me.m_ID = Value
       End Set
     End Property
-
+    
     ''' <summary>
-    ''' Returns the error message if an error has occured.
+    '''   Returns the error message if an error has occured.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -178,9 +178,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Me.m_Error = Value
       End Set
     End Property
-
+    
     ''' <summary>
-    ''' Returns <c>True</c> if an error has occured, otherwise <c>False</c>.
+    '''   Returns <c>True</c> if an error has occured, otherwise <c>False</c>.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -190,9 +190,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Return (Not String.IsNullOrEmpty(Me.m_Error))
       End Get
     End Property
-
+    
     ''' <summary>
-    ''' Portrait
+    '''   Portrait
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -216,9 +216,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Me.m_RegionRaw = Value
       End Set
     End Property
-
+    
     ''' <summary>
-    ''' Returns the region of the player.
+    '''   Returns the region of the player.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -228,9 +228,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Return Enums.RegionBuffer.GetEnum(Me.RegionRaw)
       End Get
     End Property
-
+    
     ''' <summary>
-    ''' Returns the clan tag.
+    '''   Returns the clan tag.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -244,9 +244,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Me.m_Tag = Value
       End Set
     End Property
-
+    
     ''' <summary>
-    ''' Returns the character name with clan tag ("[Clan] Name")
+    '''   Returns the character name with clan tag ("[Clan] Name")
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -270,9 +270,9 @@ Namespace SC2Ranks.API.PlayerInfo
         Me.m_UpdatedAtRaw = Value
       End Set
     End Property
-
+    
     ''' <summary>
-    ''' Updated At
+    '''   Updated At
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>

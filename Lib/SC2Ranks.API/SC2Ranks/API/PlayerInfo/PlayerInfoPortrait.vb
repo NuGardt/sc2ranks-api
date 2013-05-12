@@ -2,18 +2,18 @@
 Imports System.Text
 
 Namespace SC2Ranks.API.PlayerInfo
-  ''' <summary>
-  ''' Class containing portrait information.
-  ''' </summary>
-  ''' <remarks></remarks>
-    <DataContract(Name := "portrait")>
+''' <summary>
+'''   Class containing portrait information.
+''' </summary>
+''' <remarks></remarks>
+  <DataContract(Name := "portrait")>
   Public Class PlayerInfoPortrait
     Private m_IconID As Int16
     Private m_Row As Int16
     Private m_Column As Int16
-
+    
     ''' <summary>
-    ''' Construct.
+    '''   Construct.
     ''' </summary>
     ''' <remarks>Should not instantiate from outside.</remarks>
     Private Sub New()

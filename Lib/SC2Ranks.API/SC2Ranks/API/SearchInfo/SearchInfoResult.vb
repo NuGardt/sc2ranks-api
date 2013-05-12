@@ -2,17 +2,17 @@
 Imports System.Text
 
 Namespace SC2Ranks.API.SearchInfo
-  ''' <summary>
-  ''' Class containing the result of a player search.
-  ''' </summary>
-  ''' <remarks></remarks>
-    <DataContract()>
+''' <summary>
+'''   Class containing the result of a player search.
+''' </summary>
+''' <remarks></remarks>
+  <DataContract()>
   Public Class SearchInfoResult
     Private m_Characters() As SearchInfoPlayer
     Private m_Total As Int32
-
+    
     ''' <summary>
-    ''' Construct.
+    '''   Construct.
     ''' </summary>
     ''' <remarks>Should not instantiate from outside.</remarks>
     Private Sub New()
@@ -21,9 +21,9 @@ Namespace SC2Ranks.API.SearchInfo
     End Sub
 
 #Region "Properties"
-
+    
     ''' <summary>
-    ''' Returns the players found.
+    '''   Returns the players found.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -37,9 +37,9 @@ Namespace SC2Ranks.API.SearchInfo
         Me.m_Characters = Value
       End Set
     End Property
-
+    
     ''' <summary>
-    ''' Return the number of players found.
+    '''   Return the number of players found.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>

@@ -1,4 +1,21 @@
-﻿Imports com.NuGardt.SC2Ranks.API
+﻿' NuGardt SC2Ranks API Test
+' Copyright (C) 2011-2013 NuGardt Software
+' http://www.nugardt.com
+'
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+'
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+'
+Imports com.NuGardt.SC2Ranks.API
 Imports System.Text
 Imports System.IO
 Imports System.Globalization
@@ -12,53 +29,145 @@ Namespace SC2Ranks
     Public Trace As TraceListener
 
 #Region "Test Switches"
+    
+    ''' <summary>
+    '''   Causes the program to pause on error or data mismatch
+    ''' </summary>
+    ''' <remarks></remarks>
     Const PauseOnMismatchOrError As Boolean = True
+    
+    ''' <summary>
+    '''   Verbose. Output JSON response.
+    ''' </summary>
+    ''' <remarks></remarks>
     Const OutputJson As Boolean = False
+    
+    ''' <summary>
+    '''   Shows contents of parsed data.
+    ''' </summary>
+    ''' <remarks></remarks>
     Const OutputClass As Boolean = False
-    Const DoSyncTest As Boolean = True
-    Const DoAsyncTest As Boolean = False
+    
+    ''' <summary>
+    '''   Carries out request synchronously.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Const DoSyncTest As Boolean = False
+    
+    ''' <summary>
+    '''   Carries out request asynchronously
+    ''' </summary>
+    ''' <remarks></remarks>
+    Const DoAsyncTest As Boolean = True
+    
+    ''' <summary>
+    '''   Test methods that are not recommended to use anymore.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Const DoObsoleteMethods As Boolean = False
+
 #End Region
 
 #Region "Tests"
-    ' Tested: 2013-05-12 PASS
-    Const TestGetBasePlayerByBattleNetID As Boolean = True
-
-    ' Tested: 2013-05-12 PASS
-    Const TestGetBasePlayerByCharacterCode As Boolean = True
-
-    ' Tested: 2013-05-12 PASS
-    Const TestGetBaseTeamByBattleNetID As Boolean = True
-
-    ' Tested: 2013-05-12 PASS
-    Const TestGetBaseTeamByCharacterCode As Boolean = True
-
-    ' Tested: 2013-05-12 PASS
-    Const TestGetCustomDivision As Boolean = True
-
-    ' Tested: 2013-05-12 PASS
-    Const TestGetTeamByBattleNetID As Boolean = True
-
-    ' Tested: 2013-05-12 PASS
-    Const TestGetTeamByCharacterCode As Boolean = True
-
-    ' Tested: 2013-05-12 PASS
+    
+    ''' <summary>
+    ''' </summary>
+    ''' <remarks>Tested: 2013-05-12 PASS</remarks>
+    Const TestGetBasePlayerByBattleNetID As Boolean = False
+    
+    ''' <summary>
+    '''   Tested: 2013-05-12 PASS
+    ''' </summary>
+    ''' <remarks></remarks>
+    Const TestGetBasePlayerByCharacterCode As Boolean = False
+    
+    ''' <summary>
+    '''   Tested: 2013-05-12 PASS
+    ''' </summary>
+    ''' <remarks></remarks>
+    Const TestGetBaseTeamByBattleNetID As Boolean = False
+    
+    ''' <summary>
+    ''' </summary>
+    ''' <remarks>Tested: 2013-05-12 PASS</remarks>
+    Const TestGetBaseTeamByCharacterCode As Boolean = False
+    
+    ''' <summary>
+    ''' </summary>
+    ''' <remarks>Tested: 2013-05-12 PASS</remarks>
+    Const TestGetCustomDivision As Boolean = False
+    
+    ''' <summary>
+    ''' </summary>
+    ''' <remarks>Tested: 2013-05-12 PASS</remarks>
+    Const TestGetTeamByBattleNetID As Boolean = False
+    
+    ''' <summary>
+    ''' </summary>
+    ''' <remarks>Tested: 2013-05-12 PASS</remarks>
+    Const TestGetTeamByCharacterCode As Boolean = False
+    
+    ''' <summary>
+    ''' </summary>
+    ''' <remarks>Tested: 2013-05-12 PASS</remarks>
     Const TestGetBasePlayers As Boolean = True
-
-    ' Tested: 2013-05-12 PASS
-    Const TestSearchBaseCharacter As Boolean = True
-
-    ' Tested: 2013-05-09 FAIL: 404 Missing on SC2Ranks side?
+    
+    ''' <summary>
+    ''' </summary>
+    ''' <remarks>Tested: 2013-05-12 PASS</remarks>
+    Const TestSearchBaseCharacter As Boolean = False
+    
+    ''' <summary>
+    ''' </summary>
+    ''' <remarks>Tested: 2013-05-09 FAIL: 404 Missing on SC2Ranks side?</remarks>
     Const TestManageCustomDivision As Boolean = False
+
 #End Region
 
 #Region "Test Parameters"
+    
+    ''' <summary>
+    '''   Region of player.
+    ''' </summary>
+    ''' <remarks></remarks>
     Const TestRegion As eRegion = eRegion.EU
+    
+    ''' <summary>
+    '''   Character name of player
+    ''' </summary>
+    ''' <remarks></remarks>
     Const TestCharacterName As String = "OomJan"
+    
+    ''' <summary>
+    '''   Character code. Should not be used anymore.
+    ''' </summary>
+    ''' <remarks></remarks>
     Const TestCharacterCode As Integer = 0
+    
+    ''' <summary>
+    '''   Battle.net identifier
+    ''' </summary>
+    ''' <remarks></remarks>
     Const TestBattleNetID As Int32 = 1770249
+    
+    ''' <summary>
+    '''   SC2Ranks custom division identifier
+    ''' </summary>
+    ''' <remarks></remarks>
     Const TestCustomDivisionID As Int32 = 7085
+    
+    ''' <summary>
+    '''   SC2Ranks custom division password
+    ''' </summary>
+    ''' <remarks></remarks>
     Const TestCustomDivisionPassword As String = "secret"
-    Const SomeKey As Object = "Some random key for Async operations or nothing"
+    
+    ''' <summary>
+    '''   My key for tracking asynchronous calls. Use for your own purpose.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Const MyKey As Object = "Some random key for Async operations or nothing"
+
 #End Region
 
     Private ReadOnly LockObject As Object = GetType(StartUp).ToString()
@@ -82,23 +191,27 @@ Namespace SC2Ranks
       Dim LogStream As Stream = Nothing
 
       Try
+        'try to open file log
         LogStream = New FileStream("output.log", FileMode.Create, FileAccess.Write, FileShare.Read)
-      Catch
-        '-
+        TraceListener = New TraceListener(LogStream, AddressOf TraceRelay)
+      Catch iEx As Exception
+        'Failed to open log so we don't write anything to file
+        TraceListener = New TraceListener(AddressOf TraceRelay)
+        Call Console.WriteLine(iEx)
       End Try
-
-      TraceListener = New TraceListener(LogStream, AddressOf TraceRelay)
 
       Trace = TraceListener
       Call Diagnostics.Trace.Listeners.Add(TraceListener)
       Diagnostics.Trace.AutoFlush = True
 
+      'Create instance of SC2Ranks service
       Ex = Sc2RanksService.CreateInstance("com.nugardt.sc2ranks.customdivisionprofiler", RankService, True)
 
       If (Ex Is Nothing) Then
         Call Trace.WriteLine("SC2Ranks Test")
         Call Trace.WriteLine("=============")
         Call Trace.WriteLine("")
+        'Write system information for debugging purposes.
         Call Trace.WriteSystemInformation()
         Call Trace.WriteLine("")
 
@@ -114,7 +227,7 @@ Namespace SC2Ranks
           End If
         End If
 
-        If TestGetBasePlayerByCharacterCode Then
+        If TestGetBasePlayerByCharacterCode AndAlso DoObsoleteMethods Then
           If DoSyncTest Then
             Ex = RankService.GetBasePlayerByCharacterCode(Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, Result := PlayerInfoBase, ResponseRaw := ResponseRaw)
             Call CheckResult(Of PlayerInfoBase)("GetBasePlayerByCharacterCode (Sync)", Ex, PlayerInfoBase, ResponseRaw)
@@ -122,7 +235,7 @@ Namespace SC2Ranks
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling GetBasePlayerByCharacterCode (Async)...")
-            AsyncResult = RankService.GetBasePlayerByCharacterCodeBegin(Key := SomeKey, Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, Callback := AddressOf GetBasePlayerByCharacterCodeCallback)
+            AsyncResult = RankService.GetBasePlayerByCharacterCodeBegin(Key := MyKey, Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, Callback := AddressOf GetBasePlayerByCharacterCodeCallback)
           End If
         End If
 
@@ -134,11 +247,11 @@ Namespace SC2Ranks
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling GetBaseTeamByBattleNetID (Async)...")
-            AsyncResult = RankService.GetBaseTeamByBattleNetIDBegin(Key := SomeKey, Region := TestRegion, CharacterName := TestCharacterName, BattleNetID := TestBattleNetID, Callback := AddressOf GetBaseTeamByBattleNetIDCallback)
+            AsyncResult = RankService.GetBaseTeamByBattleNetIDBegin(Key := MyKey, Region := TestRegion, CharacterName := TestCharacterName, BattleNetID := TestBattleNetID, Callback := AddressOf GetBaseTeamByBattleNetIDCallback)
           End If
         End If
 
-        If TestGetBaseTeamByCharacterCode Then
+        If TestGetBaseTeamByCharacterCode AndAlso DoObsoleteMethods Then
           If DoSyncTest Then
             Ex = RankService.GetBaseTeamByCharacterCode(Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, Result := PlayerInfoExtended, ResponseRaw := ResponseRaw)
             Call CheckResult(Of PlayerInfoExtended)("GetBaseTeamCharacterInfoByCharacterCode (Sync)", Ex, PlayerInfoExtended, ResponseRaw)
@@ -146,7 +259,7 @@ Namespace SC2Ranks
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling GetBaseTeamCharacterInfoByCharacterCode (Async)")
-            AsyncResult = RankService.GetBaseTeamByCharacterCodeBegin(Key := SomeKey, Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, Callback := AddressOf GetBaseTeamByCharacterCodeCallback)
+            AsyncResult = RankService.GetBaseTeamByCharacterCodeBegin(Key := MyKey, Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, Callback := AddressOf GetBaseTeamByCharacterCodeCallback)
           End If
         End If
 
@@ -158,7 +271,7 @@ Namespace SC2Ranks
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling GetCustomDivision (Async)")
-            AsyncResult = RankService.GetCustomDivisionBegin(Key := SomeKey, CustomDivisionID := TestCustomDivisionID, Region := eRegion.All, League := Nothing, Bracket := eBracket._1V1, Callback := AddressOf GetCustomDivisionCallback)
+            AsyncResult = RankService.GetCustomDivisionBegin(Key := MyKey, CustomDivisionID := TestCustomDivisionID, Region := eRegion.All, League := Nothing, Bracket := eBracket._1V1, Callback := AddressOf GetCustomDivisionCallback)
           End If
         End If
 
@@ -170,11 +283,11 @@ Namespace SC2Ranks
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling GetTeamInfoByBNetID (Async)")
-            AsyncResult = RankService.GetTeamByBattleNetIDBegin(Key := SomeKey, Region := TestRegion, CharacterName := TestCharacterName, BattleNetID := TestBattleNetID, Bracket := eBracket._1V1, Callback := AddressOf GetTeamByBattleNetIDCallback)
+            AsyncResult = RankService.GetTeamByBattleNetIDBegin(Key := MyKey, Region := TestRegion, CharacterName := TestCharacterName, BattleNetID := TestBattleNetID, Bracket := eBracket._1V1, Callback := AddressOf GetTeamByBattleNetIDCallback)
           End If
         End If
 
-        If TestGetTeamByCharacterCode Then
+        If TestGetTeamByCharacterCode AndAlso DoObsoleteMethods Then
           If DoSyncTest Then
             Ex = RankService.GetTeamByCharacterCode(Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, Bracket := eBracket._1V1, Result := PlayerInfoExtended, ResponseRaw := ResponseRaw)
             Call CheckResult(Of PlayerInfoExtended)("GetTeamByCharacterCode (Sync)", Ex, PlayerInfoExtended, ResponseRaw)
@@ -182,7 +295,7 @@ Namespace SC2Ranks
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling GetTeamInfoByCharacterCode (Async)")
-            AsyncResult = RankService.GetTeamByCharacterCodeBegin(Key := SomeKey, Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, Bracket := eBracket._1V1, Callback := AddressOf GetTeamByCharacterCodeCallback)
+            AsyncResult = RankService.GetTeamByCharacterCodeBegin(Key := MyKey, Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, Bracket := eBracket._1V1, Callback := AddressOf GetTeamByCharacterCodeCallback)
           End If
         End If
 
@@ -196,8 +309,8 @@ Namespace SC2Ranks
           End If
 
           If DoAsyncTest Then
-            'Call Trace.WriteLine("Calling MassGetPlayers (Async)")
-            'AsyncResult = RankService.GetBasePlayersBegin(Players := PlayerList, Bracket := Nothing, Callback := AddressOf GetBasePlayersCallback)
+            Call Trace.WriteLine("Calling MassGetPlayers (Async)")
+            AsyncResult = RankService.GetBasePlayersBegin(Key := MyKey, Players := PlayerList, Bracket := Nothing, Callback := AddressOf GetBasePlayersCallback)
           End If
         End If
 
@@ -209,7 +322,7 @@ Namespace SC2Ranks
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling SearchBaseCharacter (Async)")
-            AsyncResult = RankService.SearchBasePlayerBegin(Key := SomeKey, SearchType := eSearchType.Contains, Region := eRegion.EU, CharacterName := TestCharacterName, ResultOffset := Nothing, Callback := AddressOf SearchBasePlayerCallback)
+            AsyncResult = RankService.SearchBasePlayerBegin(Key := MyKey, SearchType := eSearchType.Contains, Region := eRegion.EU, CharacterName := TestCharacterName, ResultOffset := Nothing, Callback := AddressOf SearchBasePlayerCallback)
           End If
         End If
 
@@ -224,7 +337,7 @@ Namespace SC2Ranks
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling ManageCustomDivision (Async)")
-            AsyncResult = RankService.ManageCustomDivisionBegin(Key := SomeKey, CustomDivisionID := TestCustomDivisionID, Password := TestCustomDivisionPassword, Action := eCustomDivisionAction.Add, Players := PlayerList, Callback := AddressOf ManageCustomDivisionCallback)
+            AsyncResult = RankService.ManageCustomDivisionBegin(Key := MyKey, CustomDivisionID := TestCustomDivisionID, Password := TestCustomDivisionPassword, Action := eCustomDivisionAction.Add, Players := PlayerList, Callback := AddressOf ManageCustomDivisionCallback)
           End If
         End If
       Else
@@ -237,8 +350,221 @@ Namespace SC2Ranks
       Call Trace.Dispose()
     End Sub
 
-#Region "Function CompareJson"
+#Region "Callbacks"
 
+    Private Sub GetBasePlayerByBattleNetIDCallback(ByVal Result As IAsyncResult)
+      Dim Ex As Exception
+      Dim Response As PlayerInfoBase = Nothing
+      Dim ResponseRaw As String = Nothing
+      Dim Key As Object = Nothing
+
+      Ex = RankService.GetBasePlayerByBattleNetIDEnd(Result, Key, Response, ResponseRaw)
+
+      Call CheckResult(Of PlayerInfoBase)("GetBasePlayerByBattleNetIDCallback (Async)", Ex, Response, ResponseRaw)
+    End Sub
+
+    Private Sub GetBasePlayerByCharacterCodeCallback(ByVal Result As IAsyncResult)
+      Dim Ex As Exception
+      Dim Response As PlayerInfoBase = Nothing
+      Dim ResponseRaw As String = Nothing
+      Dim Key As Object = Nothing
+
+      Ex = RankService.GetBasePlayerByCharacterCodeEnd(Result, Key, Response, ResponseRaw)
+
+      Call CheckResult(Of PlayerInfoBase)("GetBasePlayerByCharacterCodeCallback (Async)", Ex, Response, ResponseRaw)
+    End Sub
+
+    Private Sub GetBaseTeamByBattleNetIDCallback(ByVal Result As IAsyncResult)
+      Dim Ex As Exception
+      Dim Response As PlayerInfoExtended = Nothing
+      Dim ResponseRaw As String = Nothing
+      Dim Key As Object = Nothing
+
+      Ex = RankService.GetBaseTeamByBattleNetIDEnd(Result, Key, Response, ResponseRaw)
+
+      Call CheckResult(Of PlayerInfoExtended)("GetBaseTeamByBattleNetIDCallback (Async)", Ex, Response, ResponseRaw)
+    End Sub
+
+    Private Sub GetBaseTeamByCharacterCodeCallback(ByVal Result As IAsyncResult)
+      Dim Ex As Exception
+      Dim Response As PlayerInfoExtended = Nothing
+      Dim ResponseRaw As String = Nothing
+      Dim Key As Object = Nothing
+
+      Ex = RankService.GetBaseTeamByCharacterCodeEnd(Result, Key, Response, ResponseRaw)
+
+      Call CheckResult(Of PlayerInfoExtended)("GetBaseTeamByCharacterCodeCallback", Ex, Response, ResponseRaw)
+    End Sub
+
+    Private Sub GetCustomDivisionCallback(ByVal Result As IAsyncResult)
+      Dim Ex As Exception
+      Dim Response As PlayerInfoDivision() = Nothing
+      Dim ResponseRaw As String = Nothing
+      Dim Key As Object = Nothing
+
+      Ex = RankService.GetCustomDivisionEnd(Result, Key, Response, ResponseRaw)
+
+      Call CheckResult(Of PlayerInfoDivision())("GetCustomDivisionCallback (Async)", Ex, Response, ResponseRaw)
+    End Sub
+
+    Private Sub GetTeamByBattleNetIDCallback(ByVal Result As IAsyncResult)
+      Dim Ex As Exception
+      Dim Response As PlayerInfoExtended = Nothing
+      Dim ResponseRaw As String = Nothing
+      Dim Key As Object = Nothing
+
+      Ex = RankService.GetTeamByBattleNetIDEnd(Result, Key, Response, ResponseRaw)
+
+      Call CheckResult(Of PlayerInfoExtended)("GetTeamByBattleNetIDCallback (Async)", Ex, Response, ResponseRaw)
+    End Sub
+
+    Private Sub GetTeamByCharacterCodeCallback(ByVal Result As IAsyncResult)
+      Dim Ex As Exception
+      Dim Response As PlayerInfoExtended = Nothing
+      Dim ResponseRaw As String = Nothing
+      Dim Key As Object = Nothing
+
+      Ex = RankService.GetTeamByCharacterCodeEnd(Result, Key, Response, ResponseRaw)
+
+      Call CheckResult(Of PlayerInfoExtended)("GetTeamByCharacterCodeCallback (Async)", Ex, Response, ResponseRaw)
+    End Sub
+
+    Private Sub GetBasePlayersCallback(ByVal Result As IAsyncResult)
+      Dim Ex As Exception
+      Dim Response As PlayerInfoBase() = Nothing
+      Dim ResponseRaw As String = Nothing
+      Dim Key As Object = Nothing
+
+      Ex = RankService.GetBasePlayersEnd(Result, Key, Response, ResponseRaw)
+
+      Call CheckResult(Of PlayerInfoBase())("GetBasePlayersCallback (Async)", Ex, Response, ResponseRaw)
+    End Sub
+
+    Private Sub SearchBasePlayerCallback(ByVal Result As IAsyncResult)
+      Dim Ex As Exception
+      Dim Response As SearchInfoResult = Nothing
+      Dim ResponseRaw As String = Nothing
+      Dim Key As Object = Nothing
+
+      Ex = RankService.SearchBasePlayerEnd(Result, Key, Response, ResponseRaw)
+
+      Call CheckResult(Of SearchInfoResult)("SearchBasePlayerCallback (Async)", Ex, Response, ResponseRaw)
+    End Sub
+
+    Private Sub ManageCustomDivisionCallback(ByVal Result As IAsyncResult)
+      Dim Ex As Exception
+      Dim Response As PlayerInfoDivision() = Nothing
+      Dim ResponseRaw As String = Nothing
+      Dim Key As Object = Nothing
+
+      Ex = RankService.ManageCustomDivisionEnd(Result, Key, Response, ResponseRaw)
+
+      Call CheckResult(Of PlayerInfoDivision())("ManageCustomDivisionCallback (Async)", Ex, Response, ResponseRaw)
+    End Sub
+
+#End Region
+
+#Region "Function CheckResult"
+    
+    ''' <summary>
+    '''   Checks the response and parsed object for accuracy.
+    ''' </summary>
+    ''' <typeparam name="T"></typeparam>
+    ''' <param name="Description"></param>
+    ''' <param name="Ex"></param>
+    ''' <param name="Response"></param>
+    ''' <param name="ResponseRaw"></param>
+    ''' <remarks></remarks>
+    Private Sub CheckResult(Of T As Class)(ByVal Description As String,
+                                           ByVal Ex As Exception,
+                                           ByVal Response As T,
+                                           ByVal ResponseRaw As String)
+      Dim Fail As Boolean
+      Dim SB As New StringBuilder
+
+      Call SB.AppendLine(Description)
+      Call SB.AppendLine(New String("="c, Description.Length))
+
+      If (Ex IsNot Nothing) Then
+        Call SB.AppendLine(Ex.ToString())
+        Call SB.AppendLine("Result: FAIL")
+        Fail = True
+      Else
+        If OutputClass Then
+          Call SB.AppendLine("Class")
+          Call SB.AppendLine("=====")
+
+          If TypeOf Response Is IEnumerable Then
+            With DirectCast(Response, IEnumerable).GetEnumerator()
+              Call .Reset()
+
+              Do While .MoveNext()
+                Call SB.AppendLine(.Current.ToString)
+              Loop
+            End With
+          Else
+            Call SB.AppendLine(Response.ToString)
+          End If
+        End If
+
+        If OutputJson Then
+          Call SB.AppendLine("JSON Raw")
+          Call SB.AppendLine("========")
+          Call SB.AppendLine(ResponseRaw)
+          Call SB.AppendLine("")
+        End If
+
+        If (Not SanityCheck(Of T)(SB, ResponseRaw, Response)) Then
+          Call SB.AppendLine("Result: FAIL")
+          Fail = True
+        Else
+          Call SB.AppendLine("Result: PASS")
+        End If
+      End If
+
+      'Make sure we write our result in the correct order
+      SyncLock LockObject
+        Call Trace.WriteLine(SB.ToString())
+      End SyncLock
+
+      If PauseOnMismatchOrError AndAlso Fail Then
+        Call Console.ReadKey()
+        Call Console.Clear()
+      End If
+    End Sub
+    
+    ''' <summary>
+    '''   Compare the JSON response to the parsed data.
+    ''' </summary>
+    ''' <typeparam name="T">Type of class.</typeparam>
+    ''' <param name="SB"></param>
+    ''' <param name="ResponseRaw">JSON response.</param>
+    ''' <param name="Obj">Parsed object.</param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Private Function SanityCheck(Of T)(ByVal SB As StringBuilder,
+                                       ByVal ResponseRaw As String,
+                                       ByVal Obj As T) As Boolean
+      Dim ResponseReSerialized As String
+
+      ResponseReSerialized = JsonConvert.SerializeObject(Obj, Formatting.None)
+
+      Return CompareJson(SB, ResponseRaw, ResponseReSerialized)
+    End Function
+
+#Region "Function CompareJson"
+    
+    ''' <summary>
+    '''   Compare 2 JSON strings.
+    ''' </summary>
+    ''' <param name="SB">Write results to StringBuilder.</param>
+    ''' <param name="A">JSON string A.</param>
+    ''' <param name="B">JSON string B.</param>
+    ''' <param name="ShowOnlyMismatches">
+    '''   If <c>True</c> then only mismatches are show, otherwise matches and mismatches,
+    ''' </param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Private Function CompareJson(ByVal SB As StringBuilder,
                                  ByVal A As String,
                                  ByVal B As String,
@@ -325,8 +651,12 @@ Namespace SC2Ranks
 
       Return SB.ToString()
     End Function
-
-    Private NotInheritable Class CompareAandB
+    
+    ''' <summary>
+    '''   Class for storing results of the compare.
+    ''' </summary>
+    ''' <remarks></remarks>
+      Private NotInheritable Class CompareAandB
       Public ReadOnly A As Object
       Public B As Object
 
@@ -435,190 +765,15 @@ Namespace SC2Ranks
 
 #End Region
 
-    Private Function SanityCheck(Of T)(ByVal SB As StringBuilder,
-                                       ByVal ResponseRaw As String,
-                                       ByVal Obj As T) As Boolean
-      Dim ResponseReSerialized As String
-
-      ResponseReSerialized = JsonConvert.SerializeObject(Obj, Formatting.None)
-
-      Return CompareJson(SB, ResponseRaw, ResponseReSerialized)
-    End Function
-
+#End Region
+    
+    ''' <summary>
+    '''   Write trace message to console.
+    ''' </summary>
+    ''' <param name="Message"></param>
+    ''' <remarks></remarks>
     Private Sub TraceRelay(ByVal Message As String)
       Call Console.Write(Message)
     End Sub
-
-    Private Sub GetBasePlayerByBattleNetIDCallback(ByVal Result As IAsyncResult)
-      Dim Ex As Exception
-      Dim Response As PlayerInfoBase = Nothing
-      Dim ResponseRaw As String
-      Dim Key As Object = Nothing
-
-      Ex = RankService.GetBasePlayerByBattleNetIDEnd(Result, Key, Response, ResponseRaw)
-
-      Call CheckResult(Of PlayerInfoBase)("GetBasePlayerByBattleNetIDCallback (Async)", Ex, Response, ResponseRaw)
-    End Sub
-
-    Private Sub GetBasePlayerByCharacterCodeCallback(ByVal Result As IAsyncResult)
-      Dim Ex As Exception
-      Dim Response As PlayerInfoBase = Nothing
-      Dim ResponseRaw As String
-      Dim Key As Object = Nothing
-
-      Ex = RankService.GetBasePlayerByCharacterCodeEnd(Result, Key, Response, ResponseRaw)
-
-      Call CheckResult(Of PlayerInfoBase)("GetBasePlayerByCharacterCodeCallback (Async)", Ex, Response, ResponseRaw)
-    End Sub
-
-    Private Sub GetBaseTeamByBattleNetIDCallback(ByVal Result As IAsyncResult)
-      Dim Ex As Exception
-      Dim Response As PlayerInfoExtended = Nothing
-      Dim ResponseRaw As String
-      Dim Key As Object = Nothing
-
-      Ex = RankService.GetBaseTeamByBattleNetIDEnd(Result, Key, Response, ResponseRaw)
-
-      Call CheckResult(Of PlayerInfoExtended)("GetBaseTeamByBattleNetIDCallback (Async)", Ex, Response, ResponseRaw)
-    End Sub
-
-    Private Sub GetBaseTeamByCharacterCodeCallback(ByVal Result As IAsyncResult)
-      Dim Ex As Exception
-      Dim Response As PlayerInfoExtended = Nothing
-      Dim ResponseRaw As String
-      Dim Key As Object = Nothing
-
-      Ex = RankService.GetBaseTeamByCharacterCodeEnd(Result, Key, Response, ResponseRaw)
-
-      Call CheckResult(Of PlayerInfoExtended)("GetBaseTeamByCharacterCodeCallback", Ex, Response, ResponseRaw)
-    End Sub
-
-    Private Sub GetCustomDivisionCallback(ByVal Result As IAsyncResult)
-      Dim Ex As Exception
-      Dim Response As PlayerInfoDivision() = Nothing
-      Dim ResponseRaw As String
-      Dim Key As Object = Nothing
-
-      Ex = RankService.GetCustomDivisionEnd(Result, Key, Response, ResponseRaw)
-
-      Call CheckResult(Of PlayerInfoDivision())("GetCustomDivisionCallback (Async)", Ex, Response, ResponseRaw)
-    End Sub
-
-    Private Sub GetTeamByBattleNetIDCallback(ByVal Result As IAsyncResult)
-      Dim Ex As Exception
-      Dim Response As PlayerInfoExtended = Nothing
-      Dim ResponseRaw As String
-      Dim Key As Object = Nothing
-
-      Ex = RankService.GetTeamByBattleNetIDEnd(Result, Key, Response, ResponseRaw)
-
-      Call CheckResult(Of PlayerInfoExtended)("GetTeamByBattleNetIDCallback (Async)", Ex, Response, ResponseRaw)
-    End Sub
-
-    Private Sub GetTeamByCharacterCodeCallback(ByVal Result As IAsyncResult)
-      Dim Ex As Exception
-      Dim Response As PlayerInfoExtended = Nothing
-      Dim ResponseRaw As String
-      Dim Key As Object = Nothing
-
-      Ex = RankService.GetTeamByCharacterCodeEnd(Result, Key, Response, ResponseRaw)
-
-      Call CheckResult(Of PlayerInfoExtended)("GetTeamByCharacterCodeCallback (Async)", Ex, Response, ResponseRaw)
-    End Sub
-
-    Private Sub GetBasePlayersCallback(ByVal Result As IAsyncResult)
-      Dim Ex As Exception
-      Dim Response As PlayerInfoBase() = Nothing
-      Dim ResponseRaw As String
-      Dim Key As Object = Nothing
-
-      'Ex = RankService.GetBasePlayersEnd(Result, Key, Response, ResponseRaw)
-
-      Call CheckResult(Of PlayerInfoBase())("GetBasePlayersCallback (Async)", Ex, Response, ResponseRaw)
-    End Sub
-
-    Private Sub SearchBasePlayerCallback(ByVal Result As IAsyncResult)
-      Dim Ex As Exception
-      Dim Response As SearchInfoResult = Nothing
-      Dim ResponseRaw As String
-      Dim Key As Object = Nothing
-
-      Ex = RankService.SearchBasePlayerEnd(Result, Key, Response, ResponseRaw)
-
-      Call CheckResult(Of SearchInfoResult)("SearchBasePlayerCallback (Async)", Ex, Response, ResponseRaw)
-    End Sub
-
-    Private Sub ManageCustomDivisionCallback(ByVal Result As IAsyncResult)
-      Dim Ex As Exception
-      Dim Response As PlayerInfoDivision() = Nothing
-      Dim ResponseRaw As String
-      Dim Key As Object = Nothing
-
-      Ex = RankService.ManageCustomDivisionEnd(Result, Key, Response, ResponseRaw)
-
-      Call CheckResult(Of PlayerInfoDivision())("ManageCustomDivisionCallback (Async)", Ex, Response, ResponseRaw)
-    End Sub
-
-#Region "Function CheckResult"
-
-    Private Sub CheckResult(Of T As Class)(ByVal Description As String,
-                                           ByVal Ex As Exception,
-                                           ByVal Response As T,
-                                           ByVal ResponseRaw As String)
-      Dim Fail As Boolean
-      Dim SB As New StringBuilder
-
-      Call SB.AppendLine(Description)
-      Call SB.AppendLine(New String("="c, Description.Length))
-
-      If (Ex IsNot Nothing) Then
-        Call SB.AppendLine(Ex.ToString())
-        Call SB.AppendLine("Result: FAIL")
-        Fail = True
-      Else
-        If OutputClass Then
-          Call SB.AppendLine("Class")
-          Call SB.AppendLine("=====")
-
-          If TypeOf Response Is IEnumerable Then
-            With DirectCast(Response, IEnumerable).GetEnumerator()
-              Call .Reset()
-
-              Do While .MoveNext()
-                Call SB.AppendLine(.Current.ToString)
-              Loop
-            End With
-          Else
-            Call SB.AppendLine(Response.ToString)
-          End If
-        End If
-
-        If OutputJson Then
-          Call SB.AppendLine("JSON Raw")
-          Call SB.AppendLine("========")
-          Call SB.AppendLine(ResponseRaw)
-          Call SB.AppendLine("")
-        End If
-
-        If (Not SanityCheck(Of T)(SB, ResponseRaw, Response)) Then
-          Call SB.AppendLine("Result: FAIL")
-          Fail = True
-        Else
-          Call SB.AppendLine("Result: PASS")
-        End If
-      End If
-
-      'Make sure we write our result in the correct order
-      SyncLock LockObject
-        Call Trace.WriteLine(SB.ToString())
-      End SyncLock
-
-      If PauseOnMismatchOrError AndAlso Fail Then
-        Call Console.ReadKey()
-        Call Console.Clear()
-      End If
-    End Sub
-
-#End Region
   End Module
 End Namespace

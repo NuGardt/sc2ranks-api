@@ -780,18 +780,24 @@ Namespace SC2Ranks.API
       Public ReadOnly Request As WebRequest
       Public ReadOnly RequestString As String
       Public ReadOnly CacheDuration As TimeSpan
-      Public ReadOnly ResponseRaw As String
+      Public ReadOnly FromCacheResponseRaw As String
+      Public ReadOnly FromCacheDate As DateTime
+      Public ReadOnly FromCacheDuration As TimeSpan
 
       Public Sub New(ByVal Key As Object,
                      ByVal State As WebRequest,
                      ByVal Request As String,
                      ByVal CacheDuration As TimeSpan,
-                     ByVal ResponseRaw As String)
+                     ByVal FromCacheResponseRaw As String,
+                     ByVal FromCacheDate As DateTime,
+                     ByVal FromCacheDuration As TimeSpan)
         Me.Key = Key
         Me.Request = State
         Me.RequestString = Request
         Me.CacheDuration = CacheDuration
-        Me.ResponseRaw = ResponseRaw
+        Me.FromCacheResponseRaw = FromCacheResponseRaw
+        Me.FromCacheDate = FromCacheDate
+        Me.FromCacheDuration = FromCacheDuration
       End Sub
     End Class
 
@@ -843,10 +849,11 @@ Namespace SC2Ranks.API
       Dim Result As IAsyncResult
       Dim Request As WebRequest
       Dim ResponseRaw As String = Nothing
+      Dim tCacheDate As DateTime = Nothing
+      Dim tCacheDuration As TimeSpan = Nothing
 
       Try
-        'todo: begin: cachedate + duration
-        If (String.IsNullOrEmpty(Post)) Then ResponseRaw = Me.Cache.GetResponse(URL, Nothing, Nothing)
+        If (String.IsNullOrEmpty(Post)) Then ResponseRaw = Me.Cache.GetResponse(URL, tCacheDate, tCacheDuration)
 
         If (String.IsNullOrEmpty(ResponseRaw)) Then
           Request = HttpWebRequest.Create(URL)
@@ -858,9 +865,9 @@ Namespace SC2Ranks.API
             Call Writer.Flush()
           End If
 
-          Result = Request.BeginGetResponse(Callback, New AsyncStateWithKey(Key, Request, URL, CacheDuration, Nothing))
+          Result = Request.BeginGetResponse(Callback, New AsyncStateWithKey(Key, Request, URL, CacheDuration, Nothing, Nothing, Nothing))
         Else
-          Result = Callback.BeginInvoke(New StateAsyncResult(New AsyncStateWithKey(Key, Nothing, URL, CacheDuration, ResponseRaw)), Nothing, Nothing)
+          Result = Callback.BeginInvoke(New StateAsyncResult(New AsyncStateWithKey(Key, Nothing, URL, CacheDuration, ResponseRaw, tCacheDate, tCacheDuration)), Nothing, Nothing)
         End If
       Catch iEx As Exception
         Result = Callback.BeginInvoke(New StateAsyncResult(iEx), Nothing, Nothing)
@@ -895,8 +902,11 @@ Namespace SC2Ranks.API
             'Create serializer
             Serializer = New DataContractJsonSerializer(GetType(T))
 
-            If (Not String.IsNullOrEmpty(State.ResponseRaw)) Then
-              ResponseStream = New MemoryStream(Encoding.UTF8.GetBytes(State.ResponseRaw))
+            If (Not String.IsNullOrEmpty(State.FromCacheResponseRaw)) Then
+              ResponseStream = New MemoryStream(Encoding.UTF8.GetBytes(State.FromCacheResponseRaw))
+
+              Response.CacheDate = State.FromCacheDate
+              Response.CacheDuration = State.FromCacheDuration
             ElseIf (State.Request Is Nothing) Then
               Ex = New ArgumentNullException("Request")
             Else

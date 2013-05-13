@@ -19,14 +19,14 @@ Imports System.Runtime.Serialization
 Imports System.ComponentModel
 Imports com.NuGardt.SC2Ranks.Helper
 
-Namespace SC2Ranks.API.PlayerInfo
+Namespace SC2Ranks.API.Messages
 ''' <summary>
 '''   Class containing team information for the division.
 ''' </summary>
 ''' <remarks></remarks>
   <DataContract()>
-  Public Class PlayerInfoTeam
-    Inherits PlayerInfoDivision
+  Public Class DivisionExtended
+    Inherits Division
 
     Private m_ID As Integer
     Private m_FavouriteRaceRaw As String

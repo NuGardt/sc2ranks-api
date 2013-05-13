@@ -18,56 +18,42 @@
 Imports System.Runtime.Serialization
 Imports System.Text
 
-Namespace SC2Ranks.API.PlayerInfo
+Namespace SC2Ranks.API.Messages
 ''' <summary>
-'''   Class containing portrait information.
+'''   Class containing extended player information.
 ''' </summary>
 ''' <remarks></remarks>
-  <DataContract(Name := "portrait")>
-  Public Class PlayerInfoPortrait
-    Private m_IconID As Int16
-    Private m_Row As Int16
-    Private m_Column As Int16
+  <DataContract()>
+  Public Class PlayerExtended
+    Inherits PlayerBase
+
+    Private m_Teams As DivisionExtended()
     
     ''' <summary>
     '''   Construct.
     ''' </summary>
     ''' <remarks>Should not instantiate from outside.</remarks>
     Private Sub New()
-      Me.m_IconID = Nothing
-      Me.m_Row = Nothing
-      Me.m_Column = Nothing
+      Call MyBase.New()
+
+      Me.m_Teams = Nothing
     End Sub
 
 #Region "Properties"
-
-    <DataMember(Name := "icon_id")>
-    Public Property IconID() As Int16
+    
+    ''' <summary>
+    '''   Teams
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    <DataMember(Name := "teams", IsRequired := False, EmitDefaultValue := False)>
+    Public Property Teams() As DivisionExtended()
       Get
-        Return Me.m_IconID
+        Return Me.m_Teams
       End Get
-      Private Set(ByVal Value As Int16)
-        Me.m_IconID = Value
-      End Set
-    End Property
-
-    <DataMember(Name := "row")>
-    Public Property Row() As Int16
-      Get
-        Return Me.m_Row
-      End Get
-      Private Set(ByVal Value As Int16)
-        Me.m_Row = Value
-      End Set
-    End Property
-
-    <DataMember(Name := "column")>
-    Public Property Column() As Int16
-      Get
-        Return Me.m_Column
-      End Get
-      Private Set(ByVal Value As Int16)
-        Me.m_Column = Value
+      Private Set(ByVal Value As DivisionExtended())
+        Me.m_Teams = Value
       End Set
     End Property
 
@@ -77,9 +63,14 @@ Namespace SC2Ranks.API.PlayerInfo
       Dim SB As New StringBuilder
 
       With SB
-        Call .AppendFormat("Icon ID: {0}{1}", Me.IconID.ToString(), vbCrLf)
-        Call .AppendFormat("Row: {0}{1}", Me.Row.ToString(), vbCrLf)
-        Call .AppendFormat("Column: {0}{1}", Me.Column.ToString(), vbCrLf)
+        Call .AppendLine(MyBase.ToString())
+
+        If (Me.Teams IsNot Nothing) Then
+          Dim dMax As Int32 = Me.Teams.Length - 1
+          For i As Int32 = 0 To dMax
+            Call .AppendFormat("Team (#{0}): {1}{2}", i.ToString(), Me.Teams(i).ToString, vbCrLf)
+          Next i
+        End If
       End With
 
       Return SB.ToString

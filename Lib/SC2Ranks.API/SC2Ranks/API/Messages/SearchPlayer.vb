@@ -1,13 +1,13 @@
 ﻿Imports System.Runtime.Serialization
 Imports System.Text
 
-Namespace SC2Ranks.API.SearchInfo
+Namespace SC2Ranks.API.Messages
 ''' <summary>
 '''   Class conatining information of found players.
 ''' </summary>
 ''' <remarks></remarks>
   <DataContract()>
-  Public Class SearchInfoPlayer
+  Public Class SearchPlayer
     Private m_BattleNetID As Integer
     Private m_CharacterName As String
     

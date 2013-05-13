@@ -112,17 +112,18 @@
     <Compile Include="SC2Ranks\API\eSearchType.vb" />
     <Compile Include="SC2Ranks\API\eCustomDivisionAction.vb" />
     <Compile Include="SC2Ranks\API\eBracket.vb" />
-    <Compile Include="SC2Ranks\API\SearchInfo\SearchInfoResult.vb" />
-    <Compile Include="SC2Ranks\API\SearchInfo\SearchInfoPlayer.vb" />
+    <Compile Include="SC2Ranks\API\Messages\BonusPool.vb" />
+    <Compile Include="SC2Ranks\API\Messages\SearchResult.vb" />
+    <Compile Include="SC2Ranks\API\Messages\SearchPlayer.vb" />
     <Compile Include="SC2Ranks\Helper\EnumBuffer.vb" />
     <Compile Include="SC2Ranks\Helper\Enums.vb" />
-    <Compile Include="SC2Ranks\API\PlayerInfo\PlayerInfoTeamMate.vb" />
-    <Compile Include="SC2Ranks\API\PlayerInfo\PlayerInfoExtended.vb" />
-    <Compile Include="SC2Ranks\API\PlayerInfo\PlayerInfoTeam.vb" />
-    <Compile Include="SC2Ranks\API\PlayerInfo\PlayerInfoBase.vb" />
-    <Compile Include="SC2Ranks\API\PlayerInfo\PlayerInfoPortrait.vb" />
-    <Compile Include="SC2Ranks\API\RankService.vb" />
-    <Compile Include="SC2Ranks\API\PlayerInfo\PlayerInfoDivision.vb" />
+    <Compile Include="SC2Ranks\API\Messages\TeamMate.vb" />
+    <Compile Include="SC2Ranks\API\Messages\PlayerExtended.vb" />
+    <Compile Include="SC2Ranks\API\Messages\DivisionExtended.vb" />
+    <Compile Include="SC2Ranks\API\Messages\PlayerBase.vb" />
+    <Compile Include="SC2Ranks\API\Messages\Portrait.vb" />
+    <Compile Include="SC2Ranks\API\Sc2RanksService.vb" />
+    <Compile Include="SC2Ranks\API\Messages\Division.vb" />
     <Compile Include="SC2Ranks\Helper\NotationAttribute.vb" />
     <Compile Include="SC2Ranks\Helper\TagAttribute.vb" />
   </ItemGroup>

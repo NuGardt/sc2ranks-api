@@ -1,14 +1,14 @@
 ﻿Imports System.Runtime.Serialization
 Imports System.Text
 
-Namespace SC2Ranks.API.SearchInfo
+Namespace SC2Ranks.API.Messages
 ''' <summary>
 '''   Class containing the result of a player search.
 ''' </summary>
 ''' <remarks></remarks>
   <DataContract()>
-  Public Class SearchInfoResult
-    Private m_Characters() As SearchInfoPlayer
+  Public Class SearchResult
+    Private m_Characters() As SearchPlayer
     Private m_Total As Int32
     
     ''' <summary>
@@ -29,11 +29,11 @@ Namespace SC2Ranks.API.SearchInfo
     ''' <returns></returns>
     ''' <remarks>Only cotains a maximum of 10 players. Call using ResultOffset to get the next batch of players.</remarks>
     <DataMember(Name := "characters", IsRequired := False, EmitDefaultValue := False)>
-    Public Property Members() As SearchInfoPlayer()
+    Public Property Members() As SearchPlayer()
       Get
         Return Me.m_Characters
       End Get
-      Private Set(ByVal Value As SearchInfoPlayer())
+      Private Set(ByVal Value As SearchPlayer())
         Me.m_Characters = Value
       End Set
     End Property

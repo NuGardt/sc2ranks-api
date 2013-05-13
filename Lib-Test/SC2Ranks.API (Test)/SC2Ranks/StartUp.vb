@@ -66,6 +66,7 @@ Namespace SC2Ranks
     ''' <remarks></remarks>
     Const DoObsoleteMethods As Boolean = True
 
+    Const IgnoreCache As Boolean = False
 #End Region
 
 #Region "Tests"
@@ -73,39 +74,39 @@ Namespace SC2Ranks
     ''' <summary>
     ''' </summary>
     ''' <remarks>Tested: 2013-05-12 PASS</remarks>
-    Const TestGetBasePlayerByBattleNetID As Boolean = True
+    Const TestGetBasePlayerByBattleNetID As Boolean = False
     
     ''' <summary>
     '''   Tested: 2013-05-12 PASS
     ''' </summary>
     ''' <remarks></remarks>
-    Const TestGetBasePlayerByCharacterCode As Boolean = True
+    Const TestGetBasePlayerByCharacterCode As Boolean = False
     
     ''' <summary>
     '''   Tested: 2013-05-12 PASS
     ''' </summary>
     ''' <remarks></remarks>
-    Const TestGetBaseTeamByBattleNetID As Boolean = True
+    Const TestGetBaseTeamByBattleNetID As Boolean = False
     
     ''' <summary>
     ''' </summary>
     ''' <remarks>Tested: 2013-05-12 PASS</remarks>
-    Const TestGetBaseTeamByCharacterCode As Boolean = True
+    Const TestGetBaseTeamByCharacterCode As Boolean = False
     
     ''' <summary>
     ''' </summary>
     ''' <remarks>Tested: 2013-05-12 PASS</remarks>
-    Const TestGetCustomDivision As Boolean = True
+    Const TestGetCustomDivision As Boolean = False
     
     ''' <summary>
     ''' </summary>
     ''' <remarks>Tested: 2013-05-12 PASS</remarks>
-    Const TestGetTeamByBattleNetID As Boolean = True
+    Const TestGetTeamByBattleNetID As Boolean = False
     
     ''' <summary>
     ''' </summary>
     ''' <remarks>Tested: 2013-05-12 PASS</remarks>
-    Const TestGetTeamByCharacterCode As Boolean = True
+    Const TestGetTeamByCharacterCode As Boolean = False
     
     ''' <summary>
     ''' </summary>
@@ -119,13 +120,13 @@ Namespace SC2Ranks
     
     ''' <summary>
     ''' </summary>
-    ''' <remarks>Tested: 2013-05-09 FAIL: 404 Missing on SC2Ranks side?</remarks>
+    ''' <remarks>Tested: 2013-05-13 FAIL: 404 Missing on SC2Ranks side?</remarks>
     Const TestManageCustomDivision As Boolean = False
     
     ''' <summary>
     ''' </summary>
-    ''' <remarks>Tested: 2013-05-13 </remarks>
-    Const TestGetBonusPools As Boolean = True
+    ''' <remarks>Tested: 2013-05-13 PASS</remarks>
+    Const TestGetBonusPools As Boolean = False
 
 #End Region
 
@@ -232,92 +233,92 @@ Namespace SC2Ranks
 
         If TestGetBasePlayerByBattleNetID Then
           If DoSyncTest Then
-            Ex = RankService.GetBasePlayerByBattleNetID(Region := TestRegion, CharacterName := TestCharacterName, BattleNetID := TestBattleNetID, Result := PlayerInfoBase)
+            Ex = RankService.GetBasePlayerByBattleNetID(Region := TestRegion, CharacterName := TestCharacterName, BattleNetID := TestBattleNetID, IgnoreCache := IgnoreCache, Result := PlayerInfoBase)
             Call CheckResult(Of PlayerBase)("GetBasePlayerByBattleNetID (Sync)", Ex, PlayerInfoBase)
           End If
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling GetBasePlayerByBattleNetID (Async)")
             Call Interlocked.Increment(AsyncCallsBusy)
-            AsyncResult = RankService.GetBasePlayerByBattleNetIDBegin(Key := "MyTestKey", Region := TestRegion, CharacterName := TestCharacterName, BattleNetID := TestBattleNetID, Callback := AddressOf GetBasePlayerByBattleNetIDCallback)
+            AsyncResult = RankService.GetBasePlayerByBattleNetIDBegin(Key := "MyTestKey", Region := TestRegion, CharacterName := TestCharacterName, BattleNetID := TestBattleNetID, IgnoreCache := IgnoreCache, Callback := AddressOf GetBasePlayerByBattleNetIDCallback)
           End If
         End If
 
         If TestGetBasePlayerByCharacterCode AndAlso DoObsoleteMethods Then
           If DoSyncTest Then
-            Ex = RankService.GetBasePlayerByCharacterCode(Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, Result := PlayerInfoBase)
+            Ex = RankService.GetBasePlayerByCharacterCode(Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, IgnoreCache := IgnoreCache, Result := PlayerInfoBase)
             Call CheckResult(Of PlayerBase)("GetBasePlayerByCharacterCode (Sync)", Ex, PlayerInfoBase)
           End If
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling GetBasePlayerByCharacterCode (Async)...")
             Call Interlocked.Increment(AsyncCallsBusy)
-            AsyncResult = RankService.GetBasePlayerByCharacterCodeBegin(Key := MyKey, Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, Callback := AddressOf GetBasePlayerByCharacterCodeCallback)
+            AsyncResult = RankService.GetBasePlayerByCharacterCodeBegin(Key := MyKey, Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, IgnoreCache := IgnoreCache, Callback := AddressOf GetBasePlayerByCharacterCodeCallback)
           End If
         End If
 
         If TestGetBaseTeamByBattleNetID Then
           If DoSyncTest Then
-            Ex = RankService.GetBaseTeamByBattleNetID(Region := TestRegion, CharacterName := TestCharacterName, BattleNetID := TestBattleNetID, Result := PlayerInfoExtended)
+            Ex = RankService.GetBaseTeamByBattleNetID(Region := TestRegion, CharacterName := TestCharacterName, BattleNetID := TestBattleNetID, IgnoreCache := IgnoreCache, Result := PlayerInfoExtended)
             Call CheckResult(Of PlayerExtended)("GetBaseTeamByBattleNetID (Sync)", Ex, PlayerInfoExtended)
           End If
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling GetBaseTeamByBattleNetID (Async)...")
             Call Interlocked.Increment(AsyncCallsBusy)
-            AsyncResult = RankService.GetBaseTeamByBattleNetIDBegin(Key := MyKey, Region := TestRegion, CharacterName := TestCharacterName, BattleNetID := TestBattleNetID, Callback := AddressOf GetBaseTeamByBattleNetIDCallback)
+            AsyncResult = RankService.GetBaseTeamByBattleNetIDBegin(Key := MyKey, Region := TestRegion, CharacterName := TestCharacterName, BattleNetID := TestBattleNetID, IgnoreCache := IgnoreCache, Callback := AddressOf GetBaseTeamByBattleNetIDCallback)
           End If
         End If
 
         If TestGetBaseTeamByCharacterCode AndAlso DoObsoleteMethods Then
           If DoSyncTest Then
-            Ex = RankService.GetBaseTeamByCharacterCode(Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, Result := PlayerInfoExtended)
+            Ex = RankService.GetBaseTeamByCharacterCode(Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, IgnoreCache := IgnoreCache, Result := PlayerInfoExtended)
             Call CheckResult(Of PlayerExtended)("GetBaseTeamCharacterInfoByCharacterCode (Sync)", Ex, PlayerInfoExtended)
           End If
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling GetBaseTeamCharacterInfoByCharacterCode (Async)")
             Call Interlocked.Increment(AsyncCallsBusy)
-            AsyncResult = RankService.GetBaseTeamByCharacterCodeBegin(Key := MyKey, Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, Callback := AddressOf GetBaseTeamByCharacterCodeCallback)
+            AsyncResult = RankService.GetBaseTeamByCharacterCodeBegin(Key := MyKey, Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, IgnoreCache := IgnoreCache, Callback := AddressOf GetBaseTeamByCharacterCodeCallback)
           End If
         End If
 
         If TestGetCustomDivision Then
           If DoSyncTest Then
-            Ex = RankService.GetCustomDivision(CustomDivisionID := TestCustomDivisionID, Region := eRegion.All, League := Nothing, Bracket := eBracket._3V3, Result := PlayerInforDivisionArray)
+            Ex = RankService.GetCustomDivision(CustomDivisionID := TestCustomDivisionID, Region := eRegion.All, League := Nothing, Bracket := eBracket._3V3, IgnoreCache := IgnoreCache, Result := PlayerInforDivisionArray)
             Call CheckResult(Of Division())("GetCustomDivision (Sync)", Ex, PlayerInforDivisionArray)
           End If
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling GetCustomDivision (Async)")
             Call Interlocked.Increment(AsyncCallsBusy)
-            AsyncResult = RankService.GetCustomDivisionBegin(Key := MyKey, CustomDivisionID := TestCustomDivisionID, Region := eRegion.All, League := Nothing, Bracket := eBracket._1V1, Callback := AddressOf GetCustomDivisionCallback)
+            AsyncResult = RankService.GetCustomDivisionBegin(Key := MyKey, CustomDivisionID := TestCustomDivisionID, Region := eRegion.All, League := Nothing, Bracket := eBracket._1V1, IgnoreCache := IgnoreCache, Callback := AddressOf GetCustomDivisionCallback)
           End If
         End If
 
         If TestGetTeamByBattleNetID Then
           If DoSyncTest Then
-            Ex = RankService.GetTeamByBattleNetID(Region := TestRegion, CharacterName := TestCharacterName, BattleNetID := TestBattleNetID, Bracket := eBracket._1V1, Result := PlayerInfoExtended)
+            Ex = RankService.GetTeamByBattleNetID(Region := TestRegion, CharacterName := TestCharacterName, BattleNetID := TestBattleNetID, Bracket := eBracket._1V1, IgnoreCache := IgnoreCache, Result := PlayerInfoExtended)
             Call CheckResult(Of PlayerExtended)("GetTeamByBattleNetID (Sync)", Ex, PlayerInfoExtended)
           End If
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling GetTeamInfoByBNetID (Async)")
             Call Interlocked.Increment(AsyncCallsBusy)
-            AsyncResult = RankService.GetTeamByBattleNetIDBegin(Key := MyKey, Region := TestRegion, CharacterName := TestCharacterName, BattleNetID := TestBattleNetID, Bracket := eBracket._1V1, Callback := AddressOf GetTeamByBattleNetIDCallback)
+            AsyncResult = RankService.GetTeamByBattleNetIDBegin(Key := MyKey, Region := TestRegion, CharacterName := TestCharacterName, BattleNetID := TestBattleNetID, Bracket := eBracket._1V1, IgnoreCache := IgnoreCache, Callback := AddressOf GetTeamByBattleNetIDCallback)
           End If
         End If
 
         If TestGetTeamByCharacterCode AndAlso DoObsoleteMethods Then
           If DoSyncTest Then
-            Ex = RankService.GetTeamByCharacterCode(Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, Bracket := eBracket._1V1, Result := PlayerInfoExtended)
+            Ex = RankService.GetTeamByCharacterCode(Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, Bracket := eBracket._1V1, IgnoreCache := IgnoreCache, Result := PlayerInfoExtended)
             Call CheckResult(Of PlayerExtended)("GetTeamByCharacterCode (Sync)", Ex, PlayerInfoExtended)
           End If
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling GetTeamInfoByCharacterCode (Async)")
             Call Interlocked.Increment(AsyncCallsBusy)
-            AsyncResult = RankService.GetTeamByCharacterCodeBegin(Key := MyKey, Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, Bracket := eBracket._1V1, Callback := AddressOf GetTeamByCharacterCodeCallback)
+            AsyncResult = RankService.GetTeamByCharacterCodeBegin(Key := MyKey, Region := TestRegion, CharacterName := TestCharacterName, CharacterCode := TestCharacterCode, Bracket := eBracket._1V1, IgnoreCache := IgnoreCache, Callback := AddressOf GetTeamByCharacterCodeCallback)
           End If
         End If
 
@@ -326,27 +327,27 @@ Namespace SC2Ranks
           Call PlayerList.Add(PlayerBase.CreateByBattleNetID(Region := TestRegion, CharacterName := TestCharacterName, BattleNetID := TestBattleNetID))
 
           If DoSyncTest Then
-            Ex = RankService.GetBasePlayers(Players := PlayerList, Bracket := Nothing, Result := PlayerInfoBaseArray)
+            Ex = RankService.GetBasePlayers(Players := PlayerList, Bracket := Nothing, Result := PlayerInfoBaseArray, IgnoreCache := IgnoreCache)
             Call CheckResult(Of PlayerBase())("GetBasePlayers (Sync)", Ex, PlayerInfoBaseArray)
           End If
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling MassGetPlayers (Async)")
             Call Interlocked.Increment(AsyncCallsBusy)
-            AsyncResult = RankService.GetBasePlayersBegin(Key := MyKey, Players := PlayerList, Bracket := Nothing, Callback := AddressOf GetBasePlayersCallback)
+            AsyncResult = RankService.GetBasePlayersBegin(Key := MyKey, Players := PlayerList, Bracket := Nothing, IgnoreCache := IgnoreCache, Callback := AddressOf GetBasePlayersCallback)
           End If
         End If
 
         If TestSearchBaseCharacter Then
           If DoSyncTest Then
-            Ex = RankService.SearchBasePlayer(SearchType := eSearchType.Contains, Region := eRegion.EU, CharacterName := TestCharacterName, ResultOffset := Nothing, Result := SearchInfoResult)
+            Ex = RankService.SearchBasePlayer(SearchType := eSearchType.Contains, Region := eRegion.EU, CharacterName := TestCharacterName, ResultOffset := Nothing, IgnoreCache := IgnoreCache, Result := SearchInfoResult)
             Call CheckResult(Of SearchResult)("SearchBasePlayer (Sync)", Ex, SearchInfoResult)
           End If
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling SearchBaseCharacter (Async)")
             Call Interlocked.Increment(AsyncCallsBusy)
-            AsyncResult = RankService.SearchBasePlayerBegin(Key := MyKey, SearchType := eSearchType.Contains, Region := eRegion.EU, CharacterName := TestCharacterName, ResultOffset := Nothing, Callback := AddressOf SearchBasePlayerCallback)
+            AsyncResult = RankService.SearchBasePlayerBegin(Key := MyKey, SearchType := eSearchType.Contains, Region := eRegion.EU, CharacterName := TestCharacterName, ResultOffset := Nothing, IgnoreCache := IgnoreCache, Callback := AddressOf SearchBasePlayerCallback)
           End If
         End If
 
@@ -355,27 +356,27 @@ Namespace SC2Ranks
           Call PlayerList.Add(PlayerBase.CreateByBattleNetID(TestRegion, TestCharacterName, TestBattleNetID))
 
           If DoSyncTest Then
-            Ex = RankService.ManageCustomDivision(CustomDivisionID := TestCustomDivisionID, Password := TestCustomDivisionPassword, Action := eCustomDivisionAction.Add, Players := PlayerList, Result := PlayerInforDivisionArray)
+            Ex = RankService.ManageCustomDivision(CustomDivisionID := TestCustomDivisionID, Password := TestCustomDivisionPassword, Action := eCustomDivisionAction.Add, Players := PlayerList, IgnoreCache := IgnoreCache, Result := PlayerInforDivisionArray)
             Call CheckResult(Of Division())("ManageCustomDivision (Sync)", Ex, PlayerInforDivisionArray)
           End If
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling ManageCustomDivision (Async)")
             Call Interlocked.Increment(AsyncCallsBusy)
-            AsyncResult = RankService.ManageCustomDivisionBegin(Key := MyKey, CustomDivisionID := TestCustomDivisionID, Password := TestCustomDivisionPassword, Action := eCustomDivisionAction.Add, Players := PlayerList, Callback := AddressOf ManageCustomDivisionCallback)
+            AsyncResult = RankService.ManageCustomDivisionBegin(Key := MyKey, CustomDivisionID := TestCustomDivisionID, Password := TestCustomDivisionPassword, Action := eCustomDivisionAction.Add, Players := PlayerList, IgnoreCache := IgnoreCache, Callback := AddressOf ManageCustomDivisionCallback)
           End If
         End If
 
         If TestGetBonusPools Then
           If DoSyncTest Then
-            Ex = RankService.GetBonusPools(Result := BonusPoolResult)
+            Ex = RankService.GetBonusPools(IgnoreCache := IgnoreCache, Result := BonusPoolResult)
             Call CheckResult(Of BonusPool)("GetBonusPools (Sync)", Ex, BonusPoolResult)
           End If
 
           If DoAsyncTest Then
             Call Trace.WriteLine("Calling GetBonusPools (Async)")
             Call Interlocked.Increment(AsyncCallsBusy)
-            AsyncResult = RankService.GetBonusPoolsBegin(Key := MyKey, Callback := AddressOf GetBonusPoolCallback)
+            AsyncResult = RankService.GetBonusPoolsBegin(Key := MyKey, IgnoreCache := IgnoreCache, Callback := AddressOf GetBonusPoolCallback)
           End If
         End If
       Else

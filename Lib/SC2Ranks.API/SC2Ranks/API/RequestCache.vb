@@ -15,6 +15,7 @@
 ' You should have received a copy of the GNU General Public License
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
+Imports System.Threading
 Imports System.Collections.Generic
 Imports System.Runtime.InteropServices
 Imports System.IO
@@ -22,11 +23,11 @@ Imports System.Runtime.Serialization.Json
 
 Namespace SC2Ranks.API
   Public Class RequestCache
-    Private ReadOnly LockObject As Object
+    Private ReadOnly Lock As ReaderWriterLock
     Private ReadOnly RequestsByRequestString As IDictionary(Of String, RequestCacheEntry)
 
     Public Sub New()
-      Me.LockObject = GetType(RequestCache).ToString()
+      Me.Lock = New ReaderWriterLock()
 
       Me.RequestsByRequestString = New SortedDictionary(Of String, RequestCacheEntry)(StringComparer.InvariantCultureIgnoreCase)
     End Sub
@@ -36,60 +37,72 @@ Namespace SC2Ranks.API
                                 <Out()> ByRef CacheDuration As TimeSpan) As String
       CacheDate = Nothing
       CacheDuration = Nothing
+      Dim Erg As String
       Dim Entry As RequestCacheEntry = Nothing
 
-      SyncLock Me.LockObject
-        If (Not String.IsNullOrEmpty(Request)) AndAlso Me.RequestsByRequestString.TryGetValue(Request, Entry) AndAlso (Not Entry.IsExpired) Then
-          CacheDate = Entry.CacheDate
-          CacheDuration = Entry.CacheDuration
+      Call Me.Lock.AcquireReaderLock(- 1)
 
-          Return Entry.Response
-        Else
-          Return Nothing
-        End If
-      End SyncLock
+      If (Not String.IsNullOrEmpty(Request)) AndAlso Me.RequestsByRequestString.TryGetValue(Request, Entry) AndAlso (Not Entry.IsExpired) Then
+        CacheDate = Entry.CacheDate
+        CacheDuration = Entry.CacheDuration
+
+        Erg = Entry.Response
+      Else
+        Erg = Nothing
+      End If
+
+      Call Me.Lock.ReleaseReaderLock()
+
+      Return Erg
     End Function
 
     Public Sub AddResponse(ByVal Request As String,
                            ByVal Response As String,
                            ByVal CacheDuration As TimeSpan)
-      If (CacheDuration.TotalSeconds >= 0) Then
-        SyncLock Me.LockObject
-          If Me.RequestsByRequestString.ContainsKey(Request) Then Call Me.RequestsByRequestString.Remove(Request)
+      If (CacheDuration.TotalSeconds >= 0) AndAlso (Not String.IsNullOrEmpty(Request)) AndAlso (Not String.IsNullOrEmpty(Response)) Then
 
-          Call Me.RequestsByRequestString.Add(Request, New RequestCacheEntry(Request, Response, DateTime.UtcNow, CacheDuration))
-        End SyncLock
+        Call Me.Lock.AcquireWriterLock(- 1)
+
+        If Me.RequestsByRequestString.ContainsKey(Request) Then Call Me.RequestsByRequestString.Remove(Request)
+
+        Call Me.RequestsByRequestString.Add(Request, New RequestCacheEntry(Request, Response, DateTime.UtcNow, CacheDuration))
+
+        Call Me.Lock.ReleaseWriterLock()
       End If
     End Sub
 
     Public Sub PruneExpired()
       Dim ToRemoveRequests As New List(Of String)
 
-      SyncLock Me.LockObject
-        With Me.RequestsByRequestString.Values.GetEnumerator()
-          Call .Reset()
+      Call Me.Lock.AcquireWriterLock(- 1)
 
-          Do While .MoveNext()
-            If .Current.IsExpired Then Call ToRemoveRequests.Add(.Current.Request)
-          Loop
+      With Me.RequestsByRequestString.Values.GetEnumerator()
+        Call .Reset()
 
-          Call .Dispose()
-        End With
+        Do While .MoveNext()
+          If .Current.IsExpired Then Call ToRemoveRequests.Add(.Current.Request)
+        Loop
 
-        With ToRemoveRequests.GetEnumerator()
-          Do While .MoveNext()
-            Call Me.RequestsByRequestString.Remove(.Current)
-          Loop
+        Call .Dispose()
+      End With
 
-          Call .Dispose()
-        End With
-      End SyncLock
+      With ToRemoveRequests.GetEnumerator()
+        Do While .MoveNext()
+          Call Me.RequestsByRequestString.Remove(.Current)
+        Loop
+
+        Call .Dispose()
+      End With
+
+      Call Me.Lock.ReleaseWriterLock()
     End Sub
 
     Public Sub Clear()
-      SyncLock Me.LockObject
-        Call Me.RequestsByRequestString.Clear()
-      End SyncLock
+      Call Me.Lock.AcquireWriterLock(- 1)
+
+      Call Me.RequestsByRequestString.Clear()
+
+      Call Me.Lock.ReleaseWriterLock()
     End Sub
 
     Public Function Read(ByVal Stream As Stream) As Exception
@@ -110,16 +123,18 @@ Namespace SC2Ranks.API
           'Deserialize
           Entries = DirectCast(Serializer.ReadObject(Stream), RequestCacheEntry())
 
-          SyncLock Me.LockObject
-            Call Me.RequestsByRequestString.Clear()
+          Call Me.Lock.AcquireWriterLock(- 1)
 
-            Dim dMax As Integer = Entries.Length - 1
-            For d As Integer = 0 To dMax
-              Entry = Entries(d)
+          Call Me.RequestsByRequestString.Clear()
 
-              If (Not Entry.IsExpired) AndAlso (Not Me.RequestsByRequestString.ContainsKey(Entry.Request)) Then Call Me.RequestsByRequestString.Add(Entry.Request, Entry)
-            Next d
-          End SyncLock
+          Dim dMax As Integer = Entries.Length - 1
+          For d As Integer = 0 To dMax
+            Entry = Entries(d)
+
+            If (Not Entry.IsExpired) AndAlso (Not Me.RequestsByRequestString.ContainsKey(Entry.Request)) Then Call Me.RequestsByRequestString.Add(Entry.Request, Entry)
+          Next d
+
+          Call Me.Lock.ReleaseWriterLock()
         Catch iEx As Exception
           Call Trace.WriteLine(iEx)
         End Try
@@ -142,9 +157,11 @@ Namespace SC2Ranks.API
 
           Serializer = New DataContractJsonSerializer(GetType(RequestCacheEntry()))
 
-          SyncLock Me.LockObject
-            Entries = Me.RequestsByRequestString.Values.ToArray()
-          End SyncLock
+          Call Me.Lock.AcquireReaderLock(- 1)
+
+          Entries = Me.RequestsByRequestString.Values.ToArray()
+
+          Call Me.Lock.ReleaseReaderLock()
 
           Stream.Position = 0
           Call Serializer.WriteObject(Stream, Entries)

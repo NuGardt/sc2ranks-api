@@ -16,7 +16,12 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Namespace SC2Ranks.API
-  Public Class Sc2RanksResult(Of T As Class)
+''' <summary>
+'''   This class containt the result and extra informatiom such as cache properties and raw response.
+''' </summary>
+''' <typeparam name="T"></typeparam>
+''' <remarks></remarks>
+  Public NotInheritable Class Sc2RanksResult(Of T As Class)
     Private m_Result As T
     Private m_FromCache As Boolean
     Private m_CacheDate As DateTime

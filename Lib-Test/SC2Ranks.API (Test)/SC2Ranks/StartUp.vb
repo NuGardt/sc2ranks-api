@@ -64,7 +64,7 @@ Namespace SC2Ranks
     '''   Test methods that are not recommended to use anymore.
     ''' </summary>
     ''' <remarks></remarks>
-    Const DoObsoleteMethods As Boolean = False
+    Const DoObsoleteMethods As Boolean = True
 
 #End Region
 
@@ -73,39 +73,39 @@ Namespace SC2Ranks
     ''' <summary>
     ''' </summary>
     ''' <remarks>Tested: 2013-05-12 PASS</remarks>
-    Const TestGetBasePlayerByBattleNetID As Boolean = False
+    Const TestGetBasePlayerByBattleNetID As Boolean = True
     
     ''' <summary>
     '''   Tested: 2013-05-12 PASS
     ''' </summary>
     ''' <remarks></remarks>
-    Const TestGetBasePlayerByCharacterCode As Boolean = False
+    Const TestGetBasePlayerByCharacterCode As Boolean = True
     
     ''' <summary>
     '''   Tested: 2013-05-12 PASS
     ''' </summary>
     ''' <remarks></remarks>
-    Const TestGetBaseTeamByBattleNetID As Boolean = False
+    Const TestGetBaseTeamByBattleNetID As Boolean = True
     
     ''' <summary>
     ''' </summary>
     ''' <remarks>Tested: 2013-05-12 PASS</remarks>
-    Const TestGetBaseTeamByCharacterCode As Boolean = False
+    Const TestGetBaseTeamByCharacterCode As Boolean = True
     
     ''' <summary>
     ''' </summary>
     ''' <remarks>Tested: 2013-05-12 PASS</remarks>
-    Const TestGetCustomDivision As Boolean = False
+    Const TestGetCustomDivision As Boolean = True
     
     ''' <summary>
     ''' </summary>
     ''' <remarks>Tested: 2013-05-12 PASS</remarks>
-    Const TestGetTeamByBattleNetID As Boolean = False
+    Const TestGetTeamByBattleNetID As Boolean = True
     
     ''' <summary>
     ''' </summary>
     ''' <remarks>Tested: 2013-05-12 PASS</remarks>
-    Const TestGetTeamByCharacterCode As Boolean = False
+    Const TestGetTeamByCharacterCode As Boolean = True
     
     ''' <summary>
     ''' </summary>
@@ -115,7 +115,7 @@ Namespace SC2Ranks
     ''' <summary>
     ''' </summary>
     ''' <remarks>Tested: 2013-05-12 PASS</remarks>
-    Const TestSearchBaseCharacter As Boolean = False
+    Const TestSearchBaseCharacter As Boolean = True
     
     ''' <summary>
     ''' </summary>

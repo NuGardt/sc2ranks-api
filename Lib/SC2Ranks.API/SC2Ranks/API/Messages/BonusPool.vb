@@ -20,16 +20,16 @@ Imports System.Runtime.Serialization
 Namespace SC2Ranks.API.Messages
   <DataContract()>
   Public Class BonusPool
-    Protected m_Fea As Integer
-    Protected m_Us As Integer
-    Protected m_Am As Integer
-    Protected m_Ru As Integer
-    Protected m_Sea As Integer
-    Protected m_La As Integer
-    Protected m_Cn As Integer
-    Protected m_Tw As Integer
-    Protected m_Eu As Integer
-    Protected m_Kr As Integer
+    Private m_Fea As Integer
+    Private m_Us As Integer
+    Private m_Am As Integer
+    Private m_Ru As Integer
+    Private m_Sea As Integer
+    Private m_La As Integer
+    Private m_Cn As Integer
+    Private m_Tw As Integer
+    Private m_Eu As Integer
+    Private m_Kr As Integer
     
     ''' <summary>
     '''   Construct.

@@ -73,6 +73,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SC2Ranks\CommandLine.vb" />
     <Compile Include="SC2Ranks\Config.vb" />
     <Compile Include="SC2Ranks\StartUp.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

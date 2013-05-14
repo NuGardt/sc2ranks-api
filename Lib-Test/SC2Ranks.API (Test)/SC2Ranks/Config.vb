@@ -1,7 +1,23 @@
-﻿Imports System.Runtime.Serialization
+﻿' NuGardt SC2Ranks API Test
+' Copyright (C) 2011-2013 NuGardt Software
+' http://www.nugardt.com
+'
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+'
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+'
+Imports System.Runtime.Serialization
 Imports com.NuGardt.SC2Ranks.API
 Imports System.Xml
-Imports System.IO
 
 Namespace SC2Ranks
   <DataContract()>
@@ -187,61 +203,6 @@ Namespace SC2Ranks
       Me.TestCustomDivisionID = 7085
       Me.TestCustomDivisionPassword = "secret"
     End Sub
-
-    'Public Shared Function TryParse(ByVal cmd As CommandLine,
-    '                                ByRef Config As IConfig,
-    '                                Optional ByRef Ex As System.Exception = Nothing) As Boolean
-    '  Ex = Nothing
-
-    '  If cmd Is Nothing Then
-    '    Ex = New ArgumentNullException("cmd")
-    '  Else
-    '    Dim sTemp As String = Nothing
-    '    Dim tDivisionID As Integer
-
-    '    If cmd.GetValues("config", sTemp) AndAlso Read(sTemp.Trim, Config) Then
-    '      Config.ConfigPath = sTemp.Trim
-    '    Else
-    '      If Not Read(DefaultConfigPath, Config) Then Config = New Config
-    '      Config.ConfigPath = DefaultConfigPath
-    '    End If
-
-    '  Return (Ex Is Nothing)
-    'End Function
-
-    Private Shared Function Read(ByVal Path As String,
-                                 ByRef Config As Config,
-                                 Optional ByRef Ex As Exception = Nothing) As Boolean
-      Ex = Nothing
-      Config = Nothing
-
-      If String.IsNullOrEmpty(Path) Then
-        Ex = New ArgumentNullException("Path")
-      ElseIf Not File.Exists(Path) Then
-        Ex = New FileNotFoundException(Path)
-      Else
-        Try
-          Dim Stream As Stream
-          Dim XMLReader As XmlReader
-          Dim iConfig As Config = Nothing
-
-          Stream = New FileStream(Path, FileMode.OpenOrCreate, FileAccess.Read, FileShare.Read)
-
-          XMLReader = XMLReader.Create(Stream)
-
-          If FromXml(XMLReader, iConfig, Ex) Then Config = iConfig
-
-          With Stream
-            Call .Close()
-            Call .Dispose()
-          End With
-        Catch iEx As Exception
-          Ex = iEx
-        End Try
-      End If
-
-      Return (Ex Is Nothing)
-    End Function
 
     Public Function ToXml(ByVal Stream As XmlWriter,
                           Optional ByRef Ex As Exception = Nothing) As Boolean

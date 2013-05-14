@@ -50,7 +50,7 @@ Namespace SC2Ranks
       Dim SearchInfoResult As SearchPlayerResult = Nothing
       Dim BonusPoolResult As GetBonusPoolsResult = Nothing
       Dim AsyncResult As IAsyncResult = Nothing
-      Dim Ex As Exception
+      Dim Ex As Exception = Nothing
 
       Dim TraceListener As TraceListener
       Dim LogStream As Stream
@@ -76,17 +76,19 @@ Namespace SC2Ranks
         Dim XmlSettings As XmlWriterSettings
         Dim Path As String
 
-        If Not String.IsNullOrEmpty(Command()) Then
-          Path = Command()
-        Else
-          Path = "config.xml"
-        End If
+        Call New CommandLine().GetValues("config", Path)
 
+        If String.IsNullOrEmpty(Path) Then Path = "config.xml"
+
+        Call Trace.WriteLine("Loading config: " + Path)
         Stream = New FileStream(Path, FileMode.OpenOrCreate)
 
         XMLReader = New XmlTextReader(Stream)
 
-        If Not Config.FromXml(XMLReader, Config, Ex) Then Config = New Config()
+        If Not Config.FromXml(XMLReader, Config, Ex) Then
+          Call Trace.WriteLine("Unable to parse config. Resetting config to default.")
+          Config = New Config()
+        End If
 
         Stream.Position = 0
 
@@ -561,7 +563,8 @@ Namespace SC2Ranks
           Dim Key As String
 
           If ItemsA.GetType() <> ItemsB.GetType() Then
-            Call SB.AppendLine("A and B are not comparable as they are not of the same type.")
+            Call SB.AppendLine("A and B are not comparable as they are not of the same type. Mismatch.")
+            MismatchCount += 1
           Else
             If TypeOf ItemsA Is JArray Then
               Dim aA As JArray = DirectCast(ItemsA, JArray)
@@ -569,6 +572,7 @@ Namespace SC2Ranks
 
               If aA.Count <> aB.Count Then
                 Call SB.AppendLine("A and B are not of the same array size. Mismatch.")
+                MismatchCount += 1
               Else
                 Dim dMax As Int32 = aA.Count - 1
                 For i As Int32 = 0 To dMax

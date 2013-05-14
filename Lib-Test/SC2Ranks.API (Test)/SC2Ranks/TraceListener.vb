@@ -103,15 +103,19 @@ Namespace SC2Ranks
                     Public Sub WriteSystemInformation()
       Dim LoadedAssemblies As New StringBuilder
 
-      With My.Application.Info.LoadedAssemblies.GetEnumerator
-        Call .Reset()
+      Try
+        With My.Application.Info.LoadedAssemblies.GetEnumerator
+          Call .Reset()
 
-        Do While .MoveNext
-          Call LoadedAssemblies.AppendLine(.Current.FullName)
-        Loop
+          Do While .MoveNext
+            Call LoadedAssemblies.AppendLine(.Current.FullName)
+          Loop
 
-        Call .Dispose()
-      End With
+          Call .Dispose()
+        End With
+      Catch iEx As Exception
+        Call Trace.WriteLine("Unable to query all assemblies: " + iEx.ToString())
+      End Try
 
       Try
         Call Me.WriteLine(String.Format("Physical memory: {0}/{1}bytes, Virtual memory: {2}/{3}bytes, OS: {4}, Platform: {5}, Version: {6}, User name: {7}, Computer Name: {8}, Culture: {9}", My.Computer.Info.AvailablePhysicalMemory.ToString("N0"), My.Computer.Info.TotalPhysicalMemory.ToString("N0"), My.Computer.Info.AvailableVirtualMemory.ToString("N0"), My.Computer.Info.TotalVirtualMemory.ToString("N0"), My.Computer.Info.OSFullName, My.Computer.Info.OSPlatform, My.Computer.Info.OSVersion, My.User.Name, My.Computer.Name, My.Computer.Info.InstalledUICulture.ToString))
@@ -119,7 +123,11 @@ Namespace SC2Ranks
         Call Trace.WriteLine("Unable to query system: " + iEx.ToString())
       End Try
 
-      Call Me.WriteLine(String.Format("Product Name: {0}, Assembly Name: {1}, Version: {2}, Loaded Assemblies: {3}", My.Application.Info.ProductName, My.Application.Info.AssemblyName, My.Application.Info.Version, LoadedAssemblies.ToString))
+      Try
+        Call Me.WriteLine(String.Format("Product Name: {0}, Assembly Name: {1}, Version: {2}, Loaded Assemblies: {3}", My.Application.Info.ProductName, My.Application.Info.AssemblyName, My.Application.Info.Version, LoadedAssemblies.ToString))
+      Catch iEx As Exception
+        Call Trace.WriteLine("Unable to query product details: " + iEx.ToString())
+      End Try
     End Sub
                     
                     ''' <summary>

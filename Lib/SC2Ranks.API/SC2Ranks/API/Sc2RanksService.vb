@@ -450,7 +450,7 @@ Namespace SC2Ranks.API
 
       If (Bracket And eBracket.Random) = eBracket.Random Then Bracket = CType(Bracket - eBracket.Random, eBracket)
 
-      Result = QueryAndParse(Of GetCustomDivisionResult)(String.Format("http://sc2ranks.com/api/clist/{0}/{1}/{2}/{3}/{4}.json?appKey={5}", CustomDivisionID, If(Region.HasValue, Enums.RegionBuffer.GetValue(Region.Value), "all"), If(League.HasValue, Enums.LeaguesBuffer.GetValue(League.Value), "all"), Enums.BracketBuffer.GetValue(Bracket), If(IsRandom, 1, 0), Me.m_AppKey), Nothing, GetCustomDivisionCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of GetCustomDivisionResult, DivisionElement, ICollection(Of DivisionElement))(String.Format("http://sc2ranks.com/api/clist/{0}/{1}/{2}/{3}/{4}.json?appKey={5}", CustomDivisionID, If(Region.HasValue, Enums.RegionBuffer.GetValue(Region.Value), "all"), If(League.HasValue, Enums.LeaguesBuffer.GetValue(League.Value), "all"), Enums.BracketBuffer.GetValue(Bracket), If(IsRandom, 1, 0), Me.m_AppKey), Nothing, GetCustomDivisionCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -472,7 +472,7 @@ Namespace SC2Ranks.API
     Public Function GetCustomDivisionEnd(ByVal Result As IAsyncResult,
                                          <Out()> ByRef Key As Object,
                                          <Out()> ByRef Response As GetCustomDivisionResult) As Exception
-      Return QueryAndParseEnd(Of GetCustomDivisionResult)(Result, Key, Response)
+      Return QueryAndParseEnd(Of GetCustomDivisionResult, DivisionElement, IList(Of DivisionElement))(Result, Key, Response)
     End Function
 
 #End Region
@@ -588,12 +588,12 @@ Namespace SC2Ranks.API
             Ex = GetPostData(Players, True, Bracket.Value, RequestData)
             If (Ex IsNot Nothing) Then Return Ex
 
-            Result = QueryAndParse(Of GetBasePlayersResult)(String.Format("http://sc2ranks.com/api/mass/base/teams/?appKey={0}", Me.m_AppKey), RequestData, GetBasePlayersTeamCacheDuration, IgnoreCache, Ex)
+            Result = QueryAndParse(Of GetBasePlayersResult, GetBasePlayerResult, ICollection(Of GetBasePlayerResult))(String.Format("http://sc2ranks.com/api/mass/base/teams/?appKey={0}", Me.m_AppKey), RequestData, GetBasePlayersTeamCacheDuration, IgnoreCache, Ex)
           Else
             Ex = GetPostData(Players, False, Nothing, RequestData)
             If (Ex IsNot Nothing) Then Return Ex
 
-            Result = QueryAndParse(Of GetBasePlayersResult)(String.Format("http://sc2ranks.com/api/mass/base/char/?appKey={0}", Me.m_AppKey), RequestData, GetBasePlayersCharCacheDuration, IgnoreCache, Ex)
+            Result = QueryAndParse(Of GetBasePlayersResult, GetBasePlayerResult, ICollection(Of GetBasePlayerResult))(String.Format("http://sc2ranks.com/api/mass/base/char/?appKey={0}", Me.m_AppKey), RequestData, GetBasePlayersCharCacheDuration, IgnoreCache, Ex)
           End If
         Catch iEx As Exception
           Ex = iEx
@@ -627,7 +627,7 @@ Namespace SC2Ranks.API
     Public Function GetBasePlayersEnd(ByVal Result As IAsyncResult,
                                       <Out()> ByRef Key As Object,
                                       <Out()> ByRef Response As GetBasePlayersResult) As Exception
-      Return QueryAndParseEnd(Of GetBasePlayersResult)(Result, Key, Response)
+      Return QueryAndParseEnd(Of GetBasePlayersResult, GetBasePlayerResult, ICollection(Of GetBasePlayerResult))(Result, Key, Response)
     End Function
 
 #End Region
@@ -737,6 +737,57 @@ Namespace SC2Ranks.API
         Result.CacheExpires = Expires
 
         'If Me.UseRequestCache AndAlso (String.IsNullOrEmpty(Post)) Then
+        ResponseStream.Position = 0
+        Dim sr As New StreamReader(ResponseStream)
+
+        Result.ResponseRaw = sr.ReadToEnd
+
+        If Me.UseRequestCache Then Call Me.Cache.AddResponse(URL, Post, Result.ResponseRaw, CacheDuration)
+
+        'Close stream
+        Call ResponseStream.Close()
+        Call ResponseStream.Dispose()
+      Catch iEx As Exception
+        Ex = iEx
+      End Try
+
+      Return Result
+    End Function
+
+    Protected Function QueryAndParse(Of T As {BaseResult, TArray}, TArrayItem, TArray As ICollection(Of TArrayItem))(ByVal URL As String,
+                                                                                                                     ByVal Post As String,
+                                                                                                                     ByVal CacheDuration As TimeSpan,
+                                                                                                                     ByVal IgnoreCache As Boolean,
+                                                                                                                     <Out()> ByRef Ex As Exception) As T
+      Ex = Nothing
+      Dim Result As T = Nothing
+      Dim ResultArray As TArray
+      Dim Serializer As DataContractJsonSerializer
+      Dim ResponseStream As Stream
+      Dim Expires As Nullable(Of DateTime)
+
+      Try
+        ResponseStream = Me.CacheOrQuery(URL, Post, IgnoreCache, Expires)
+
+        'Create serializer
+        Serializer = New DataContractJsonSerializer(GetType(TArray))
+
+        'Deserialize
+        ResultArray = DirectCast(Serializer.ReadObject(ResponseStream), TArray)
+
+        'Create instance and add arrray
+        'This is a workaround for Mono as the standard method fails with: System.Runtime.Serialization.SerializationException: Deserialization has failed ---> System.InvalidOperationException: Node type Element is not supported in this operation.  (line 1, column 21)
+        'Known bug: https://bugzilla.xamarin.com/show_bug.cgi?id=2205
+        Result = DirectCast(GetType(T).GetConstructor(New Type() {}).Invoke(New Object() {}), T)
+        With DirectCast(Result, TArray)
+          Dim dMax As Int32 = ResultArray.Count - 1
+          For d As Int32 = 0 To dMax
+            Call .Add(ResultArray(d))
+          Next d
+        End With
+
+        Result.CacheExpires = Expires
+
         ResponseStream.Position = 0
         Dim sr As New StreamReader(ResponseStream)
 
@@ -957,6 +1008,92 @@ Namespace SC2Ranks.API
             'Deserialize
 
             Response = DirectCast(Serializer.ReadObject(ResponseStream), T)
+            Response.CacheExpires = State.FromCacheExpires
+
+            ResponseStream.Position = 0
+            Dim sr As New StreamReader(ResponseStream)
+
+            Response.ResponseRaw = sr.ReadToEnd
+
+            Call Me.Cache.AddResponse(State.RequestString, State.Post, Response.ResponseRaw, State.CacheDuration)
+
+            'Close stream
+            Call ResponseStream.Close()
+            Call ResponseStream.Dispose()
+
+          Catch iEx As Exception
+            Ex = iEx
+          End Try
+        End If
+      End If
+
+      Return Ex
+    End Function
+
+    Public Function QueryAndParseEnd(Of T As {BaseResult, TArray}, TArrayItem, TArray As ICollection(Of TArrayItem))(ByVal Result As IAsyncResult,
+                                                                                                                     <Out()> ByRef Key As Object,
+                                                                                                                     <Out()> ByRef Response As T) As Exception
+      Key = Nothing
+      Response = Nothing
+      Dim Ex As Exception = Nothing
+      Dim State As AsyncStateWithKey
+      Dim ResponseArray As TArray
+      Dim ResponseStream As Stream = Nothing
+      Dim Stream As Stream
+      Dim Serializer As DataContractJsonSerializer
+
+      If (Result Is Nothing) Then
+        Ex = New ArgumentNullException("Result")
+      Else
+        State = TryCast(Result.AsyncState, AsyncStateWithKey)
+        Key = State.Key
+
+        If (State Is Nothing) Then
+          Ex = New Exception("Invalid AsyncState.")
+        Else
+          Try
+            'Create serializer
+            Serializer = New DataContractJsonSerializer(GetType(TArray))
+
+            If (Not String.IsNullOrEmpty(State.FromCacheResponseRaw)) Then
+              ResponseStream = New MemoryStream(Encoding.UTF8.GetBytes(State.FromCacheResponseRaw))
+            ElseIf (State.Request Is Nothing) Then
+              Ex = New ArgumentNullException("Request")
+            Else
+              Dim WebResponse As WebResponse = State.Request.EndGetResponse(Result)
+              ResponseStream = WebResponse.GetResponseStream()
+
+              'Copy stream
+              Stream = New MemoryStream()
+              Call ResponseStream.CopyTo(Stream)
+              Stream.Position = 0
+
+              'Close stream
+              Call ResponseStream.Close()
+              Call ResponseStream.Dispose()
+
+              'Close response
+              Call WebResponse.Close()
+
+              'Replace Stream with MemoryStream so we can seek (read it more than once)
+              ResponseStream = Stream
+            End If
+
+            'Deserialize
+
+            ResponseArray = DirectCast(Serializer.ReadObject(ResponseStream), TArray)
+
+            'Create instance and add arrray
+            'This is a workaround for Mono as the standard method fails with: System.Runtime.Serialization.SerializationException: Deserialization has failed ---> System.InvalidOperationException: Node type Element is not supported in this operation.  (line 1, column 21)
+            'Known bug: https://bugzilla.xamarin.com/show_bug.cgi?id=2205
+            Response = DirectCast(GetType(T).GetConstructor(New Type() {}).Invoke(New Object() {}), T)
+            With DirectCast(Response, TArray)
+              Dim dMax As Int32 = ResponseArray.Count - 1
+              For d As Int32 = 0 To dMax
+                Call .Add(ResponseArray(d))
+              Next d
+            End With
+
             Response.CacheExpires = State.FromCacheExpires
 
             ResponseStream.Position = 0

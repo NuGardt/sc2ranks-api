@@ -25,8 +25,9 @@ Namespace SC2Ranks.API.Result
   Public Class GetCustomDivisionResult
     Inherits BaseResult
     Implements IList(Of DivisionElement)
+    Implements ICollection(Of DivisionElement)
 
-    Private ReadOnly m_List As New List(Of DivisionElement)
+    Private ReadOnly m_List As List(Of DivisionElement)
 
     Public Sub New()
       Call MyBase.New()

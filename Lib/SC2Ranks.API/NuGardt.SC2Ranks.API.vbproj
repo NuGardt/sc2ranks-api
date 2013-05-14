@@ -112,12 +112,14 @@
     <Compile Include="SC2Ranks\API\eSearchType.vb" />
     <Compile Include="SC2Ranks\API\eCustomDivisionAction.vb" />
     <Compile Include="SC2Ranks\API\eBracket.vb" />
-    <Compile Include="SC2Ranks\API\Sc2RanksResult.vb" />
-    <Compile Include="SC2Ranks\API\RequestCacheEntry.vb" />
+    <Compile Include="SC2Ranks\API\Messages\DivisionList.vb" />
+    <Compile Include="SC2Ranks\API\Messages\PlayerBaseList.vb" />
+    <Compile Include="SC2Ranks\API\Messages\Sc2RanksResult.vb" />
+    <Compile Include="SC2Ranks\API\Cache\CacheRequestEntry.vb" />
     <Compile Include="SC2Ranks\API\Messages\BonusPool.vb" />
     <Compile Include="SC2Ranks\API\Messages\SearchResult.vb" />
     <Compile Include="SC2Ranks\API\Messages\SearchPlayer.vb" />
-    <Compile Include="SC2Ranks\API\RequestCache.vb" />
+    <Compile Include="SC2Ranks\API\Cache\CacheRequest.vb" />
     <Compile Include="SC2Ranks\Helper\EnumBuffer.vb" />
     <Compile Include="SC2Ranks\Helper\Enums.vb" />
     <Compile Include="SC2Ranks\API\Messages\TeamMate.vb" />

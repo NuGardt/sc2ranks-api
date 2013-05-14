@@ -21,30 +21,32 @@ Imports System.Runtime.InteropServices
 Imports System.IO
 Imports System.Runtime.Serialization.Json
 
-Namespace SC2Ranks.API
-  Public Class RequestCache
+Namespace SC2Ranks.API.Cache
+''' <summary>
+'''   This class manages the cache storage.
+''' </summary>
+''' <remarks></remarks>
+  Public Class CacheRequest
     Private ReadOnly Lock As ReaderWriterLock
-    Private ReadOnly RequestsByRequestString As IDictionary(Of String, RequestCacheEntry)
+    Private ReadOnly RequestsByRequestString As IDictionary(Of Guid, CacheRequestEntry)
 
     Public Sub New()
       Me.Lock = New ReaderWriterLock()
 
-      Me.RequestsByRequestString = New SortedDictionary(Of String, RequestCacheEntry)(StringComparer.InvariantCultureIgnoreCase)
+      Me.RequestsByRequestString = New SortedDictionary(Of Guid, CacheRequestEntry)
     End Sub
 
     Public Function GetResponse(ByVal Request As String,
-                                <Out()> ByRef CacheDate As DateTime,
-                                <Out()> ByRef CacheDuration As TimeSpan) As String
-      CacheDate = Nothing
-      CacheDuration = Nothing
+                                ByVal Post As String,
+                                <Out()> ByRef Expires As DateTime) As String
+      Expires = Nothing
       Dim Erg As String
-      Dim Entry As RequestCacheEntry = Nothing
+      Dim Entry As CacheRequestEntry = Nothing
 
       Call Me.Lock.AcquireReaderLock(- 1)
 
-      If (Not String.IsNullOrEmpty(Request)) AndAlso Me.RequestsByRequestString.TryGetValue(Request, Entry) AndAlso (Not Entry.IsExpired) Then
-        CacheDate = Entry.CacheDate
-        CacheDuration = Entry.CacheDuration
+      If (Not String.IsNullOrEmpty(Request)) AndAlso Me.RequestsByRequestString.TryGetValue(CacheRequestEntry.GetHash(Request, Post), Entry) AndAlso (Not Entry.IsExpired) Then
+        Expires = Entry.Expires
 
         Erg = Entry.Response
       Else
@@ -56,23 +58,28 @@ Namespace SC2Ranks.API
       Return Erg
     End Function
 
-    Public Sub AddResponse(ByVal Request As String,
+    Public Sub AddResponse(ByVal URL As String,
+                           ByVal POST As String,
                            ByVal Response As String,
                            ByVal CacheDuration As TimeSpan)
-      If (CacheDuration.TotalSeconds >= 0) AndAlso (Not String.IsNullOrEmpty(Request)) AndAlso (Not String.IsNullOrEmpty(Response)) Then
+      Dim Entry As CacheRequestEntry = Nothing
+
+      If (CacheDuration.TotalSeconds >= 0) AndAlso (Not String.IsNullOrEmpty(URL)) AndAlso (Not String.IsNullOrEmpty(Response)) Then
+
+        Entry = New CacheRequestEntry(URL, POST, Response, DateTime.UtcNow.Add(CacheDuration))
 
         Call Me.Lock.AcquireWriterLock(- 1)
 
-        If Me.RequestsByRequestString.ContainsKey(Request) Then Call Me.RequestsByRequestString.Remove(Request)
+        If Me.RequestsByRequestString.ContainsKey(Entry.Hash) Then Call Me.RequestsByRequestString.Remove(Entry.Hash)
 
-        Call Me.RequestsByRequestString.Add(Request, New RequestCacheEntry(Request, Response, DateTime.UtcNow, CacheDuration))
+        Call Me.RequestsByRequestString.Add(Entry.Hash, Entry)
 
         Call Me.Lock.ReleaseWriterLock()
       End If
     End Sub
 
     Public Sub PruneExpired()
-      Dim ToRemoveRequests As New List(Of String)
+      Dim ToRemoveRequests As New List(Of Guid)
 
       Call Me.Lock.AcquireWriterLock(- 1)
 
@@ -80,7 +87,7 @@ Namespace SC2Ranks.API
         Call .Reset()
 
         Do While .MoveNext()
-          If .Current.IsExpired Then Call ToRemoveRequests.Add(.Current.Request)
+          If .Current.IsExpired Then Call ToRemoveRequests.Add(.Current.Hash)
         Loop
 
         Call .Dispose()
@@ -115,13 +122,13 @@ Namespace SC2Ranks.API
         Ex = New Exception("Stream must be readable, writable and seekable.")
       Else
         Try
-          Dim Entries() As RequestCacheEntry
-          Dim Entry As RequestCacheEntry
+          Dim Entries() As CacheRequestEntry
+          Dim Entry As CacheRequestEntry
 
-          Serializer = New DataContractJsonSerializer(GetType(RequestCacheEntry()))
+          Serializer = New DataContractJsonSerializer(GetType(CacheRequestEntry()))
 
           'Deserialize
-          Entries = DirectCast(Serializer.ReadObject(Stream), RequestCacheEntry())
+          Entries = DirectCast(Serializer.ReadObject(Stream), CacheRequestEntry())
 
           Call Me.Lock.AcquireWriterLock(- 1)
 
@@ -131,7 +138,7 @@ Namespace SC2Ranks.API
           For d As Integer = 0 To dMax
             Entry = Entries(d)
 
-            If (Not Entry.IsExpired) AndAlso (Not Me.RequestsByRequestString.ContainsKey(Entry.Request)) Then Call Me.RequestsByRequestString.Add(Entry.Request, Entry)
+            If (Not Entry.IsExpired) AndAlso (Not Me.RequestsByRequestString.ContainsKey(Entry.Hash)) Then Call Me.RequestsByRequestString.Add(Entry.Hash, Entry)
           Next d
 
           Call Me.Lock.ReleaseWriterLock()
@@ -153,9 +160,9 @@ Namespace SC2Ranks.API
         Ex = New Exception("Stream must be readable, writable and seekable.")
       Else
         Try
-          Dim Entries() As RequestCacheEntry
+          Dim Entries() As CacheRequestEntry
 
-          Serializer = New DataContractJsonSerializer(GetType(RequestCacheEntry()))
+          Serializer = New DataContractJsonSerializer(GetType(CacheRequestEntry()))
 
           Call Me.Lock.AcquireReaderLock(- 1)
 

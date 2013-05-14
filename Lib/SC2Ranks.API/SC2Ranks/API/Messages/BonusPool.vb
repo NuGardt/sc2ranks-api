@@ -20,6 +20,8 @@ Imports System.Runtime.Serialization
 Namespace SC2Ranks.API.Messages
   <DataContract()>
   Public Class BonusPool
+    Inherits Sc2RanksResult
+
     Private m_Fea As Integer
     Private m_Us As Integer
     Private m_Am As Integer

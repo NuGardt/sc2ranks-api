@@ -25,12 +25,13 @@ Namespace SC2Ranks.API.Messages
 ''' <remarks></remarks>
   <DataContract()>
   Public Class PlayerBase
+    Inherits Sc2RanksResult
+
     Protected m_AchievementPoints As Integer
     Protected m_BattleNetID As Int32
     Protected m_CharacterCode As Nullable(Of Int16)
     Protected m_CharacterName As String
     Protected m_ID As Integer
-    Protected m_Error As String
     Protected m_Portrait As Portrait
     Protected m_RegionRaw As String
     Protected m_Tag As String
@@ -46,7 +47,7 @@ Namespace SC2Ranks.API.Messages
       Me.m_CharacterCode = Nothing
       Me.m_CharacterName = Nothing
       Me.m_ID = Nothing
-      Me.m_Error = Nothing
+
       Me.m_Portrait = Nothing
       Me.m_RegionRaw = Nothing
       Me.m_Tag = Nothing
@@ -179,34 +180,6 @@ Namespace SC2Ranks.API.Messages
       Private Set(ByVal Value As Int32)
         Me.m_ID = Value
       End Set
-    End Property
-    
-    ''' <summary>
-    '''   Returns the error message if an error has occured.
-    ''' </summary>
-    ''' <value></value>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    <DataMember(Name := "error", EmitDefaultValue := False)>
-    Public Property [Error]() As String
-      Get
-        Return Me.m_Error
-      End Get
-      Private Set(ByVal Value As String)
-        Me.m_Error = Value
-      End Set
-    End Property
-    
-    ''' <summary>
-    '''   Returns <c>True</c> if an error has occured, otherwise <c>False</c>.
-    ''' </summary>
-    ''' <value></value>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    Public ReadOnly Property HasError As Boolean
-      Get
-        Return (Not String.IsNullOrEmpty(Me.m_Error))
-      End Get
     End Property
     
     ''' <summary>

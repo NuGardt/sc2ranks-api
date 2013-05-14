@@ -8,6 +8,8 @@ Namespace SC2Ranks.API.Messages
 ''' <remarks></remarks>
   <DataContract()>
   Public Class SearchResult
+    Inherits Sc2RanksResult
+
     Private m_Characters() As SearchPlayer
     Private m_Total As Int32
     

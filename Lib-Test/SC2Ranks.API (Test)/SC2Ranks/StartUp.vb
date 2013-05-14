@@ -74,39 +74,39 @@ Namespace SC2Ranks
     ''' <summary>
     ''' </summary>
     ''' <remarks>Tested: 2013-05-12 PASS</remarks>
-    Const TestGetBasePlayerByBattleNetID As Boolean = False
+    Const TestGetBasePlayerByBattleNetID As Boolean = True
     
     ''' <summary>
     '''   Tested: 2013-05-12 PASS
     ''' </summary>
     ''' <remarks></remarks>
-    Const TestGetBasePlayerByCharacterCode As Boolean = False
+    Const TestGetBasePlayerByCharacterCode As Boolean = True
     
     ''' <summary>
     '''   Tested: 2013-05-12 PASS
     ''' </summary>
     ''' <remarks></remarks>
-    Const TestGetBaseTeamByBattleNetID As Boolean = False
+    Const TestGetBaseTeamByBattleNetID As Boolean = True
     
     ''' <summary>
     ''' </summary>
     ''' <remarks>Tested: 2013-05-12 PASS</remarks>
-    Const TestGetBaseTeamByCharacterCode As Boolean = False
+    Const TestGetBaseTeamByCharacterCode As Boolean = True
     
     ''' <summary>
     ''' </summary>
     ''' <remarks>Tested: 2013-05-12 PASS</remarks>
-    Const TestGetCustomDivision As Boolean = False
+    Const TestGetCustomDivision As Boolean = True
     
     ''' <summary>
     ''' </summary>
     ''' <remarks>Tested: 2013-05-12 PASS</remarks>
-    Const TestGetTeamByBattleNetID As Boolean = False
+    Const TestGetTeamByBattleNetID As Boolean = True
     
     ''' <summary>
     ''' </summary>
     ''' <remarks>Tested: 2013-05-12 PASS</remarks>
-    Const TestGetTeamByCharacterCode As Boolean = False
+    Const TestGetTeamByCharacterCode As Boolean = True
     
     ''' <summary>
     ''' </summary>
@@ -126,7 +126,7 @@ Namespace SC2Ranks
     ''' <summary>
     ''' </summary>
     ''' <remarks>Tested: 2013-05-13 PASS</remarks>
-    Const TestGetBonusPools As Boolean = False
+    Const TestGetBonusPools As Boolean = True
 
 #End Region
 
@@ -186,12 +186,12 @@ Namespace SC2Ranks
     ''' </summary>
     ''' <remarks></remarks>
     Sub Main()
-      Dim PlayerInforDivisionArray As Sc2RanksResult(Of Division()) = Nothing
-      Dim PlayerInfoExtended As Sc2RanksResult(Of PlayerExtended) = Nothing
-      Dim PlayerInfoBase As Sc2RanksResult(Of PlayerBase) = Nothing
-      Dim PlayerInfoBaseArray As Sc2RanksResult(Of PlayerBase()) = Nothing
-      Dim SearchInfoResult As Sc2RanksResult(Of SearchResult) = Nothing
-      Dim BonusPoolResult As Sc2RanksResult(Of BonusPool) = Nothing
+      Dim PlayerInforDivisionArray As DivisionList = Nothing
+      Dim PlayerInfoExtended As PlayerExtended = Nothing
+      Dim PlayerInfoBase As PlayerBase = Nothing
+      Dim PlayerInfoBaseArray As PlayerBaseList = Nothing
+      Dim SearchInfoResult As SearchResult = Nothing
+      Dim BonusPoolResult As BonusPool = Nothing
       Dim AsyncResult As IAsyncResult = Nothing
       Dim Ex As Exception
 
@@ -221,7 +221,7 @@ Namespace SC2Ranks
       End Try
 
       'Create instance of SC2Ranks service
-      Ex = Sc2RanksService.CreateInstance("com.nugardt.sc2ranks.customdivisionprofiler", CacheStream, RankService)
+      Ex = Sc2RanksService.CreateInstance("com.nugardt.sc2ranks.api.test", CacheStream, RankService)
 
       If (Ex Is Nothing) Then
         Call Trace.WriteLine("SC2Ranks Test")
@@ -286,7 +286,7 @@ Namespace SC2Ranks
         If TestGetCustomDivision Then
           If DoSyncTest Then
             Ex = RankService.GetCustomDivision(CustomDivisionID := TestCustomDivisionID, Region := eRegion.All, League := Nothing, Bracket := eBracket._3V3, IgnoreCache := IgnoreCache, Result := PlayerInforDivisionArray)
-            Call CheckResult(Of Division())("GetCustomDivision (Sync)", Ex, PlayerInforDivisionArray)
+            Call CheckResult(Of DivisionList)("GetCustomDivision (Sync)", Ex, PlayerInforDivisionArray)
           End If
 
           If DoAsyncTest Then
@@ -328,7 +328,7 @@ Namespace SC2Ranks
 
           If DoSyncTest Then
             Ex = RankService.GetBasePlayers(Players := PlayerList, Bracket := Nothing, Result := PlayerInfoBaseArray, IgnoreCache := IgnoreCache)
-            Call CheckResult(Of PlayerBase())("GetBasePlayers (Sync)", Ex, PlayerInfoBaseArray)
+            Call CheckResult(Of PlayerBaseList)("GetBasePlayers (Sync)", Ex, PlayerInfoBaseArray)
           End If
 
           If DoAsyncTest Then
@@ -357,7 +357,7 @@ Namespace SC2Ranks
 
           If DoSyncTest Then
             Ex = RankService.ManageCustomDivision(CustomDivisionID := TestCustomDivisionID, Password := TestCustomDivisionPassword, Action := eCustomDivisionAction.Add, Players := PlayerList, IgnoreCache := IgnoreCache, Result := PlayerInforDivisionArray)
-            Call CheckResult(Of Division())("ManageCustomDivision (Sync)", Ex, PlayerInforDivisionArray)
+            Call CheckResult(Of DivisionList)("ManageCustomDivision (Sync)", Ex, PlayerInforDivisionArray)
           End If
 
           If DoAsyncTest Then
@@ -410,7 +410,7 @@ Namespace SC2Ranks
 
     Private Sub GetBasePlayerByBattleNetIDCallback(ByVal Result As IAsyncResult)
       Dim Ex As Exception
-      Dim Response As Sc2RanksResult(Of PlayerBase) = Nothing
+      Dim Response As PlayerBase = Nothing
       Dim Key As Object = Nothing
 
       Ex = RankService.GetBasePlayerByBattleNetIDEnd(Result, Key, Response)
@@ -422,7 +422,7 @@ Namespace SC2Ranks
 
     Private Sub GetBasePlayerByCharacterCodeCallback(ByVal Result As IAsyncResult)
       Dim Ex As Exception
-      Dim Response As Sc2RanksResult(Of PlayerBase) = Nothing
+      Dim Response As PlayerBase = Nothing
       Dim Key As Object = Nothing
 
       Ex = RankService.GetBasePlayerByCharacterCodeEnd(Result, Key, Response)
@@ -434,7 +434,7 @@ Namespace SC2Ranks
 
     Private Sub GetBaseTeamByBattleNetIDCallback(ByVal Result As IAsyncResult)
       Dim Ex As Exception
-      Dim Response As Sc2RanksResult(Of PlayerExtended) = Nothing
+      Dim Response As PlayerExtended = Nothing
       Dim Key As Object = Nothing
 
       Ex = RankService.GetBaseTeamByBattleNetIDEnd(Result, Key, Response)
@@ -446,7 +446,7 @@ Namespace SC2Ranks
 
     Private Sub GetBaseTeamByCharacterCodeCallback(ByVal Result As IAsyncResult)
       Dim Ex As Exception
-      Dim Response As Sc2RanksResult(Of PlayerExtended) = Nothing
+      Dim Response As PlayerExtended = Nothing
       Dim Key As Object = Nothing
 
       Ex = RankService.GetBaseTeamByCharacterCodeEnd(Result, Key, Response)
@@ -458,19 +458,19 @@ Namespace SC2Ranks
 
     Private Sub GetCustomDivisionCallback(ByVal Result As IAsyncResult)
       Dim Ex As Exception
-      Dim Response As Sc2RanksResult(Of Division()) = Nothing
+      Dim Response As DivisionList = Nothing
       Dim Key As Object = Nothing
 
       Ex = RankService.GetCustomDivisionEnd(Result, Key, Response)
 
-      Call CheckResult(Of Division())("GetCustomDivisionCallback (Async)", Ex, Response)
+      Call CheckResult(Of DivisionList)("GetCustomDivisionCallback (Async)", Ex, Response)
 
       Call Interlocked.Decrement(AsyncCallsBusy)
     End Sub
 
     Private Sub GetTeamByBattleNetIDCallback(ByVal Result As IAsyncResult)
       Dim Ex As Exception
-      Dim Response As Sc2RanksResult(Of PlayerExtended) = Nothing
+      Dim Response As PlayerExtended = Nothing
       Dim Key As Object = Nothing
 
       Ex = RankService.GetTeamByBattleNetIDEnd(Result, Key, Response)
@@ -482,7 +482,7 @@ Namespace SC2Ranks
 
     Private Sub GetTeamByCharacterCodeCallback(ByVal Result As IAsyncResult)
       Dim Ex As Exception
-      Dim Response As Sc2RanksResult(Of PlayerExtended) = Nothing
+      Dim Response As PlayerExtended = Nothing
       Dim Key As Object = Nothing
 
       Ex = RankService.GetTeamByCharacterCodeEnd(Result, Key, Response)
@@ -494,19 +494,19 @@ Namespace SC2Ranks
 
     Private Sub GetBasePlayersCallback(ByVal Result As IAsyncResult)
       Dim Ex As Exception
-      Dim Response As Sc2RanksResult(Of PlayerBase()) = Nothing
+      Dim Response As PlayerBaseList = Nothing
       Dim Key As Object = Nothing
 
       Ex = RankService.GetBasePlayersEnd(Result, Key, Response)
 
-      Call CheckResult(Of PlayerBase())("GetBasePlayersCallback (Async)", Ex, Response)
+      Call CheckResult(Of PlayerBaseList)("GetBasePlayersCallback (Async)", Ex, Response)
 
       Call Interlocked.Decrement(AsyncCallsBusy)
     End Sub
 
     Private Sub SearchBasePlayerCallback(ByVal Result As IAsyncResult)
       Dim Ex As Exception
-      Dim Response As Sc2RanksResult(Of SearchResult) = Nothing
+      Dim Response As SearchResult = Nothing
       Dim Key As Object = Nothing
 
       Ex = RankService.SearchBasePlayerEnd(Result, Key, Response)
@@ -518,19 +518,19 @@ Namespace SC2Ranks
 
     Private Sub ManageCustomDivisionCallback(ByVal Result As IAsyncResult)
       Dim Ex As Exception
-      Dim Response As Sc2RanksResult(Of Division()) = Nothing
+      Dim Response As DivisionList = Nothing
       Dim Key As Object = Nothing
 
       Ex = RankService.ManageCustomDivisionEnd(Result, Key, Response)
 
-      Call CheckResult(Of Division())("ManageCustomDivisionCallback (Async)", Ex, Response)
+      Call CheckResult(Of DivisionList)("ManageCustomDivisionCallback (Async)", Ex, Response)
 
       Call Interlocked.Decrement(AsyncCallsBusy)
     End Sub
 
     Private Sub GetBonusPoolCallback(ByVal Result As IAsyncResult)
       Dim Ex As Exception
-      Dim Response As Sc2RanksResult(Of BonusPool) = Nothing
+      Dim Response As BonusPool = Nothing
       Dim Key As Object = Nothing
 
       Ex = RankService.GetBonusPoolsEnd(Result, Key, Response)
@@ -552,9 +552,9 @@ Namespace SC2Ranks
     ''' <param name="Ex"></param>
     ''' <param name="Response"></param>
     ''' <remarks></remarks>
-    Private Sub CheckResult(Of T As Class)(ByVal Description As String,
-                                           ByVal Ex As Exception,
-                                           ByVal Response As Sc2RanksResult(Of T))
+    Private Sub CheckResult(Of T As Sc2RanksResult)(ByVal Description As String,
+                                                    ByVal Ex As Exception,
+                                                    ByVal Response As T)
       Dim Fail As Boolean
       Dim SB As New StringBuilder
 
@@ -570,8 +570,8 @@ Namespace SC2Ranks
           Call SB.AppendLine("Class")
           Call SB.AppendLine("=====")
 
-          If TypeOf Response.Result Is IEnumerable Then
-            With DirectCast(Response.Result, IEnumerable).GetEnumerator()
+          If TypeOf Response Is IEnumerable Then
+            With DirectCast(Response, IEnumerable).GetEnumerator()
               Call .Reset()
 
               Do While .MoveNext()
@@ -590,7 +590,7 @@ Namespace SC2Ranks
           Call SB.AppendLine("")
         End If
 
-        If (Not SanityCheck(Of T)(SB, Response.ResponseRaw, Response.Result)) Then
+        If (Not SanityCheck(Of T)(SB, Response.ResponseRaw, Response)) Then
           Call SB.AppendLine("Result: FAIL")
           Fail = True
         Else

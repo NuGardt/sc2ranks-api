@@ -19,9 +19,9 @@ Namespace SC2Ranks.Helper
 ''' <summary>
 '''   Attribute for Notation.
 ''' </summary>
-  ''' <remarks></remarks>
+''' <remarks></remarks>
   <DebuggerStepThrough()>
-  <AttributeUsage(AttributeTargets.Field, AllowMultiple:=False, Inherited:=False)>
+    <AttributeUsage(AttributeTargets.Field, AllowMultiple := False, Inherited := False)>
   Public Class NotationAttribute
     Inherits Attribute
 

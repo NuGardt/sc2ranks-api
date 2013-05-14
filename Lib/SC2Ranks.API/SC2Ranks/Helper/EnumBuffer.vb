@@ -23,7 +23,7 @@ Namespace SC2Ranks.Helper
 '''   This class buffers an enumartion marked with <see cref="TagAttribute">TagAttribute</see>.
 ''' </summary>
 ''' <typeparam name="TEnum"></typeparam>
-  ''' <remarks></remarks>
+''' <remarks></remarks>
   <DebuggerStepThrough()>
   Public NotInheritable Class EnumBuffer(Of TEnum, TAttribute As Attribute)
 
@@ -32,7 +32,7 @@ Namespace SC2Ranks.Helper
     Private ReadOnly ValueToEnum As IDictionary(Of String, TEnum)
     Private ReadOnly EnumToValue As IDictionary(Of TEnum, String)
     Private ReadOnly ParseCustomAttribute As procParseCustomAttribute
-
+    
     ''' <summary>
     '''   Construct.
     ''' </summary>
@@ -46,7 +46,7 @@ Namespace SC2Ranks.Helper
       Dim Ex As Exception = Nothing
       If (Not Me.ToDictionary(Me.ValueToEnum, Me.EnumToValue, Ex)) Then Call Trace.WriteLine(Ex)
     End Sub
-
+    
     ''' <summary>
     '''   Returns a list of all enumerations.
     ''' </summary>
@@ -55,7 +55,7 @@ Namespace SC2Ranks.Helper
     Public Function ToValueList() As ICollection(Of String)
       Return Me.ValueToEnum.Keys
     End Function
-
+    
     ''' <summary>
     '''   Returns a list of all enumerations.
     ''' </summary>
@@ -64,7 +64,7 @@ Namespace SC2Ranks.Helper
     Public Function ToEnumList() As ICollection(Of TEnum)
       Return Me.EnumToValue.Keys()
     End Function
-
+    
     ''' <summary>
     '''   Returns the tag for an enumeration.
     ''' </summary>
@@ -89,7 +89,7 @@ Namespace SC2Ranks.Helper
 
       Return (Ex Is Nothing)
     End Function
-
+    
     ''' <summary>
     '''   Returns the tag for an enumeration.
     ''' </summary>
@@ -110,7 +110,7 @@ Namespace SC2Ranks.Helper
 
       Return Erg
     End Function
-
+    
     ''' <summary>
     '''   Returns the enumeration for a tag.
     ''' </summary>
@@ -137,7 +137,7 @@ Namespace SC2Ranks.Helper
 
       Return (Ex Is Nothing)
     End Function
-
+    
     ''' <summary>
     '''   Returns the enumeration for a tag.
     ''' </summary>

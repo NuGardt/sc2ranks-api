@@ -124,7 +124,7 @@
     <Compile Include="SC2Ranks\Helper\EnumBuffer.vb" />
     <Compile Include="SC2Ranks\Helper\Enums.vb" />
     <Compile Include="SC2Ranks\API\Result\Element\TeamMateElement.vb" />
-    <Compile Include="SC2Ranks\API\Result\TeamResult.vb" />
+    <Compile Include="SC2Ranks\API\Result\GetTeamResult.vb" />
     <Compile Include="SC2Ranks\API\Result\Element\DivisionExtendedElement.vb" />
     <Compile Include="SC2Ranks\API\Result\GetBasePlayerResult.vb" />
     <Compile Include="SC2Ranks\API\Result\Element\PortraitElement.vb" />

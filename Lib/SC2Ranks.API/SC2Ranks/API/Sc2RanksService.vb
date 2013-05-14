@@ -253,11 +253,11 @@ Namespace SC2Ranks.API
     Public Function GetBaseTeamByCharacterCode(ByVal Region As eRegion,
                                                ByVal CharacterName As String,
                                                ByVal CharacterCode As Integer,
-                                               <Out()> ByRef Result As TeamResult,
+                                               <Out()> ByRef Result As GetTeamResult,
                                                Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
 
-      Result = QueryAndParse(Of TeamResult)(String.Format("http://sc2ranks.com/api/base/teams/{0}/{1}${2}.json?appKey={3}", Enums.RegionBuffer.GetValue(Region), CharacterName, CharacterCode, Me.m_AppKey), Nothing, GetBaseTeamByCharacterCodeCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of GetTeamResult)(String.Format("http://sc2ranks.com/api/base/teams/{0}/{1}${2}.json?appKey={3}", Enums.RegionBuffer.GetValue(Region), CharacterName, CharacterCode, Me.m_AppKey), Nothing, GetBaseTeamByCharacterCodeCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -275,8 +275,8 @@ Namespace SC2Ranks.API
     <Obsolete("Not reliable when searching with character codes. SC2Ranks may have incorrect or no character codes. Blizzard no longer provides these codes publicly.")>
     Public Function GetBaseTeamByCharacterCodeEnd(ByVal Result As IAsyncResult,
                                                   <Out()> ByRef Key As Object,
-                                                  <Out()> ByRef Response As TeamResult) As Exception
-      Return QueryAndParseEnd(Of TeamResult)(Result, Key, Response)
+                                                  <Out()> ByRef Response As GetTeamResult) As Exception
+      Return QueryAndParseEnd(Of GetTeamResult)(Result, Key, Response)
     End Function
 
 #End Region
@@ -296,11 +296,11 @@ Namespace SC2Ranks.API
     Public Function GetBaseTeamByBattleNetID(ByVal Region As eRegion,
                                              ByVal CharacterName As String,
                                              ByVal BattleNetID As Int32,
-                                             <Out()> ByRef Result As TeamResult,
+                                             <Out()> ByRef Result As GetTeamResult,
                                              Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
 
-      Result = QueryAndParse(Of TeamResult)(String.Format("http://sc2ranks.com/api/base/teams/{0}/{1}!{2}.json?appKey={3}", Enums.RegionBuffer.GetValue(Region), CharacterName, BattleNetID, Me.m_AppKey), Nothing, GetBaseTeamByBattleNetIDCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of GetTeamResult)(String.Format("http://sc2ranks.com/api/base/teams/{0}/{1}!{2}.json?appKey={3}", Enums.RegionBuffer.GetValue(Region), CharacterName, BattleNetID, Me.m_AppKey), Nothing, GetBaseTeamByBattleNetIDCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -316,8 +316,8 @@ Namespace SC2Ranks.API
 
     Public Function GetBaseTeamByBattleNetIDEnd(ByVal Result As IAsyncResult,
                                                 <Out()> ByRef Key As Object,
-                                                <Out()> ByRef Response As TeamResult) As Exception
-      Return QueryAndParseEnd(Of TeamResult)(Result, Key, Response)
+                                                <Out()> ByRef Response As GetTeamResult) As Exception
+      Return QueryAndParseEnd(Of GetTeamResult)(Result, Key, Response)
     End Function
 
 #End Region
@@ -340,14 +340,14 @@ Namespace SC2Ranks.API
                                            ByVal CharacterName As String,
                                            ByVal CharacterCode As Integer,
                                            ByVal Bracket As eBracket,
-                                           <Out()> ByRef Result As TeamResult,
+                                           <Out()> ByRef Result As GetTeamResult,
                                            Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
       Dim IsRandom As Boolean = IsRandomBracket(Bracket)
 
       If (Bracket And eBracket.Random) = eBracket.Random Then Bracket = CType(Bracket - eBracket.Random, eBracket)
 
-      Result = QueryAndParse(Of TeamResult)(String.Format("http://sc2ranks.com/api/char/teams/{0}/{1}${2}/{3}/{4}.json?appKey={5}", Enums.RegionBuffer.GetValue(Region), CharacterName, CharacterCode, Enums.BracketBuffer.GetValue(Bracket), If(IsRandom, 1, 0), Me.m_AppKey), Nothing, GetTeamByCharacterCodeCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of GetTeamResult)(String.Format("http://sc2ranks.com/api/char/teams/{0}/{1}${2}/{3}/{4}.json?appKey={5}", Enums.RegionBuffer.GetValue(Region), CharacterName, CharacterCode, Enums.BracketBuffer.GetValue(Bracket), If(IsRandom, 1, 0), Me.m_AppKey), Nothing, GetTeamByCharacterCodeCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -370,8 +370,8 @@ Namespace SC2Ranks.API
     <Obsolete("Not reliable when searching with character codes. SC2Ranks may have incorrect or no character codes. Blizzard no longer provides these codes publicly.")>
     Public Function GetTeamByCharacterCodeEnd(ByVal Result As IAsyncResult,
                                               <Out()> ByRef Key As Object,
-                                              <Out()> ByRef Response As TeamResult) As Exception
-      Return QueryAndParseEnd(Of TeamResult)(Result, Key, Response)
+                                              <Out()> ByRef Response As GetTeamResult) As Exception
+      Return QueryAndParseEnd(Of GetTeamResult)(Result, Key, Response)
     End Function
 
 #End Region
@@ -393,14 +393,14 @@ Namespace SC2Ranks.API
                                          ByVal CharacterName As String,
                                          ByVal BattleNetID As Int32,
                                          ByVal Bracket As eBracket,
-                                         <Out()> ByRef Result As TeamResult,
+                                         <Out()> ByRef Result As GetTeamResult,
                                          Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
       Dim IsRandom As Boolean = IsRandomBracket(Bracket)
 
       If (Bracket And eBracket.Random) = eBracket.Random Then Bracket = CType(Bracket - eBracket.Random, eBracket)
 
-      Result = QueryAndParse(Of TeamResult)(String.Format("http://sc2ranks.com/api/char/teams/{0}/{1}!{2}/{3}/{4}.json?appKey={5}", Enums.RegionBuffer.GetValue(Region), CharacterName, BattleNetID, Enums.BracketBuffer.GetValue(Bracket), If(IsRandom, 1, 0), Me.m_AppKey), Nothing, GetTeamByBattleNetIDCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of GetTeamResult)(String.Format("http://sc2ranks.com/api/char/teams/{0}/{1}!{2}/{3}/{4}.json?appKey={5}", Enums.RegionBuffer.GetValue(Region), CharacterName, BattleNetID, Enums.BracketBuffer.GetValue(Bracket), If(IsRandom, 1, 0), Me.m_AppKey), Nothing, GetTeamByBattleNetIDCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -420,8 +420,8 @@ Namespace SC2Ranks.API
 
     Public Function GetTeamByBattleNetIDEnd(ByVal Result As IAsyncResult,
                                             <Out()> ByRef Key As Object,
-                                            <Out()> ByRef Response As TeamResult) As Exception
-      Return QueryAndParseEnd(Of TeamResult)(Result, Key, Response)
+                                            <Out()> ByRef Response As GetTeamResult) As Exception
+      Return QueryAndParseEnd(Of GetTeamResult)(Result, Key, Response)
     End Function
 
 #End Region

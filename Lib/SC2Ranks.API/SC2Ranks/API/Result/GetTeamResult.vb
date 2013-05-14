@@ -25,7 +25,7 @@ Namespace SC2Ranks.API.Result
 ''' </summary>
 ''' <remarks></remarks>
   <DataContract()>
-  Public Class TeamResult
+  Public Class GetTeamResult
     Inherits GetBasePlayerResult
 
     Private m_Teams As DivisionExtendedElement()

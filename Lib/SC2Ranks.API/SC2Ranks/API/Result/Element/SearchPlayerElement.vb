@@ -18,42 +18,56 @@
 Imports System.Runtime.Serialization
 Imports System.Text
 
-Namespace SC2Ranks.API.Messages
+Namespace SC2Ranks.API.Result.Element
 ''' <summary>
-'''   Class containing extended player information.
+'''   Class conatining information of found players.
 ''' </summary>
 ''' <remarks></remarks>
   <DataContract()>
-  Public Class PlayerExtended
-    Inherits PlayerBase
-
-    Private m_Teams As DivisionExtended()
+  Public Class SearchPlayer
+    Private m_BattleNetID As Integer
+    Private m_CharacterName As String
     
     ''' <summary>
     '''   Construct.
     ''' </summary>
     ''' <remarks>Should not instantiate from outside.</remarks>
     Private Sub New()
-      Call MyBase.New()
-
-      Me.m_Teams = Nothing
+      Me.m_BattleNetID = Nothing
+      Me.m_CharacterName = Nothing
     End Sub
 
 #Region "Properties"
     
     ''' <summary>
-    '''   Teams
+    '''   Returns the Battle.net identifier.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    <DataMember(Name := "teams", IsRequired := False, EmitDefaultValue := False)>
-    Public Property Teams() As DivisionExtended()
+    <DataMember(Name := "bnet_id")>
+    Protected Property BattleNetID() As Int32
       Get
-        Return Me.m_Teams
+        Return Me.m_BattleNetID
       End Get
-      Private Set(ByVal Value As DivisionExtended())
-        Me.m_Teams = Value
+      Private Set(ByVal Value As Int32)
+        Me.m_BattleNetID = Value
+      End Set
+    End Property
+    
+    ''' <summary>
+    '''   Return the character name.
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    <DataMember(Name := "name")>
+    Public Property CharacterName() As String
+      Get
+        Return Me.m_CharacterName
+      End Get
+      Private Set(ByVal Value As String)
+        Me.m_CharacterName = Value
       End Set
     End Property
 
@@ -63,14 +77,8 @@ Namespace SC2Ranks.API.Messages
       Dim SB As New StringBuilder
 
       With SB
-        Call .AppendLine(MyBase.ToString())
-
-        If (Me.Teams IsNot Nothing) Then
-          Dim dMax As Int32 = Me.Teams.Length - 1
-          For i As Int32 = 0 To dMax
-            Call .AppendFormat("Team (#{0}): {1}{2}", i.ToString(), Me.Teams(i).ToString, vbCrLf)
-          Next i
-        End If
+        Call .AppendFormat("Character Name: {0}{1}", Me.CharacterName, vbCrLf)
+        Call .AppendFormat("Battle.net ID: {0}{1}", Me.BattleNetID.ToString(), vbCrLf)
       End With
 
       Return SB.ToString

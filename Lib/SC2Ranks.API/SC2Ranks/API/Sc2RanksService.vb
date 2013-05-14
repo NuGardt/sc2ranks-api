@@ -18,7 +18,8 @@
 Imports com.NuGardt.SC2Ranks.API.Cache
 Imports System.IO
 Imports System.Runtime.InteropServices
-Imports com.NuGardt.SC2Ranks.API.Messages
+Imports com.NuGardt.SC2Ranks.API.Result
+Imports com.NuGardt.SC2Ranks.API.Result.Element
 Imports System.Collections.Generic
 Imports System.Net
 Imports System.Threading
@@ -112,18 +113,18 @@ Namespace SC2Ranks.API
     ''' <param name="ResultOffset">The offset of the result.</param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public Function SearchBasePlayer(ByVal SearchType As eSearchType,
-                                     ByVal Region As eRegion,
-                                     ByVal CharacterName As String,
-                                     ByVal ResultOffset As Nullable(Of Int32),
-                                     <Out()> ByRef Result As SearchResult,
-                                     Optional ByVal IgnoreCache As Boolean = False) As Exception
+    Public Function SearchPlayer(ByVal SearchType As eSearchType,
+                                 ByVal Region As eRegion,
+                                 ByVal CharacterName As String,
+                                 ByVal ResultOffset As Nullable(Of Int32),
+                                 <Out()> ByRef Result As SearchPlayerResult,
+                                 Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
 
       If ResultOffset.HasValue Then
-        Result = QueryAndParse(Of SearchResult)(String.Format("http://sc2ranks.com/api/search/{0}/{1}/{2}/{3}.json?appKey={4}", Enums.SearchTypeBuffer.GetValue(SearchType), Enums.RegionBuffer.GetValue(Region), CharacterName, ResultOffset.Value.ToString, Me.m_AppKey), Nothing, SearchBasePlayerCacheDuration, IgnoreCache, Ex)
+        Result = QueryAndParse(Of SearchPlayerResult)(String.Format("http://sc2ranks.com/api/search/{0}/{1}/{2}/{3}.json?appKey={4}", Enums.SearchTypeBuffer.GetValue(SearchType), Enums.RegionBuffer.GetValue(Region), CharacterName, ResultOffset.Value.ToString, Me.m_AppKey), Nothing, SearchBasePlayerCacheDuration, IgnoreCache, Ex)
       Else
-        Result = QueryAndParse(Of SearchResult)(String.Format("http://sc2ranks.com/api/search/{0}/{1}/{2}.json?appKey={3}", Enums.SearchTypeBuffer.GetValue(SearchType), Enums.RegionBuffer.GetValue(Region), CharacterName, Me.m_AppKey), Nothing, SearchBasePlayerCacheDuration, IgnoreCache, Ex)
+        Result = QueryAndParse(Of SearchPlayerResult)(String.Format("http://sc2ranks.com/api/search/{0}/{1}/{2}.json?appKey={3}", Enums.SearchTypeBuffer.GetValue(SearchType), Enums.RegionBuffer.GetValue(Region), CharacterName, Me.m_AppKey), Nothing, SearchBasePlayerCacheDuration, IgnoreCache, Ex)
       End If
 
       Return Ex
@@ -145,8 +146,8 @@ Namespace SC2Ranks.API
 
     Public Function SearchBasePlayerEnd(ByVal Result As IAsyncResult,
                                         <Out()> ByRef Key As Object,
-                                        <Out()> ByRef Response As SearchResult) As Exception
-      Return QueryAndParseEnd(Of SearchResult)(Result, Key, Response)
+                                        <Out()> ByRef Response As SearchPlayerResult) As Exception
+      Return QueryAndParseEnd(Of SearchPlayerResult)(Result, Key, Response)
     End Function
 
 #End Region
@@ -167,11 +168,11 @@ Namespace SC2Ranks.API
     Public Function GetBasePlayerByCharacterCode(ByVal Region As eRegion,
                                                  ByVal CharacterName As String,
                                                  ByVal CharacterCode As Integer,
-                                                 <Out()> ByRef Result As PlayerBase,
+                                                 <Out()> ByRef Result As GetBasePlayerResult,
                                                  Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
 
-      Result = QueryAndParse(Of PlayerBase)(String.Format("http://sc2ranks.com/api/base/char/{0}/{1}${2}.json?appKey={3}", Enums.RegionBuffer.GetValue(Region), CharacterName, CharacterCode, Me.m_AppKey), Nothing, GetBasePlayerByCharacterCodeCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of GetBasePlayerResult)(String.Format("http://sc2ranks.com/api/base/char/{0}/{1}${2}.json?appKey={3}", Enums.RegionBuffer.GetValue(Region), CharacterName, CharacterCode, Me.m_AppKey), Nothing, GetBasePlayerByCharacterCodeCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -189,8 +190,8 @@ Namespace SC2Ranks.API
     <Obsolete("Not reliable when searching with character codes. SC2Ranks may have incorrect or no character codes. Blizzard no longer provides these codes publicly.")>
     Public Function GetBasePlayerByCharacterCodeEnd(ByVal Result As IAsyncResult,
                                                     <Out()> ByRef Key As Object,
-                                                    <Out()> ByRef Response As PlayerBase) As Exception
-      Return QueryAndParseEnd(Of PlayerBase)(Result, Key, Response)
+                                                    <Out()> ByRef Response As GetBasePlayerResult) As Exception
+      Return QueryAndParseEnd(Of GetBasePlayerResult)(Result, Key, Response)
     End Function
 
 #End Region
@@ -210,11 +211,11 @@ Namespace SC2Ranks.API
     Public Function GetBasePlayerByBattleNetID(ByVal Region As eRegion,
                                                ByVal CharacterName As String,
                                                ByVal BattleNetID As Int32,
-                                               <Out()> ByRef Result As PlayerBase,
+                                               <Out()> ByRef Result As GetBasePlayerResult,
                                                Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
 
-      Result = QueryAndParse(Of PlayerBase)(String.Format("http://sc2ranks.com/api/base/char/{0}/{1}!{2}.json?appKey={3}", Enums.RegionBuffer.GetValue(Region), CharacterName, BattleNetID, Me.m_AppKey), Nothing, GetBasePlayerByBattleNetIDCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of GetBasePlayerResult)(String.Format("http://sc2ranks.com/api/base/char/{0}/{1}!{2}.json?appKey={3}", Enums.RegionBuffer.GetValue(Region), CharacterName, BattleNetID, Me.m_AppKey), Nothing, GetBasePlayerByBattleNetIDCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -230,8 +231,8 @@ Namespace SC2Ranks.API
 
     Public Function GetBasePlayerByBattleNetIDEnd(ByVal Result As IAsyncResult,
                                                   <Out()> ByRef Key As Object,
-                                                  <Out()> ByRef Response As PlayerBase) As Exception
-      Return QueryAndParseEnd(Of PlayerBase)(Result, Key, Response)
+                                                  <Out()> ByRef Response As GetBasePlayerResult) As Exception
+      Return QueryAndParseEnd(Of GetBasePlayerResult)(Result, Key, Response)
     End Function
 
 #End Region
@@ -252,11 +253,11 @@ Namespace SC2Ranks.API
     Public Function GetBaseTeamByCharacterCode(ByVal Region As eRegion,
                                                ByVal CharacterName As String,
                                                ByVal CharacterCode As Integer,
-                                               <Out()> ByRef Result As PlayerExtended,
+                                               <Out()> ByRef Result As TeamResult,
                                                Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
 
-      Result = QueryAndParse(Of PlayerExtended)(String.Format("http://sc2ranks.com/api/base/teams/{0}/{1}${2}.json?appKey={3}", Enums.RegionBuffer.GetValue(Region), CharacterName, CharacterCode, Me.m_AppKey), Nothing, GetBaseTeamByCharacterCodeCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of TeamResult)(String.Format("http://sc2ranks.com/api/base/teams/{0}/{1}${2}.json?appKey={3}", Enums.RegionBuffer.GetValue(Region), CharacterName, CharacterCode, Me.m_AppKey), Nothing, GetBaseTeamByCharacterCodeCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -274,8 +275,8 @@ Namespace SC2Ranks.API
     <Obsolete("Not reliable when searching with character codes. SC2Ranks may have incorrect or no character codes. Blizzard no longer provides these codes publicly.")>
     Public Function GetBaseTeamByCharacterCodeEnd(ByVal Result As IAsyncResult,
                                                   <Out()> ByRef Key As Object,
-                                                  <Out()> ByRef Response As PlayerExtended) As Exception
-      Return QueryAndParseEnd(Of PlayerExtended)(Result, Key, Response)
+                                                  <Out()> ByRef Response As TeamResult) As Exception
+      Return QueryAndParseEnd(Of TeamResult)(Result, Key, Response)
     End Function
 
 #End Region
@@ -295,11 +296,11 @@ Namespace SC2Ranks.API
     Public Function GetBaseTeamByBattleNetID(ByVal Region As eRegion,
                                              ByVal CharacterName As String,
                                              ByVal BattleNetID As Int32,
-                                             <Out()> ByRef Result As PlayerExtended,
+                                             <Out()> ByRef Result As TeamResult,
                                              Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
 
-      Result = QueryAndParse(Of PlayerExtended)(String.Format("http://sc2ranks.com/api/base/teams/{0}/{1}!{2}.json?appKey={3}", Enums.RegionBuffer.GetValue(Region), CharacterName, BattleNetID, Me.m_AppKey), Nothing, GetBaseTeamByBattleNetIDCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of TeamResult)(String.Format("http://sc2ranks.com/api/base/teams/{0}/{1}!{2}.json?appKey={3}", Enums.RegionBuffer.GetValue(Region), CharacterName, BattleNetID, Me.m_AppKey), Nothing, GetBaseTeamByBattleNetIDCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -315,8 +316,8 @@ Namespace SC2Ranks.API
 
     Public Function GetBaseTeamByBattleNetIDEnd(ByVal Result As IAsyncResult,
                                                 <Out()> ByRef Key As Object,
-                                                <Out()> ByRef Response As PlayerExtended) As Exception
-      Return QueryAndParseEnd(Of PlayerExtended)(Result, Key, Response)
+                                                <Out()> ByRef Response As TeamResult) As Exception
+      Return QueryAndParseEnd(Of TeamResult)(Result, Key, Response)
     End Function
 
 #End Region
@@ -339,14 +340,14 @@ Namespace SC2Ranks.API
                                            ByVal CharacterName As String,
                                            ByVal CharacterCode As Integer,
                                            ByVal Bracket As eBracket,
-                                           <Out()> ByRef Result As PlayerExtended,
+                                           <Out()> ByRef Result As TeamResult,
                                            Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
       Dim IsRandom As Boolean = IsRandomBracket(Bracket)
 
       If (Bracket And eBracket.Random) = eBracket.Random Then Bracket = CType(Bracket - eBracket.Random, eBracket)
 
-      Result = QueryAndParse(Of PlayerExtended)(String.Format("http://sc2ranks.com/api/char/teams/{0}/{1}${2}/{3}/{4}.json?appKey={5}", Enums.RegionBuffer.GetValue(Region), CharacterName, CharacterCode, Enums.BracketBuffer.GetValue(Bracket), If(IsRandom, 1, 0), Me.m_AppKey), Nothing, GetTeamByCharacterCodeCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of TeamResult)(String.Format("http://sc2ranks.com/api/char/teams/{0}/{1}${2}/{3}/{4}.json?appKey={5}", Enums.RegionBuffer.GetValue(Region), CharacterName, CharacterCode, Enums.BracketBuffer.GetValue(Bracket), If(IsRandom, 1, 0), Me.m_AppKey), Nothing, GetTeamByCharacterCodeCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -369,8 +370,8 @@ Namespace SC2Ranks.API
     <Obsolete("Not reliable when searching with character codes. SC2Ranks may have incorrect or no character codes. Blizzard no longer provides these codes publicly.")>
     Public Function GetTeamByCharacterCodeEnd(ByVal Result As IAsyncResult,
                                               <Out()> ByRef Key As Object,
-                                              <Out()> ByRef Response As PlayerExtended) As Exception
-      Return QueryAndParseEnd(Of PlayerExtended)(Result, Key, Response)
+                                              <Out()> ByRef Response As TeamResult) As Exception
+      Return QueryAndParseEnd(Of TeamResult)(Result, Key, Response)
     End Function
 
 #End Region
@@ -392,14 +393,14 @@ Namespace SC2Ranks.API
                                          ByVal CharacterName As String,
                                          ByVal BattleNetID As Int32,
                                          ByVal Bracket As eBracket,
-                                         <Out()> ByRef Result As PlayerExtended,
+                                         <Out()> ByRef Result As TeamResult,
                                          Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
       Dim IsRandom As Boolean = IsRandomBracket(Bracket)
 
       If (Bracket And eBracket.Random) = eBracket.Random Then Bracket = CType(Bracket - eBracket.Random, eBracket)
 
-      Result = QueryAndParse(Of PlayerExtended)(String.Format("http://sc2ranks.com/api/char/teams/{0}/{1}!{2}/{3}/{4}.json?appKey={5}", Enums.RegionBuffer.GetValue(Region), CharacterName, BattleNetID, Enums.BracketBuffer.GetValue(Bracket), If(IsRandom, 1, 0), Me.m_AppKey), Nothing, GetTeamByBattleNetIDCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of TeamResult)(String.Format("http://sc2ranks.com/api/char/teams/{0}/{1}!{2}/{3}/{4}.json?appKey={5}", Enums.RegionBuffer.GetValue(Region), CharacterName, BattleNetID, Enums.BracketBuffer.GetValue(Bracket), If(IsRandom, 1, 0), Me.m_AppKey), Nothing, GetTeamByBattleNetIDCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -419,8 +420,8 @@ Namespace SC2Ranks.API
 
     Public Function GetTeamByBattleNetIDEnd(ByVal Result As IAsyncResult,
                                             <Out()> ByRef Key As Object,
-                                            <Out()> ByRef Response As PlayerExtended) As Exception
-      Return QueryAndParseEnd(Of PlayerExtended)(Result, Key, Response)
+                                            <Out()> ByRef Response As TeamResult) As Exception
+      Return QueryAndParseEnd(Of TeamResult)(Result, Key, Response)
     End Function
 
 #End Region
@@ -442,14 +443,14 @@ Namespace SC2Ranks.API
                                       ByVal Region As Nullable(Of eRegion),
                                       ByVal League As Nullable(Of eLeague),
                                       ByVal Bracket As eBracket,
-                                      <Out()> ByRef Result As DivisionList,
+                                      <Out()> ByRef Result As GetCustomDivisionResult,
                                       Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
       Dim IsRandom As Boolean = IsRandomBracket(Bracket)
 
       If (Bracket And eBracket.Random) = eBracket.Random Then Bracket = CType(Bracket - eBracket.Random, eBracket)
 
-      Result = QueryAndParse(Of DivisionList)(String.Format("http://sc2ranks.com/api/clist/{0}/{1}/{2}/{3}/{4}.json?appKey={5}", CustomDivisionID, If(Region.HasValue, Enums.RegionBuffer.GetValue(Region.Value), "all"), If(League.HasValue, Enums.LeaguesBuffer.GetValue(League.Value), "all"), Enums.BracketBuffer.GetValue(Bracket), If(IsRandom, 1, 0), Me.m_AppKey), Nothing, GetCustomDivisionCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of GetCustomDivisionResult)(String.Format("http://sc2ranks.com/api/clist/{0}/{1}/{2}/{3}/{4}.json?appKey={5}", CustomDivisionID, If(Region.HasValue, Enums.RegionBuffer.GetValue(Region.Value), "all"), If(League.HasValue, Enums.LeaguesBuffer.GetValue(League.Value), "all"), Enums.BracketBuffer.GetValue(Bracket), If(IsRandom, 1, 0), Me.m_AppKey), Nothing, GetCustomDivisionCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -470,8 +471,8 @@ Namespace SC2Ranks.API
 
     Public Function GetCustomDivisionEnd(ByVal Result As IAsyncResult,
                                          <Out()> ByRef Key As Object,
-                                         <Out()> ByRef Response As DivisionList) As Exception
-      Return QueryAndParseEnd(Of DivisionList)(Result, Key, Response)
+                                         <Out()> ByRef Response As GetCustomDivisionResult) As Exception
+      Return QueryAndParseEnd(Of GetCustomDivisionResult)(Result, Key, Response)
     End Function
 
 #End Region
@@ -493,8 +494,8 @@ Namespace SC2Ranks.API
     Public Function ManageCustomDivision(ByVal CustomDivisionID As Integer,
                                          ByVal Password As String,
                                          ByVal Action As eCustomDivisionAction,
-                                         ByVal Players As IEnumerable(Of PlayerBase),
-                                         <Out()> ByRef Result As DivisionList,
+                                         ByVal Players As IEnumerable(Of SimplePlayerElement),
+                                         <Out()> ByRef Result As GetCustomDivisionResult,
                                          Optional ByVal IgnoreCache As Boolean = False) As Exception
       Result = Nothing
       Dim Ex As Exception = Nothing
@@ -513,7 +514,7 @@ Namespace SC2Ranks.API
           End With
         Next p
 
-        Result = QueryAndParse(Of DivisionList)(String.Format("http://sc2ranks.com/api/custom/{0}/{1}/{2}/{3}.json?appKey={4}", CustomDivisionID, Password, Enums.CustomDivisionActionBuffer.GetValue(Action), Chars, Me.m_AppKey), Nothing, ManageCustomDivisionCacheDuration, IgnoreCache, Ex)
+        Result = QueryAndParse(Of GetCustomDivisionResult)(String.Format("http://sc2ranks.com/api/custom/{0}/{1}/{2}/{3}.json?appKey={4}", CustomDivisionID, Password, Enums.CustomDivisionActionBuffer.GetValue(Action), Chars, Me.m_AppKey), Nothing, ManageCustomDivisionCacheDuration, IgnoreCache, Ex)
       End If
 
       Return Ex
@@ -523,7 +524,7 @@ Namespace SC2Ranks.API
                                               ByVal CustomDivisionID As Integer,
                                               ByVal Password As String,
                                               ByVal Action As eCustomDivisionAction,
-                                              ByVal Players As IEnumerable(Of PlayerBase),
+                                              ByVal Players As IEnumerable(Of SimplePlayerElement),
                                               ByVal Callback As AsyncCallback,
                                               Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
       If Players Is Nothing Then
@@ -546,8 +547,8 @@ Namespace SC2Ranks.API
 
     Public Function ManageCustomDivisionEnd(ByVal Result As IAsyncResult,
                                             <Out()> ByRef Key As Object,
-                                            <Out()> ByRef Response As DivisionList) As Exception
-      Return QueryAndParseEnd(Of DivisionList)(Result, Key, Response)
+                                            <Out()> ByRef Response As GetCustomDivisionResult) As Exception
+      Return QueryAndParseEnd(Of GetCustomDivisionResult)(Result, Key, Response)
     End Function
 
 #End Region
@@ -566,9 +567,9 @@ Namespace SC2Ranks.API
     ''' <param name="Result"></param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public Function GetBasePlayers(ByVal Players As IEnumerable(Of PlayerBase),
+    Public Function GetBasePlayers(ByVal Players As IEnumerable(Of SimplePlayerElement),
                                    ByVal Bracket As Nullable(Of eBracket),
-                                   <Out()> ByRef Result As PlayerBaseList,
+                                   <Out()> ByRef Result As GetBasePlayersResult,
                                    Optional ByVal IgnoreCache As Boolean = False) As Exception
       Result = Nothing
       Dim Ex As Exception
@@ -587,12 +588,12 @@ Namespace SC2Ranks.API
             Ex = GetPostData(Players, True, Bracket.Value, RequestData)
             If (Ex IsNot Nothing) Then Return Ex
 
-            Result = QueryAndParse(Of PlayerBaseList)(String.Format("http://sc2ranks.com/api/mass/base/teams/?appKey={0}", Me.m_AppKey), RequestData, GetBasePlayersTeamCacheDuration, IgnoreCache, Ex)
+            Result = QueryAndParse(Of GetBasePlayersResult)(String.Format("http://sc2ranks.com/api/mass/base/teams/?appKey={0}", Me.m_AppKey), RequestData, GetBasePlayersTeamCacheDuration, IgnoreCache, Ex)
           Else
             Ex = GetPostData(Players, False, Nothing, RequestData)
             If (Ex IsNot Nothing) Then Return Ex
 
-            Result = QueryAndParse(Of PlayerBaseList)(String.Format("http://sc2ranks.com/api/mass/base/char/?appKey={0}", Me.m_AppKey), RequestData, GetBasePlayersCharCacheDuration, IgnoreCache, Ex)
+            Result = QueryAndParse(Of GetBasePlayersResult)(String.Format("http://sc2ranks.com/api/mass/base/char/?appKey={0}", Me.m_AppKey), RequestData, GetBasePlayersCharCacheDuration, IgnoreCache, Ex)
           End If
         Catch iEx As Exception
           Ex = iEx
@@ -603,7 +604,7 @@ Namespace SC2Ranks.API
     End Function
 
     Public Function GetBasePlayersBegin(ByVal Key As Object,
-                                        ByVal Players As IEnumerable(Of PlayerBase),
+                                        ByVal Players As IEnumerable(Of SimplePlayerElement),
                                         ByVal Bracket As Nullable(Of eBracket),
                                         ByVal Callback As AsyncCallback,
                                         Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
@@ -625,8 +626,8 @@ Namespace SC2Ranks.API
 
     Public Function GetBasePlayersEnd(ByVal Result As IAsyncResult,
                                       <Out()> ByRef Key As Object,
-                                      <Out()> ByRef Response As PlayerBaseList) As Exception
-      Return QueryAndParseEnd(Of PlayerBaseList)(Result, Key, Response)
+                                      <Out()> ByRef Response As GetBasePlayersResult) As Exception
+      Return QueryAndParseEnd(Of GetBasePlayersResult)(Result, Key, Response)
     End Function
 
 #End Region
@@ -634,11 +635,11 @@ Namespace SC2Ranks.API
 #Region "Function GetBonusPools"
     Private Shared ReadOnly GetBonusPoolsCacheDuration As TimeSpan = TimeSpan.FromHours(0)
 
-    Public Function GetBonusPools(<Out()> ByRef Result As BonusPool,
+    Public Function GetBonusPools(<Out()> ByRef Result As GetBonusPoolsResult,
                                   Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
 
-      Result = QueryAndParse(Of BonusPool)(String.Format("http://sc2ranks.com/api/bonus/pool.json?appKey={0}", Me.m_AppKey), Nothing, GetBonusPoolsCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of GetBonusPoolsResult)(String.Format("http://sc2ranks.com/api/bonus/pool.json?appKey={0}", Me.m_AppKey), Nothing, GetBonusPoolsCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -651,13 +652,13 @@ Namespace SC2Ranks.API
 
     Public Function GetBonusPoolsEnd(ByVal Result As IAsyncResult,
                                      <Out()> ByRef Key As Object,
-                                     <Out()> ByRef Response As BonusPool) As Exception
-      Return QueryAndParseEnd(Of BonusPool)(Result, Key, Response)
+                                     <Out()> ByRef Response As GetBonusPoolsResult) As Exception
+      Return QueryAndParseEnd(Of GetBonusPoolsResult)(Result, Key, Response)
     End Function
 
 #End Region
 
-    Private Shared Function GetPostData(ByVal Players As IEnumerable(Of PlayerBase),
+    Private Shared Function GetPostData(ByVal Players As IEnumerable(Of SimplePlayerElement),
                                         ByVal UseTeam As Boolean,
                                         ByVal Bracket As eBracket,
                                         <Out()> ByRef Result As String) As Exception
@@ -714,16 +715,16 @@ Namespace SC2Ranks.API
       If (Me.Cache IsNot Nothing) Then Call Me.Cache.Clear()
     End Sub
 
-    Protected Function QueryAndParse(Of T As Sc2RanksResult)(ByVal URL As String,
-                                                             ByVal Post As String,
-                                                             ByVal CacheDuration As TimeSpan,
-                                                             ByVal IgnoreCache As Boolean,
-                                                             <Out()> ByRef Ex As Exception) As T
+    Protected Function QueryAndParse(Of T As BaseResult)(ByVal URL As String,
+                                                         ByVal Post As String,
+                                                         ByVal CacheDuration As TimeSpan,
+                                                         ByVal IgnoreCache As Boolean,
+                                                         <Out()> ByRef Ex As Exception) As T
       Ex = Nothing
       Dim Result As T = Nothing
       Dim Serializer As DataContractJsonSerializer
       Dim ResponseStream As Stream
-      Dim Expires As DateTime
+      Dim Expires As Nullable(Of DateTime)
 
       Try
         ResponseStream = Me.CacheOrQuery(URL, Post, IgnoreCache, Expires)
@@ -733,6 +734,7 @@ Namespace SC2Ranks.API
 
         'Deserialize
         Result = DirectCast(Serializer.ReadObject(ResponseStream), T)
+        Result.CacheExpires = Expires
 
         'If Me.UseRequestCache AndAlso (String.IsNullOrEmpty(Post)) Then
         ResponseStream.Position = 0
@@ -741,7 +743,6 @@ Namespace SC2Ranks.API
         Result.ResponseRaw = sr.ReadToEnd
 
         If Me.UseRequestCache Then Call Me.Cache.AddResponse(URL, Post, Result.ResponseRaw, CacheDuration)
-        '        End If
 
         'Close stream
         Call ResponseStream.Close()
@@ -756,7 +757,7 @@ Namespace SC2Ranks.API
     Private Function CacheOrQuery(ByVal URL As String,
                                   ByVal Post As String,
                                   ByVal IgnoreCache As Boolean,
-                                  <Out()> ByRef Expires As DateTime) As Stream
+                                  <Out()> ByRef Expires As Nullable(Of DateTime)) As Stream
       Expires = Nothing
       Dim ResponseStream As Stream
       Dim Stream As Stream
@@ -765,7 +766,7 @@ Namespace SC2Ranks.API
       Dim ResponseRaw As String = Nothing
 
       'Only get from cache when there is no POST data
-      If (Not IgnoreCache) AndAlso (String.IsNullOrEmpty(Post)) Then ResponseRaw = Me.Cache.GetResponse(URL, Post, Expires)
+      If (Not IgnoreCache) Then ResponseRaw = Me.Cache.GetResponse(URL, Post, Expires)
 
       If String.IsNullOrEmpty(ResponseRaw) Then
         Request = HttpWebRequest.Create(URL)
@@ -879,7 +880,7 @@ Namespace SC2Ranks.API
       Dim Result As IAsyncResult
       Dim Request As WebRequest
       Dim ResponseRaw As String = Nothing
-      Dim Expires As DateTime = Nothing
+      Dim Expires As Nullable(Of DateTime) = Nothing
 
       Try
         If (Not IgnoreCache) AndAlso (String.IsNullOrEmpty(Post)) Then ResponseRaw = Me.Cache.GetResponse(URL, Post, Expires)
@@ -894,7 +895,7 @@ Namespace SC2Ranks.API
             Call Writer.Flush()
           End If
 
-          Result = Request.BeginGetResponse(Callback, New AsyncStateWithKey(Key, Request, URL, Post, CacheDuration, Nothing, Nothing))
+          Result = Request.BeginGetResponse(Callback, New AsyncStateWithKey(Key, Request, URL, Post, CacheDuration, ResponseRaw, Expires))
         Else
           Result = Callback.BeginInvoke(New StateAsyncResult(New AsyncStateWithKey(Key, Nothing, URL, Post, CacheDuration, ResponseRaw, Expires)), Nothing, Nothing)
         End If
@@ -905,9 +906,9 @@ Namespace SC2Ranks.API
       Return Result
     End Function
 
-    Public Function QueryAndParseEnd(Of T As Sc2RanksResult)(ByVal Result As IAsyncResult,
-                                                             <Out()> ByRef Key As Object,
-                                                             <Out()> ByRef Response As T) As Exception
+    Public Function QueryAndParseEnd(Of T As BaseResult)(ByVal Result As IAsyncResult,
+                                                         <Out()> ByRef Key As Object,
+                                                         <Out()> ByRef Response As T) As Exception
       Key = Nothing
       Response = Nothing
       Dim Ex As Exception = Nothing

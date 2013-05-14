@@ -19,13 +19,13 @@ Imports System.Runtime.Serialization
 Imports com.NuGardt.SC2Ranks.Helper
 Imports System.Text
 
-Namespace SC2Ranks.API.Messages
+Namespace SC2Ranks.API.Result.Element
 ''' <summary>
 '''   Class containing information for a team mate.
 ''' </summary>
 ''' <remarks></remarks>
   <DataContract(Name := "member")>
-  Public Class TeamMate
+  Public Class TeamMateElement
     Protected m_BattleNetID As Int32
     Protected m_CharacterCode As Nullable(Of Int16)
     Protected m_CharacterName As String

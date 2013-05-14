@@ -19,13 +19,13 @@ Imports System.Runtime.Serialization
 Imports com.NuGardt.SC2Ranks.Helper
 Imports System.Text
 
-Namespace SC2Ranks.API.Messages
+Namespace SC2Ranks.API.Result.Element
 ''' <summary>
 '''   Class containing information about a team in a division.
 ''' </summary>
 ''' <remarks></remarks>
   <DataContract()>
-  Public Class Division
+  Public Class DivisionElement
     Private m_Bracket As Integer
     Private m_Division As String
     Private m_DivisionID As Int32
@@ -34,7 +34,7 @@ Namespace SC2Ranks.API.Messages
     Private m_IsRandom As Boolean
     Private m_LeagueRaw As String
     Private m_Losses As Integer
-    Private m_Members As TeamMate()
+    Private m_Members As TeamMateElement()
     Private m_Points As Integer
     Private m_Ratio As Double
     Private m_Wins As Integer
@@ -222,11 +222,11 @@ Namespace SC2Ranks.API.Messages
     ''' <returns></returns>
     ''' <remarks></remarks>
     <DataMember(Name := "members", IsRequired := False, EmitDefaultValue := False)>
-    Public Property Members() As TeamMate()
+    Public Property Members() As TeamMateElement()
       Get
         Return Me.m_Members
       End Get
-      Private Set(ByVal Value As TeamMate())
+      Private Set(ByVal Value As TeamMateElement())
         Me.m_Members = Value
       End Set
     End Property

@@ -19,8 +19,9 @@ Namespace SC2Ranks.Helper
 ''' <summary>
 '''   Attriobute for field tag.
 ''' </summary>
-''' <remarks></remarks>
-  <AttributeUsage(AttributeTargets.Field, AllowMultiple := False, Inherited := False)>
+  ''' <remarks></remarks>
+  <DebuggerStepThrough()>
+  <AttributeUsage(AttributeTargets.Field, AllowMultiple:=False, Inherited:=False)>
   Public Class TagAttribute
     Inherits Attribute
 

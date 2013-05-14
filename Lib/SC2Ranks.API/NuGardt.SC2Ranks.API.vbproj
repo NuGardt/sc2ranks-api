@@ -112,23 +112,24 @@
     <Compile Include="SC2Ranks\API\eSearchType.vb" />
     <Compile Include="SC2Ranks\API\eCustomDivisionAction.vb" />
     <Compile Include="SC2Ranks\API\eBracket.vb" />
-    <Compile Include="SC2Ranks\API\Messages\DivisionList.vb" />
-    <Compile Include="SC2Ranks\API\Messages\PlayerBaseList.vb" />
-    <Compile Include="SC2Ranks\API\Messages\Sc2RanksResult.vb" />
+    <Compile Include="SC2Ranks\API\Result\Element\SimplePlayerElement.vb" />
+    <Compile Include="SC2Ranks\API\Result\GetCustomDivisionResult.vb" />
+    <Compile Include="SC2Ranks\API\Result\GetBasePlayersResult.vb" />
+    <Compile Include="SC2Ranks\API\Result\BaseResult.vb" />
     <Compile Include="SC2Ranks\API\Cache\CacheRequestEntry.vb" />
-    <Compile Include="SC2Ranks\API\Messages\BonusPool.vb" />
-    <Compile Include="SC2Ranks\API\Messages\SearchResult.vb" />
-    <Compile Include="SC2Ranks\API\Messages\SearchPlayer.vb" />
+    <Compile Include="SC2Ranks\API\Result\GetBonusPoolsResult.vb" />
+    <Compile Include="SC2Ranks\API\Result\SearchBasePlayerResult.vb" />
+    <Compile Include="SC2Ranks\API\Result\Element\SearchPlayerElement.vb" />
     <Compile Include="SC2Ranks\API\Cache\CacheRequest.vb" />
     <Compile Include="SC2Ranks\Helper\EnumBuffer.vb" />
     <Compile Include="SC2Ranks\Helper\Enums.vb" />
-    <Compile Include="SC2Ranks\API\Messages\TeamMate.vb" />
-    <Compile Include="SC2Ranks\API\Messages\PlayerExtended.vb" />
-    <Compile Include="SC2Ranks\API\Messages\DivisionExtended.vb" />
-    <Compile Include="SC2Ranks\API\Messages\PlayerBase.vb" />
-    <Compile Include="SC2Ranks\API\Messages\Portrait.vb" />
+    <Compile Include="SC2Ranks\API\Result\Element\TeamMateElement.vb" />
+    <Compile Include="SC2Ranks\API\Result\TeamResult.vb" />
+    <Compile Include="SC2Ranks\API\Result\Element\DivisionExtendedElement.vb" />
+    <Compile Include="SC2Ranks\API\Result\GetBasePlayerResult.vb" />
+    <Compile Include="SC2Ranks\API\Result\Element\PortraitElement.vb" />
     <Compile Include="SC2Ranks\API\Sc2RanksService.vb" />
-    <Compile Include="SC2Ranks\API\Messages\Division.vb" />
+    <Compile Include="SC2Ranks\API\Result\Element\DivisionElement.vb" />
     <Compile Include="SC2Ranks\Helper\NotationAttribute.vb" />
     <Compile Include="SC2Ranks\Helper\TagAttribute.vb" />
   </ItemGroup>
@@ -151,6 +152,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

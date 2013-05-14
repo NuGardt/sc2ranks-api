@@ -31,7 +31,7 @@ Namespace SC2Ranks.API.Cache
 
     Private m_Expires As Date
 
-    Private ReadOnly m_Hash As Guid
+    Private m_Hash As Guid
     
     ''' <summary>
     '''   Constructor.
@@ -67,11 +67,14 @@ Namespace SC2Ranks.API.Cache
 
 #Region "Properties"
 
-    <IgnoreDataMember()>
-    Public ReadOnly Property Hash As Guid
+    <DataMember(Name := "hash")>
+    Public Property Hash As Guid
       Get
         Return Me.m_Hash
       End Get
+      Private Set(ByVal Value As Guid)
+        Me.m_Hash = Value
+      End Set
     End Property
 
     <IgnoreDataMember()>

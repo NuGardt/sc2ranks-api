@@ -16,79 +16,80 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Imports System.Runtime.Serialization
-Imports System.Collections.Generic
 Imports System.Collections
+Imports com.NuGardt.SC2Ranks.API.Result.Element
+Imports System.Collections.Generic
 
-Namespace SC2Ranks.API.Messages
+Namespace SC2Ranks.API.Result
   <CollectionDataContract()>
-  Public Class DivisionList
-    Inherits Sc2RanksResult
-    Implements IList(Of Division)
+  Public Class GetCustomDivisionResult
+    Inherits BaseResult
+    Implements IList(Of DivisionElement)
 
-    Private ReadOnly m_List As New List(Of Division)
+    Private ReadOnly m_List As New List(Of DivisionElement)
 
     Public Sub New()
       Call MyBase.New()
 
-      Me.m_List = New List(Of Division)()
+      Me.m_List = New List(Of DivisionElement)()
     End Sub
 
-    Public Sub Add(ByVal Item As Division) Implements ICollection(Of Division).Add
+    Public Sub Add(ByVal Item As DivisionElement) Implements ICollection(Of DivisionElement).Add
       Call Me.m_List.Add(Item)
     End Sub
 
-    Public Sub Clear() Implements ICollection(Of Division).Clear
+    Public Sub Clear() Implements ICollection(Of DivisionElement).Clear
       Call Me.m_List.Clear()
     End Sub
 
-    Public Function Contains(ByVal Item As Division) As Boolean Implements ICollection(Of Division).Contains
+    Public Function Contains(ByVal Item As DivisionElement) As Boolean Implements ICollection(Of DivisionElement).Contains
       Return Me.m_List.Contains(Item)
     End Function
 
-    Public Sub CopyTo(ByVal Array() As Division,
-                      ByVal ArrayIndex As Integer) Implements ICollection(Of Division).CopyTo
+    Public Sub CopyTo(ByVal Array() As DivisionElement,
+                      ByVal ArrayIndex As Integer) Implements ICollection(Of DivisionElement).CopyTo
       Call Me.m_List.CopyTo(Array, ArrayIndex)
     End Sub
 
-    Public ReadOnly Property Count As Integer Implements ICollection(Of Division).Count
+    Public ReadOnly Property Count As Integer Implements ICollection(Of DivisionElement).Count
       Get
         Return Me.m_List.Count
       End Get
     End Property
 
-    Public ReadOnly Property IsReadOnly As Boolean Implements ICollection(Of Division).IsReadOnly
+    Public ReadOnly Property IsReadOnly As Boolean Implements ICollection(Of DivisionElement).IsReadOnly
       Get
         Return False
       End Get
     End Property
 
-    Public Function Remove(ByVal Item As Division) As Boolean Implements ICollection(Of Division).Remove
+    Public Function Remove(ByVal Item As DivisionElement) As Boolean Implements ICollection(Of DivisionElement).Remove
       Return Me.m_List.Remove(Item)
     End Function
 
-    Public Function GetEnumerator() As IEnumerator(Of Division) Implements IEnumerable(Of Division).GetEnumerator
+    Public Function GetEnumerator() As IEnumerator(Of DivisionElement) Implements IEnumerable(Of DivisionElement).GetEnumerator
       Return Me.m_List.GetEnumerator()
     End Function
 
-    Public Function IndexOf(ByVal Item As Division) As Integer Implements IList(Of Division).IndexOf
+    Public Function IndexOf(ByVal Item As DivisionElement) As Integer Implements IList(Of DivisionElement).IndexOf
       Return Me.m_List.IndexOf(Item)
     End Function
 
     Public Sub Insert(ByVal Index As Integer,
-                      ByVal Item As Division) Implements IList(Of Division).Insert
+                      ByVal Item As DivisionElement) Implements IList(Of DivisionElement).Insert
       Call Me.m_List.Insert(Index, Item)
     End Sub
 
-    Default Public Property Item(ByVal Index As Integer) As Division Implements IList(Of Division).Item
+    Default Public Property Item(ByVal Index As Integer) As DivisionElement Implements IList(Of DivisionElement).Item
       Get
         Return Me.m_List.Item(Index)
       End Get
-      Set(ByVal Value As Division)
+      Set(ByVal Value As DivisionElement)
         Me.m_List.Item(Index) = Value
       End Set
     End Property
 
-    Public Sub RemoveAt(ByVal Index As Integer) Implements IList(Of Division).RemoveAt
+    Public Sub RemoveAt(ByVal Index As Integer) Implements IList(Of DivisionElement).RemoveAt
       Call Me.m_List.RemoveAt(Index)
     End Sub
 

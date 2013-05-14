@@ -38,7 +38,7 @@ Namespace SC2Ranks.API.Cache
 
     Public Function GetResponse(ByVal Request As String,
                                 ByVal Post As String,
-                                <Out()> ByRef Expires As DateTime) As String
+                                <Out()> ByRef Expires As Nullable(Of DateTime)) As String
       Expires = Nothing
       Dim Erg As String
       Dim Entry As CacheRequestEntry = Nothing
@@ -62,7 +62,7 @@ Namespace SC2Ranks.API.Cache
                            ByVal POST As String,
                            ByVal Response As String,
                            ByVal CacheDuration As TimeSpan)
-      Dim Entry As CacheRequestEntry = Nothing
+      Dim Entry As CacheRequestEntry
 
       If (CacheDuration.TotalSeconds >= 0) AndAlso (Not String.IsNullOrEmpty(URL)) AndAlso (Not String.IsNullOrEmpty(Response)) Then
 

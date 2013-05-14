@@ -17,17 +17,17 @@
 '
 Imports System.Runtime.Serialization
 
-Namespace SC2Ranks.API.Messages
-  ''' <summary>
-  '''   This class contains extra result data.
-  ''' </summary>
-  ''' <remarks></remarks>
+Namespace SC2Ranks.API.Result
+''' <summary>
+'''   This class contains extra result data.
+''' </summary>
+''' <remarks></remarks>
   <DataContract()>
-  Public MustInherit Class Sc2RanksResult
+  Public MustInherit Class BaseResult
     Private m_Error As String
     Private m_CacheExpires As Nullable(Of DateTime)
     Private m_ResponseRaw As String
-
+    
     ''' <summary>
     '''   Constructor.
     ''' </summary>
@@ -39,14 +39,14 @@ Namespace SC2Ranks.API.Messages
     End Sub
 
 #Region "Properties"
-
+    
     ''' <summary>
     '''   Returns the error message if an error has occured.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    <DataMember(Name:="error", EmitDefaultValue:=False)>
+    <DataMember(Name := "error", EmitDefaultValue := False)>
     Public Property [Error]() As String
       Get
         Return Me.m_Error
@@ -55,7 +55,7 @@ Namespace SC2Ranks.API.Messages
         Me.m_Error = Value
       End Set
     End Property
-
+    
     ''' <summary>
     '''   Returns <c>True</c> if an error has occured, otherwise <c>False</c>.
     ''' </summary>
@@ -68,7 +68,7 @@ Namespace SC2Ranks.API.Messages
         Return (Not String.IsNullOrEmpty(Me.m_Error))
       End Get
     End Property
-
+    
     ''' <summary>
     '''   Returns the date when the cached data expires. The cache is from the API and not SC2Ranks.
     ''' </summary>
@@ -84,7 +84,7 @@ Namespace SC2Ranks.API.Messages
         Me.m_CacheExpires = Value
       End Set
     End Property
-
+    
     ''' <summary>
     '''   Returns the raw response from the server. Usually in JSON format.
     ''' </summary>

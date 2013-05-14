@@ -16,23 +16,24 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Imports System.Runtime.Serialization
+Imports com.NuGardt.SC2Ranks.API.Result.Element
 Imports com.NuGardt.SC2Ranks.Helper
 
-Namespace SC2Ranks.API.Messages
+Namespace SC2Ranks.API.Result
 ''' <summary>
 '''   Class containing basic player information.
 ''' </summary>
 ''' <remarks></remarks>
   <DataContract()>
-  Public Class PlayerBase
-    Inherits Sc2RanksResult
+  Public Class GetBasePlayerResult
+    Inherits BaseResult
 
     Protected m_AchievementPoints As Integer
     Protected m_BattleNetID As Int32
     Protected m_CharacterCode As Nullable(Of Int16)
     Protected m_CharacterName As String
     Protected m_ID As Integer
-    Protected m_Portrait As Portrait
+    Protected m_Portrait As PortraitElement
     Protected m_RegionRaw As String
     Protected m_Tag As String
     Protected m_UpdatedAtRaw As String
@@ -70,35 +71,6 @@ Namespace SC2Ranks.API.Messages
       Me.m_BattleNetID = BattleNetID
       Me.m_CharacterCode = Nothing
     End Sub
-    
-    ''' <summary>
-    '''   Creates a search info basesd on character code.
-    ''' </summary>
-    ''' <param name="Region">Region of the player. All may not be specified.</param>
-    ''' <param name="CharacterName">Name of the character.</param>
-    ''' <param name="CharacterCode">Character code. Not reliable when searching as character codes may not be set or are incorrect.</param>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    <Obsolete("Not reliable with character codes. SC2Ranks may have incorrect or no character codes. Blizzard no longer provides these codes publicly.")>
-    Public Shared Function CreateByCharacterCode(ByVal Region As eRegion,
-                                                 ByVal CharacterName As String,
-                                                 ByVal CharacterCode As Int16) As PlayerBase
-      Return New PlayerBase(CharacterName := CharacterName, Region := Region, CharacterCode := CharacterCode)
-    End Function
-    
-    ''' <summary>
-    '''   Created a search info based on Battle.net ID.
-    ''' </summary>
-    ''' <param name="Region">Region of the player. All may not be specified.</param>
-    ''' <param name="CharacterName">Name of the character.</param>
-    ''' <param name="BattleNetID">Battle.net Unique Identifier.</param>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    Public Shared Function CreateByBattleNetID(ByVal Region As eRegion,
-                                               ByVal CharacterName As String,
-                                               ByVal BattleNetID As Integer) As PlayerBase
-      Return New PlayerBase(CharacterName := CharacterName, Region := Region, BattleNetID := BattleNetID)
-    End Function
 
 #Region "Properties"
     
@@ -189,11 +161,11 @@ Namespace SC2Ranks.API.Messages
     ''' <returns></returns>
     ''' <remarks></remarks>
     <DataMember(Name := "portrait", EmitDefaultValue := False)>
-    Public Property Portrait() As Portrait
+    Public Property Portrait() As PortraitElement
       Get
         Return Me.m_Portrait
       End Get
-      Private Set(ByVal Value As Portrait)
+      Private Set(ByVal Value As PortraitElement)
         Me.m_Portrait = Value
       End Set
     End Property

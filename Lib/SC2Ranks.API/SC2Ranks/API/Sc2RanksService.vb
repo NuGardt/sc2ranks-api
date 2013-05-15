@@ -74,13 +74,14 @@ Namespace SC2Ranks.API
     ''' <remarks></remarks>
     Public Shared Function CreateInstance(ByVal AppKey As String,
                                           ByVal CacheStream As Stream,
-                                          <Out()> ByRef Instance As Sc2RanksService) As Exception
+                                          <Out()> ByRef Instance As Sc2RanksService,
+                                          Optional ByVal IgnoreFaultCacheStream As Boolean = True) As Exception
       Instance = Nothing
       Dim Ex As Exception = Nothing
 
       If String.IsNullOrEmpty(AppKey) Then
         Ex = New ArgumentNullException("AppKey")
-      ElseIf (AppKey.Length >= 32766) Then
+      ElseIf (AppKey.Length > 32766) Then
         'Silly check but never know^^
         Ex = New FormatException("AppKey too long.")
       Else
@@ -89,6 +90,8 @@ Namespace SC2Ranks.API
         If (CacheStream IsNot Nothing) Then
           Cache = New CacheRequest()
           Ex = Cache.Read(CacheStream)
+
+          If (Ex IsNot Nothing) AndAlso IgnoreFaultCacheStream Then Ex = Nothing
         Else
           Cache = Nothing
         End If

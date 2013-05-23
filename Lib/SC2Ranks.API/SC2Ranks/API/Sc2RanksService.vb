@@ -715,7 +715,7 @@ Namespace SC2Ranks.API
     End Function
 
     Public Sub ClearCache()
-      If (Me.Cache IsNot Nothing) Then Call Me.Cache.Clear()
+      If (Me.UseRequestCache) Then Call Me.Cache.Clear()
     End Sub
 
     Protected Function QueryAndParse(Of T As BaseResult)(ByVal URL As String,
@@ -820,7 +820,7 @@ Namespace SC2Ranks.API
       Dim ResponseRaw As String = Nothing
 
       'Only get from cache when there is no POST data
-      If (Not IgnoreCache) Then ResponseRaw = Me.Cache.GetResponse(URL, Post, Expires)
+      If (Not IgnoreCache) AndAlso (Me.UseRequestCache) Then ResponseRaw = Me.Cache.GetResponse(URL, Post, Expires)
 
       If String.IsNullOrEmpty(ResponseRaw) Then
         Request = HttpWebRequest.Create(URL)
@@ -937,7 +937,7 @@ Namespace SC2Ranks.API
       Dim Expires As Nullable(Of DateTime) = Nothing
 
       Try
-        If (Not IgnoreCache) AndAlso (String.IsNullOrEmpty(Post)) Then ResponseRaw = Me.Cache.GetResponse(URL, Post, Expires)
+        If (Not IgnoreCache) AndAlso (Me.UseRequestCache) Then ResponseRaw = Me.Cache.GetResponse(URL, Post, Expires)
 
         If (String.IsNullOrEmpty(ResponseRaw)) Then
           Request = HttpWebRequest.Create(URL)
@@ -1018,7 +1018,7 @@ Namespace SC2Ranks.API
 
             Response.ResponseRaw = sr.ReadToEnd
 
-            Call Me.Cache.AddResponse(State.RequestString, State.Post, Response.ResponseRaw, State.CacheDuration)
+            If Me.UseRequestCache Then Call Me.Cache.AddResponse(State.RequestString, State.Post, Response.ResponseRaw, State.CacheDuration)
 
             'Close stream
             Call ResponseStream.Close()
@@ -1104,7 +1104,7 @@ Namespace SC2Ranks.API
 
             Response.ResponseRaw = sr.ReadToEnd
 
-            Call Me.Cache.AddResponse(State.RequestString, State.Post, Response.ResponseRaw, State.CacheDuration)
+            If Me.UseRequestCache Then Call Me.Cache.AddResponse(State.RequestString, State.Post, Response.ResponseRaw, State.CacheDuration)
 
             'Close stream
             Call ResponseStream.Close()

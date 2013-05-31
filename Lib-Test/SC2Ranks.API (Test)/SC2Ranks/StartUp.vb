@@ -120,7 +120,7 @@ Namespace SC2Ranks
       End Try
 
       'Create instance of SC2Ranks service
-      Ex = Sc2RanksService.CreateInstance("com.nugardt.sc2ranks.api.test", CacheStream, RankService)
+      Ex = Sc2RanksService.CreateInstance("com.nugardt.sc2ranks.api.test", CacheStream, Nothing, RankService)
 
       If (Ex Is Nothing) Then
         Call Trace.WriteLine("SC2Ranks Test")

@@ -104,6 +104,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="SC2Ranks\API\CacheConfig.vb" />
     <Compile Include="SC2Ranks\API\eRegion.vb" />
     <Compile Include="SC2Ranks\API\eRace.vb" />
     <Compile Include="SC2Ranks\API\eLeague.vb" />
@@ -112,6 +113,7 @@
     <Compile Include="SC2Ranks\API\eSearchType.vb" />
     <Compile Include="SC2Ranks\API\eCustomDivisionAction.vb" />
     <Compile Include="SC2Ranks\API\eBracket.vb" />
+    <Compile Include="SC2Ranks\API\ICacheConfig.vb" />
     <Compile Include="SC2Ranks\API\Result\Element\SimplePlayerElement.vb" />
     <Compile Include="SC2Ranks\API\Result\GetCustomDivisionResult.vb" />
     <Compile Include="SC2Ranks\API\Result\GetBasePlayersResult.vb" />
@@ -152,7 +154,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

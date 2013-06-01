@@ -25,6 +25,8 @@ Namespace SC2Ranks.API
 
     Property GetBaseTeamByCharacterCodeCacheDuration As TimeSpan
 
+    Property GetBaseTeamByBattleNetIDCacheDuration As TimeSpan
+
     Property GetTeamByCharacterCodeCacheDuration As TimeSpan
 
     Property GetTeamByBattleNetIDCacheDuration As TimeSpan

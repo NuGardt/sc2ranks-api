@@ -287,7 +287,6 @@ Namespace SC2Ranks.API
 #End Region
 
 #Region "Function GetBaseTeamByBattleNetID"
-    Private Shared ReadOnly GetBaseTeamByBattleNetIDCacheDuration As TimeSpan = TimeSpan.FromHours(3)
     
     ''' <summary>
     '''   Includes base character data, as well as base data on all of the players teams.
@@ -305,7 +304,7 @@ Namespace SC2Ranks.API
                                              Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
 
-      Result = QueryAndParse(Of GetTeamResult)(String.Format("http://sc2ranks.com/api/base/teams/{0}/{1}!{2}.json?appKey={3}", Enums.RegionBuffer.GetValue(Region), CharacterName, BattleNetID, Me.m_AppKey), Nothing, GetBaseTeamByBattleNetIDCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of GetTeamResult)(String.Format("http://sc2ranks.com/api/base/teams/{0}/{1}!{2}.json?appKey={3}", Enums.RegionBuffer.GetValue(Region), CharacterName, BattleNetID, Me.m_AppKey), Nothing, Me.CacheConfig.GetBaseTeamByBattleNetIDCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -316,7 +315,7 @@ Namespace SC2Ranks.API
                                                   ByVal BattleNetID As Int32,
                                                   ByVal Callback As AsyncCallback,
                                                   Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
-      Return QueryAndParseBegin(Key, String.Format("http://sc2ranks.com/api/base/teams/{0}/{1}!{2}.json?appKey={3}", Enums.RegionBuffer.GetValue(Region), CharacterName, BattleNetID, Me.m_AppKey), Nothing, IgnoreCache, GetBaseTeamByBattleNetIDCacheDuration, Callback)
+      Return QueryAndParseBegin(Key, String.Format("http://sc2ranks.com/api/base/teams/{0}/{1}!{2}.json?appKey={3}", Enums.RegionBuffer.GetValue(Region), CharacterName, BattleNetID, Me.m_AppKey), Nothing, IgnoreCache, Me.CacheConfig.GetBaseTeamByBattleNetIDCacheDuration, Callback)
     End Function
 
     Public Function GetBaseTeamByBattleNetIDEnd(ByVal Result As IAsyncResult,

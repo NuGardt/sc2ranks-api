@@ -27,6 +27,8 @@ Namespace SC2Ranks.API
     Public Const DefaultGetBasePlayerByBattleNetIDCacheDurationString As String = "01:00:00"
     Public Shared ReadOnly DefaultGetBaseTeamByCharacterCodeCacheDuration As TimeSpan = TimeSpan.FromHours(3)
     Public Const DefaultGetBaseTeamByCharacterCodeCacheDurationString As String = "03:00:00"
+    Public Shared ReadOnly DefaultGetBaseTeamByBattleNetIDCacheDuration As TimeSpan = TimeSpan.FromHours(3)
+    Public Const DefaultGetBaseTeamByBattleNetIDCacheDurationString As String = "03:00:00"
     Public Shared ReadOnly DefaultGetTeamByCharacterCodeCacheDuration As TimeSpan = TimeSpan.FromHours(6)
     Public Const DefaultGetTeamByCharacterCodeCacheDurationString As String = "06:00:00"
     Public Shared ReadOnly DefaultGetTeamByBattleNetIDCacheDuration As TimeSpan = TimeSpan.FromHours(6)
@@ -44,6 +46,7 @@ Namespace SC2Ranks.API
     Private m_GetBasePlayerByCharacterCodeCacheDuration As TimeSpan
     Private m_GetBasePlayerByBattleNetIDCacheDuration As TimeSpan
     Private m_GetBaseTeamByCharacterCodeCacheDuration As TimeSpan
+    Private m_GetBaseTeamByBattleNetIDCacheDuration As TimeSpan
     Private m_GetTeamByCharacterCodeCacheDuration As TimeSpan
     Private m_GetTeamByBattleNetIDCacheDuration As TimeSpan
     Private m_GetCustomDivisionCacheDuration As TimeSpan
@@ -56,6 +59,7 @@ Namespace SC2Ranks.API
       Me.m_GetBasePlayerByCharacterCodeCacheDuration = DefaultGetBasePlayerByCharacterCodeCacheDuration
       Me.m_GetBasePlayerByBattleNetIDCacheDuration = DefaultGetBasePlayerByBattleNetIDCacheDuration
       Me.m_GetBaseTeamByCharacterCodeCacheDuration = DefaultGetBaseTeamByCharacterCodeCacheDuration
+      Me.m_GetBaseTeamByBattleNetIDCacheDuration = DefaultGetBaseTeamByBattleNetIDCacheDuration
       Me.m_GetTeamByCharacterCodeCacheDuration = DefaultGetTeamByCharacterCodeCacheDuration
       Me.m_GetTeamByBattleNetIDCacheDuration = DefaultGetTeamByBattleNetIDCacheDuration
       Me.m_GetCustomDivisionCacheDuration = DefaultGetCustomDivisionCacheDuration
@@ -108,6 +112,15 @@ Namespace SC2Ranks.API
       End Get
       Set(ByVal Value As TimeSpan)
         Me.m_GetBaseTeamByCharacterCodeCacheDuration = Value
+      End Set
+    End Property
+
+    Public Property GetBaseTeamByBattleNetIDCacheDuration As TimeSpan Implements ICacheConfig.GetBaseTeamByBattleNetIDCacheDuration
+      Get
+        Return Me.m_GetBaseTeamByBattleNetIDCacheDuration
+      End Get
+      Set(ByVal Value As TimeSpan)
+        Me.m_GetBaseTeamByBattleNetIDCacheDuration = Value
       End Set
     End Property
 

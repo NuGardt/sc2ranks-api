@@ -19,18 +19,18 @@ Imports System.Runtime.Serialization
 Imports System.Text
 
 Namespace SC2Ranks.API.Result.Element
-''' <summary>
-'''   Class containing portrait information.
-''' </summary>
-''' <remarks></remarks>
-  <DataContract(Name := "portrait")>
+  ''' <summary>
+  ''' Class containing portrait information.
+  ''' </summary>
+  ''' <remarks></remarks>
+    <DataContract(Name := "portrait")>
   Public Class PortraitElement
     Private m_IconID As Int16
     Private m_Row As Int16
     Private m_Column As Int16
-    
+
     ''' <summary>
-    '''   Construct.
+    ''' Construct.
     ''' </summary>
     ''' <remarks>Should not instantiate from outside.</remarks>
     Private Sub New()

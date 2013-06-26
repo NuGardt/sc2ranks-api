@@ -16,15 +16,15 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Imports System.Runtime.Serialization
-Imports NuGardt.SC2Ranks.API.Result.Element
 Imports NuGardt.SC2Ranks.Helper
+Imports NuGardt.SC2Ranks.API.Result.Element
 
 Namespace SC2Ranks.API.Result
-''' <summary>
-'''   Class containing basic player information.
-''' </summary>
-''' <remarks></remarks>
-  <DataContract()>
+  ''' <summary>
+  ''' Class containing basic player information.
+  ''' </summary>
+  ''' <remarks></remarks>
+    <DataContract()>
   Public Class GetBasePlayerResult
     Inherits BaseResult
 
@@ -37,9 +37,9 @@ Namespace SC2Ranks.API.Result
     Protected m_RegionRaw As String
     Protected m_Tag As String
     Protected m_UpdatedAtRaw As String
-    
+
     ''' <summary>
-    '''   Construct.
+    ''' Construct.
     ''' </summary>
     ''' <remarks>Should not instantiate from outside.</remarks>
     Protected Sub New()
@@ -73,9 +73,9 @@ Namespace SC2Ranks.API.Result
     End Sub
 
 #Region "Properties"
-    
+
     ''' <summary>
-    '''   Achievement Points
+    ''' Achievement Points
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -89,9 +89,9 @@ Namespace SC2Ranks.API.Result
         Me.m_AchievementPoints = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Returns the Battle.net Identifier.
+    ''' Returns the Battle.net Identifier.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -105,9 +105,9 @@ Namespace SC2Ranks.API.Result
         Me.m_BattleNetID = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Returns the character code. Value maybe incorrect.
+    ''' Returns the character code. Value maybe incorrect.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -121,9 +121,9 @@ Namespace SC2Ranks.API.Result
         Me.m_CharacterCode = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Returns the character name.
+    ''' Returns the character name.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -137,9 +137,9 @@ Namespace SC2Ranks.API.Result
         Me.m_CharacterName = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Returns the SC2Ranks identifier.
+    ''' Returns the SC2Ranks identifier.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -153,9 +153,9 @@ Namespace SC2Ranks.API.Result
         Me.m_ID = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Portrait
+    ''' Portrait
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -179,9 +179,9 @@ Namespace SC2Ranks.API.Result
         Me.m_RegionRaw = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Returns the region of the player.
+    ''' Returns the region of the player.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -191,9 +191,9 @@ Namespace SC2Ranks.API.Result
         Return Enums.RegionBuffer.GetEnum(Me.RegionRaw)
       End Get
     End Property
-    
+
     ''' <summary>
-    '''   Returns the clan tag.
+    ''' Returns the clan tag.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -207,9 +207,9 @@ Namespace SC2Ranks.API.Result
         Me.m_Tag = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Returns the character name with clan tag ("[Clan] Name")
+    ''' Returns the character name with clan tag ("[Clan] Name")
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -233,9 +233,9 @@ Namespace SC2Ranks.API.Result
         Me.m_UpdatedAtRaw = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Updated At
+    ''' Updated At
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>

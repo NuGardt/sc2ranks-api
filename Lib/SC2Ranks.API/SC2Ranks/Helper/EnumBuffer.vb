@@ -19,12 +19,12 @@ Imports System.Collections.Generic
 Imports System.Runtime.Serialization
 
 Namespace SC2Ranks.Helper
-''' <summary>
-'''   This class buffers an enumartion marked with <see cref="TagAttribute">TagAttribute</see>.
-''' </summary>
-''' <typeparam name="TEnum"></typeparam>
-''' <remarks></remarks>
-  <DebuggerStepThrough()>
+  ''' <summary>
+  ''' This class buffers an enumartion marked with <see cref="TagAttribute">TagAttribute</see>.
+  ''' </summary>
+  ''' <typeparam name="TEnum"></typeparam>
+  ''' <remarks></remarks>
+    <DebuggerStepThrough()>
   Public NotInheritable Class EnumBuffer(Of TEnum, TAttribute As Attribute)
 
     Public Delegate Function procParseCustomAttribute(ByVal Attribute As Attribute) As String
@@ -32,9 +32,9 @@ Namespace SC2Ranks.Helper
     Private ReadOnly ValueToEnum As IDictionary(Of String, TEnum)
     Private ReadOnly EnumToValue As IDictionary(Of TEnum, String)
     Private ReadOnly ParseCustomAttribute As procParseCustomAttribute
-    
+
     ''' <summary>
-    '''   Construct.
+    ''' Construct.
     ''' </summary>
     ''' <remarks></remarks>
     Public Sub New(Optional ByVal ParseCustomAttribute As procParseCustomAttribute = Nothing)
@@ -46,37 +46,37 @@ Namespace SC2Ranks.Helper
       Dim Ex As Exception = Nothing
       If (Not Me.ToDictionary(Me.ValueToEnum, Me.EnumToValue, Ex)) Then Call Trace.WriteLine(Ex)
     End Sub
-    
+
     ''' <summary>
-    '''   Returns a list of all enumerations.
+    ''' Returns a list of all enumerations.
     ''' </summary>
     ''' <returns></returns>
     ''' <remarks></remarks>
     Public Function ToValueList() As ICollection(Of String)
       Return Me.ValueToEnum.Keys
     End Function
-    
+
     ''' <summary>
-    '''   Returns a list of all enumerations.
+    ''' Returns a list of all enumerations.
     ''' </summary>
     ''' <returns></returns>
     ''' <remarks></remarks>
     Public Function ToEnumList() As ICollection(Of TEnum)
       Return Me.EnumToValue.Keys()
     End Function
-    
+
     ''' <summary>
-    '''   Returns the tag for an enumeration.
+    ''' Returns the tag for an enumeration.
     ''' </summary>
     ''' <param name="Tag">The tag.</param>
     ''' <param name="Instance">
-    '''   Contains the Enumeration, if the tag could be matched to an enumeration, otherwise <c>Nothing</c>.
+    ''' Contains the Enumeration, if the tag could be matched to an enumeration, otherwise <c>Nothing</c>.
     ''' </param>
     ''' <param name="Ex">
-    '''   Optional. Contains the error message if one occured, otherwise <c>Nothing</c>.
+    ''' Optional. Contains the error message if one occured, otherwise <c>Nothing</c>.
     ''' </param>
     ''' <returns>
-    '''   Returns <c>True</c>, if the tag was matched to an enumeration, otherwise <c>False</c>.
+    ''' Returns <c>True</c>, if the tag was matched to an enumeration, otherwise <c>False</c>.
     ''' </returns>
     ''' <remarks></remarks>
     Public Function GetEnum(ByVal Tag As String,
@@ -89,16 +89,16 @@ Namespace SC2Ranks.Helper
 
       Return (Ex Is Nothing)
     End Function
-    
+
     ''' <summary>
-    '''   Returns the tag for an enumeration.
+    ''' Returns the tag for an enumeration.
     ''' </summary>
     ''' <param name="Tag">The tag.</param>
     ''' <param name="Ex">
-    '''   Optional. Contains the error message if one occured, otherwise <c>Nothing</c>.
+    ''' Optional. Contains the error message if one occured, otherwise <c>Nothing</c>.
     ''' </param>
     ''' <returns>
-    '''   Returns <c>True</c>, if the tag was matched to an enumeration, otherwise <c>False</c>.
+    ''' Returns <c>True</c>, if the tag was matched to an enumeration, otherwise <c>False</c>.
     ''' </returns>
     ''' <remarks></remarks>
     Public Function GetEnum(ByVal Tag As String,
@@ -110,22 +110,22 @@ Namespace SC2Ranks.Helper
 
       Return Erg
     End Function
-    
+
     ''' <summary>
-    '''   Returns the enumeration for a tag.
+    ''' Returns the enumeration for a tag.
     ''' </summary>
     ''' <param name="Enum">The enumartion.</param>
     ''' <param name="Instance">
-    '''   Contains the tag, if the enumartion could be matched to a tag, otherwise <c>False</c>.
+    ''' Contains the tag, if the enumartion could be matched to a tag, otherwise <c>False</c>.
     ''' </param>
     ''' <param name="Ex">
-    '''   Optional. Contains the error message if one occured, otherwise <c>Nothing</c>.
+    ''' Optional. Contains the error message if one occured, otherwise <c>Nothing</c>.
     ''' </param>
     ''' <returns>
-    '''   Return <c>True</c>, if the enumration was matched to a tag, otherwise <c>False</c>.
+    ''' Return <c>True</c>, if the enumration was matched to a tag, otherwise <c>False</c>.
     ''' </returns>
     ''' <remarks>
-    '''   Returns <c>True</c>, if the process complete without errors, otherwiese <c>False</c>.
+    ''' Returns <c>True</c>, if the process complete without errors, otherwiese <c>False</c>.
     ''' </remarks>
     Public Function GetValue(ByVal [Enum] As TEnum,
                              ByRef Instance As String,
@@ -137,19 +137,19 @@ Namespace SC2Ranks.Helper
 
       Return (Ex Is Nothing)
     End Function
-    
+
     ''' <summary>
-    '''   Returns the enumeration for a tag.
+    ''' Returns the enumeration for a tag.
     ''' </summary>
     ''' <param name="Enum">The enumartion.</param>
     ''' <param name="Ex">
-    '''   Optional. Contains the error message if one occured, otherwise <c>Nothing</c>.
+    ''' Optional. Contains the error message if one occured, otherwise <c>Nothing</c>.
     ''' </param>
     ''' <returns>
-    '''   Return <c>True</c>, if the enumration was matched to a tag, otherwise <c>False</c>.
+    ''' Return <c>True</c>, if the enumration was matched to a tag, otherwise <c>False</c>.
     ''' </returns>
     ''' <remarks>
-    '''   Returns <c>True</c>, if the process complete without errors, otherwiese <c>False</c>.
+    ''' Returns <c>True</c>, if the process complete without errors, otherwiese <c>False</c>.
     ''' </remarks>
     Public Function GetValue(ByVal [Enum] As TEnum,
                              Optional ByRef Ex As Exception = Nothing) As String

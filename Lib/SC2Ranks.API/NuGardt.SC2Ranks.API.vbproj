@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <StartupObject>
     </StartupObject>
-    <RootNamespace>com.NuGardt</RootNamespace>
+    <RootNamespace>NuGardt</RootNamespace>
     <AssemblyName>NuGardt.SC2Ranks.API</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>

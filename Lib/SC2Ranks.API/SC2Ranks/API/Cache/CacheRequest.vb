@@ -22,11 +22,11 @@ Imports System.IO
 Imports System.Runtime.Serialization.Json
 
 Namespace SC2Ranks.API.Cache
-''' <summary>
-'''   This class manages the cache storage.
-''' </summary>
-''' <remarks></remarks>
-  Public Class CacheRequest
+  ''' <summary>
+  ''' This class manages the cache storage.
+  ''' </summary>
+  ''' <remarks></remarks>
+    Public Class CacheRequest
     Private ReadOnly Lock As ReaderWriterLock
     Private ReadOnly RequestsByRequestString As IDictionary(Of Guid, CacheRequestEntry)
 

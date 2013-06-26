@@ -32,9 +32,9 @@ Namespace SC2Ranks.API.Result
     Private m_Tw As Integer
     Private m_Eu As Integer
     Private m_Kr As Integer
-    
+
     ''' <summary>
-    '''   Construct.
+    ''' Construct.
     ''' </summary>
     ''' <remarks>Should not instantiate from outside.</remarks>
     Protected Sub New()
@@ -51,9 +51,9 @@ Namespace SC2Ranks.API.Result
     End Sub
 
 #Region "Properties"
-    
+
     ''' <summary>
-    '''   FEA
+    ''' FEA
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -67,9 +67,9 @@ Namespace SC2Ranks.API.Result
         Me.m_Fea = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   United States
+    ''' United States
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -84,9 +84,9 @@ Namespace SC2Ranks.API.Result
         Me.m_Us = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Americas
+    ''' Americas
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -100,9 +100,9 @@ Namespace SC2Ranks.API.Result
         Me.m_Am = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Russia
+    ''' Russia
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -117,9 +117,9 @@ Namespace SC2Ranks.API.Result
         Me.m_Ru = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   South-East-Asia
+    ''' South-East-Asia
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -133,9 +133,9 @@ Namespace SC2Ranks.API.Result
         Me.m_Sea = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Latin America
+    ''' Latin America
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -150,9 +150,9 @@ Namespace SC2Ranks.API.Result
         Me.m_La = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   China
+    ''' China
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -166,9 +166,9 @@ Namespace SC2Ranks.API.Result
         Me.m_Cn = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Taiwan
+    ''' Taiwan
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -182,9 +182,9 @@ Namespace SC2Ranks.API.Result
         Me.m_Tw = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Europe
+    ''' Europe
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -198,9 +198,9 @@ Namespace SC2Ranks.API.Result
         Me.m_Eu = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Korea
+    ''' Korea
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>

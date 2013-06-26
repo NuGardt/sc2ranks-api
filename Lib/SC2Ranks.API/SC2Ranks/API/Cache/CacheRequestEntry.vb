@@ -32,9 +32,9 @@ Namespace SC2Ranks.API.Cache
     Private m_Expires As Date
 
     Private m_Hash As Guid
-    
+
     ''' <summary>
-    '''   Constructor.
+    ''' Constructor.
     ''' </summary>
     ''' <remarks></remarks>
     Private Sub New()

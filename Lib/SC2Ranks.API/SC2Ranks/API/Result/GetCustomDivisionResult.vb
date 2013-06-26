@@ -16,9 +16,9 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Imports System.Runtime.Serialization
+Imports System.Collections.Generic
 Imports System.Collections
 Imports NuGardt.SC2Ranks.API.Result.Element
-Imports System.Collections.Generic
 
 Namespace SC2Ranks.API.Result
   <CollectionDataContract()>

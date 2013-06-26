@@ -16,11 +16,11 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Namespace SC2Ranks.Helper
-''' <summary>
-'''   Attriobute for field tag.
-''' </summary>
-''' <remarks></remarks>
-  <DebuggerStepThrough()>
+  ''' <summary>
+  ''' Attribute for field tag.
+  ''' </summary>
+  ''' <remarks></remarks>
+    <DebuggerStepThrough()>
     <AttributeUsage(AttributeTargets.Field, AllowMultiple := False, Inherited := False)>
   Public Class TagAttribute
     Inherits Attribute

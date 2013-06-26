@@ -20,18 +20,18 @@ Imports NuGardt.SC2Ranks.API.Result.Element
 Imports System.Text
 
 Namespace SC2Ranks.API.Result
-''' <summary>
-'''   Class containing extended player information.
-''' </summary>
-''' <remarks></remarks>
-  <DataContract()>
+  ''' <summary>
+  ''' Class containing extended player information.
+  ''' </summary>
+  ''' <remarks></remarks>
+    <DataContract()>
   Public Class GetTeamResult
     Inherits GetBasePlayerResult
 
     Private m_Teams As DivisionExtendedElement()
-    
+
     ''' <summary>
-    '''   Construct.
+    ''' Construct.
     ''' </summary>
     ''' <remarks>Should not instantiate from outside.</remarks>
     Private Sub New()
@@ -41,9 +41,9 @@ Namespace SC2Ranks.API.Result
     End Sub
 
 #Region "Properties"
-    
+
     ''' <summary>
-    '''   Teams
+    ''' Teams
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>

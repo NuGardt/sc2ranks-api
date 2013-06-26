@@ -20,11 +20,11 @@ Imports NuGardt.SC2Ranks.Helper
 Imports System.Text
 
 Namespace SC2Ranks.API.Result.Element
-''' <summary>
-'''   Class containing information about a team in a division.
-''' </summary>
-''' <remarks></remarks>
-  <DataContract()>
+  ''' <summary>
+  ''' Class containing information about a team in a division.
+  ''' </summary>
+  ''' <remarks></remarks>
+    <DataContract()>
   Public Class DivisionElement
     Private m_Bracket As Integer
     Private m_Division As String
@@ -38,9 +38,9 @@ Namespace SC2Ranks.API.Result.Element
     Private m_Points As Integer
     Private m_Ratio As Double
     Private m_Wins As Integer
-    
+
     ''' <summary>
-    '''   Construct.
+    ''' Construct.
     ''' </summary>
     ''' <remarks>Should not instantiate from outside.</remarks>
     Protected Sub New()
@@ -69,9 +69,9 @@ Namespace SC2Ranks.API.Result.Element
         Me.m_Bracket = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Returns the bracket of the team.
+    ''' Returns the bracket of the team.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -96,9 +96,9 @@ Namespace SC2Ranks.API.Result.Element
         Return tBracket
       End Get
     End Property
-    
+
     ''' <summary>
-    '''   Returns the name of the division.
+    ''' Returns the name of the division.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -112,9 +112,9 @@ Namespace SC2Ranks.API.Result.Element
         Me.m_Division = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Returns the division identifier.
+    ''' Returns the division identifier.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -128,9 +128,9 @@ Namespace SC2Ranks.API.Result.Element
         Me.m_DivisionID = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Returns the division rank.
+    ''' Returns the division rank.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -154,9 +154,9 @@ Namespace SC2Ranks.API.Result.Element
         Me.m_ExpansionRaw = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Returns the expansion level of the division.
+    ''' Returns the expansion level of the division.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -186,9 +186,9 @@ Namespace SC2Ranks.API.Result.Element
         Me.m_LeagueRaw = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Returns the league of the division.
+    ''' Returns the league of the division.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -198,9 +198,9 @@ Namespace SC2Ranks.API.Result.Element
         Return Enums.LeaguesBuffer.GetEnum(LeagueRaw)
       End Get
     End Property
-    
+
     ''' <summary>
-    '''   Return the number of losses in a division.
+    ''' Return the number of losses in a division.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -214,9 +214,9 @@ Namespace SC2Ranks.API.Result.Element
         Me.m_Losses = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Returns the members of the division.
+    ''' Returns the members of the division.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -230,9 +230,9 @@ Namespace SC2Ranks.API.Result.Element
         Me.m_Members = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Return the number of points in a division.
+    ''' Return the number of points in a division.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -246,9 +246,9 @@ Namespace SC2Ranks.API.Result.Element
         Me.m_Points = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Return the win/loss ratio in a division
+    ''' Return the win/loss ratio in a division
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -262,9 +262,9 @@ Namespace SC2Ranks.API.Result.Element
         Me.m_Ratio = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Returns the number of wins in a division.
+    ''' Returns the number of wins in a division.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>

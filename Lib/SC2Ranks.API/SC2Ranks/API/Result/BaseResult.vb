@@ -18,18 +18,18 @@
 Imports System.Runtime.Serialization
 
 Namespace SC2Ranks.API.Result
-''' <summary>
-'''   This class contains extra result data.
-''' </summary>
-''' <remarks></remarks>
-  <DataContract()>
+  ''' <summary>
+  ''' This class contains extra result data.
+  ''' </summary>
+  ''' <remarks></remarks>
+    <DataContract()>
   Public MustInherit Class BaseResult
     Private m_Error As String
     Private m_CacheExpires As Nullable(Of DateTime)
     Private m_ResponseRaw As String
-    
+
     ''' <summary>
-    '''   Constructor.
+    ''' Constructor.
     ''' </summary>
     ''' <remarks></remarks>
     Public Sub New()
@@ -39,9 +39,9 @@ Namespace SC2Ranks.API.Result
     End Sub
 
 #Region "Properties"
-    
+
     ''' <summary>
-    '''   Returns the error message if an error has occured.
+    ''' Returns the error message if an error has occured.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -55,9 +55,9 @@ Namespace SC2Ranks.API.Result
         Me.m_Error = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Returns <c>True</c> if an error has occured, otherwise <c>False</c>.
+    ''' Returns <c>True</c> if an error has occured, otherwise <c>False</c>.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -68,9 +68,9 @@ Namespace SC2Ranks.API.Result
         Return (Not String.IsNullOrEmpty(Me.m_Error))
       End Get
     End Property
-    
+
     ''' <summary>
-    '''   Returns the date when the cached data expires. The cache is from the API and not SC2Ranks.
+    ''' Returns the date when the cached data expires. The cache is from the API and not SC2Ranks.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -84,9 +84,9 @@ Namespace SC2Ranks.API.Result
         Me.m_CacheExpires = Value
       End Set
     End Property
-    
+
     ''' <summary>
-    '''   Returns the raw response from the server. Usually in JSON format.
+    ''' Returns the raw response from the server. Usually in JSON format.
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>

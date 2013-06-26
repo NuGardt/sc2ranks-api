@@ -15,24 +15,24 @@
 ' You should have received a copy of the GNU General Public License
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
-Imports NuGardt.SC2Ranks.API.Cache
 Imports System.IO
 Imports System.Runtime.InteropServices
-Imports NuGardt.SC2Ranks.API.Result
-Imports NuGardt.SC2Ranks.API.Result.Element
 Imports System.Collections.Generic
 Imports System.Net
-Imports System.Threading
-Imports NuGardt.SC2Ranks.Helper
-Imports System.Text
 Imports System.Runtime.Serialization.Json
+Imports NuGardt.SC2Ranks.Helper
+Imports NuGardt.SC2Ranks.API.Result.Element
+Imports NuGardt.SC2Ranks.API.Cache
+Imports NuGardt.SC2Ranks.API.Result
+Imports System.Threading
+Imports System.Text
 
 Namespace SC2Ranks.API
-''' <summary>
-'''   Class containing all API calls to SC2Ranks.
-''' </summary>
-''' <remarks></remarks>
-  Public Class Sc2RanksService
+  ''' <summary>
+  ''' Class containing all API calls to SC2Ranks.
+  ''' </summary>
+  ''' <remarks></remarks>
+    Public Class Sc2RanksService
     Implements IDisposable
 
     Private ReadOnly UseRequestCache As Boolean
@@ -40,9 +40,9 @@ Namespace SC2Ranks.API
     Private ReadOnly CacheConfig As ICacheConfig
     Private ReadOnly CacheStream As Stream
     Private ReadOnly m_AppKey As String
-    
+
     ''' <summary>
-    '''   Construct.
+    ''' Construct.
     ''' </summary>
     ''' <param name="AppKey"></param>
     ''' <remarks></remarks>
@@ -67,13 +67,13 @@ Namespace SC2Ranks.API
     End Sub
 
 #Region "Function CreateInstance"
-    
+
     ''' <summary>
-    '''   Create an instance of the SC2Ranks Service.
+    ''' Create an instance of the SC2Ranks Service.
     ''' </summary>
     ''' <param name="AppKey">Required by SC2Ranks.com.</param>
     ''' <param name="Instance">
-    '''   Contains the instance if Ex is <c>Nothing</c>.
+    ''' Contains the instance if Ex is <c>Nothing</c>.
     ''' </param>
     ''' <returns></returns>
     ''' <remarks></remarks>
@@ -111,9 +111,9 @@ Namespace SC2Ranks.API
 #End Region
 
 #Region "Function SearchBasePlayer"
-    
+
     ''' <summary>
-    '''   Allows you to perform small searches, useful if you want to hookup an IRC bot or such. Only returns the first 10 names, but you can see the total number of characters and pass an offset if you need more. Search is case-insensitive.
+    ''' Allows you to perform small searches, useful if you want to hookup an IRC bot or such. Only returns the first 10 names, but you can see the total number of characters and pass an offset if you need more. Search is case-insensitive.
     ''' </summary>
     ''' <param name="SearchType">The type of the search.</param>
     ''' <param name="Region">The region to search in.</param>
@@ -161,9 +161,9 @@ Namespace SC2Ranks.API
 #End Region
 
 #Region "Function GetBasePlayerByCharacterCode"
-    
+
     ''' <summary>
-    '''   Minimum amount of character data, just gives achievement points, character code and battle.net id info.
+    ''' Minimum amount of character data, just gives achievement points, character code and battle.net id info.
     ''' </summary>
     ''' <param name="Region"></param>
     ''' <param name="CharacterName"></param>
@@ -204,9 +204,9 @@ Namespace SC2Ranks.API
 #End Region
 
 #Region "Function GetBasePlayerByBattleNetID"
-    
+
     ''' <summary>
-    '''   Minimum amount of character data, just gives achievement points, character code and battle.net id info.
+    ''' Minimum amount of character data, just gives achievement points, character code and battle.net id info.
     ''' </summary>
     ''' <param name="Region"></param>
     ''' <param name="CharacterName"></param>
@@ -244,9 +244,9 @@ Namespace SC2Ranks.API
 #End Region
 
 #Region "Function GetBaseTeamByCharacterCode"
-    
+
     ''' <summary>
-    '''   Includes base character data, as well as base data on all of the players teams.
+    ''' Includes base character data, as well as base data on all of the players teams.
     ''' </summary>
     ''' <param name="Region"></param>
     ''' <param name="CharacterName"></param>
@@ -287,9 +287,9 @@ Namespace SC2Ranks.API
 #End Region
 
 #Region "Function GetBaseTeamByBattleNetID"
-    
+
     ''' <summary>
-    '''   Includes base character data, as well as base data on all of the players teams.
+    ''' Includes base character data, as well as base data on all of the players teams.
     ''' </summary>
     ''' <param name="Region"></param>
     ''' <param name="CharacterName"></param>
@@ -327,9 +327,9 @@ Namespace SC2Ranks.API
 #End Region
 
 #Region "Function GetTeamByCharacterCode"
-    
+
     ''' <summary>
-    '''   Includes base character data, and extended team information for the passed bracket.
+    ''' Includes base character data, and extended team information for the passed bracket.
     ''' </summary>
     ''' <param name="Region"></param>
     ''' <param name="CharacterName"></param>
@@ -380,9 +380,9 @@ Namespace SC2Ranks.API
 #End Region
 
 #Region "Function GetTeamByBattleNetID"
-    
+
     ''' <summary>
-    '''   Includes base character data, and extended team information for the passed bracket.
+    ''' Includes base character data, and extended team information for the passed bracket.
     ''' </summary>
     ''' <param name="Region"></param>
     ''' <param name="CharacterName"></param>
@@ -429,9 +429,9 @@ Namespace SC2Ranks.API
 #End Region
 
 #Region "Function GetCustomDivision"
-    
+
     ''' <summary>
-    '''   Allows you to get everyone in a custom division.
+    ''' Allows you to get everyone in a custom division.
     ''' </summary>
     ''' <param name="CustomDivisionID"></param>
     ''' <param name="Region"></param>
@@ -481,9 +481,9 @@ Namespace SC2Ranks.API
 #Region "Function ManageCustomDivision"
     'No caching
     Private Shared ReadOnly ManageCustomDivisionCacheDuration As TimeSpan = TimeSpan.FromHours(0)
-    
+
     ''' <summary>
-    '''   Allows you to add or remove characters to a custom division, to reduce abuse you are required to use the custom divisions password to manage.
+    ''' Allows you to add or remove characters to a custom division, to reduce abuse you are required to use the custom divisions password to manage.
     ''' </summary>
     ''' <param name="CustomDivisionID"></param>
     ''' <param name="Password"></param>
@@ -555,13 +555,13 @@ Namespace SC2Ranks.API
 #End Region
 
 #Region "Function GetBasePlayers"
-    
+
     ''' <summary>
-    '''   Same as pulling just character information, except you can pull 100 characters at once. The returns are the same, except you get an array of characters rather than a hash.
+    ''' Same as pulling just character information, except you can pull 100 characters at once. The returns are the same, except you get an array of characters rather than a hash.
     ''' </summary>
     ''' <param name="Players"></param>
     ''' <param name="Bracket">
-    '''   Optional. Can be <c>Nothing</c>.
+    ''' Optional. Can be <c>Nothing</c>.
     ''' </param>
     ''' <param name="Result"></param>
     ''' <returns></returns>
@@ -694,9 +694,9 @@ Namespace SC2Ranks.API
 
       Return Ex
     End Function
-    
+
     ''' <summary>
-    '''   Returns <c>True</c> if the bracket is random or <c>False</c> for solo or fixed team.
+    ''' Returns <c>True</c> if the bracket is random or <c>False</c> for solo or fixed team.
     ''' </summary>
     ''' <param name="Bracket"></param>
     ''' <returns></returns>

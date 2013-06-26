@@ -16,11 +16,11 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Namespace SC2Ranks.API.Result.Element
-''' <summary>
-'''   Class containing simple player information.
-''' </summary>
-''' <remarks></remarks>
-  Public Class SimplePlayerElement
+  ''' <summary>
+  ''' Class containing simple player information.
+  ''' </summary>
+  ''' <remarks></remarks>
+    Public Class SimplePlayerElement
     Inherits BaseResult
 
     Public BattleNetID As Int32
@@ -44,9 +44,9 @@ Namespace SC2Ranks.API.Result.Element
       Me.BattleNetID = BattleNetID
       Me.CharacterCode = Nothing
     End Sub
-    
+
     ''' <summary>
-    '''   Creates a search info basesd on character code.
+    ''' Creates a search info basesd on character code.
     ''' </summary>
     ''' <param name="Region">Region of the player. All may not be specified.</param>
     ''' <param name="CharacterName">Name of the character.</param>
@@ -59,9 +59,9 @@ Namespace SC2Ranks.API.Result.Element
                                                  ByVal CharacterCode As Int16) As SimplePlayerElement
       Return New SimplePlayerElement(CharacterName := CharacterName, Region := Region, CharacterCode := CharacterCode)
     End Function
-    
+
     ''' <summary>
-    '''   Created a search info based on Battle.net ID.
+    ''' Created a search info based on Battle.net ID.
     ''' </summary>
     ''' <param name="Region">Region of the player. All may not be specified.</param>
     ''' <param name="CharacterName">Name of the character.</param>

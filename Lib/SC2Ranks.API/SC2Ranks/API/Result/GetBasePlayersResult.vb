@@ -20,11 +20,11 @@ Imports System.Collections.Generic
 Imports System.Collections
 
 Namespace SC2Ranks.API.Result
-''' <summary>
-'''   Class containing basic player information.
-''' </summary>
-''' <remarks></remarks>
-  <CollectionDataContract()>
+  ''' <summary>
+  ''' Class containing basic player information.
+  ''' </summary>
+  ''' <remarks></remarks>
+    <CollectionDataContract()>
   Public Class GetBasePlayersResult
     Inherits BaseResult
     Implements IList(Of GetBasePlayerResult)

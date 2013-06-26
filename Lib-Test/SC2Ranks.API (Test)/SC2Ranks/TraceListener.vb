@@ -19,36 +19,36 @@ Imports System.IO
 Imports System.Text
 
 Namespace SC2Ranks
-''' <summary>
-'''   This class write all trace output to a stream.
-''' </summary>
-''' <remarks></remarks>
-  Public NotInheritable Class TraceListener
+  ''' <summary>
+  '''   This class write all trace output to a stream.
+  ''' </summary>
+  ''' <remarks></remarks>
+    Public NotInheritable Class TraceListener
     Inherits Diagnostics.TraceListener
-                    
-                    ''' <summary>
-                    '''   Returns the stream for writing trace, or sets this.
-                    ''' </summary>
-                    ''' <remarks></remarks>
-                    Private Stream As Stream
-                    
-                    ''' <summary>
-                    '''   LogTime"><c>True</c> to logtime, otherwise <c>False</c>.
-                    ''' </summary>
-                    ''' <remarks></remarks>
-                    Private ReadOnly LogTime As Boolean
+
+    ''' <summary>
+    '''   Returns the stream for writing trace, or sets this.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Private Stream As Stream
+
+    ''' <summary>
+    '''   LogTime"><c>True</c> to logtime, otherwise <c>False</c>.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Private ReadOnly LogTime As Boolean
 
     Private ReadOnly Relay As Action(Of String)
-                    
-                    ''' <summary>
-                    '''   Construct.
-                    ''' </summary>
-                    ''' <param name="Stream">The stream for writing trace output.</param>
-                    ''' <param name="LogTime">
-                    '''   <c>True</c> to logtime, otherwise <c>False</c>.
-                    ''' </param>
-                    ''' <remarks></remarks>
-                    Public Sub New(ByVal Stream As Stream,
+
+    ''' <summary>
+    '''   Construct.
+    ''' </summary>
+    ''' <param name="Stream">The stream for writing trace output.</param>
+    ''' <param name="LogTime">
+    '''   <c>True</c> to logtime, otherwise <c>False</c>.
+    ''' </param>
+    ''' <remarks></remarks>
+    Public Sub New(ByVal Stream As Stream,
                    Optional ByVal Relay As Action(Of String) = Nothing,
                    Optional ByVal LogTime As Boolean = True)
       If Not Stream.CanWrite Then Throw New Exception("Stream not writable")
@@ -61,15 +61,15 @@ Namespace SC2Ranks
 
       Call Me.WriteLine("Log opened.")
     End Sub
-                    
-                    ''' <summary>
-                    '''   Construct.
-                    ''' </summary>
-                    ''' <param name="LogTime">
-                    '''   LogTime"><c>True</c> to logtime, otherwise <c>False</c>.
-                    ''' </param>
-                    ''' <remarks></remarks>
-                    Public Sub New(Optional ByVal Relay As Action(Of String) = Nothing,
+
+    ''' <summary>
+    '''   Construct.
+    ''' </summary>
+    ''' <param name="LogTime">
+    '''   LogTime"><c>True</c> to logtime, otherwise <c>False</c>.
+    ''' </param>
+    ''' <remarks></remarks>
+    Public Sub New(Optional ByVal Relay As Action(Of String) = Nothing,
                    Optional ByVal LogTime As Boolean = True)
       Me.Relay = Relay
       Me.LogTime = LogTime
@@ -95,12 +95,12 @@ Namespace SC2Ranks
 
       Call MyBase.Dispose(Disposing)
     End Sub
-                    
-                    ''' <summary>
-                    '''   Write information of the system into the log file.
-                    ''' </summary>
-                    ''' <remarks></remarks>
-                    Public Sub WriteSystemInformation()
+
+    ''' <summary>
+    '''   Write information of the system into the log file.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Sub WriteSystemInformation()
       Dim LoadedAssemblies As New StringBuilder
 
       Try
@@ -129,16 +129,16 @@ Namespace SC2Ranks
         Call Trace.WriteLine("Unable to query product details: " + iEx.ToString())
       End Try
     End Sub
-                    
-                    ''' <summary>
-                    '''   Write data to stream.
-                    ''' </summary>
-                    ''' <param name="Data">
-                    '''   The data to be
-                    '''   written.
-                    ''' </param>
-                    ''' <remarks></remarks>
-                    Private Overloads Sub Write(ByVal Data() As Byte)
+
+    ''' <summary>
+    '''   Write data to stream.
+    ''' </summary>
+    ''' <param name="Data">
+    '''   The data to be
+    '''   written.
+    ''' </param>
+    ''' <remarks></remarks>
+    Private Overloads Sub Write(ByVal Data() As Byte)
       If Data IsNot Nothing Then
         If Me.Stream IsNot Nothing Then
           SyncLock Me.Stream
@@ -147,13 +147,13 @@ Namespace SC2Ranks
         End If
       End If
     End Sub
-                    
-                    ''' <summary>
-                    '''   Write a message into stream.
-                    ''' </summary>
-                    ''' <param name="Message">The message to be written.</param>
-                    ''' <remarks></remarks>
-                    Public Overloads Overrides Sub Write(ByVal Message As String)
+
+    ''' <summary>
+    '''   Write a message into stream.
+    ''' </summary>
+    ''' <param name="Message">The message to be written.</param>
+    ''' <remarks></remarks>
+    Public Overloads Overrides Sub Write(ByVal Message As String)
       If Me.LogTime Then
         Message = String.Format("{0}: {1}", Now.ToString("yyyy-MM-dd HH:mm:ss"), Message)
         Call Me.Write(Encoding.UTF8.GetBytes(Message))
@@ -163,13 +163,13 @@ Namespace SC2Ranks
 
       If Me.Relay IsNot Nothing Then Me.Relay.Invoke(Message)
     End Sub
-                    
-                    ''' <summary>
-                    '''   Write a message line into stream.
-                    ''' </summary>
-                    ''' <param name="Message">The message to be written.</param>
-                    ''' <remarks></remarks>
-                    Public Overloads Overrides Sub WriteLine(ByVal Message As String)
+
+    ''' <summary>
+    '''   Write a message line into stream.
+    ''' </summary>
+    ''' <param name="Message">The message to be written.</param>
+    ''' <remarks></remarks>
+    Public Overloads Overrides Sub WriteLine(ByVal Message As String)
       If Me.LogTime Then
         Message = String.Format("{0}: {1}", Now.ToString("yyyy-MM-dd HH:mm:ss"), Message + vbCrLf)
         Call Me.Write(Encoding.UTF8.GetBytes(Message))

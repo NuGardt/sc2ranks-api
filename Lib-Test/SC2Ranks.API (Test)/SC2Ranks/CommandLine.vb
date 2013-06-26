@@ -16,21 +16,21 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Namespace SC2Ranks
-''' <summary>
-'''   This class simplifies command line analysis.
-''' </summary>
-''' <remarks></remarks>
-  Public NotInheritable Class CommandLine
+  ''' <summary>
+  '''   This class simplifies command line analysis.
+  ''' </summary>
+  ''' <remarks></remarks>
+    Public NotInheritable Class CommandLine
     Public Shared ReadOnly SwitchChar() As Char = New Char() {"/"c}
     Public Shared ReadOnly SwitchCharUnix() As String = New String() {"--"}
     Public ReadOnly DefinitionChar As Char = "="c
-    
+
     ''' <summary>
     '''   Return a list of command line switches and their Values, or sets this.
     ''' </summary>
     ''' <remarks></remarks>
     Private ReadOnly DictSwitches As IDictionary(Of String, String)
-    
+
     ''' <summary>
     '''   Return the command line.
     ''' </summary>
@@ -43,7 +43,7 @@ Namespace SC2Ranks
     '--switch
     '/switch=Value1,Value2
     '--switch=Value1,Value2
-    
+
     ''' <summary>
     '''   Construct.
     ''' </summary>
@@ -90,7 +90,7 @@ Namespace SC2Ranks
         Loop
       End With
     End Sub
-    
+
     ''' <summary>
     '''   Returns <c>True</c> when a switch is set, otherwiese <c>False</c>.
     ''' </summary>
@@ -102,7 +102,7 @@ Namespace SC2Ranks
     Public Function IsSet(ByVal Switch As String) As Boolean
       Return Me.DictSwitches.ContainsKey(Switch)
     End Function
-    
+
     ''' <summary>
     '''   Returns the Values belonging to a switch, if the switch has any.
     ''' </summary>
@@ -121,8 +121,7 @@ Namespace SC2Ranks
 
       Erg = Me.DictSwitches.TryGetValue(Switch, Values)
 
-      Return Erg AndAlso
-             (Values IsNot Nothing)
+      Return Erg AndAlso (Values IsNot Nothing)
     End Function
 
     Public Overrides Function ToString() As String

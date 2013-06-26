@@ -15,14 +15,14 @@
 ' You should have received a copy of the GNU General Public License
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
-Imports com.NuGardt.SC2Ranks.API
 Imports System.IO
-Imports com.NuGardt.SC2Ranks.API.Result
-Imports System.Text
-Imports com.NuGardt.SC2Ranks.API.Result.Element
 Imports System.Globalization
 Imports Newtonsoft.Json
+Imports NuGardt.SC2Ranks.API.Result.Element
 Imports Newtonsoft.Json.Linq
+Imports NuGardt.SC2Ranks.API
+Imports NuGardt.SC2Ranks.API.Result
+Imports System.Text
 Imports System.Xml
 Imports System.Threading
 Imports Formatting = Newtonsoft.Json.Formatting
@@ -37,7 +37,7 @@ Namespace SC2Ranks
     Private AsyncCallsBusy As Int64
     Private RankService As Sc2RanksService = Nothing
     Private CacheStream As Stream
-    
+
     ''' <summary>
     '''   Start.
     ''' </summary>
@@ -442,7 +442,7 @@ Namespace SC2Ranks
 #End Region
 
 #Region "Function CheckResult"
-    
+
     ''' <summary>
     '''   Checks the response and parsed object for accuracy.
     ''' </summary>
@@ -515,7 +515,7 @@ Namespace SC2Ranks
         Call Console.Clear()
       End If
     End Sub
-    
+
     ''' <summary>
     '''   Compare the JSON response to the parsed data.
     ''' </summary>
@@ -536,7 +536,7 @@ Namespace SC2Ranks
     End Function
 
 #Region "Function CompareJson"
-    
+
     ''' <summary>
     '''   Compare 2 JSON strings.
     ''' </summary>
@@ -642,7 +642,7 @@ Namespace SC2Ranks
 
       Return SB.ToString()
     End Function
-    
+
     ''' <summary>
     '''   Class for storing results of the compare.
     ''' </summary>
@@ -757,7 +757,7 @@ Namespace SC2Ranks
 #End Region
 
 #End Region
-    
+
     ''' <summary>
     '''   Write trace message to console.
     ''' </summary>

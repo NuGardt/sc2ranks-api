@@ -17,7 +17,7 @@
 '
 Imports System.Runtime.Serialization
 Imports System.ComponentModel
-Imports com.NuGardt.SC2Ranks.Helper
+Imports NuGardt.SC2Ranks.Helper
 
 Namespace SC2Ranks.API.Result.Element
 ''' <summary>

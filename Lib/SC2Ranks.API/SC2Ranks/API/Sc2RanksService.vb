@@ -15,15 +15,15 @@
 ' You should have received a copy of the GNU General Public License
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
-Imports com.NuGardt.SC2Ranks.API.Cache
+Imports NuGardt.SC2Ranks.API.Cache
 Imports System.IO
 Imports System.Runtime.InteropServices
-Imports com.NuGardt.SC2Ranks.API.Result
-Imports com.NuGardt.SC2Ranks.API.Result.Element
+Imports NuGardt.SC2Ranks.API.Result
+Imports NuGardt.SC2Ranks.API.Result.Element
 Imports System.Collections.Generic
 Imports System.Net
 Imports System.Threading
-Imports com.NuGardt.SC2Ranks.Helper
+Imports NuGardt.SC2Ranks.Helper
 Imports System.Text
 Imports System.Runtime.Serialization.Json
 

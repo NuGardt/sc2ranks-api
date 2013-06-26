@@ -15,7 +15,7 @@
 ' You should have received a copy of the GNU General Public License
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
-Imports com.NuGardt.SC2Ranks.API
+Imports NuGardt.SC2Ranks.API
 Imports System.Runtime.Serialization
 
 Namespace SC2Ranks.Helper

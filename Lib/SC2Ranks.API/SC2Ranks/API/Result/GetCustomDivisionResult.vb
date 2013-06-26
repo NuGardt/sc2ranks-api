@@ -17,7 +17,7 @@
 '
 Imports System.Runtime.Serialization
 Imports System.Collections
-Imports com.NuGardt.SC2Ranks.API.Result.Element
+Imports NuGardt.SC2Ranks.API.Result.Element
 Imports System.Collections.Generic
 
 Namespace SC2Ranks.API.Result

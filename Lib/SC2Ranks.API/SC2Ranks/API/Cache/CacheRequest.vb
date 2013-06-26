@@ -118,8 +118,8 @@ Namespace SC2Ranks.API.Cache
 
       If (Stream Is Nothing) Then
         Ex = New ArgumentNullException("Stream")
-      ElseIf (Not Stream.CanRead) OrElse (Not Stream.CanWrite) Then
-        Ex = New Exception("Stream must be readable and writable.")
+      ElseIf (Not Stream.CanRead) Then
+        Ex = New Exception("Stream must be readable.")
       Else
         Try
           Dim Entries() As CacheRequestEntry
@@ -156,8 +156,8 @@ Namespace SC2Ranks.API.Cache
 
       If (Stream Is Nothing) Then
         Ex = New ArgumentNullException("Stream")
-      ElseIf (Not Stream.CanRead) OrElse (Not Stream.CanSeek) OrElse (Not Stream.CanWrite) Then
-        Ex = New Exception("Stream must be readable, writable and seekable.")
+      ElseIf (Not Stream.CanWrite) Then
+        Ex = New Exception("Stream must be writable.")
       Else
         Try
           Dim Entries() As CacheRequestEntry
@@ -171,6 +171,7 @@ Namespace SC2Ranks.API.Cache
           Call Me.Lock.ReleaseReaderLock()
 
           Stream.Position = 0
+
           Call Serializer.WriteObject(Stream, Entries)
 
           Call Stream.Flush()

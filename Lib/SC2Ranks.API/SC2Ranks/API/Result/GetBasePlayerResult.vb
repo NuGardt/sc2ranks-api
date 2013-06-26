@@ -16,8 +16,8 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Imports System.Runtime.Serialization
-Imports com.NuGardt.SC2Ranks.API.Result.Element
-Imports com.NuGardt.SC2Ranks.Helper
+Imports NuGardt.SC2Ranks.API.Result.Element
+Imports NuGardt.SC2Ranks.Helper
 
 Namespace SC2Ranks.API.Result
 ''' <summary>

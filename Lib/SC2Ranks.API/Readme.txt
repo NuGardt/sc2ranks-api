@@ -1,8 +1,8 @@
-=NuGardt SC2Ranks API v1.2013.05.18=
+=NuGardt SC2Ranks API v1.2013.06.30=
  Author: Kevin 'OomJan' Gardthausen
- Last Update: 2013-05-18
+ Last Update: 2013-06-30
 
- Visual Basic .NET 4.0 implementation of the SC2Ranks API with optional request caching. Project includes test project. Runs under Mono (v3) framework.
+  Visual Basic .NET 4.0 implementation of the SC2Ranks API with optional request caching. Project includes test project. Runs under Mono (Tested with v2.8.10 and v3.0.11) framework.
 
 
 ==Open source==
@@ -15,21 +15,20 @@
  * Home Page: http://www.nugardt.com/open-source/sc2ranks-api/
  * Code: http://http://code.google.com/p/nugardt-sc2ranks-api/
  * E-mail: kevin@nugardt.com
- * Twitter: http://www.twitter.com/oomjan34
+ * Twitter: https://www.twitter.com/NuGardt
+ * Facebook: https://www.facebook.com/NuGardt
  * SC2Ranks: http://www.sc2ranks.com/
 
 
 ==Usage==
-Library is thread safe. Original library is signed by NuGardt (http://www.nugardt.com/certificates/).
+Library is thread safe. Original library is signed by NuGardt (http://www.nugardt.com/root-certificates/).
 
 ===Creating an instance===
-{{{
 Dim RankService As Sc2RanksService
 Dim CacheStream As System.IO.Stream
 Dim Ex As System.Exception 
 
 Ex = Sc2RanksService.CreateInstance(AppKey:="myAppKey", CacheStream:=CacheStream, Instance:=RankService, IgnoreFaultCacheStream:=False)
-}}}
 
 Creates an instance of the Sc2RanksService. It takes three parameters.
   * AppKey: The app key. This is required my SC2Ranks. Use your domain name. eg. mysite.com. May not be nothing.
@@ -40,11 +39,9 @@ Creates an instance of the Sc2RanksService. It takes three parameters.
 Returns System.Exception if unsuccessful.
 
 ===Calling a method (Sync)===
-{{{
 Dim Ex As System.Exception 
 
 Ex = RankService.GetBasePlayerByBattleNetID(Region:=eRegion.EU, CharacterName:="OomJan", BattleNetID:=1770249, IgnoreCache:=False, Result:=ResultInstance)
-}}}
 
 Calls RankService.GetBasePlayerByBattleNetID. Takes multiple parameters depending on method. IgnoreCache and Result are always present.
   * IgnoreCache: Optional, default False. If cache data is available then the cached data will be used and SC2Ranks will not be contacted.
@@ -53,7 +50,6 @@ Calls RankService.GetBasePlayerByBattleNetID. Takes multiple parameters dependin
 Returns System.Exception if unsuccessful.
 
 ===Calling a method (Async)===
-{{{
 Dim AsyncResult As System.IAsyncResult
 
 AsyncResult = RankService.GetBasePlayerByBattleNetIDBegin(Key:="MyAsyncKey", Region:=eRegion.EU, CharacterName:="OomJan", BattleNetID:=1770249 IgnoreCache:=False, Callback:=AddressOf MyCallback)
@@ -66,7 +62,6 @@ Private Sub MyCallback(ByVal Result As IAsyncResult)
   Ex = RankService.GetBasePlayerByBattleNetIDEnd(Result:=Result, Key:=Key, Response:=Response)
   '...
 End Sub
-}}}
 
 Calls RankService.GetBasePlayerByBattleNetIDBegin without waiting for the result. When the result is available the callback will be called.
   * Key: Can be nothing. Use it for tracking calls.

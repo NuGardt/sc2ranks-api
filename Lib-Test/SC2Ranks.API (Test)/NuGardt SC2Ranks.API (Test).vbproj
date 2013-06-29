@@ -9,8 +9,8 @@
     </SchemaVersion>
     <ProjectGuid>{3D38DDDB-08EB-4DA2-9619-CA818298078F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>com.NuGardt.SC2Ranks.StartUp</StartupObject>
-    <RootNamespace>com.NuGardt</RootNamespace>
+    <StartupObject>NuGardt.SC2Ranks.StartUp</StartupObject>
+    <RootNamespace>NuGardt</RootNamespace>
     <AssemblyName>NuGardt SC2Ranks %28Test%29</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Console</MyType>
@@ -113,9 +113,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Lib\SC2Ranks.API\NuGardt.SC2Ranks.API.vbproj">
+    <ProjectReference Include="..\..\Lib\SC2Ranks.API\NuGardt SC2Ranks.API.vbproj">
       <Project>{3054F387-8A8C-4C4A-8330-A64FC23C3D14}</Project>
-      <Name>NuGardt.SC2Ranks.API</Name>
+      <Name>NuGardt  SC2Ranks.API</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

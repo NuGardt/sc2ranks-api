@@ -955,6 +955,7 @@ Namespace SC2Ranks.API
       Return Result
     End Function
 
+    'ToDo: Check
     Public Function QueryAndParseEnd(Of T As BaseResult)(ByVal Result As IAsyncResult,
                                                          <Out()> ByRef Key As Object,
                                                          <Out()> ByRef Response As T) As Exception

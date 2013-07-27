@@ -1,1 +1,0 @@
-http://www.nugardt.com/open-source/sc2ranks-api/

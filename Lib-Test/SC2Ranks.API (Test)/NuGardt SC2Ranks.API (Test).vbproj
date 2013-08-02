@@ -53,6 +53,9 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>Lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="NuGardt.UnitTest.Interface">
+      <HintPath>Lib\NuGardt.UnitTest.Interface.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -74,7 +77,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SC2Ranks\CommandLine.vb" />
-    <Compile Include="SC2Ranks\Config.vb" />
+    <Compile Include="SC2Ranks\Helper.vb" />
+    <Compile Include="SC2Ranks\Const.vb" />
     <Compile Include="SC2Ranks\StartUp.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -92,6 +96,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="SC2Ranks\TraceListener.vb" />
+    <Compile Include="SC2Ranks\UnitTest\GetCharacters\GetCharactersUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\GetCharacterTeams\GetCharacterTeamsUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\GetData\GetDataBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\GetCharacter\GetCharacterBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\GetCharacterTeams\GetCharacterTeamsBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\GetCharacters\GetCharactersBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\GetCharacter\GetCharacterUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\GetData\GetDataUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\SearchCharacterTeams\SearchCharacterTeamsUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\SearchCharacterTeams\SearchCharacterTeamsBeginUnitTest.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -113,7 +127,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Lib\SC2Ranks.API\NuGardt SC2Ranks.API.vbproj">
+    <ProjectReference Include="..\..\Lib\SC2Ranks.API\NuGardt.SC2Ranks.API.vbproj">
       <Project>{3054F387-8A8C-4C4A-8330-A64FC23C3D14}</Project>
       <Name>NuGardt  SC2Ranks.API</Name>
     </ProjectReference>

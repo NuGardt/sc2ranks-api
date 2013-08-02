@@ -20,7 +20,7 @@ Namespace SC2Ranks
   '''   This class simplifies command line analysis.
   ''' </summary>
   ''' <remarks></remarks>
-    Public NotInheritable Class CommandLine
+  Public NotInheritable Class CommandLine
     Public Shared ReadOnly SwitchChar() As Char = New Char() {"/"c}
     Public Shared ReadOnly SwitchCharUnix() As String = New String() {"--"}
     Public ReadOnly DefinitionChar As Char = "="c

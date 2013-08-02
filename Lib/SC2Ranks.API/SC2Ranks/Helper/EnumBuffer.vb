@@ -24,7 +24,7 @@ Namespace SC2Ranks.Helper
   ''' </summary>
   ''' <typeparam name="TEnum"></typeparam>
   ''' <remarks></remarks>
-    <DebuggerStepThrough()>
+  <DebuggerStepThrough()>
   Public NotInheritable Class EnumBuffer(Of TEnum, TAttribute As Attribute)
 
     Public Delegate Function procParseCustomAttribute(ByVal Attribute As Attribute) As String

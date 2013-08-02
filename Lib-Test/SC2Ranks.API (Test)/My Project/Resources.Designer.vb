@@ -59,5 +59,14 @@ Namespace My.Resources
                 resourceCulture = value
             End Set
         End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Zeichenfolge, die U8tHgfnCy1VVhNXPPfW7ZED0qB2VNQt9iBNI ähnelt.
+        '''</summary>
+        Friend ReadOnly Property ApiKey() As String
+            Get
+                Return ResourceManager.GetString("ApiKey", resourceCulture)
+            End Get
+        End Property
     End Module
 End Namespace

@@ -23,7 +23,7 @@ Namespace SC2Ranks
   '''   This class write all trace output to a stream.
   ''' </summary>
   ''' <remarks></remarks>
-    Public NotInheritable Class TraceListener
+  Public NotInheritable Class TraceListener
     Inherits Diagnostics.TraceListener
 
     ''' <summary>

@@ -26,7 +26,7 @@ Namespace SC2Ranks.API.Cache
   ''' This class manages the cache storage.
   ''' </summary>
   ''' <remarks></remarks>
-    Public Class CacheRequest
+  Public Class CacheRequest
     Private ReadOnly Lock As ReaderWriterLock
     Private ReadOnly RequestsByRequestString As IDictionary(Of Guid, CacheRequestEntry)
 

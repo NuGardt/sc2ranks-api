@@ -1,0 +1,4311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>NuGardt.SC2Ranks.API</name>
+  </assembly>
+  <members>
+    <member name="T:NuGardt.SC2Ranks.API.CacheConfig">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.CacheConfig</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.CacheConfig.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.CacheConfig</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBasePlayerByBattleNetIDCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBasePlayerByBattleNetIDCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBasePlayerByBattleNetIDCacheDurationString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBasePlayerByBattleNetIDCacheDurationString</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBasePlayerByCharacterCodeCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBasePlayerByCharacterCodeCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBasePlayerByCharacterCodeCacheDurationString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBasePlayerByCharacterCodeCacheDurationString</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBasePlayersCharCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBasePlayersCharCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBasePlayersCharCacheDurationString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBasePlayersCharCacheDurationString</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBasePlayersTeamCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBasePlayersTeamCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBasePlayersTeamCacheDurationString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBasePlayersTeamCacheDurationString</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBaseTeamByBattleNetIDCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBaseTeamByBattleNetIDCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBaseTeamByBattleNetIDCacheDurationString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBaseTeamByBattleNetIDCacheDurationString</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBaseTeamByCharacterCodeCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBaseTeamByCharacterCodeCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBaseTeamByCharacterCodeCacheDurationString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBaseTeamByCharacterCodeCacheDurationString</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBonusPoolsCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBonusPoolsCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBonusPoolsCacheDurationString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetBonusPoolsCacheDurationString</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetCustomDivisionCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetCustomDivisionCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetCustomDivisionCacheDurationString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetCustomDivisionCacheDurationString</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetTeamByBattleNetIDCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetTeamByBattleNetIDCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetTeamByBattleNetIDCacheDurationString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetTeamByBattleNetIDCacheDurationString</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetTeamByCharacterCodeCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetTeamByCharacterCodeCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetTeamByCharacterCodeCacheDurationString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultGetTeamByCharacterCodeCacheDurationString</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultSearchBasePlayerCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultSearchBasePlayerCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.CacheConfig.DefaultSearchBasePlayerCacheDurationString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.API.CacheConfig.DefaultSearchBasePlayerCacheDurationString</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.CacheConfig.GetBasePlayerByBattleNetIDCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.CacheConfig.GetBasePlayerByBattleNetIDCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.CacheConfig.GetBasePlayerByCharacterCodeCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.CacheConfig.GetBasePlayerByCharacterCodeCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.CacheConfig.GetBasePlayersCharCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.CacheConfig.GetBasePlayersCharCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.CacheConfig.GetBasePlayersTeamCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.CacheConfig.GetBasePlayersTeamCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.CacheConfig.GetBaseTeamByBattleNetIDCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.CacheConfig.GetBaseTeamByBattleNetIDCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.CacheConfig.GetBaseTeamByCharacterCodeCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.CacheConfig.GetBaseTeamByCharacterCodeCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.CacheConfig.GetBonusPoolsCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.CacheConfig.GetBonusPoolsCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.CacheConfig.GetCustomDivisionCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.CacheConfig.GetCustomDivisionCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.CacheConfig.GetTeamByBattleNetIDCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.CacheConfig.GetTeamByBattleNetIDCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.CacheConfig.GetTeamByCharacterCodeCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.CacheConfig.GetTeamByCharacterCodeCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.CacheConfig.SearchBasePlayerCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.CacheConfig.SearchBasePlayerCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.eSc2RanksBracket">
+      <summary>
+ Bracket.
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksBracket.Random">
+      <summary>
+ Random flag.
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksBracket._1V1">
+      <summary>
+ 1v1
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksBracket._2V2">
+      <summary>
+ 2v2
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksBracket._2V2R">
+      <summary>
+ 2v2 Random
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksBracket._3V3">
+      <summary>
+ 3v3
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksBracket._3V3R">
+      <summary>
+ 3v3 Random
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksBracket._4V4">
+      <summary>
+ 4v4
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksBracket._4V4R">
+      <summary>
+ 4v4Random
+ </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.eSc2RanksExpansion">
+      <summary>
+ Expansion
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksExpansion.WoL">
+      <summary>
+ Wings of Liberty
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksExpansion.HotS">
+      <summary>
+ Heart of the Swarm
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksExpansion.LotV">
+      <summary>
+ Legacy of the Void
+ </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.eSc2RanksLeague">
+      <summary>
+ Leagues
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksLeague.All">
+      <summary>
+ All leagues
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksLeague.Bronze">
+      <summary>
+ Bronze league
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksLeague.Silver">
+      <summary>
+ Silver league
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksLeague.Gold">
+      <summary>
+ Gold league
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksLeague.Platinum">
+      <summary>
+ Platinum league
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksLeague.Diamond">
+      <summary>
+ Diamond league
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksLeague.Master">
+      <summary>
+ Master league
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksLeague.GrandMaster">
+      <summary>
+ Grandmaster league
+ </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.eSc2RanksMatchType">
+      <summary>
+ Realm Regions
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksMatchType.Excact"></member>
+    <member name="T:NuGardt.SC2Ranks.API.eSc2RanksRace">
+      <summary>
+ Races
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRace.Protoss">
+      <summary>
+ Protoss
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRace.Terran">
+      <summary>
+ Terran
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRace.Zerg">
+      <summary>
+ Zerg
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRace.Random">
+      <summary>
+ Random
+ </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.eSc2RanksRankRegion">
+      <summary>
+ Realm Regions
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRankRegion.Global">
+      <summary>
+ All Regions
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRankRegion.EU">
+      <summary>
+ European Union
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRankRegion.SEA">
+      <summary>
+ South-East-Asia
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRankRegion.CN">
+      <summary>
+ China
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRankRegion.Fea">
+      <summary>
+ Korea/Taiwan
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRankRegion.AM">
+      <summary>
+ Americas
+ </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.eSc2RanksRegion">
+      <summary>
+ Realm Regions
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRegion.Global">
+      <summary>
+ All Regions
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRegion.AM">
+      <summary>
+ Americas
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRegion.EU">
+      <summary>
+ European Union
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRegion.KR">
+      <summary>
+ South-Korea
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRegion.TW">
+      <summary>
+ Taiwan
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRegion.SEA">
+      <summary>
+ South-East-Asia
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRegion.CN">
+      <summary>
+ China
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRegion.US">
+      <summary>
+ United States
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRegion.FEA"></member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRegion.LA">
+      <summary>
+ Latin America
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.eSc2RanksRegion.NA">
+      <summary>
+ North-America
+ </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.ICacheConfig">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.ICacheConfig</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.ICacheConfig.GetBasePlayerByBattleNetIDCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.ICacheConfig.GetBasePlayerByBattleNetIDCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.ICacheConfig.GetBasePlayerByCharacterCodeCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.ICacheConfig.GetBasePlayerByCharacterCodeCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.ICacheConfig.GetBasePlayersCharCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.ICacheConfig.GetBasePlayersCharCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.ICacheConfig.GetBasePlayersTeamCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.ICacheConfig.GetBasePlayersTeamCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.ICacheConfig.GetBaseTeamByBattleNetIDCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.ICacheConfig.GetBaseTeamByBattleNetIDCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.ICacheConfig.GetBaseTeamByCharacterCodeCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.ICacheConfig.GetBaseTeamByCharacterCodeCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.ICacheConfig.GetBonusPoolsCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.ICacheConfig.GetBonusPoolsCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.ICacheConfig.GetCustomDivisionCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.ICacheConfig.GetCustomDivisionCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.ICacheConfig.GetTeamByBattleNetIDCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.ICacheConfig.GetTeamByBattleNetIDCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.ICacheConfig.GetTeamByCharacterCodeCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.ICacheConfig.GetTeamByCharacterCodeCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.ICacheConfig.SearchBasePlayerCacheDuration">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.ICacheConfig.SearchBasePlayerCacheDuration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Sc2RanksService">
+      <summary>
+ Class containing all API calls to SC2Ranks.
+ </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.ClearCache">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.ClearCache</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.CreateInstance(System.String,System.IO.Stream,NuGardt.SC2Ranks.API.ICacheConfig,NuGardt.SC2Ranks.API.Sc2RanksService@,System.Boolean)">
+      <summary>
+ Create an instance of the SC2Ranks Service.
+ </summary>
+      <param name="AppKey">Required by SC2Ranks.com.</param>
+      <param name="Instance">
+ Contains the instance if Ex is <c>Nothing</c>.
+ </param>
+      <param name="CacheStream">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>CacheStream</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.CreateInstance(System.String,System.IO.Stream,NuGardt.SC2Ranks.API.ICacheConfig,NuGardt.SC2Ranks.API.Sc2RanksService@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="CacheConfig">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>CacheConfig</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.CreateInstance(System.String,System.IO.Stream,NuGardt.SC2Ranks.API.ICacheConfig,NuGardt.SC2Ranks.API.Sc2RanksService@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="IgnoreFaultCacheStream">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>IgnoreFaultCacheStream</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.CreateInstance(System.String,System.IO.Stream,NuGardt.SC2Ranks.API.ICacheConfig,NuGardt.SC2Ranks.API.Sc2RanksService@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.CreateInstance(System.String,System.IO.Stream,NuGardt.SC2Ranks.API.ICacheConfig,NuGardt.SC2Ranks.API.Sc2RanksService@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.Dispose">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocDispose">
+            <parameter>NuGardt.SC2Ranks.API.Sc2RanksService</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacter(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult@,System.Boolean)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacter(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Region">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Region</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacter(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="BattleNetID">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>BattleNetID</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacter(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Result">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Result</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacter(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="IgnoreCache">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>IgnoreCache</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacter(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacter(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Key">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Key</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Region">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Region</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="BattleNetID">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>BattleNetID</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Callback">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Callback</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="IgnoreCache">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>IgnoreCache</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult@)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult@)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Result">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Result</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Key">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Key</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Response">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Response</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult@)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacters(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult@,System.Boolean)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacters(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Region">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Region</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacters(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="BattleNetID">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>BattleNetID</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacters(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Result">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Result</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacters(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="IgnoreCache">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>IgnoreCache</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacters(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacters(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharactersBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharactersBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Key">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Key</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharactersBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Region">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Region</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharactersBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="BattleNetID">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>BattleNetID</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharactersBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Callback">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Callback</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharactersBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="IgnoreCache">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>IgnoreCache</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharactersBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharactersBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharactersEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult@)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharactersEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult@)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Result">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Result</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharactersEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Key">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Key</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharactersEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Response">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Response</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharactersEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharactersEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult@)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeams(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Boolean)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeams(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Region">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Region</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeams(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="BattleNetID">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>BattleNetID</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeams(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Result">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Result</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeams(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="IgnoreCache">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>IgnoreCache</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeams(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeams(NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeamsBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeamsBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Key">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Key</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeamsBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Region">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Region</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeamsBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="BattleNetID">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>BattleNetID</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeamsBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Callback">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Callback</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeamsBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="IgnoreCache">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>IgnoreCache</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeamsBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeamsBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRegion,System.Int32,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeamsEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeamsEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Result">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Result</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeamsEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Key">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Key</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeamsEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Response">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Response</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeamsEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetCharacterTeamsEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetData(NuGardt.SC2Ranks.API.Result.Sc2RanksDataResult@,System.Boolean)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetData(NuGardt.SC2Ranks.API.Result.Sc2RanksDataResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Result">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Result</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetData(NuGardt.SC2Ranks.API.Result.Sc2RanksDataResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="IgnoreCache">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>IgnoreCache</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetData(NuGardt.SC2Ranks.API.Result.Sc2RanksDataResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetData(NuGardt.SC2Ranks.API.Result.Sc2RanksDataResult@,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDataBegin(System.Object,System.AsyncCallback,System.Boolean)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDataBegin(System.Object,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Key">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Key</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDataBegin(System.Object,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Callback">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Callback</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDataBegin(System.Object,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="IgnoreCache">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>IgnoreCache</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDataBegin(System.Object,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDataBegin(System.Object,System.AsyncCallback,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDataEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksDataResult@)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDataEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksDataResult@)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Result">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Result</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDataEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksDataResult@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Key">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Key</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDataEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksDataResult@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Response">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Response</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDataEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksDataResult@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDataEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksDataResult@)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.QueryAndParseEnd``1(System.IAsyncResult,System.Object@,``0@)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.QueryAndParseEnd``1(System.IAsyncResult,System.Object@,``0@)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Result">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Result</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.QueryAndParseEnd``1(System.IAsyncResult,System.Object@,``0@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Key">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Key</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.QueryAndParseEnd``1(System.IAsyncResult,System.Object@,``0@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Response">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Response</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.QueryAndParseEnd``1(System.IAsyncResult,System.Object@,``0@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <typeparam name="T">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>T</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.QueryAndParseEnd``1(System.IAsyncResult,System.Object@,``0@)</parameter>
+          </include>
+        </markup>
+      </typeparam>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.QueryAndParseEnd``1(System.IAsyncResult,System.Object@,``0@)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.QueryAndParseEnd``3(System.IAsyncResult,System.Object@,``0@)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.QueryAndParseEnd``3(System.IAsyncResult,System.Object@,``0@)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Result">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Result</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.QueryAndParseEnd``3(System.IAsyncResult,System.Object@,``0@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Key">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Key</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.QueryAndParseEnd``3(System.IAsyncResult,System.Object@,``0@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Response">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Response</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.QueryAndParseEnd``3(System.IAsyncResult,System.Object@,``0@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <typeparam name="T">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>T</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.QueryAndParseEnd``3(System.IAsyncResult,System.Object@,``0@)</parameter>
+          </include>
+        </markup>
+      </typeparam>
+      <typeparam name="TArrayItem">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>TArrayItem</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.QueryAndParseEnd``3(System.IAsyncResult,System.Object@,``0@)</parameter>
+          </include>
+        </markup>
+      </typeparam>
+      <typeparam name="TArray">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>TArray</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.QueryAndParseEnd``3(System.IAsyncResult,System.Object@,``0@)</parameter>
+          </include>
+        </markup>
+      </typeparam>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.QueryAndParseEnd``3(System.IAsyncResult,System.Object@,``0@)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeams(System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeams(System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Name">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Name</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeams(System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Match">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Match</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeams(System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="RankRegion">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>RankRegion</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeams(System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Expansion">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Expansion</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeams(System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Bracket">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Bracket</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeams(System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="League">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>League</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeams(System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Page">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Page</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeams(System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Limit">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Limit</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeams(System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Result">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Result</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeams(System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Race">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Race</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeams(System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="IgnoreCache">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>IgnoreCache</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeams(System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeams(System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsBegin(System.Object,System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsBegin(System.Object,System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Key">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Key</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsBegin(System.Object,System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Name">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Name</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsBegin(System.Object,System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Match">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Match</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsBegin(System.Object,System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="RankRegion">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>RankRegion</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsBegin(System.Object,System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Expansion">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Expansion</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsBegin(System.Object,System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Bracket">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Bracket</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsBegin(System.Object,System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="League">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>League</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsBegin(System.Object,System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Page">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Page</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsBegin(System.Object,System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Limit">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Limit</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsBegin(System.Object,System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Callback">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Callback</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsBegin(System.Object,System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Race">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Race</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsBegin(System.Object,System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="IgnoreCache">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>IgnoreCache</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsBegin(System.Object,System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsBegin(System.Object,System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.Int32,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Result">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Result</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Key">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Key</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Response">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Response</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamsEnd(System.IAsyncResult,System.Object@,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult@)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Cache.CacheRequest">
+      <summary>
+ This class manages the cache storage.
+ </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Cache.CacheRequest.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.Cache.CacheRequest</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Cache.CacheRequest.AddResponse(System.String,System.String,System.String,System.TimeSpan)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Cache.CacheRequest.AddResponse(System.String,System.String,System.String,System.TimeSpan)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="URL">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>URL</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Cache.CacheRequest.AddResponse(System.String,System.String,System.String,System.TimeSpan)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="POST">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>POST</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Cache.CacheRequest.AddResponse(System.String,System.String,System.String,System.TimeSpan)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Response">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Response</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Cache.CacheRequest.AddResponse(System.String,System.String,System.String,System.TimeSpan)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="CacheDuration">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>CacheDuration</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Cache.CacheRequest.AddResponse(System.String,System.String,System.String,System.TimeSpan)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Cache.CacheRequest.Clear">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Cache.CacheRequest.Clear</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Cache.CacheRequest.GetResponse(System.String,System.String,System.Nullable{System.DateTime}@)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Cache.CacheRequest.GetResponse(System.String,System.String,System.Nullable{System.DateTime}@)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Request">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Request</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Cache.CacheRequest.GetResponse(System.String,System.String,System.Nullable{System.DateTime}@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Post">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Post</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Cache.CacheRequest.GetResponse(System.String,System.String,System.Nullable{System.DateTime}@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Expires">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Expires</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Cache.CacheRequest.GetResponse(System.String,System.String,System.Nullable{System.DateTime}@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Cache.CacheRequest.GetResponse(System.String,System.String,System.Nullable{System.DateTime}@)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Cache.CacheRequest.PruneExpired">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Cache.CacheRequest.PruneExpired</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Cache.CacheRequest.Read(System.IO.Stream)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Cache.CacheRequest.Read(System.IO.Stream)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Stream">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Stream</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Cache.CacheRequest.Read(System.IO.Stream)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Cache.CacheRequest.Read(System.IO.Stream)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Cache.CacheRequest.Write(System.IO.Stream)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Cache.CacheRequest.Write(System.IO.Stream)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Stream">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Stream</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Cache.CacheRequest.Write(System.IO.Stream)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Cache.CacheRequest.Write(System.IO.Stream)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Sc2RanksBaseResult">
+      <summary>
+ This class contains extra result data.
+ </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksBaseResult.#ctor">
+      <summary>
+ Constructor.
+ </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksBaseResult.CacheExpires">
+      <summary>
+ Returns the date when the cached data expires. The cache is from the API and not SC2Ranks.
+ </summary>
+      <returns></returns>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksBaseResult.Error">
+      <summary>
+ Returns the error message if an error has occured.
+ </summary>
+      <returns></returns>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksBaseResult.HasError">
+      <summary>
+ Returns <c>True</c> if an error has occured, otherwise <c>False</c>.
+ </summary>
+      <returns></returns>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksBaseResult.ResponseRaw">
+      <summary>
+ Returns the raw response from the server. Usually in JSON format.
+ </summary>
+      <returns></returns>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.AchievementPoint">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.AchievementPoint</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.BattleNetID">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.BattleNetID</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.Clan">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.Clan</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.Name">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.Name</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.Region">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.Region</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.ReplayUrl">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.ReplayUrl</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.SwarmLevels">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.SwarmLevels</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.UpdatedAt">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.UpdatedAt</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.UpdatedAtUnixTime">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.UpdatedAtUnixTime</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.Url">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.Url</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.VodUrl">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult.VodUrl</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Add(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Add(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Item">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Item</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Add(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Clear">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Clear</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Contains(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Contains(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Item">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Item</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Contains(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Contains(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.CopyTo(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult[],System.Int32)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.CopyTo(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult[],System.Int32)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Array">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Array</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.CopyTo(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult[],System.Int32)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="ArrayIndex">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>ArrayIndex</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.CopyTo(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult[],System.Int32)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Count">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Count</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.GetEnumerator">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.GetEnumerator</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.GetEnumerator</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.System#Collections#IEnumerable#GetEnumerator">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.System#Collections#IEnumerable#GetEnumerator</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.System#Collections#IEnumerable#GetEnumerator</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.IndexOf(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.IndexOf(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Item">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Item</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.IndexOf(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.IndexOf(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Insert(System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Insert(System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Index">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Index</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Insert(System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Item">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Item</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Insert(System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.IsReadOnly">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.IsReadOnly</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Item(System.Int32)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Item(System.Int32)</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Remove(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Remove(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Item">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Item</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Remove(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.Remove(NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterResult)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.RemoveAt(System.Int32)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.RemoveAt(System.Int32)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Index">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Index</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.RemoveAt(System.Int32)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharactersResult.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Add(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Add(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Item">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Item</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Add(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Clear">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Clear</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Contains(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Contains(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Item">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Item</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Contains(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Contains(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.CopyTo(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement[],System.Int32)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.CopyTo(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement[],System.Int32)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Array">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Array</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.CopyTo(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement[],System.Int32)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="ArrayIndex">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>ArrayIndex</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.CopyTo(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement[],System.Int32)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Count">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Count</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.GetEnumerator">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.GetEnumerator</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.GetEnumerator</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.System#Collections#IEnumerable#GetEnumerator">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.System#Collections#IEnumerable#GetEnumerator</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.System#Collections#IEnumerable#GetEnumerator</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.IndexOf(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.IndexOf(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Item">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Item</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.IndexOf(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.IndexOf(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Insert(System.Int32,NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Insert(System.Int32,NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Index">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Index</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Insert(System.Int32,NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Item">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Item</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Insert(System.Int32,NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.IsReadOnly">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.IsReadOnly</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Item(System.Int32)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Item(System.Int32)</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Remove(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Remove(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Item">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Item</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Remove(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.Remove(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.RemoveAt(System.Int32)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.RemoveAt(System.Int32)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Index">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Index</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.RemoveAt(System.Int32)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksCharacterTeamsResult.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Sc2RanksDataResult">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.Result.Sc2RanksDataResult</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Sc2RanksDataResult.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksDataResult.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Sc2RanksDataResult.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketElement">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketElement.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketElement.Bracket">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketElement.Bracket</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketElement.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketElement.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketElement.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement._1V1">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement._1V1</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement._2V2R">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement._2V2R</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement._2V2T">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement._2V2T</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement._3V3R">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement._3V3R</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement._3V3T">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement._3V3T</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement._4V4R">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement._4V4R</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement._4V4T">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement._4V4T</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksBracketsElement.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.BattleNetID">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.BattleNetID</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.Clan">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.Clan</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.Name">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.Name</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.Race">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.Race</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.Region">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.Region</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.ReplayUrl">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.ReplayUrl</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.Url">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.Url</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.VodUrl">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterElement.VodUrl</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.Bracket">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.Bracket</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.Characters">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.Characters</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.Division">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.Division</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.Expansion">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.Expansion</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.ExpansionRaw">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.ExpansionRaw</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.LastGameAt">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.LastGameAt</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.LastGameAtUnixTime">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.LastGameAtUnixTime</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.League">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.League</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.Losses">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.Losses</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.Points">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.Points</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.Rankings">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.Rankings</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.RankRegion">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.RankRegion</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.Url">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.Url</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.WinRatio">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.WinRatio</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.Wins">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterTeamElement.Wins</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksClanElement">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksClanElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksClanElement.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.Result.Element.Sc2RanksClanElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksClanElement.Tag">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksClanElement.Tag</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksClanElement.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksClanElement.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksClanElement.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksClanElement.Url">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksClanElement.Url</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksDivisionElement">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksDivisionElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksDivisionElement.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.Result.Element.Sc2RanksDivisionElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksDivisionElement.ID">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksDivisionElement.ID</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksDivisionElement.Rank">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksDivisionElement.Rank</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksDivisionElement.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksDivisionElement.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksDivisionElement.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksExpansionsElement">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksExpansionsElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksExpansionsElement.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.Result.Element.Sc2RanksExpansionsElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksExpansionsElement.Hots">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksExpansionsElement.Hots</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksExpansionsElement.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksExpansionsElement.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksExpansionsElement.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksExpansionsElement.Wol">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksExpansionsElement.Wol</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.All">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.All</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.Bronze">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.Bronze</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.Diamond">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.Diamond</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.Gold">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.Gold</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.Grandmaster">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.Grandmaster</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.Master">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.Master</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.Platinum">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.Platinum</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.Silver">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.Silver</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksLeaguesElement.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksNotationElement">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksNotationElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksNotationElement.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.Result.Element.Sc2RanksNotationElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksNotationElement.Long">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksNotationElement.Long</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksNotationElement.Short">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksNotationElement.Short</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksNotationElement.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksNotationElement.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksNotationElement.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankingElement">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankingElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankingElement.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankingElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankingElement.Region">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankingElement.Region</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankingElement.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankingElement.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankingElement.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankingElement.World">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankingElement.World</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement.Am">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement.Am</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement.Cn">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement.Cn</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement.Eu">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement.Eu</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement.Fea">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement.Fea</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement.Global">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement.Global</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement.Sea">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement.Sea</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRankRegionsElement.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement.Global">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement.Global</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement.Kr">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement.Kr</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement.La">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement.La</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement.Ru">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement.Ru</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement.Tw">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement.Tw</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement.Us">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRegionsElement.Us</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSeasonElement">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSeasonElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSeasonElement.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSeasonElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSeasonElement.Number">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSeasonElement.Number</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSeasonElement.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSeasonElement.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSeasonElement.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSeasonElement.Year">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSeasonElement.Year</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSwarmLevelElement">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSwarmLevelElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSwarmLevelElement.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSwarmLevelElement</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSwarmLevelElement.Protoss">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSwarmLevelElement.Protoss</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSwarmLevelElement.Terran">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSwarmLevelElement.Terran</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSwarmLevelElement.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSwarmLevelElement.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSwarmLevelElement.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSwarmLevelElement.Zerg">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksSwarmLevelElement.Zerg</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.Helper.EnumBuffer`2">
+      <summary>
+ This class buffers an enumartion marked with <see cref="T:NuGardt.SC2Ranks.Helper.TagAttribute">TagAttribute</see>.
+ </summary>
+      <typeparam name="TEnum">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>TEnum</parameter>
+            <parameter>T:NuGardt.SC2Ranks.Helper.EnumBuffer`2</parameter>
+          </include>
+        </markup>
+      </typeparam>
+      <typeparam name="TAttribute">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>TAttribute</parameter>
+            <parameter>T:NuGardt.SC2Ranks.Helper.EnumBuffer`2</parameter>
+          </include>
+        </markup>
+      </typeparam>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.Helper.EnumBuffer`2.#ctor(NuGardt.SC2Ranks.Helper.EnumBuffer{`0,`1}.procParseCustomAttribute)">
+      <summary>
+ Construct.
+ </summary>
+      <param name="ParseCustomAttribute">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>ParseCustomAttribute</parameter>
+            <parameter>M:NuGardt.SC2Ranks.Helper.EnumBuffer`2.#ctor(NuGardt.SC2Ranks.Helper.EnumBuffer{`0,`1}.procParseCustomAttribute)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.Helper.EnumBuffer`2.GetEnum(System.String,System.Exception@)">
+      <summary>
+ Returns the tag for an enumeration.
+ </summary>
+      <param name="Tag">The tag.</param>
+      <param name="Ex">
+ Optional. Contains the error message if one occured, otherwise <c>Nothing</c>.
+ </param>
+      <returns>
+ Returns <c>True</c>, if the tag was matched to an enumeration, otherwise <c>False</c>.
+ </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.Helper.EnumBuffer`2.GetEnum(System.String,`0@,System.Exception@)">
+      <summary>
+ Returns the tag for an enumeration.
+ </summary>
+      <param name="Tag">The tag.</param>
+      <param name="Instance">
+ Contains the Enumeration, if the tag could be matched to an enumeration, otherwise <c>Nothing</c>.
+ </param>
+      <param name="Ex">
+ Optional. Contains the error message if one occured, otherwise <c>Nothing</c>.
+ </param>
+      <returns>
+ Returns <c>True</c>, if the tag was matched to an enumeration, otherwise <c>False</c>.
+ </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.Helper.EnumBuffer`2.GetValue(`0,System.Exception@)">
+      <summary>
+ Returns the enumeration for a tag.
+ </summary>
+      <param name="Enum">The enumartion.</param>
+      <param name="Ex">
+ Optional. Contains the error message if one occured, otherwise <c>Nothing</c>.
+ </param>
+      <returns>
+ Return <c>True</c>, if the enumration was matched to a tag, otherwise <c>False</c>.
+ </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.Helper.EnumBuffer`2.GetValue(`0,System.String@,System.Exception@)">
+      <summary>
+ Returns the enumeration for a tag.
+ </summary>
+      <param name="Enum">The enumartion.</param>
+      <param name="Instance">
+ Contains the tag, if the enumartion could be matched to a tag, otherwise <c>False</c>.
+ </param>
+      <param name="Ex">
+ Optional. Contains the error message if one occured, otherwise <c>Nothing</c>.
+ </param>
+      <returns>
+ Return <c>True</c>, if the enumration was matched to a tag, otherwise <c>False</c>.
+ </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.Helper.EnumBuffer`2.ToEnumList">
+      <summary>
+ Returns a list of all enumerations.
+ </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.Helper.EnumBuffer`2.ToEnumList</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.Helper.EnumBuffer`2.ToValueList">
+      <summary>
+ Returns a list of all enumerations.
+ </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.Helper.EnumBuffer`2.ToValueList</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.Helper.EnumBuffer`2.procParseCustomAttribute">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.Helper.EnumBuffer`2.procParseCustomAttribute</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.Helper.Enums">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:NuGardt.SC2Ranks.Helper.Enums</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.Enums.BracketBuffer">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.Helper.Enums.BracketBuffer</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.Enums.BracketNotationBuffer">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.Helper.Enums.BracketNotationBuffer</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.Helper.Enums.BracketRawToBracket(System.Int16,System.Boolean)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.Helper.Enums.BracketRawToBracket(System.Int16,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Bracket">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Bracket</parameter>
+            <parameter>M:NuGardt.SC2Ranks.Helper.Enums.BracketRawToBracket(System.Int16,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="Random">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Random</parameter>
+            <parameter>M:NuGardt.SC2Ranks.Helper.Enums.BracketRawToBracket(System.Int16,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.Helper.Enums.BracketRawToBracket(System.Int16,System.Boolean)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.Enums.ExpansionBuffer">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.Helper.Enums.ExpansionBuffer</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.Enums.ExpansionNotationBuffer">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.Helper.Enums.ExpansionNotationBuffer</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.Enums.LeaguesBuffer">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.Helper.Enums.LeaguesBuffer</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.Enums.MatchTypeBuffer">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.Helper.Enums.MatchTypeBuffer</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.Enums.RacesBuffer">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.Helper.Enums.RacesBuffer</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.Enums.RankRegionBuffer">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.Helper.Enums.RankRegionBuffer</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.Enums.RegionBuffer">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.Helper.Enums.RegionBuffer</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.Enums.RegionNotationBuffer">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.Helper.Enums.RegionNotationBuffer</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.Helper.NotationAttribute">
+      <summary>
+ Attribute for Notation.
+ </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.Helper.NotationAttribute.#ctor(System.String)">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.Helper.NotationAttribute</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Value</parameter>
+            <parameter>M:NuGardt.SC2Ranks.Helper.NotationAttribute.#ctor(System.String)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.Helper.NotationAttribute.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.Helper.NotationAttribute.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.Helper.NotationAttribute.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.NotationAttribute.Value">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.Helper.NotationAttribute.Value</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:NuGardt.SC2Ranks.Helper.TagAttribute">
+      <summary>
+ Attribute for field tag.
+ </summary>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.Helper.TagAttribute.#ctor(System.String)">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.Helper.TagAttribute</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="Value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>Value</parameter>
+            <parameter>M:NuGardt.SC2Ranks.Helper.TagAttribute.#ctor(System.String)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:NuGardt.SC2Ranks.Helper.TagAttribute.ToString">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:NuGardt.SC2Ranks.Helper.TagAttribute.ToString</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:NuGardt.SC2Ranks.Helper.TagAttribute.ToString</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.TagAttribute.Value">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:NuGardt.SC2Ranks.Helper.TagAttribute.Value</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+  </members>
+</doc>

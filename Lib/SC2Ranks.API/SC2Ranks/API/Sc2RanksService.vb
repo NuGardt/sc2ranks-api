@@ -35,7 +35,9 @@ Namespace SC2Ranks.API
   Public Class Sc2RanksService
     Implements IDisposable
 
-    Private Const BaseUrlFormat As String = "http://api.sc2ranks.com/v2/{0}?api_key={1}{2}"
+    Private Const BaseUrlFormat As String = "http://api.sc2ranks.com/v2/{0}?api_key={1}"
+    Private Const HeaderCreditsLeft As String = "X-Credits-Left"
+    Private Const HeaderCreditsUsed As String = "X-Credits-Used"
 
     Private ReadOnly UseRequestCache As Boolean
     Private ReadOnly Cache As CacheRequest
@@ -118,7 +120,7 @@ Namespace SC2Ranks.API
                             Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
 
-      Result = QueryAndParse(Of Sc2RanksDataResult)(eRequestMethod.Get, String.Format(BaseUrlFormat, "data", Me.m_ApiKey, Nothing), Nothing, Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of Sc2RanksDataResult)(eRequestMethod.Get, String.Format(BaseUrlFormat, "data", Me.m_ApiKey), Nothing, Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -126,7 +128,7 @@ Namespace SC2Ranks.API
     Public Function GetDataBegin(ByVal Key As Object,
                                  ByVal Callback As AsyncCallback,
                                  Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
-      Return QueryAndParseBegin(Key, eRequestMethod.Get, String.Format(BaseUrlFormat, "data", Me.m_ApiKey, Nothing), Nothing, IgnoreCache, Me.CacheConfig.SearchBasePlayerCacheDuration, Callback)
+      Return QueryAndParseBegin(Key, eRequestMethod.Get, String.Format(BaseUrlFormat, "data", Me.m_ApiKey), Nothing, IgnoreCache, Me.CacheConfig.SearchBasePlayerCacheDuration, Callback)
     End Function
 
     Public Function GetDataEnd(ByVal Result As IAsyncResult,
@@ -145,7 +147,7 @@ Namespace SC2Ranks.API
                                  Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
 
-      Result = QueryAndParse(Of Sc2RanksCharacterResult)(eRequestMethod.Get, String.Format(BaseUrlFormat, String.Format("characters/{0}/{1}", Enums.RegionBuffer.GetValue(Region), BattleNetID.ToString()), Me.m_ApiKey, Nothing), Nothing, Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of Sc2RanksCharacterResult)(eRequestMethod.Get, String.Format(BaseUrlFormat, String.Format("characters/{0}/{1}", Enums.RegionBuffer.GetValue(Region), BattleNetID.ToString()), Me.m_ApiKey), Nothing, Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -155,7 +157,7 @@ Namespace SC2Ranks.API
                                       ByVal BattleNetID As Int32,
                                       ByVal Callback As AsyncCallback,
                                       Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
-      Return QueryAndParseBegin(Key, eRequestMethod.Get, String.Format(BaseUrlFormat, String.Format("characters/{0}/{1}", Enums.RegionBuffer.GetValue(Region), BattleNetID.ToString()), Me.m_ApiKey, Nothing), Nothing, IgnoreCache, Me.CacheConfig.SearchBasePlayerCacheDuration, Callback)
+      Return QueryAndParseBegin(Key, eRequestMethod.Get, String.Format(BaseUrlFormat, String.Format("characters/{0}/{1}", Enums.RegionBuffer.GetValue(Region), BattleNetID.ToString()), Me.m_ApiKey), Nothing, IgnoreCache, Me.CacheConfig.SearchBasePlayerCacheDuration, Callback)
     End Function
 
     Public Function GetCharacterEnd(ByVal Result As IAsyncResult,
@@ -168,23 +170,48 @@ Namespace SC2Ranks.API
 
 #Region "Function GetCharacters"
 
-    Public Function GetCharacters(ByVal Region As eSc2RanksRegion,
-                                  ByVal BattleNetID As Int32,
+    Public Function GetCharacters(ByVal Characters As IList(Of Sc2RanksBulkCharacter),
                                   <Out()> ByRef Result As Sc2RanksCharactersResult,
                                   Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
+      Dim PostData As New StringBuilder
 
-      Result = QueryAndParse(Of Sc2RanksCharactersResult, Sc2RanksCharacterResult, IList(Of Sc2RanksCharacterResult))(eRequestMethod.Get, String.Format(BaseUrlFormat, "bulk/characters", Me.m_ApiKey, Nothing), Nothing, Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
+      If (Characters IsNot Nothing) AndAlso (Characters.Count > 0) Then
+        Dim dMax As Int32 = Characters.Count - 1
+        For d = 0 To dMax
+          With Characters.Item(d)
+            If (PostData.Length > 0) Then Call PostData.Append("&")
+
+            Call PostData.AppendFormat("character[{0}][region]={1}", d.ToString(), Enums.RegionBuffer.GetValue(.Region))
+            Call PostData.AppendFormat("&character[{0}][bnet_id]={1}", d.ToString(), .BattleNetID.ToString())
+          End With
+        Next d
+      End If
+
+      Result = QueryAndParse(Of Sc2RanksCharactersResult, Sc2RanksCharacterResult, IList(Of Sc2RanksCharacterResult))(eRequestMethod.Get, String.Format(BaseUrlFormat, "bulk/characters", Me.m_ApiKey), PostData.ToString(), Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
 
     Public Function GetCharactersBegin(ByVal Key As Object,
-                                       ByVal Region As eSc2RanksRegion,
-                                       ByVal BattleNetID As Int32,
+                                       ByVal Characters As IList(Of Sc2RanksBulkCharacter),
                                        ByVal Callback As AsyncCallback,
                                        Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
-      Return QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, "bulk/characters", Me.m_ApiKey, Nothing), Nothing, IgnoreCache, Me.CacheConfig.SearchBasePlayerCacheDuration, Callback)
+      Dim PostData As New StringBuilder
+
+      If (Characters IsNot Nothing) AndAlso (Characters.Count > 0) Then
+        Dim dMax As Int32 = Characters.Count - 1
+        For d = 0 To dMax
+          With Characters.Item(d)
+            If (PostData.Length > 0) Then Call PostData.Append("&")
+
+            Call PostData.AppendFormat("character[{0}]region={1}", (d + 1).ToString(), Enums.RegionBuffer.GetValue(eSc2RanksRegion.Global))
+            Call PostData.AppendFormat("&character[{0}]bnet_id={1}", (d + 1).ToString(), .BattleNetID.ToString())
+          End With
+        Next d
+      End If
+
+      Return QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, "bulk/characters", Me.m_ApiKey), PostData.ToString(), IgnoreCache, Me.CacheConfig.SearchBasePlayerCacheDuration, Callback)
     End Function
 
     Public Function GetCharactersEnd(ByVal Result As IAsyncResult,
@@ -199,11 +226,19 @@ Namespace SC2Ranks.API
 
     Public Function GetCharacterTeams(ByVal Region As eSc2RanksRegion,
                                       ByVal BattleNetID As Int32,
+                                      ByVal Expansion As eSc2RanksExpansion,
+                                      ByVal Bracket As eSc2RanksBracket,
+                                      ByVal League As eSc2RanksLeague,
                                       <Out()> ByRef Result As Sc2RanksCharacterTeamsResult,
+                                      Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
                                       Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
+      Dim PostData As New StringBuilder
 
-      Result = QueryAndParse(Of Sc2RanksCharacterTeamsResult)(eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("characters/teams/{0}/{1}", Enums.RegionBuffer.GetValue(Region), BattleNetID.ToString()), Me.m_ApiKey, Nothing), Nothing, Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
+      Call PostData.AppendFormat("expansion={0}&bracket={1}&league={2}", Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League))
+      If (Race.HasValue) Then PostData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
+
+      Result = QueryAndParse(Of Sc2RanksCharacterTeamsResult, Sc2RanksCharacterTeamElement, IList(Of Sc2RanksCharacterTeamElement))(eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("characters/teams/{0}/{1}", Enums.RegionBuffer.GetValue(Region), BattleNetID.ToString()), Me.m_ApiKey), PostData.ToString(), Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -211,9 +246,18 @@ Namespace SC2Ranks.API
     Public Function GetCharacterTeamsBegin(ByVal Key As Object,
                                            ByVal Region As eSc2RanksRegion,
                                            ByVal BattleNetID As Int32,
+                                           ByVal Expansion As eSc2RanksExpansion,
+                                           ByVal Bracket As eSc2RanksBracket,
+                                           ByVal League As eSc2RanksLeague,
                                            ByVal Callback As AsyncCallback,
+                                           Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
                                            Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
-      Return QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("characters/teams/{0}/{1}", Enums.RegionBuffer.GetValue(Region), BattleNetID.ToString()), Me.m_ApiKey, Nothing), Nothing, IgnoreCache, Me.CacheConfig.SearchBasePlayerCacheDuration, Callback)
+      Dim PostData As New StringBuilder
+
+      Call PostData.AppendFormat("expansion={0}&bracket={1}&league={2}", Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League))
+      If (Race.HasValue) Then PostData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
+
+      Return QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("characters/teams/{0}/{1}", Enums.RegionBuffer.GetValue(Region), BattleNetID.ToString()), Me.m_ApiKey), PostData.ToString(), IgnoreCache, Me.CacheConfig.SearchBasePlayerCacheDuration, Callback)
     End Function
 
     Public Function GetCharacterTeamsEnd(ByVal Result As IAsyncResult,
@@ -238,12 +282,12 @@ Namespace SC2Ranks.API
                                          Optional Race As Nullable(Of eSc2RanksRace) = Nothing,
                                          Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
-      Dim Data As New StringBuilder
+      Dim PostData As New StringBuilder
 
-      Call Data.AppendFormat("&name={0}&match={1}&rank_region={2}&expansion={3}&bracket={4}&league={5}&page={6}&limit={7}", Name, Enums.MatchTypeBuffer.GetValue(Match), Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeaguesBuffer.GetValue(League), Page.ToString(), Limit.ToString())
-      If (Race.HasValue) Then Data.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
+      Call PostData.AppendFormat("&name={0}&match={1}&rank_region={2}&expansion={3}&bracket={4}&league={5}&page={6}&limit={7}", Name, Enums.MatchTypeBuffer.GetValue(Match), Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), Page.ToString(), Limit.ToString())
+      If (Race.HasValue) Then PostData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
 
-      Result = QueryAndParse(Of Sc2RanksCharacterTeamsResult)(eRequestMethod.Post, String.Format(BaseUrlFormat, "characters/search", Me.m_ApiKey, Data.ToString()), Nothing, Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of Sc2RanksCharacterTeamsResult, Sc2RanksCharacterTeamElement, IList(Of Sc2RanksCharacterTeamElement))(eRequestMethod.Post, String.Format(BaseUrlFormat, "characters/search", Me.m_ApiKey), PostData.ToString(), Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -260,12 +304,12 @@ Namespace SC2Ranks.API
                                               ByVal Callback As AsyncCallback,
                                               Optional Race As Nullable(Of eSc2RanksRace) = Nothing,
                                               Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
-      Dim Data As New StringBuilder
+      Dim PostData As New StringBuilder
 
-      Call Data.AppendFormat("&name={0}&match={1}&rank_region={2}&expansion={3}&bracket={4}&league={5}&page={6}&limit={7}", Name, Enums.MatchTypeBuffer.GetValue(Match), Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeaguesBuffer.GetValue(League), Page.ToString(), Limit.ToString())
-      If (Race.HasValue) Then Data.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
+      Call PostData.AppendFormat("&name={0}&match={1}&rank_region={2}&expansion={3}&bracket={4}&league={5}&page={6}&limit={7}", Name, Enums.MatchTypeBuffer.GetValue(Match), Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), Page.ToString(), Limit.ToString())
+      If (Race.HasValue) Then PostData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
 
-      Return QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, "characters/search", Me.m_ApiKey, Data.ToString()), Nothing, IgnoreCache, Me.CacheConfig.SearchBasePlayerCacheDuration, Callback)
+      Return QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, "characters/search", Me.m_ApiKey), PostData.ToString(), IgnoreCache, Me.CacheConfig.SearchBasePlayerCacheDuration, Callback)
     End Function
 
     Public Function SearchCharacterTeamsEnd(ByVal Result As IAsyncResult,
@@ -305,6 +349,8 @@ Namespace SC2Ranks.API
       Dim Serializer As DataContractJsonSerializer
       Dim ResponseStream As Stream
       Dim Expires As Nullable(Of DateTime)
+      Dim CreditsLeft As Int32 = Nothing
+      Dim CreditsUsed As Int32 = Nothing
 
       Try
         ResponseStream = Me.CacheOrQuery(Method, URL, PostData, IgnoreCache, Expires)
@@ -320,7 +366,11 @@ Namespace SC2Ranks.API
         ResponseStream.Position = 0
         Dim sr As New StreamReader(ResponseStream)
 
-        Result.ResponseRaw = sr.ReadToEnd
+        With Result
+          .ResponseRaw = sr.ReadToEnd
+          .CreditsLeft = CreditsLeft
+          .CreditsUsed = CreditsUsed
+        End With
 
         If Me.UseRequestCache Then Call Me.Cache.AddResponse(URL, PostData, Result.ResponseRaw, CacheDuration)
 
@@ -346,6 +396,8 @@ Namespace SC2Ranks.API
       Dim Serializer As DataContractJsonSerializer
       Dim ResponseStream As Stream
       Dim Expires As Nullable(Of DateTime)
+      Dim CreditsLeft As Int32 = Nothing
+      Dim CreditsUsed As Int32 = Nothing
 
       Try
         ResponseStream = Me.CacheOrQuery(Method, URL, Post, IgnoreCache, Expires)
@@ -372,7 +424,11 @@ Namespace SC2Ranks.API
         ResponseStream.Position = 0
         Dim sr As New StreamReader(ResponseStream)
 
-        Result.ResponseRaw = sr.ReadToEnd
+        With Result
+          .ResponseRaw = sr.ReadToEnd
+          .CreditsLeft = CreditsLeft
+          .CreditsUsed = CreditsUsed
+        End With
 
         If Me.UseRequestCache Then Call Me.Cache.AddResponse(URL, Post, Result.ResponseRaw, CacheDuration)
 
@@ -567,6 +623,8 @@ Namespace SC2Ranks.API
       Dim ResponseStream As Stream = Nothing
       Dim Stream As Stream
       Dim Serializer As DataContractJsonSerializer
+      Dim CreditsLeft As Int32 = Nothing
+      Dim CreditsUsed As Int32 = Nothing
 
       If (Result Is Nothing) Then
         Ex = New ArgumentNullException("Result")
@@ -597,6 +655,9 @@ Namespace SC2Ranks.API
                 Return iEx
               End Try
 
+              Call Int32.TryParse(WebResponse.Headers.Get(HeaderCreditsLeft), CreditsLeft)
+              Call Int32.TryParse(WebResponse.Headers.Get(HeaderCreditsUsed), CreditsUsed)
+
               ResponseStream = WebResponse.GetResponseStream()
 
               'Copy stream
@@ -616,14 +677,17 @@ Namespace SC2Ranks.API
             End If
 
             'Deserialize
-
             Response = DirectCast(Serializer.ReadObject(ResponseStream), T)
             Response.CacheExpires = State.FromCacheExpires
 
             ResponseStream.Position = 0
             Dim sr As New StreamReader(ResponseStream)
 
-            Response.ResponseRaw = sr.ReadToEnd
+            With Response
+              .ResponseRaw = sr.ReadToEnd
+              .CreditsLeft = CreditsLeft
+              .CreditsUsed = CreditsUsed
+            End With
 
             If Me.UseRequestCache Then Call Me.Cache.AddResponse(State.RequestString, State.Post, Response.ResponseRaw, State.CacheDuration)
 
@@ -652,6 +716,8 @@ Namespace SC2Ranks.API
       Dim ResponseStream As Stream = Nothing
       Dim Stream As Stream
       Dim Serializer As DataContractJsonSerializer
+      Dim CreditsLeft As Int32 = Nothing
+      Dim CreditsUsed As Int32 = Nothing
 
       If (Result Is Nothing) Then
         Ex = New ArgumentNullException("Result")
@@ -681,6 +747,9 @@ Namespace SC2Ranks.API
               Catch iEx As Exception
                 Return iEx
               End Try
+
+              Call Int32.TryParse(WebResponse.Headers.Get(HeaderCreditsLeft), CreditsLeft)
+              Call Int32.TryParse(WebResponse.Headers.Get(HeaderCreditsUsed), CreditsUsed)
 
               ResponseStream = WebResponse.GetResponseStream()
 
@@ -719,7 +788,11 @@ Namespace SC2Ranks.API
             ResponseStream.Position = 0
             Dim sr As New StreamReader(ResponseStream)
 
-            Response.ResponseRaw = sr.ReadToEnd
+            With Response
+              .ResponseRaw = sr.ReadToEnd
+              .CreditsLeft = CreditsLeft
+              .CreditsUsed = CreditsUsed
+            End With
 
             If Me.UseRequestCache Then Call Me.Cache.AddResponse(State.RequestString, State.Post, Response.ResponseRaw, State.CacheDuration)
 

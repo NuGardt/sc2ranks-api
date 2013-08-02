@@ -25,7 +25,11 @@ Namespace SC2Ranks.UnitTest.GetCharacters
       If (Ex IsNot Nothing) Then
         Call Me.OnCompletion.Invoke(Nothing)
       Else
-        Call Me.Service.GetCharactersBegin(Nothing, [Const].Region, [Const].BattleNetID, EndCallback)
+        Dim Characters As New List(Of Sc2RanksBulkCharacter)
+
+        Call Characters.Add(New Sc2RanksBulkCharacter([Const].Region, [Const].BattleNetID))
+
+        Call Me.Service.GetCharactersBegin(Nothing, Characters, EndCallback)
       End If
     End Sub
 

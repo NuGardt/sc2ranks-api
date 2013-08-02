@@ -16,13 +16,13 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Imports System.IO
-Imports NuGardt.SC2Ranks.UnitTest.GetCharacters
 Imports NuGardt.SC2Ranks.UnitTest.GetCharacterTeams
 Imports NuGardt.SC2Ranks.UnitTest.GetCharacter
 Imports NuGardt.SC2Ranks.UnitTest.GetData
+Imports NuGardt.SC2Ranks.UnitTest.GetCharacters
 Imports NuGardt.UnitTest
-Imports NuGardt.SC2Ranks.UnitTest.SearchCharacterTeams
 Imports System.Threading
+Imports NuGardt.SC2Ranks.UnitTest.SearchCharacterTeams
 
 Namespace SC2Ranks
   Module StartUp
@@ -73,20 +73,20 @@ Namespace SC2Ranks
       Call Trace.WriteSystemInformation()
       Call Trace.WriteLine("")
 
-      Call TestCases.Enqueue(New GetDataBeginUnitTest) 'Races missing
-      Call TestCases.Enqueue(New GetDataUnitTest) 'Races missing
+      Call TestCases.Enqueue(New GetDataBeginUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetDataUnitTest) 'Tested 2013-08-03: Ok
 
-      Call TestCases.Enqueue(New GetCharacterBeginUnitTest) 'Error 500
-      Call TestCases.Enqueue(New GetCharacterUnitTest) 'Error 500
+      Call TestCases.Enqueue(New GetCharacterBeginUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetCharacterUnitTest) 'Tested 2013-08-03: Ok
 
-      Call TestCases.Enqueue(New GetCharacterTeamsBeginUnitTest) 'Error 500
-      Call TestCases.Enqueue(New GetCharacterTeamsUnitTest) 'Error 500
+      Call TestCases.Enqueue(New GetCharacterTeamsBeginUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetCharacterTeamsUnitTest) 'Tested 2013-08-0§: Ok
 
-      Call TestCases.Enqueue(New SearchCharacterTeamsBeginUnitTest) 'Error 500
-      Call TestCases.Enqueue(New SearchCharacterTeamsUnitTest) 'Error 500
+      Call TestCases.Enqueue(New SearchCharacterTeamsBeginUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New SearchCharacterTeamsUnitTest) 'Tested 2013-08-03: Ok
 
-      Call TestCases.Enqueue(New GetCharactersBeginUnitTest) 'Error 404
-      Call TestCases.Enqueue(New GetCharactersUnitTest) 'Error 404
+      'Call TestCases.Enqueue(New GetCharactersBeginUnitTest) 'Error 400
+      'Call TestCases.Enqueue(New GetCharactersUnitTest) 'Error 400
 
       Call TestingBegin()
 

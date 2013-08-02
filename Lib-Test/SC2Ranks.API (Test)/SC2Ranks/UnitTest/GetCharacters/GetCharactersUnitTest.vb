@@ -25,7 +25,11 @@ Namespace SC2Ranks.UnitTest.GetCharacters
       If (Me.Ex Is Nothing) Then
         Dim Response As Sc2RanksCharactersResult = Nothing
 
-        Me.Ex = Me.Service.GetCharacters([Const].Region, [Const].BattleNetID, Response)
+        Dim Characters As New List(Of Sc2RanksBulkCharacter)
+
+        Call Characters.Add(New Sc2RanksBulkCharacter([Const].Region, [Const].BattleNetID))
+
+        Me.Ex = Me.Service.GetCharacters(Characters, Response)
 
         If (Ex Is Nothing) Then
           If Response.HasError Then

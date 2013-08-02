@@ -30,7 +30,7 @@ Namespace SC2Ranks.Helper
     Public Shared BracketBuffer As EnumBuffer(Of eSc2RanksBracket, EnumMemberAttribute) = New EnumBuffer(Of eSc2RanksBracket, EnumMemberAttribute)
     Public Shared BracketNotationBuffer As EnumBuffer(Of eSc2RanksBracket, NotationAttribute) = New EnumBuffer(Of eSc2RanksBracket, NotationAttribute)
     Public Shared RacesBuffer As EnumBuffer(Of eSc2RanksRace, EnumMemberAttribute) = New EnumBuffer(Of eSc2RanksRace, EnumMemberAttribute)
-    Public Shared LeaguesBuffer As EnumBuffer(Of eSc2RanksLeague, EnumMemberAttribute) = New EnumBuffer(Of eSc2RanksLeague, EnumMemberAttribute)
+    Public Shared LeagueBuffer As EnumBuffer(Of eSc2RanksLeague, EnumMemberAttribute) = New EnumBuffer(Of eSc2RanksLeague, EnumMemberAttribute)
     Public Shared ExpansionBuffer As EnumBuffer(Of eSc2RanksExpansion, EnumMemberAttribute) = New EnumBuffer(Of eSc2RanksExpansion, EnumMemberAttribute)
     Public Shared ExpansionNotationBuffer As EnumBuffer(Of eSc2RanksExpansion, NotationAttribute) = New EnumBuffer(Of eSc2RanksExpansion, NotationAttribute)
 
@@ -44,16 +44,16 @@ Namespace SC2Ranks.Helper
 
       Select Case Bracket
         Case 2
-          Erg = eSc2RanksBracket._2V2
+          Erg = eSc2RanksBracket._2V2T
         Case 3
-          Erg = eSc2RanksBracket._3V3
+          Erg = eSc2RanksBracket._3V3T
         Case 4
-          Erg = eSc2RanksBracket._4V4
+          Erg = eSc2RanksBracket._4V4T
         Case Else
           Erg = eSc2RanksBracket._1V1
       End Select
 
-      If Random Then Erg = Erg And eSc2RanksBracket.Random
+      If Random Then Erg = (Erg Or eSc2RanksBracket.Random)
 
       Return Erg
     End Function

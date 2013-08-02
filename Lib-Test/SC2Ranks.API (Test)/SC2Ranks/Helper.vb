@@ -16,7 +16,6 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Imports System.Runtime.InteropServices
-Imports System.Globalization
 Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 Imports NuGardt.SC2Ranks.API.Result
@@ -240,7 +239,7 @@ Namespace SC2Ranks
               With DirectCast(B, JValue)
                 If (.Type = JTokenType.Float) Then
                   ' Doubles are formatted differently in ResponseRaw so I adjust here
-                  Return String.Equals(A.ToString(), .ToString("0.0", CultureInfo.InvariantCulture))
+                  Return String.Equals(A.ToString(), .ToString())
                 Else
                   Return A.Equals(B)
                 End If

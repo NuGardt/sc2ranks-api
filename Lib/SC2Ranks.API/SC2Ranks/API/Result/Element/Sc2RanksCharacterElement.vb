@@ -154,13 +154,13 @@ Namespace SC2Ranks.API.Result.Element
       Dim SB As New StringBuilder
 
       With SB
-        Call .AppendFormat("Replay URL: {0}{1}", Me.ReplayUrl.ToString(), vbCrLf)
-        Call .AppendFormat("VoD URL: {0}{1}", Me.VodUrl.ToString(), vbCrLf)
-        Call .AppendFormat("URL: {0}{1}", Me.Url.ToString(), vbCrLf)
+        Call .AppendFormat("Replay URL: {0}{1}", Me.ReplayUrl, vbCrLf)
+        Call .AppendFormat("VoD URL: {0}{1}", Me.VodUrl, vbCrLf)
+        Call .AppendFormat("URL: {0}{1}", Me.Url, vbCrLf)
         Call .AppendFormat("Race: {0}{1}", Me.Race.ToString(), vbCrLf)
         Call .AppendFormat("Region: {0}{1}", Me.Region.ToString(), vbCrLf)
         Call .AppendFormat("Battle.net ID: {0}{1}", Me.BattleNetID.ToString(), vbCrLf)
-        Call .AppendFormat("Name: {0}{1}", Me.Name.ToString(), vbCrLf)
+        Call .AppendFormat("Name: {0}{1}", Me.Name, vbCrLf)
         Call .AppendFormat("Clan: {0}{1}", Me.Clan.ToString(), vbCrLf)
       End With
 

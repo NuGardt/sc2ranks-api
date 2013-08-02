@@ -115,6 +115,7 @@
     <Compile Include="SC2Ranks\API\Cache\CacheRequest.vb" />
     <Compile Include="SC2Ranks\API\eSc2RanksMatchType.vb" />
     <Compile Include="SC2Ranks\API\eSc2RanksRankRegion.vb" />
+    <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksRacesElement.vb" />
     <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksCharacterElement.vb" />
     <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksRankingElement.vb" />
     <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksDivisionElement.vb" />
@@ -134,6 +135,7 @@
     <Compile Include="SC2Ranks\API\Result\SC2RanksBaseResult.vb" />
     <Compile Include="SC2Ranks\API\Result\Sc2RanksCharacterResult.vb" />
     <Compile Include="SC2Ranks\API\Result\Sc2RanksDataResult.vb" />
+    <Compile Include="SC2Ranks\API\Sc2RanksBulkCharacter.vb" />
     <Compile Include="SC2Ranks\Helper\EnumBuffer.vb" />
     <Compile Include="SC2Ranks\Helper\Enums.vb" />
     <Compile Include="SC2Ranks\API\Sc2RanksService.vb" />

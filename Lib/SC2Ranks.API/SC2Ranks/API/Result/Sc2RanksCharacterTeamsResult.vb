@@ -177,10 +177,12 @@ Namespace SC2Ranks.API.Result
       Dim SB As New StringBuilder
 
       With SB
-        Dim dMax As Int32 = Me.m_List.Count - 1
-        For i As Int32 = 0 To dMax
-          Call .AppendFormat("Character (#{0}): {1}{2}", i.ToString(), Me.m_List.Item(i).ToString, vbCrLf)
-        Next i
+        If (Me.m_List IsNot Nothing) Then
+          Dim dMax As Int32 = Me.m_List.Count - 1
+          For i As Int32 = 0 To dMax
+            Call .AppendFormat("Character (#{0}): {1}{2}", i.ToString(), Me.m_List.Item(i).ToString, vbCrLf)
+          Next i
+        End If
       End With
 
       Return SB.ToString

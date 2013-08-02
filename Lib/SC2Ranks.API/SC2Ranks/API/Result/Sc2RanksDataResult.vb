@@ -137,7 +137,7 @@ Namespace SC2Ranks.API.Result
     Private m_Regions As Sc2RanksRegionsElement
     Private m_RankRegions As Sc2RanksRankRegionsElement
     Private m_Expansions As Sc2RanksExpansionsElement
-    'Private m_Races As Sc2RanksRacesElement
+    Private m_Races As Sc2RanksRacesElement
     Private m_Brackets As Sc2RanksBracketsElement
     Private m_Season As Sc2RanksSeasonElement
 
@@ -150,7 +150,7 @@ Namespace SC2Ranks.API.Result
       Me.m_Regions = Nothing
       Me.m_RankRegions = Nothing
       Me.m_Expansions = Nothing
-      'Me.m_Races = Nothing
+      Me.m_Races = Nothing
       Me.m_Brackets = Nothing
       Me.m_Season = Nothing
     End Sub
@@ -197,6 +197,16 @@ Namespace SC2Ranks.API.Result
       End Set
     End Property
 
+    <DataMember(Name := "races")>
+    Private Property Races As Sc2RanksRacesElement
+      Get
+        Return Me.m_Races
+      End Get
+      Set(ByVal Value As Sc2RanksRacesElement)
+        Me.m_Races = Value
+      End Set
+    End Property
+
     <DataMember(Name := "brackets")>
     Private Property Brackets As Sc2RanksBracketsElement
       Get
@@ -227,7 +237,7 @@ Namespace SC2Ranks.API.Result
         Call .AppendFormat("Regions: {0}", Me.Regions.ToString())
         Call .AppendFormat("Rank Regions: {0}", Me.RankRegions.ToString())
         Call .AppendFormat("Expansions: {0}", Me.Expansions.ToString())
-        'Call .AppendFormat("Races: {0}", Me.Races.ToString())
+        Call .AppendFormat("Races: {0}", Me.Races.ToString())
         Call .AppendFormat("Brackets: {0}", Me.Brackets.ToString())
         Call .AppendFormat("Season: {0}", Me.Season.ToString())
       End With

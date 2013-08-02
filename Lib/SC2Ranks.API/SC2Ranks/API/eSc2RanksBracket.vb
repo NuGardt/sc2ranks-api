@@ -37,52 +37,55 @@ Namespace SC2Ranks.API
     ''' </summary>
     ''' <remarks></remarks>
     <Notation("1v1")>
-    <EnumMember(Value := "1")>
+    <EnumMember(Value := "1v1")>
     _1V1 = 2
 
     ''' <summary>
-    ''' 2v2
+    ''' 2v2 Team
     ''' </summary>
     ''' <remarks></remarks>
     <Notation("2v2")>
-    <EnumMember(Value := "2")>
-    _2V2 = 4
+    <EnumMember(Value := "2v2t")>
+    _2V2T = 4
 
     ''' <summary>
-    ''' 2v2 Random
+    ''' 2v2 Random Team
     ''' </summary>
     ''' <remarks></remarks>
     <Notation("2v2R")>
-    _2V2R = _2V2 Or Random
+    <EnumMember(Value := "2v2r")>
+    _2V2R = _2V2T Or Random
 
     ''' <summary>
-    ''' 3v3
+    ''' 3v3 Team
     ''' </summary>
     ''' <remarks></remarks>
-    <Notation("3v3")>
-    <EnumMember(Value := "3")>
-    _3V3 = 8
+    <Notation("3v3T")>
+    <EnumMember(Value := "3v3t")>
+    _3V3T = 8
 
     ''' <summary>
-    ''' 3v3 Random
+    ''' 3v3 Random Team
     ''' </summary>
     ''' <remarks></remarks>
     <Notation("3v3R")>
-    _3V3R = _3V3 Or Random
+    <EnumMember(Value := "3v3r")>
+    _3V3R = _3V3T Or Random
 
     ''' <summary>
-    ''' 4v4
+    ''' 4v4 Team
     ''' </summary>
     ''' <remarks></remarks>
-    <Notation("4v4")>
-    <EnumMember(Value := "4")>
-    _4V4 = 16
+    <Notation("4v4T")>
+    <EnumMember(Value := "4v4t")>
+    _4V4T = 16
 
     ''' <summary>
-    ''' 4v4Random
+    ''' 4v4 Random Team
     ''' </summary>
     ''' <remarks></remarks>
     <Notation("4v4R")>
-    _4V4R = _4V4 Or Random
+    <EnumMember(Value := "4v4r")>
+    _4V4R = _4V4T Or Random
   End Enum
 End Namespace

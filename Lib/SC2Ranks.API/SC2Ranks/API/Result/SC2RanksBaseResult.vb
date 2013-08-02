@@ -28,6 +28,9 @@ Namespace SC2Ranks.API.Result
     Private m_CacheExpires As Nullable(Of DateTime)
     Private m_ResponseRaw As String
 
+    Private m_CreditsLeft As Int32
+    Private m_CreditsUsed As Int32
+
     ''' <summary>
     ''' Constructor.
     ''' </summary>
@@ -36,6 +39,9 @@ Namespace SC2Ranks.API.Result
       Me.m_Error = Nothing
       Me.m_CacheExpires = Nothing
       Me.m_ResponseRaw = Nothing
+
+      Me.m_CreditsLeft = Nothing
+      Me.m_CreditsUsed = Nothing
     End Sub
 
 #Region "Properties"
@@ -98,6 +104,26 @@ Namespace SC2Ranks.API.Result
       End Get
       Friend Set(ByVal Value As String)
         Me.m_ResponseRaw = Value
+      End Set
+    End Property
+
+    <IgnoreDataMember()>
+    Public Property CreditsLeft As Int32
+      Get
+        Return Me.m_CreditsLeft
+      End Get
+      Friend Set(ByVal Value As Int32)
+        Me.m_CreditsLeft = Value
+      End Set
+    End Property
+
+    <IgnoreDataMember()>
+    Public Property CreditsUsed As Int32
+      Get
+        Return Me.m_CreditsUsed
+      End Get
+      Friend Set(ByVal Value As Int32)
+        Me.m_CreditsUsed = Value
       End Set
     End Property
 

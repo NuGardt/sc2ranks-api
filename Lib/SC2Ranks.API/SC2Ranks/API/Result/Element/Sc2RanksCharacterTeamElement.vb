@@ -71,7 +71,7 @@ Namespace SC2Ranks.API.Result.Element
     Private m_WinRatio As Double
     Private m_Division As Sc2RanksDivisionElement
     Private m_Rankings As Sc2RanksRankingElement
-    Private m_Characters As Sc2RanksCharacterElement
+    Private m_Characters() As Sc2RanksCharacterElement
 
     Public Sub New()
       Me.m_Url = Nothing
@@ -147,7 +147,7 @@ Namespace SC2Ranks.API.Result.Element
     <IgnoreDataMember()>
     Public ReadOnly Property League As eSc2RanksLeague
       Get
-        Return Enums.LeaguesBuffer.GetEnum(Me.m_LeagueRaw)
+        Return Enums.LeagueBuffer.GetEnum(Me.m_LeagueRaw)
       End Get
     End Property
 
@@ -256,11 +256,11 @@ Namespace SC2Ranks.API.Result.Element
     End Property
 
     <DataMember(name := "characters")>
-    Public Property Characters As Sc2RanksCharacterElement
+    Public Property Characters As Sc2RanksCharacterElement()
       Get
         Return Me.m_Characters
       End Get
-      Private Set(ByVal Value As Sc2RanksCharacterElement)
+      Private Set(ByVal Value As Sc2RanksCharacterElement())
         Me.m_Characters = Value
       End Set
     End Property
@@ -281,7 +281,13 @@ Namespace SC2Ranks.API.Result.Element
         Call .AppendFormat("Win Ratio: {0}{1}", Me.WinRatio.ToString(), vbCrLf)
         Call .AppendFormat("Division: {0}{1}", Me.Division.ToString(), vbCrLf)
         Call .AppendFormat("Rankings: {0}{1}", Me.Rankings.ToString(), vbCrLf)
-        Call .AppendFormat("Characters: {0}{1}", Me.Characters.ToString(), vbCrLf)
+        Call .AppendFormat("Characters: {0}", vbCrLf)
+        If (Me.m_Characters IsNot Nothing) Then
+          Dim dMax As Int32 = Me.m_Characters.Count - 1
+          For i As Int32 = 0 To dMax
+            Call .AppendFormat("Character (#{0}): {1}{2}", i.ToString(), Me.m_Characters(i).ToString, vbCrLf)
+          Next i
+        End If
       End With
 
       Return SB.ToString

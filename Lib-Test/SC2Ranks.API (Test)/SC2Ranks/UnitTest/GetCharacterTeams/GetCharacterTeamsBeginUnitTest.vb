@@ -25,7 +25,7 @@ Namespace SC2Ranks.UnitTest.GetCharacterTeams
       If (Ex IsNot Nothing) Then
         Call Me.OnCompletion.Invoke(Nothing)
       Else
-        Call Me.Service.GetCharacterTeamsBegin(Nothing, [Const].Region, [Const].BattleNetID, EndCallback)
+        Call Me.Service.GetCharacterTeamsBegin(Nothing, [Const].Region, [Const].BattleNetID, [Const].Expansion, [Const].Bracket, [Const].League, EndCallback)
       End If
     End Sub
 

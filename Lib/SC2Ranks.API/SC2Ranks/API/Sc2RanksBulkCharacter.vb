@@ -16,38 +16,34 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Imports System.Runtime.Serialization
-Imports NuGardt.SC2Ranks.Helper
+Imports System.Text
 
 Namespace SC2Ranks.API
-  ''' <summary>
-  ''' Expansion
-  ''' </summary>
-  ''' <remarks></remarks>
-  <DataContract(Name := "expansion")>
-  Public Enum eSc2RanksExpansion
+  <DataContract()>
+  Public Class Sc2RanksBulkCharacter
+    Public Region As eSc2RanksRegion
+    Public BattleNetID As Int64
 
-    ''' <summary>
-    ''' Wings of Liberty
-    ''' </summary>
-    ''' <remarks></remarks>
-    <EnumMember(Value := "wol")>
-    <Notation("Wings of Liberty")>
-    WoL = 1
+    Public Sub New()
+      Me.Region = Nothing
+      Me.BattleNetID = Nothing
+    End Sub
 
-    ''' <summary>
-    ''' Heart of the Swarm
-    ''' </summary>
-    ''' <remarks></remarks>
-    <EnumMember(Value := "hots")>
-    <Notation("Heart of the Swarm")>
-    HotS = 2
+    Public Sub New(ByVal Region As eSc2RanksRegion,
+                   ByVal BattleNetID As Int64)
+      Me.Region = Region
+      Me.BattleNetID = BattleNetID
+    End Sub
 
-    ''' <summary>
-    ''' Legacy of the Void
-    ''' </summary>
-    ''' <remarks></remarks>
-    <EnumMember(Value := "lotv")>
-    <Notation("Legacy of the Void")>
-    LotV = 3
-  End Enum
+    Public Overrides Function ToString() As String
+      Dim SB As New StringBuilder
+
+      With SB
+        Call .AppendFormat("Region: {0}{1}", Me.Region.ToString(), vbCrLf)
+        Call .AppendFormat("Battle.net ID: {0}{1}", Me.BattleNetID.ToString(), vbCrLf)
+      End With
+
+      Return SB.ToString
+    End Function
+  End Class
 End Namespace

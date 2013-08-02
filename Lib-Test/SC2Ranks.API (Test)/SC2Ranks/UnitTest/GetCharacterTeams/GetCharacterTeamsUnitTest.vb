@@ -25,7 +25,7 @@ Namespace SC2Ranks.UnitTest.GetCharacterTeams
       If (Me.Ex Is Nothing) Then
         Dim Response As Sc2RanksCharacterTeamsResult = Nothing
 
-        Me.Ex = Me.Service.GetCharacterTeams([Const].Region, [Const].BattleNetID, Response)
+        Me.Ex = Me.Service.GetCharacterTeams([Const].Region, [Const].BattleNetID, [Const].Expansion, [Const].Bracket, [Const].League, Response)
 
         If (Ex Is Nothing) Then
           If Response.HasError Then

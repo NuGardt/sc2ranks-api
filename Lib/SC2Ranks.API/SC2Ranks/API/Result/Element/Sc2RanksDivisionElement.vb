@@ -27,7 +27,7 @@ Namespace SC2Ranks.API.Result.Element
     '},
 
     Private m_ID As String
-    Private m_Rank As Int16
+    Private m_Rank As Nullable(Of Int16)
 
     Public Sub New()
       Me.m_ID = Nothing
@@ -45,11 +45,11 @@ Namespace SC2Ranks.API.Result.Element
     End Property
 
     <DataMember(name := "rank")>
-    Public Property Rank As Int16
+    Public Property Rank As Nullable(Of Int16)
       Get
         Return Me.m_Rank
       End Get
-      Private Set(ByVal Value As Int16)
+      Private Set(ByVal Value As Nullable(Of Int16))
         Me.m_Rank = Value
       End Set
     End Property
@@ -59,7 +59,7 @@ Namespace SC2Ranks.API.Result.Element
 
       With SB
         Call .AppendFormat("ID: {0}{1}", Me.ID.ToString(), vbCrLf)
-        Call .AppendFormat("Rank: {0}{1}", Me.Rank.ToString(), vbCrLf)
+        If Me.Rank.HasValue Then Call .AppendFormat("Rank: {0}{1}", Me.Rank.Value.ToString(), vbCrLf)
       End With
 
       Return SB.ToString

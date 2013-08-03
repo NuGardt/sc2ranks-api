@@ -106,7 +106,7 @@ Namespace SC2Ranks.API.Result
     End Property
 
     <DataMember(name := "achievement_points")>
-    Public Property AchievementPoint As Int16
+    Public Property AchievementPoints As Int16
       Get
         Return Me.m_AchievementPoints
       End Get
@@ -207,7 +207,7 @@ Namespace SC2Ranks.API.Result
         Call .AppendFormat("URL: {0}{1}", Me.Url, vbCrLf)
         Call .AppendFormat("Replay URL: {0}{1}", Me.ReplayUrl, vbCrLf)
         Call .AppendFormat("VoD URL: {0}{1}", Me.VodUrl, vbCrLf)
-        Call .AppendFormat("Achievement Points: {0}{1}", Me.AchievementPoint.ToString(), vbCrLf)
+        Call .AppendFormat("Achievement Points: {0}{1}", Me.AchievementPoints.ToString(), vbCrLf)
         Call .AppendFormat("Updated At: {0}{1}", Me.UpdatedAt.ToString(), vbCrLf)
         If (Me.SwarmLevels IsNot Nothing) Then Call .AppendFormat("Swarm Levels: {0}{1}", Me.SwarmLevels.ToString(), vbCrLf)
         Call .AppendFormat("Region: {0}{1}", Me.Region, vbCrLf)

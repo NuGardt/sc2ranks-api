@@ -96,28 +96,30 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="SC2Ranks\TraceListener.vb" />
-    <Compile Include="SC2Ranks\UnitTest\GetCharacters\GetCharactersUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\GetCharacterTeams\GetCharacterTeamsUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\GetCustomDivision\GetCustomDivisionBeginUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\GetCustomDivision\GetCustomDivisionUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\GetData\GetDataBeginUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\GetCharacter\GetCharacterBeginUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\GetCharacterTeams\GetCharacterTeamsBeginUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\GetCharacters\GetCharactersBeginUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\GetCharacter\GetCharacterUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\GetData\GetDataUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\GetCustomDivisions\GetCustomDivisionsBeginUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\GetCustomDivisions\GetCustomDivisionsUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\GetCustomDivisionTeams\GetCustomDivisionTeamsBeginUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\GetCustomDivisionCharacters\GetCustomDivisionCharactersUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\GetCustomDivisionCharacters\GetCustomDivisionCharactersBeginUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\GetCustomDivisionTeams\GetCustomDivisionTeamsUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\CustomDivisionAdd\CustomDivisionAddBeginUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\CustomDivisionAdd\CustomDivisionAddUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\CustomDivisionRemove\CustomDivisionRemoveBeginUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\CustomDivisionRemove\CustomDivisionRemoveUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\SearchCharacterTeams\SearchCharacterTeamsUnitTest.vb" />
-    <Compile Include="SC2Ranks\UnitTest\SearchCharacterTeams\SearchCharacterTeamsBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\Characters\GetCharacters\GetCharactersUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\Characters\GetCharacterTeams\GetCharacterTeamsUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\CustomDivisions\GetCustomDivision\GetCustomDivisionBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\CustomDivisions\GetCustomDivision\GetCustomDivisionUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\BaseData\GetData\GetDataBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\Characters\GetCharacter\GetCharacterBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\Characters\GetCharacterTeams\GetCharacterTeamsBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\Characters\GetCharacters\GetCharactersBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\Characters\GetCharacter\GetCharacterUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\BaseData\GetData\GetDataUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\CustomDivisions\GetCustomDivisions\GetCustomDivisionsBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\CustomDivisions\GetCustomDivisions\GetCustomDivisionsUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\CustomDivisions\GetCustomDivisionTeams\GetCustomDivisionTeamsBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\CustomDivisions\GetCustomDivisionCharacters\GetCustomDivisionCharactersUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\CustomDivisions\GetCustomDivisionCharacters\GetCustomDivisionCharactersBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\CustomDivisions\GetCustomDivisionTeams\GetCustomDivisionTeamsUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\CustomDivisions\CustomDivisionAdd\CustomDivisionAddBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\CustomDivisions\CustomDivisionAdd\CustomDivisionAddUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\CustomDivisions\CustomDivisionRemove\CustomDivisionRemoveBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\CustomDivisions\CustomDivisionRemove\CustomDivisionRemoveUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\Rankings\GetRankingsTop\GetRankingsTopBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\Rankings\GetRankingsTop\GetRankingsUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\Characters\SearchCharacterTeams\SearchCharacterTeamsUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\Characters\SearchCharacterTeams\SearchCharacterTeamsBeginUnitTest.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -143,6 +145,11 @@
       <Project>{3054F387-8A8C-4C4A-8330-A64FC23C3D14}</Project>
       <Name>NuGardt  SC2Ranks.API</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SC2Ranks\UnitTest\Clans\" />
+    <Folder Include="SC2Ranks\UnitTest\Divisions\" />
+    <Folder Include="SC2Ranks\UnitTest\Teams\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -16,18 +16,19 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Imports System.IO
-Imports NuGardt.SC2Ranks.UnitTest.CustomDivisionRemove
-Imports NuGardt.SC2Ranks.UnitTest.CustomDivisionAdd
-Imports NuGardt.SC2Ranks.UnitTest.GetCustomDivisionCharacters
-Imports NuGardt.SC2Ranks.UnitTest.GetCustomDivisionTeams
-Imports NuGardt.SC2Ranks.UnitTest.GetCustomDivisions
-Imports NuGardt.SC2Ranks.UnitTest.GetCustomDivision
-Imports NuGardt.SC2Ranks.UnitTest.GetCharacters
-Imports NuGardt.SC2Ranks.UnitTest.GetCharacterTeams
-Imports NuGardt.SC2Ranks.UnitTest.GetCharacter
-Imports NuGardt.SC2Ranks.UnitTest.GetData
+Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.CustomDivisionRemove
+Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.CustomDivisionAdd
+Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionCharacters
+Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionTeams
+Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisions
+Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.GetCustomDivision
+Imports NuGardt.SC2Ranks.UnitTest.Rankings.GetRankingsTop
+Imports NuGardt.SC2Ranks.UnitTest.Characters.GetCharacters
+Imports NuGardt.SC2Ranks.UnitTest.Characters.GetCharacterTeams
+Imports NuGardt.SC2Ranks.UnitTest.Characters.GetCharacter
+Imports NuGardt.SC2Ranks.UnitTest.BaseData.GetData
 Imports NuGardt.UnitTest
-Imports NuGardt.SC2Ranks.UnitTest.SearchCharacterTeams
+Imports NuGardt.SC2Ranks.UnitTest.Characters.SearchCharacterTeams
 Imports System.Threading
 
 Namespace SC2Ranks
@@ -79,9 +80,11 @@ Namespace SC2Ranks
       Call Trace.WriteSystemInformation()
       Call Trace.WriteLine("")
 
+      '-Base Data
       Call TestCases.Enqueue(New GetDataBeginUnitTest) 'Tested 2013-08-03: Ok
       Call TestCases.Enqueue(New GetDataUnitTest) 'Tested 2013-08-03: Ok
 
+      '-Characters
       Call TestCases.Enqueue(New GetCharacterBeginUnitTest) 'Tested 2013-08-03: Ok
       Call TestCases.Enqueue(New GetCharacterUnitTest) 'Tested 2013-08-03: Ok
 
@@ -94,6 +97,17 @@ Namespace SC2Ranks
       Call TestCases.Enqueue(New GetCharactersBeginUnitTest) 'Tested 2013-08-03: Ok
       Call TestCases.Enqueue(New GetCharactersUnitTest) 'Tested 2013-08-03: Ok
 
+      '-Teams
+
+      '-Clans
+
+      '-Rankings
+      Call TestCases.Enqueue(New GetRankingsTopBeginUnitTest) 'Tested 2013-08-04: Ok
+      Call TestCases.Enqueue(New GetRankingsTopUnitTest) 'Tested 2013-08-04: Ok
+
+      '-Divisions
+
+      '-Custom Divisions
       Call TestCases.Enqueue(New GetCustomDivisionBeginUnitTest) 'Tested 2013-08-03: Ok
       Call TestCases.Enqueue(New GetCustomDivisionUnitTest) 'Tested 2013-08-03: Ok
 
@@ -106,11 +120,10 @@ Namespace SC2Ranks
       Call TestCases.Enqueue(New GetCustomDivisionCharactersBeginUnitTest) 'Tested 2013-08-03: Ok
       Call TestCases.Enqueue(New GetCustomDivisionCharactersUnitTest) 'Tested 2013-08-03: Ok
 
-      'Error 400 Bad Request
-      Call TestCases.Enqueue(New CustomDivisionAddBeginUnitTest) 'Tested 2013-08-03: FAIL
-      Call TestCases.Enqueue(New CustomDivisionAddUnitTest) 'Tested 2013-08-03: FAIL
+      Call TestCases.Enqueue(New CustomDivisionAddBeginUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New CustomDivisionAddUnitTest) 'Tested 2013-08-03: Ok
 
-      'DELETE does not support PostData?
+      'DELETE does not support PostData? Further investigation required
       Call TestCases.Enqueue(New CustomDivisionRemoveBeginUnitTest) 'Tested 2013-08-03': FAIL
       Call TestCases.Enqueue(New CustomDivisionRemoveUnitTest) 'Tested 2013-08-03: FAIL
 

@@ -98,12 +98,24 @@
     <Compile Include="SC2Ranks\TraceListener.vb" />
     <Compile Include="SC2Ranks\UnitTest\GetCharacters\GetCharactersUnitTest.vb" />
     <Compile Include="SC2Ranks\UnitTest\GetCharacterTeams\GetCharacterTeamsUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\GetCustomDivision\GetCustomDivisionBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\GetCustomDivision\GetCustomDivisionUnitTest.vb" />
     <Compile Include="SC2Ranks\UnitTest\GetData\GetDataBeginUnitTest.vb" />
     <Compile Include="SC2Ranks\UnitTest\GetCharacter\GetCharacterBeginUnitTest.vb" />
     <Compile Include="SC2Ranks\UnitTest\GetCharacterTeams\GetCharacterTeamsBeginUnitTest.vb" />
     <Compile Include="SC2Ranks\UnitTest\GetCharacters\GetCharactersBeginUnitTest.vb" />
     <Compile Include="SC2Ranks\UnitTest\GetCharacter\GetCharacterUnitTest.vb" />
     <Compile Include="SC2Ranks\UnitTest\GetData\GetDataUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\GetCustomDivisions\GetCustomDivisionsBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\GetCustomDivisions\GetCustomDivisionsUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\GetCustomDivisionTeams\GetCustomDivisionTeamsBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\GetCustomDivisionCharacters\GetCustomDivisionCharactersUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\GetCustomDivisionCharacters\GetCustomDivisionCharactersBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\GetCustomDivisionTeams\GetCustomDivisionTeamsUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\CustomDivisionAdd\CustomDivisionAddBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\CustomDivisionAdd\CustomDivisionAddUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\CustomDivisionRemove\CustomDivisionRemoveBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\CustomDivisionRemove\CustomDivisionRemoveUnitTest.vb" />
     <Compile Include="SC2Ranks\UnitTest\SearchCharacterTeams\SearchCharacterTeamsUnitTest.vb" />
     <Compile Include="SC2Ranks\UnitTest\SearchCharacterTeams\SearchCharacterTeamsBeginUnitTest.vb" />
   </ItemGroup>

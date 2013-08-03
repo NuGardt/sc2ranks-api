@@ -2,8 +2,8 @@
 Imports NuGardt.UnitTest
 Imports NuGardt.SC2Ranks.API.Result
 
-Namespace SC2Ranks.UnitTest.GetCharacters
-  Public Class GetCharactersUnitTest
+Namespace SC2Ranks.UnitTest.CustomDivisionAdd
+  Public Class CustomDivisionAddBeginUnitTest
     Implements IUnitTestCase
 
     Private OnCompletion As AsyncCallback
@@ -22,24 +22,21 @@ Namespace SC2Ranks.UnitTest.GetCharacters
                      Optional Report As IUnitTestCase.procReport = Nothing) Implements IUnitTestCase.Start
       Me.OnCompletion = OnCompletion
 
-      If (Me.Ex Is Nothing) Then
-        Dim Response As Sc2RanksCharactersResult = Nothing
-
+      If (Ex IsNot Nothing) Then
+        Call Me.OnCompletion.Invoke(Nothing)
+      Else
         Dim Characters As New List(Of Sc2RanksBulkCharacter)
+
         Call Characters.Add(New Sc2RanksBulkCharacter([Const].Region, [Const].BattleNetID))
 
-        Me.Ex = Me.Service.GetCharacters(Characters, Response)
-
-        If (Ex Is Nothing) Then
-          If Response.HasError Then
-            Me.Ex = New Exception(Response.Error)
-          Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksCharactersResult)("GetCharacters", Me.Ex, Response)
-          End If
-        End If
+        Call Me.Service.CustomDivisionAddBegin(Nothing, [Const].ManageCustomDivisionID, Characters, EndCallback)
       End If
+    End Sub
 
-      Call Me.OnCompletion.Invoke(Nothing)
+    Private ReadOnly EndCallback As AsyncCallback = AddressOf iEndCallback
+
+    Private Sub iEndCallback(ByVal Result As IAsyncResult)
+      Call OnCompletion.Invoke(Result)
     End Sub
 
     Public Function Abort() As Boolean Implements IUnitTestCase.Abort
@@ -47,7 +44,17 @@ Namespace SC2Ranks.UnitTest.GetCharacters
     End Function
 
     Public Sub [End](Optional Result As IAsyncResult = Nothing) Implements IUnitTestCase.[End]
-      '-
+      Dim Response As Sc2RanksCustomDivisionManageResult = Nothing
+
+      Me.Ex = Me.Service.CustomDivisionAddEnd(Result, Nothing, Response)
+
+      If (Ex Is Nothing) Then
+        If Response.HasError Then
+          Me.Ex = New Exception(Response.Error)
+        Else
+          Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionManageResult)("CustomDivisionAddBegin", Me.Ex, Response)
+        End If
+      End If
     End Sub
 
     Public Sub Dispose() Implements IUnitTestCase.Dispose
@@ -68,7 +75,7 @@ Namespace SC2Ranks.UnitTest.GetCharacters
 
     Public ReadOnly Property Name As String Implements IUnitTestCase.Name
       Get
-        Return "SC2Ranks API: GetCharacters"
+        Return "SC2Ranks API: CustomDivisionAddBegin"
       End Get
     End Property
 

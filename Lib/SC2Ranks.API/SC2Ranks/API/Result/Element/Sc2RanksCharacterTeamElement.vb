@@ -225,7 +225,7 @@ Namespace SC2Ranks.API.Result.Element
       End Set
     End Property
 
-    <DataMember(name:="win_ratio")>
+    <DataMember(name := "win_ratio")>
     Public Property WinRatio As Double
       Get
         Return Me.m_WinRatio

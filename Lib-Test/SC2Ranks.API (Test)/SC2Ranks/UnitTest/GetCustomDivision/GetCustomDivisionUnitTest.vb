@@ -2,8 +2,8 @@
 Imports NuGardt.UnitTest
 Imports NuGardt.SC2Ranks.API.Result
 
-Namespace SC2Ranks.UnitTest.GetCharacters
-  Public Class GetCharactersUnitTest
+Namespace SC2Ranks.UnitTest.GetCustomDivision
+  Public Class GetCustomDivisionUnitTest
     Implements IUnitTestCase
 
     Private OnCompletion As AsyncCallback
@@ -23,18 +23,15 @@ Namespace SC2Ranks.UnitTest.GetCharacters
       Me.OnCompletion = OnCompletion
 
       If (Me.Ex Is Nothing) Then
-        Dim Response As Sc2RanksCharactersResult = Nothing
+        Dim Response As Sc2RanksCustomDivisionResult = Nothing
 
-        Dim Characters As New List(Of Sc2RanksBulkCharacter)
-        Call Characters.Add(New Sc2RanksBulkCharacter([Const].Region, [Const].BattleNetID))
-
-        Me.Ex = Me.Service.GetCharacters(Characters, Response)
+        Me.Ex = Me.Service.GetCustomDivision([Const].CustomDivisionID, Response)
 
         If (Ex Is Nothing) Then
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksCharactersResult)("GetCharacters", Me.Ex, Response)
+            Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionResult)("GetCustomDivision", Me.Ex, Response)
           End If
         End If
       End If
@@ -68,7 +65,7 @@ Namespace SC2Ranks.UnitTest.GetCharacters
 
     Public ReadOnly Property Name As String Implements IUnitTestCase.Name
       Get
-        Return "SC2Ranks API: GetCharacters"
+        Return "SC2Ranks API: GetCustomDivision"
       End Get
     End Property
 

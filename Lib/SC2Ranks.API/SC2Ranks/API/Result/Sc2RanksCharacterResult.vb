@@ -188,7 +188,7 @@ Namespace SC2Ranks.API.Result
       End Set
     End Property
 
-    <DataMember(name := "clan")>
+    <DataMember(name := "clan", EmitDefaultValue := False)>
     Public Property Clan As Sc2RanksClanElement
       Get
         Return Me.m_Clan
@@ -198,58 +198,6 @@ Namespace SC2Ranks.API.Result
       End Set
     End Property
 
-    '<DataMember(name:="clan_tag")>
-    'Public Property ClanTag As String
-    '  Get
-    '    Return Me.m_ClanTag
-    '  End Get
-    '  Set(ByVal Value As String)
-    '    Me.m_ClanTag = Value
-    '  End Set
-    'End Property
-
-    '<DataMember(name:="race")>
-    'Private Property RaceRaw As String
-    '  Get
-    '    Return Me.m_RaceRaw
-    '  End Get
-    '  Set(ByVal Value As String)
-    '    Me.m_RaceRaw = Value
-    '  End Set
-    'End Property
-
-    ' ''' <summary>
-    ' ''' Returns the favourite race of the player.
-    ' ''' </summary>
-    ' ''' <value></value>
-    ' ''' <returns></returns>
-    ' ''' <remarks></remarks>
-    '<IgnoreDataMember()>
-    'Public ReadOnly Property Race() As eRace
-    '  Get
-    '    Return Enums.RacesBuffer.GetEnum(Me.m_RaceRaw)
-    '  End Get
-    'End Property
-
-    '<DataMember(name:="clan_url")>
-    'Public Property ClanUrl As String
-    '  Get
-    '    Return Me.m_ClanUrl
-    '  End Get
-    '  Set(ByVal Value As String)
-    '    Me.m_ClanUrl = Value
-    '  End Set
-    'End Property
-
-    '<DataMember(name:="url")>
-    'Public Property Url As String
-    '  Get
-    '    Return Me.m_Url
-    '  End Get
-    '  Set(ByVal Value As String)
-    '    Me.m_Url = Value
-    '  End Set
-    'End Property
 #End Region
 
     Public Overrides Function ToString() As String

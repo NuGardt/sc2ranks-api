@@ -115,6 +115,7 @@
     <Compile Include="SC2Ranks\API\Cache\CacheRequest.vb" />
     <Compile Include="SC2Ranks\API\eSc2RanksMatchType.vb" />
     <Compile Include="SC2Ranks\API\eSc2RanksRankRegion.vb" />
+    <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksCustomDivisionManageElement.vb" />
     <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksRacesElement.vb" />
     <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksCharacterElement.vb" />
     <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksRankingElement.vb" />
@@ -130,6 +131,11 @@
     <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksRankRegionsElement.vb" />
     <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksRegionsElement.vb" />
     <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksLeaguesElement.vb" />
+    <Compile Include="SC2Ranks\API\Result\Sc2RanksCustomDivisionsManageResult.vb" />
+    <Compile Include="SC2Ranks\API\Result\Sc2RanksCustomDivisionCharactersResult.vb" />
+    <Compile Include="SC2Ranks\API\Result\Sc2RanksCustomDivisionTeamsResult.vb" />
+    <Compile Include="SC2Ranks\API\Result\Sc2RanksCustomDivisionsResult.vb" />
+    <Compile Include="SC2Ranks\API\Result\Sc2RanksCustomDivisionResult.vb" />
     <Compile Include="SC2Ranks\API\Result\Sc2RanksCharactersResult.vb" />
     <Compile Include="SC2Ranks\API\Result\Sc2RanksCharacterTeamsResult.vb" />
     <Compile Include="SC2Ranks\API\Result\SC2RanksBaseResult.vb" />

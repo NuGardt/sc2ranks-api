@@ -16,56 +16,61 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Imports System.Runtime.Serialization
+Imports NuGardt.SC2Ranks.Helper
 Imports System.Text
 
 Namespace SC2Ranks.API.Result.Element
   <DataContract()>
-  Public Class Sc2RanksDivisionElement
-    '"division": {
-    '  "id": "51fad92d4970cf8401000006",
-    '  "rank": 199
+  Public Class Sc2RanksCustomDivisionManageElement
+    '{
+    '  "error": "invalid",
+    '  "bnet_id": "invalid",
+    '  "region": "us"
     '},
 
-    Private m_ID As String
-    Private m_Rank As String
+    Private m_Error As String
+    Private m_BattleNetID As Int64
+    Private m_RegionRaw As String
 
     Public Sub New()
-      Me.m_ID = Nothing
-      Me.m_Rank = Nothing
+      Me.m_Error = Nothing
+      Me.m_BattleNetID = Nothing
+      Me.m_RegionRaw = Nothing
     End Sub
 
-    <DataMember(name := "id")>
-    Public Property ID As String
+    <DataMember(name := "error")>
+    Public Property [Error] As String
       Get
-        Return Me.m_ID
+        Return Me.m_Error
       End Get
       Private Set(ByVal Value As String)
-        Me.m_ID = Value
+        Me.m_Error = Value
       End Set
     End Property
 
-    'ToDo: Problem under Mono using Nullable(of Int16) (Workaround with TryParse)
-    'System.Runtime.Serialization.SerializationException: Deserialization has failed ---> System.Xml.XmlException: Typed value is invalid.  Line 1, position 272.
-    <DataMember(name := "rank")>
-    Private Property RankRaw As String
+    <DataMember(name := "bnet_id")>
+    Public Property BattleNetID As Int64
       Get
-        Return Me.m_Rank
+        Return Me.m_BattleNetID
+      End Get
+      Private Set(ByVal Value As Int64)
+        Me.m_BattleNetID = Value
+      End Set
+    End Property
+
+    <DataMember(name := "region")>
+    Private Property RegionRaw As String
+      Get
+        Return Me.m_RegionRaw
       End Get
       Set(ByVal Value As String)
-        Me.m_Rank = Value
+        Me.m_RegionRaw = Value
       End Set
     End Property
 
-    <IgnoreDataMember()>
-    Public ReadOnly Property Rank As Nullable(Of Int16)
+    Public ReadOnly Property Region() As eSc2RanksRegion
       Get
-        Dim Erg As Int16 = Nothing
-
-        If Int16.TryParse(Me.m_Rank, Erg) Then
-          Return Erg
-        Else
-          Return Nothing
-        End If
+        Return Enums.RegionBuffer.GetEnum(Me.m_RegionRaw)
       End Get
     End Property
 
@@ -73,8 +78,9 @@ Namespace SC2Ranks.API.Result.Element
       Dim SB As New StringBuilder
 
       With SB
-        Call .AppendFormat("ID: {0}{1}", Me.ID.ToString(), vbCrLf)
-        If Me.Rank.HasValue Then Call .AppendFormat("Rank: {0}{1}", Me.Rank.Value.ToString(), vbCrLf)
+        Call .AppendFormat("Error: {0}{1}", Me.Error, vbCrLf)
+        Call .AppendFormat("Battle.net ID: {0}{1}", Me.BattleNetID.ToString(), vbCrLf)
+        Call .AppendFormat("Region: {0}{1}", Me.Region.ToString(), vbCrLf)
       End With
 
       Return SB.ToString

@@ -26,5 +26,7 @@ Namespace SC2Ranks
     Public Const League As eSc2RanksLeague = eSc2RanksLeague.All
     Public Const Expansion As eSc2RanksExpansion = eSc2RanksExpansion.HotS
     Public Const Bracket As eSc2RanksBracket = eSc2RanksBracket._1V1
+    Public Const CustomDivisionID As String = "51e882c969d5386f5900cac4"
+    Public Const ManageCustomDivisionID As String = "51e945ea69d5380d9c000002"
   End Class
 End Namespace

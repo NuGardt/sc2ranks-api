@@ -16,13 +16,19 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Imports System.IO
+Imports NuGardt.SC2Ranks.UnitTest.CustomDivisionRemove
+Imports NuGardt.SC2Ranks.UnitTest.CustomDivisionAdd
+Imports NuGardt.SC2Ranks.UnitTest.GetCustomDivisionCharacters
+Imports NuGardt.SC2Ranks.UnitTest.GetCustomDivisionTeams
+Imports NuGardt.SC2Ranks.UnitTest.GetCustomDivisions
+Imports NuGardt.SC2Ranks.UnitTest.GetCustomDivision
+Imports NuGardt.SC2Ranks.UnitTest.GetCharacters
 Imports NuGardt.SC2Ranks.UnitTest.GetCharacterTeams
 Imports NuGardt.SC2Ranks.UnitTest.GetCharacter
 Imports NuGardt.SC2Ranks.UnitTest.GetData
-Imports NuGardt.SC2Ranks.UnitTest.GetCharacters
 Imports NuGardt.UnitTest
-Imports System.Threading
 Imports NuGardt.SC2Ranks.UnitTest.SearchCharacterTeams
+Imports System.Threading
 
 Namespace SC2Ranks
   Module StartUp
@@ -80,13 +86,31 @@ Namespace SC2Ranks
       Call TestCases.Enqueue(New GetCharacterUnitTest) 'Tested 2013-08-03: Ok
 
       Call TestCases.Enqueue(New GetCharacterTeamsBeginUnitTest) 'Tested 2013-08-03: Ok
-      Call TestCases.Enqueue(New GetCharacterTeamsUnitTest) 'Tested 2013-08-0§: Ok
+      Call TestCases.Enqueue(New GetCharacterTeamsUnitTest) 'Tested 2013-08-03: Ok
 
       Call TestCases.Enqueue(New SearchCharacterTeamsBeginUnitTest) 'Tested 2013-08-03: Ok
       Call TestCases.Enqueue(New SearchCharacterTeamsUnitTest) 'Tested 2013-08-03: Ok
 
-      'Call TestCases.Enqueue(New GetCharactersBeginUnitTest) 'Error 400
-      'Call TestCases.Enqueue(New GetCharactersUnitTest) 'Error 400
+      Call TestCases.Enqueue(New GetCharactersBeginUnitTest) 'Tested 2013-08-03: FAIL
+      Call TestCases.Enqueue(New GetCharactersUnitTest) 'Tested 2013-08-03: FAIL
+
+      Call TestCases.Enqueue(New GetCustomDivisionBeginUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetCustomDivisionUnitTest) 'Tested 2013-08-03: Ok
+
+      Call TestCases.Enqueue(New GetCustomDivisionsBeginUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetCustomDivisionsUnitTest) 'Tested 2013-08-03: Ok
+
+      Call TestCases.Enqueue(New GetCustomDivisionTeamsBeginUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetCustomDivisionTeamsUnitTest) 'Tested 2013-08-03: Ok
+
+      Call TestCases.Enqueue(New GetCustomDivisionCharactersBeginUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetCustomDivisionCharactersUnitTest) 'Tested 2013-08-03: Ok
+
+      Call TestCases.Enqueue(New CustomDivisionAddBeginUnitTest) 'Tested 2013-08-03: FAIL
+      Call TestCases.Enqueue(New CustomDivisionAddUnitTest) 'Tested 2013-08-03: FAIL
+
+      Call TestCases.Enqueue(New CustomDivisionRemoveBeginUnitTest) 'Tested 2013-08-03': FAIL
+      Call TestCases.Enqueue(New CustomDivisionRemoveUnitTest) 'Tested 2013-08-03: FAIL
 
       Call TestingBegin()
 

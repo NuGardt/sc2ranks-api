@@ -161,7 +161,7 @@ Namespace SC2Ranks.API.Result.Element
         Call .AppendFormat("Region: {0}{1}", Me.Region.ToString(), vbCrLf)
         Call .AppendFormat("Battle.net ID: {0}{1}", Me.BattleNetID.ToString(), vbCrLf)
         Call .AppendFormat("Name: {0}{1}", Me.Name, vbCrLf)
-        Call .AppendFormat("Clan: {0}{1}", Me.Clan.ToString(), vbCrLf)
+        If (Me.Clan IsNot Nothing) Then Call .AppendFormat("Clan: {0}{1}", Me.Clan.ToString(), vbCrLf)
       End With
 
       Return SB.ToString

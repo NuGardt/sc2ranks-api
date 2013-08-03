@@ -140,7 +140,7 @@ Namespace SC2Ranks.API.Result.Element
       End Set
     End Property
 
-    <DataMember(name := "clan")>
+    <DataMember(name := "clan", EmitDefaultValue := False)>
     Public Property Clan As Sc2RanksClanElement
       Get
         Return Me.m_Clan

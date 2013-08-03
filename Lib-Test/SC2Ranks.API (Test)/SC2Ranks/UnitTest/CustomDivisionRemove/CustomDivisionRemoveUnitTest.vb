@@ -26,7 +26,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisionRemove
         Dim Response As Sc2RanksCustomDivisionManageResult = Nothing
         Dim Characters As New List(Of Sc2RanksBulkCharacter)
 
-        Call Characters.Remove(New Sc2RanksBulkCharacter([Const].Region, [Const].BattleNetID))
+        Call Characters.Add(New Sc2RanksBulkCharacter([Const].Region, [Const].BattleNetID))
 
         Me.Ex = Me.Service.CustomDivisionRemove([Const].ManageCustomDivisionID, Characters, Response)
 

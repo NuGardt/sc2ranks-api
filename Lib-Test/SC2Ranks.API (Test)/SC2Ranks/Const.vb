@@ -22,7 +22,7 @@ Namespace SC2Ranks
     Public Const Name As String = "OomJan"
     Public Const BattleNetID As Int64 = 1770249
     Public Const Region As eSc2RanksRegion = eSc2RanksRegion.EU
-    Public Const RankRegion As eSc2RanksRankRegion = eSc2RanksRankRegion.EU
+    Public Const RankRegion As eSc2RanksRankRegion = eSc2RanksRankRegion.Global
     Public Const League As eSc2RanksLeague = eSc2RanksLeague.All
     Public Const Expansion As eSc2RanksExpansion = eSc2RanksExpansion.HotS
     Public Const Bracket As eSc2RanksBracket = eSc2RanksBracket._1V1

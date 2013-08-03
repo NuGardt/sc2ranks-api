@@ -204,16 +204,16 @@ Namespace SC2Ranks.API.Result
       Dim SB As New StringBuilder
 
       With SB
-        Call .AppendFormat("URL: {0}{1}", Me.Url.ToString(), vbCrLf)
+        Call .AppendFormat("URL: {0}{1}", Me.Url, vbCrLf)
         Call .AppendFormat("Replay URL: {0}{1}", Me.ReplayUrl, vbCrLf)
-        Call .AppendFormat("VoD URL: {0}{1}", Me.VodUrl.ToString(), vbCrLf)
+        Call .AppendFormat("VoD URL: {0}{1}", Me.VodUrl, vbCrLf)
         Call .AppendFormat("Achievement Points: {0}{1}", Me.AchievementPoint.ToString(), vbCrLf)
         Call .AppendFormat("Updated At: {0}{1}", Me.UpdatedAt.ToString(), vbCrLf)
-        Call .AppendFormat("Swarm Levels: {0}{1}", Me.SwarmLevels.ToString(), vbCrLf)
+        If (Me.SwarmLevels IsNot Nothing) Then Call .AppendFormat("Swarm Levels: {0}{1}", Me.SwarmLevels.ToString(), vbCrLf)
         Call .AppendFormat("Region: {0}{1}", Me.Region, vbCrLf)
         Call .AppendFormat("Battle.net ID: {0}{1}", Me.BattleNetID.ToString(), vbCrLf)
         Call .AppendFormat("Name: {0}{1}", Me.Name, vbCrLf)
-        Call .AppendFormat("Clan: {0}{1}", Me.Clan, vbCrLf)
+        If (Me.Clan IsNot Nothing) Then Call .AppendFormat("Clan: {0}{1}", Me.Clan.ToString(), vbCrLf)
       End With
 
       Return SB.ToString

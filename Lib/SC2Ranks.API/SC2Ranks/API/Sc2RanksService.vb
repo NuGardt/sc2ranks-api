@@ -205,7 +205,7 @@ Namespace SC2Ranks.API
           With Characters.Item(d)
             If (PostData.Length > 0) Then Call PostData.Append("&")
 
-            Call PostData.AppendFormat("characters[{0}][region]={1}", (d + 1).ToString(), Enums.RegionBuffer.GetValue(eSc2RanksRegion.Global))
+            Call PostData.AppendFormat("characters[{0}][region]={1}", (d + 1).ToString(), Enums.RegionBuffer.GetValue(.Region))
             Call PostData.AppendFormat("&characters[{0}][bnet_id]={1}", (d + 1).ToString(), .BattleNetID.ToString())
           End With
         Next d
@@ -493,8 +493,8 @@ Namespace SC2Ranks.API
           With Characters.Item(d)
             If (PostData.Length > 0) Then Call PostData.Append("&")
 
-            Call PostData.AppendFormat("characters[{0}][region]={1}", (d + 1).ToString(), Enums.RegionBuffer.GetValue(eSc2RanksRegion.Global))
-            Call PostData.AppendFormat("&characters[{0}][bnet_id]={1}", (d + 1).ToString(), .BattleNetID.ToString())
+            Call PostData.AppendFormat("characters[{0}][region]={1}", d.ToString(), Enums.RegionBuffer.GetValue(.Region))
+            Call PostData.AppendFormat("&characters[{0}][bnet_id]={1}", d.ToString(), .BattleNetID.ToString())
           End With
         Next d
       End If
@@ -712,9 +712,12 @@ Namespace SC2Ranks.API
       If String.IsNullOrEmpty(ResponseRaw) Then
         Request = HttpWebRequest.Create(URL)
 
+        'ToDO: EnumHelper?
         Select Case Method
           Case eRequestMethod.Post
             Request.Method = "POST"
+          Case eRequestMethod.Delete
+            Request.Method = "DELETE"
           Case Else
             Request.Method = "GET"
         End Select
@@ -839,13 +842,15 @@ Namespace SC2Ranks.API
           Select Case Method
             Case eRequestMethod.Post
               Request.Method = "POST"
+            Case eRequestMethod.Delete
+              Request.Method = "DELETE"
             Case Else
               Request.Method = "GET"
           End Select
 
           If (Not String.IsNullOrEmpty(RequestData)) Then
             Dim Writer As New StreamWriter(Request.GetRequestStream())
-            Call Writer.Write(Encoding.UTF8.GetBytes(RequestData))
+            Call Writer.Write(RequestData)
             Call Writer.Flush()
           End If
 
@@ -971,12 +976,13 @@ Namespace SC2Ranks.API
         Ex = New ArgumentNullException("Result")
       Else
         State = TryCast(Result.AsyncState, AsyncStateWithKey)
-        Key = State.Key
 
         If (State Is Nothing) Then
           Ex = New Exception("Invalid AsyncState.")
         Else
           Try
+            Key = State.Key
+
             'Create serializer
             Serializer = New DataContractJsonSerializer(GetType(TArray))
 

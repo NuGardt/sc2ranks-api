@@ -91,8 +91,8 @@ Namespace SC2Ranks
       Call TestCases.Enqueue(New SearchCharacterTeamsBeginUnitTest) 'Tested 2013-08-03: Ok
       Call TestCases.Enqueue(New SearchCharacterTeamsUnitTest) 'Tested 2013-08-03: Ok
 
-      Call TestCases.Enqueue(New GetCharactersBeginUnitTest) 'Tested 2013-08-03: FAIL
-      Call TestCases.Enqueue(New GetCharactersUnitTest) 'Tested 2013-08-03: FAIL
+      Call TestCases.Enqueue(New GetCharactersBeginUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetCharactersUnitTest) 'Tested 2013-08-03: Ok
 
       Call TestCases.Enqueue(New GetCustomDivisionBeginUnitTest) 'Tested 2013-08-03: Ok
       Call TestCases.Enqueue(New GetCustomDivisionUnitTest) 'Tested 2013-08-03: Ok
@@ -106,9 +106,11 @@ Namespace SC2Ranks
       Call TestCases.Enqueue(New GetCustomDivisionCharactersBeginUnitTest) 'Tested 2013-08-03: Ok
       Call TestCases.Enqueue(New GetCustomDivisionCharactersUnitTest) 'Tested 2013-08-03: Ok
 
+      'Error 400 Bad Request
       Call TestCases.Enqueue(New CustomDivisionAddBeginUnitTest) 'Tested 2013-08-03: FAIL
       Call TestCases.Enqueue(New CustomDivisionAddUnitTest) 'Tested 2013-08-03: FAIL
 
+      'DELETE does not support PostData?
       Call TestCases.Enqueue(New CustomDivisionRemoveBeginUnitTest) 'Tested 2013-08-03': FAIL
       Call TestCases.Enqueue(New CustomDivisionRemoveUnitTest) 'Tested 2013-08-03: FAIL
 

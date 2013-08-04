@@ -35,6 +35,8 @@ Namespace SC2Ranks.API
   Public Class Sc2RanksService
     Implements IDisposable
 
+    Public Const MaxRequestLimit As Int16 = 10
+
     Private Const BaseUrlFormat As String = "http://api.sc2ranks.com/v2/{0}?api_key={1}"
     Private Const HeaderCreditsLeft As String = "X-Credits-Left"
     Private Const HeaderCreditsUsed As String = "X-Credits-Used"
@@ -231,10 +233,10 @@ Namespace SC2Ranks.API
                                          ByVal Expansion As eSc2RanksExpansion,
                                          ByVal Bracket As eSc2RanksBracket,
                                          ByVal League As eSc2RanksLeague,
-                                         ByVal Page As Int32,
-                                         ByVal Limit As Int32,
                                          <Out()> ByRef Result As Sc2RanksCharacterTeamsResult,
                                          Optional Race As Nullable(Of eSc2RanksRace) = Nothing,
+                                         Optional ByVal Limit As Int16 = MaxRequestLimit,
+                                         Optional ByVal Page As Int16 = 1,
                                          Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
       Dim PostData As New StringBuilder
@@ -254,10 +256,10 @@ Namespace SC2Ranks.API
                                               ByVal Expansion As eSc2RanksExpansion,
                                               ByVal Bracket As eSc2RanksBracket,
                                               ByVal League As eSc2RanksLeague,
-                                              ByVal Page As Int32,
-                                              ByVal Limit As Int32,
                                               ByVal Callback As AsyncCallback,
                                               Optional Race As Nullable(Of eSc2RanksRace) = Nothing,
+                                              Optional ByVal Limit As Int16 = MaxRequestLimit,
+                                              Optional ByVal Page As Int16 = 1,
                                               Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
       Dim PostData As New StringBuilder
 
@@ -502,11 +504,13 @@ Namespace SC2Ranks.API
                                            ByVal League As eSc2RanksLeague,
                                            <Out()> ByRef Result As Sc2RanksCustomDivisionTeamsResult,
                                            Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
+                                           Optional ByVal Limit As Int16 = MaxRequestLimit,
+                                           Optional ByVal Page As Int16 = 1,
                                            Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
       Dim PostData As New StringBuilder
 
-      Call PostData.AppendFormat("&rank_region={0}&expansion={1}&bracket={2}&league={3}", Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League))
+      Call PostData.AppendFormat("&rank_region={0}&expansion={1}&bracket={2}&league={3}&limit={4}&page={5}", Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), Limit.ToString(), Page.ToString())
       If (Race.HasValue) Then PostData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
 
       Result = QueryAndParse(Of Sc2RanksCustomDivisionTeamsResult)(eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("custom-divisions/teams/{0}", DivisionID), Me.m_ApiKey), PostData.ToString(), Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
@@ -522,10 +526,12 @@ Namespace SC2Ranks.API
                                                 ByVal League As eSc2RanksLeague,
                                                 ByVal Callback As AsyncCallback,
                                                 Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
+                                                Optional ByVal Limit As Int16 = MaxRequestLimit,
+                                                Optional ByVal Page As Int16 = 1,
                                                 Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
       Dim PostData As New StringBuilder
 
-      Call PostData.AppendFormat("&rank_region={0}&expansion={1}&bracket={2}&league={3}", Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League))
+      Call PostData.AppendFormat("&rank_region={0}&expansion={1}&bracket={2}&league={3}&limit={4}&page={5}", Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), Limit.ToString(), Page.ToString())
       If (Race.HasValue) Then PostData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
 
       Return QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("custom-divisions/teams/{0}", DivisionID), Me.m_ApiKey), PostData.ToString(), IgnoreCache, Me.CacheConfig.SearchBasePlayerCacheDuration, Callback)
@@ -544,11 +550,13 @@ Namespace SC2Ranks.API
     Public Function GetCustomDivisionCharacters(ByVal DivisionID As String,
                                                 ByVal Region As eSc2RanksRegion,
                                                 <Out()> ByRef Result As Sc2RanksCustomDivisionCharactersResult,
+                                                Optional ByVal Limit As Int16 = MaxRequestLimit,
+                                                Optional ByVal Page As Int16 = 1,
                                                 Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
       Dim PostData As New StringBuilder
 
-      Call PostData.AppendFormat("region={0}", Enums.RegionBuffer.GetValue(Region))
+      Call PostData.AppendFormat("region={0}&limit={1}&page={2}", Enums.RegionBuffer.GetValue(Region), Limit.ToString(), Page.ToString())
 
       Result = QueryAndParse(Of Sc2RanksCustomDivisionCharactersResult)(eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("custom-divisions/characters/{0}", DivisionID), Me.m_ApiKey), PostData.ToString(), Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
 
@@ -559,10 +567,12 @@ Namespace SC2Ranks.API
                                                      ByVal DivisionID As String,
                                                      ByVal Region As eSc2RanksRegion,
                                                      ByVal Callback As AsyncCallback,
+                                                     Optional ByVal Limit As Int16 = MaxRequestLimit,
+                                                     Optional ByVal Page As Int16 = 1,
                                                      Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
       Dim PostData As New StringBuilder
 
-      Call PostData.AppendFormat("region={0}", Enums.RegionBuffer.GetValue(Region))
+      Call PostData.AppendFormat("region={0}&limit={1}&page={2}", Enums.RegionBuffer.GetValue(Region), Limit.ToString(), Page.ToString())
 
       Return QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("custom-divisions/characters/{0}", DivisionID), Me.m_ApiKey), PostData.ToString(), IgnoreCache, Me.CacheConfig.SearchBasePlayerCacheDuration, Callback)
     End Function

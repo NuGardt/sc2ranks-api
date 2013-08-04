@@ -25,7 +25,7 @@ Namespace SC2Ranks.UnitTest.Characters.SearchCharacterTeams
       If (Me.Ex Is Nothing) Then
         Dim Response As Sc2RanksCharacterTeamsResult = Nothing
 
-        Me.Ex = Me.Service.SearchCharacterTeams([Const].Name, eSc2RanksMatchType.Excact, [Const].RankRegion, eSc2RanksExpansion.HotS, eSc2RanksBracket._1V1, eSc2RanksLeague.All, 1, 10, Response)
+        Me.Ex = Me.Service.SearchCharacterTeams([Const].Name, eSc2RanksMatchType.Excact, [Const].RankRegion, eSc2RanksExpansion.HotS, eSc2RanksBracket._1V1, eSc2RanksLeague.All, Response)
 
         If (Ex Is Nothing) Then
           If Response.HasError Then

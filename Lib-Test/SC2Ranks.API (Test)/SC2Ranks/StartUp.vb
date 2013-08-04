@@ -107,7 +107,7 @@ Namespace SC2Ranks
       Call TestCases.Enqueue(New GetRankingsTopUnitTest) 'Tested 2013-08-04: Ok
 
       '-Divisions
-      Call TestCases.Enqueue(New GetdivisionsTopBeginUnitTest) 'Tested 2013-08-04: Ok
+      Call TestCases.Enqueue(New GetDivisionsTopBeginUnitTest) 'Tested 2013-08-04: Ok
       Call TestCases.Enqueue(New GetDivisionsTopUnitTest) 'Tested 2013-08-04: Ok
 
       '-Custom Divisions

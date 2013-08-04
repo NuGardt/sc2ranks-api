@@ -25,7 +25,7 @@ Namespace SC2Ranks.UnitTest.Characters.SearchCharacterTeams
       If (Ex IsNot Nothing) Then
         Call Me.OnCompletion.Invoke(Nothing)
       Else
-        Call Me.Service.SearchCharacterTeamsBegin(Nothing, [Const].Name, eSc2RanksMatchType.Excact, [Const].RankRegion, eSc2RanksExpansion.HotS, eSc2RanksBracket._1V1, eSc2RanksLeague.All, 1, 10, EndCallback)
+        Call Me.Service.SearchCharacterTeamsBegin(Nothing, [Const].Name, eSc2RanksMatchType.Excact, [Const].RankRegion, eSc2RanksExpansion.HotS, eSc2RanksBracket._1V1, eSc2RanksLeague.All, EndCallback)
       End If
     End Sub
 

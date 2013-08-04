@@ -409,7 +409,7 @@ Namespace SC2Ranks.API
       Call PostData.AppendFormat("&rank_region={0}&expansion={1}&bracket={2}&league={3}&limit={4}", Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), TopCount.ToString())
       If (Race.HasValue) Then PostData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
 
-      Result = QueryAndParse(Of Sc2RanksDivisionListResult, Sc2RanksDivisionElement, IList(Of Sc2RanksDivisionElement))(eRequestMethod.Post, String.Format(BaseUrlFormat, "divisions", Me.m_ApiKey), PostData.ToString(), Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of Sc2RanksDivisionListResult, Sc2RanksDivisionResult, IList(Of Sc2RanksDivisionResult))(eRequestMethod.Post, String.Format(BaseUrlFormat, "divisions", Me.m_ApiKey), PostData.ToString(), Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -434,7 +434,35 @@ Namespace SC2Ranks.API
     Public Function GetDivisionsTopEnd(ByVal Result As IAsyncResult,
                                        <Out()> ByRef Key As Object,
                                        <Out()> ByRef Response As Sc2RanksDivisionListResult) As Exception
-      Return QueryAndParseEnd(Of Sc2RanksDivisionListResult, Sc2RanksDivisionElement, IList(Of Sc2RanksDivisionElement))(Result, Key, Response)
+      Return QueryAndParseEnd(Of Sc2RanksDivisionListResult, Sc2RanksDivisionResult, IList(Of Sc2RanksDivisionResult))(Result, Key, Response)
+    End Function
+
+#End Region
+
+#Region "Function GetDivision"
+
+    Public Function GetDivision(ByVal DivisionID As String,
+                                <Out()> ByRef Result As Sc2RanksDivisionResult,
+                                Optional ByVal IgnoreCache As Boolean = False) As Exception
+      Dim Ex As Exception = Nothing
+
+      Result = QueryAndParse(Of Sc2RanksDivisionResult)(eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("divisions/{0}", DivisionID), Me.m_ApiKey), Nothing, Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
+
+      Return Ex
+    End Function
+
+    Public Function GetDivisionBegin(ByVal Key As Object,
+                                     ByVal DivisionID As String,
+                                     ByVal Callback As AsyncCallback,
+                                     Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
+                                     Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
+      Return QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("divisions/{0}", DivisionID), Me.m_ApiKey), Nothing, IgnoreCache, Me.CacheConfig.SearchBasePlayerCacheDuration, Callback)
+    End Function
+
+    Public Function GetDivisionEnd(ByVal Result As IAsyncResult,
+                                   <Out()> ByRef Key As Object,
+                                   <Out()> ByRef Response As Sc2RanksDivisionResult) As Exception
+      Return QueryAndParseEnd(Of Sc2RanksDivisionResult)(Result, Key, Response)
     End Function
 
 #End Region

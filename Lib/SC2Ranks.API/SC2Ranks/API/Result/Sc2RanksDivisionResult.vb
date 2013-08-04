@@ -19,9 +19,11 @@ Imports System.Runtime.Serialization
 Imports NuGardt.SC2Ranks.Helper
 Imports System.Text
 
-Namespace SC2Ranks.API.Result.Element
+Namespace SC2Ranks.API.Result
   <DataContract()>
-  Public Class Sc2RanksDivisionElement
+  Public Class Sc2RanksDivisionResult
+    Inherits Sc2RanksBaseResult
+
     '{
     '  "id": "51fc38734970cf3f98000006",
     '  "url": "http://www.sc2ranks.com/division/am/192413001/grandmaster",

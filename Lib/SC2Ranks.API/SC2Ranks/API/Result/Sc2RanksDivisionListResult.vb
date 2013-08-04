@@ -18,14 +18,13 @@
 Imports System.Runtime.Serialization
 Imports System.Collections.Generic
 Imports System.Collections
-Imports NuGardt.SC2Ranks.API.Result.Element
 Imports System.Text
 
 Namespace SC2Ranks.API.Result
   <DataContract()>
   Public Class Sc2RanksDivisionListResult
     Inherits Sc2RanksBaseResult
-    Implements IList(Of Sc2RanksDivisionElement)
+    Implements IList(Of Sc2RanksDivisionResult)
 
     '[
     '  {
@@ -47,70 +46,70 @@ Namespace SC2Ranks.API.Result
     '  }
     ']
 
-    Private ReadOnly m_List As New List(Of Sc2RanksDivisionElement)
+    Private ReadOnly m_List As New List(Of Sc2RanksDivisionResult)
 
     Public Sub New()
       Call MyBase.New()
 
-      Me.m_List = New List(Of Sc2RanksDivisionElement)()
+      Me.m_List = New List(Of Sc2RanksDivisionResult)()
     End Sub
 
-    Public Sub Add(ByVal Item As Sc2RanksDivisionElement) Implements ICollection(Of Sc2RanksDivisionElement).Add
+    Public Sub Add(ByVal Item As Sc2RanksDivisionResult) Implements ICollection(Of Sc2RanksDivisionResult).Add
       Call Me.m_List.Add(Item)
     End Sub
 
-    Public Sub Clear() Implements ICollection(Of Sc2RanksDivisionElement).Clear
+    Public Sub Clear() Implements ICollection(Of Sc2RanksDivisionResult).Clear
       Call Me.m_List.Clear()
     End Sub
 
-    Public Function Contains(ByVal Item As Sc2RanksDivisionElement) As Boolean Implements ICollection(Of Sc2RanksDivisionElement).Contains
+    Public Function Contains(ByVal Item As Sc2RanksDivisionResult) As Boolean Implements ICollection(Of Sc2RanksDivisionResult).Contains
       Return Me.m_List.Contains(Item)
     End Function
 
-    Public Sub CopyTo(ByVal Array() As Sc2RanksDivisionElement,
-                      ByVal ArrayIndex As Integer) Implements ICollection(Of Sc2RanksDivisionElement).CopyTo
+    Public Sub CopyTo(ByVal Array() As Sc2RanksDivisionResult,
+                      ByVal ArrayIndex As Integer) Implements ICollection(Of Sc2RanksDivisionResult).CopyTo
       Call Me.m_List.CopyTo(Array, ArrayIndex)
     End Sub
 
-    Public ReadOnly Property Count As Integer Implements ICollection(Of Sc2RanksDivisionElement).Count
+    Public ReadOnly Property Count As Integer Implements ICollection(Of Sc2RanksDivisionResult).Count
       Get
         Return Me.m_List.Count
       End Get
     End Property
 
-    Public ReadOnly Property IsReadOnly As Boolean Implements ICollection(Of Sc2RanksDivisionElement).IsReadOnly
+    Public ReadOnly Property IsReadOnly As Boolean Implements ICollection(Of Sc2RanksDivisionResult).IsReadOnly
       Get
         Return False
       End Get
     End Property
 
-    Public Function Remove(ByVal Item As Sc2RanksDivisionElement) As Boolean Implements ICollection(Of Sc2RanksDivisionElement).Remove
+    Public Function Remove(ByVal Item As Sc2RanksDivisionResult) As Boolean Implements ICollection(Of Sc2RanksDivisionResult).Remove
       Return Me.m_List.Remove(Item)
     End Function
 
-    Public Function GetEnumerator() As IEnumerator(Of Sc2RanksDivisionElement) Implements IEnumerable(Of Sc2RanksDivisionElement).GetEnumerator
+    Public Function GetEnumerator() As IEnumerator(Of Sc2RanksDivisionResult) Implements IEnumerable(Of Sc2RanksDivisionResult).GetEnumerator
       Return Me.m_List.GetEnumerator()
     End Function
 
-    Public Function IndexOf(ByVal Item As Sc2RanksDivisionElement) As Integer Implements IList(Of Sc2RanksDivisionElement).IndexOf
+    Public Function IndexOf(ByVal Item As Sc2RanksDivisionResult) As Integer Implements IList(Of Sc2RanksDivisionResult).IndexOf
       Return Me.m_List.IndexOf(Item)
     End Function
 
     Public Sub Insert(ByVal Index As Integer,
-                      ByVal Item As Sc2RanksDivisionElement) Implements IList(Of Sc2RanksDivisionElement).Insert
+                      ByVal Item As Sc2RanksDivisionResult) Implements IList(Of Sc2RanksDivisionResult).Insert
       Call Me.m_List.Insert(Index, Item)
     End Sub
 
-    Default Public Property Item(ByVal Index As Integer) As Sc2RanksDivisionElement Implements IList(Of Sc2RanksDivisionElement).Item
+    Default Public Property Item(ByVal Index As Integer) As Sc2RanksDivisionResult Implements IList(Of Sc2RanksDivisionResult).Item
       Get
         Return Me.m_List.Item(Index)
       End Get
-      Set(ByVal Value As Sc2RanksDivisionElement)
+      Set(ByVal Value As Sc2RanksDivisionResult)
         Me.m_List.Item(Index) = Value
       End Set
     End Property
 
-    Public Sub RemoveAt(ByVal Index As Integer) Implements IList(Of Sc2RanksDivisionElement).RemoveAt
+    Public Sub RemoveAt(ByVal Index As Integer) Implements IList(Of Sc2RanksDivisionResult).RemoveAt
       Call Me.m_List.RemoveAt(Index)
     End Sub
 

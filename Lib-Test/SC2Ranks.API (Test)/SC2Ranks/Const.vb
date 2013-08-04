@@ -28,5 +28,6 @@ Namespace SC2Ranks
     Public Const Bracket As eSc2RanksBracket = eSc2RanksBracket._1V1
     Public Const CustomDivisionID As String = "51e882c969d5386f5900cac4"
     Public Const ManageCustomDivisionID As String = "51e945ea69d5380d9c000002"
+    Public Const DivisionID As String = "51be5370f92276d0221b9296"
   End Class
 End Namespace

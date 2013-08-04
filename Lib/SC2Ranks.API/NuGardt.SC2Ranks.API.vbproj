@@ -115,7 +115,7 @@
     <Compile Include="SC2Ranks\API\Cache\CacheRequest.vb" />
     <Compile Include="SC2Ranks\API\eSc2RanksMatchType.vb" />
     <Compile Include="SC2Ranks\API\eSc2RanksRankRegion.vb" />
-    <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksDivisionElement.vb" />
+    <Compile Include="SC2Ranks\API\Result\Sc2RanksDivisionResult.vb" />
     <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksCustomDivisionManageElement.vb" />
     <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksRacesElement.vb" />
     <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksCharacterElement.vb" />

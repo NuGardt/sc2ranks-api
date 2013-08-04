@@ -22,6 +22,7 @@ Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionCharacters
 Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionTeams
 Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisions
 Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.GetCustomDivision
+Imports NuGardt.SC2Ranks.UnitTest.Divisions.GetDivision
 Imports NuGardt.SC2Ranks.UnitTest.Divisions.GetDivisionsTop
 Imports NuGardt.SC2Ranks.UnitTest.Rankings.GetRankingsTop
 Imports NuGardt.SC2Ranks.UnitTest.Characters.GetCharacters
@@ -109,6 +110,9 @@ Namespace SC2Ranks
       '-Divisions
       Call TestCases.Enqueue(New GetDivisionsTopBeginUnitTest) 'Tested 2013-08-04: Ok
       Call TestCases.Enqueue(New GetDivisionsTopUnitTest) 'Tested 2013-08-04: Ok
+
+      Call TestCases.Enqueue(New GetDivisionBeginUnitTest) 'Tested 2013-08-04: Ok
+      Call TestCases.Enqueue(New GetDivisionUnitTest) 'Tested 2013-08-04: Ok
 
       '-Custom Divisions
       Call TestCases.Enqueue(New GetCustomDivisionBeginUnitTest) 'Tested 2013-08-03: Ok

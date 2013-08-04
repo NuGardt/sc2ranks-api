@@ -44,7 +44,7 @@ Namespace SC2Ranks.API.Result.Element
       End Set
     End Property
 
-    'ToDo: Problem under Mono using Nullable(of Int16) (Workaround with TryParse)
+    'ToDo: Problem under Mono using Nullable(of Int32) (Workaround with TryParse)
     'System.Runtime.Serialization.SerializationException: Deserialization has failed ---> System.Xml.XmlException: Typed value is invalid.  Line 1, position 272.
     <DataMember(name := "rank")>
     Private Property RankRaw As String
@@ -57,11 +57,11 @@ Namespace SC2Ranks.API.Result.Element
     End Property
 
     <IgnoreDataMember()>
-    Public ReadOnly Property Rank As Nullable(Of Int16)
+    Public ReadOnly Property Rank As Nullable(Of Int32)
       Get
-        Dim Erg As Int16 = Nothing
+        Dim Erg As Int32 = Nothing
 
-        If Int16.TryParse(Me.m_Rank, Erg) Then
+        If Int32.TryParse(Me.m_Rank, Erg) Then
           Return Erg
         Else
           Return Nothing

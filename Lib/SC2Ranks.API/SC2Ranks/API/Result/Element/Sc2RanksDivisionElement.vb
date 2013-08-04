@@ -46,9 +46,9 @@ Namespace SC2Ranks.API.Result.Element
     Private m_RankRegionRaw As String
     Private m_ExpansionRaw As String
     Private m_LeagueRaw As String
-    Private m_BracketRaw As Int16
+    Private m_BracketRaw As Int32
     Private m_Random As Boolean
-    Private m_CharacterCount As Int16
+    Private m_CharacterCount As Int32
     Private m_AveragePoints As Double
     Private m_AverageWins As Double
     Private m_AverageLosses As Double
@@ -157,11 +157,11 @@ Namespace SC2Ranks.API.Result.Element
     End Property
 
     <DataMember(name := "bracket")>
-    Private Property BracketRaw As Int16
+    Private Property BracketRaw As Int32
       Get
         Return Me.m_BracketRaw
       End Get
-      Set(ByVal Value As Int16)
+      Set(ByVal Value As Int32)
         Me.m_BracketRaw = Value
       End Set
     End Property
@@ -184,11 +184,11 @@ Namespace SC2Ranks.API.Result.Element
     End Property
 
     <DataMember(name := "characters")>
-    Public Property CharacterCount As Int16
+    Public Property CharacterCount As Int32
       Get
         Return Me.m_CharacterCount
       End Get
-      Private Set(ByVal Value As Int16)
+      Private Set(ByVal Value As Int32)
         Me.m_CharacterCount = Value
       End Set
     End Property

@@ -26,8 +26,8 @@ Namespace SC2Ranks.API.Result.Element
     '  "number": 4
     '}
 
-    Private m_Year As Int16
-    Private m_Number As Int16
+    Private m_Year As Int32
+    Private m_Number As Int32
 
     Public Sub New()
       Me.m_Year = Nothing
@@ -35,21 +35,21 @@ Namespace SC2Ranks.API.Result.Element
     End Sub
 
     <DataMember(name := "year")>
-    Public Property Year As Int16
+    Public Property Year As Int32
       Get
         Return Me.m_Year
       End Get
-      Private Set(ByVal Value As Int16)
+      Private Set(ByVal Value As Int32)
         Me.m_Year = Value
       End Set
     End Property
 
     <DataMember(name := "number")>
-    Public Property Number As Int16
+    Public Property Number As Int32
       Get
         Return Me.m_Number
       End Get
-      Private Set(ByVal Value As Int16)
+      Private Set(ByVal Value As Int32)
         Me.m_Number = Value
       End Set
     End Property

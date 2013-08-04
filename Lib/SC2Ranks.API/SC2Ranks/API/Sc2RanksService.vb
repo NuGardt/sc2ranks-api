@@ -35,7 +35,7 @@ Namespace SC2Ranks.API
   Public Class Sc2RanksService
     Implements IDisposable
 
-    Public Const MaxRequestLimit As Int16 = 10
+    Public Const MaxRequestLimit As Int32 = 10
 
     Private Const BaseUrlFormat As String = "http://api.sc2ranks.com/v2/{0}?api_key={1}"
     Private Const HeaderCreditsLeft As String = "X-Credits-Left"
@@ -235,8 +235,8 @@ Namespace SC2Ranks.API
                                          ByVal League As eSc2RanksLeague,
                                          <Out()> ByRef Result As Sc2RanksCharacterTeamsResult,
                                          Optional Race As Nullable(Of eSc2RanksRace) = Nothing,
-                                         Optional ByVal Limit As Int16 = MaxRequestLimit,
-                                         Optional ByVal Page As Int16 = 1,
+                                         Optional ByVal Limit As Int32 = MaxRequestLimit,
+                                         Optional ByVal Page As Int32 = 1,
                                          Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
       Dim PostData As New StringBuilder
@@ -258,8 +258,8 @@ Namespace SC2Ranks.API
                                               ByVal League As eSc2RanksLeague,
                                               ByVal Callback As AsyncCallback,
                                               Optional Race As Nullable(Of eSc2RanksRace) = Nothing,
-                                              Optional ByVal Limit As Int16 = MaxRequestLimit,
-                                              Optional ByVal Page As Int16 = 1,
+                                              Optional ByVal Limit As Int32 = MaxRequestLimit,
+                                              Optional ByVal Page As Int32 = 1,
                                               Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
       Dim PostData As New StringBuilder
 
@@ -349,7 +349,7 @@ Namespace SC2Ranks.API
                                    ByVal Expansion As eSc2RanksExpansion,
                                    ByVal Bracket As eSc2RanksBracket,
                                    ByVal League As eSc2RanksLeague,
-                                   ByVal TopCount As Int16,
+                                   ByVal TopCount As Int32,
                                    <Out()> ByRef Result As Sc2RanksCharacterTeamsResult,
                                    Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
                                    Optional ByVal IgnoreCache As Boolean = False) As Exception
@@ -369,7 +369,7 @@ Namespace SC2Ranks.API
                                         ByVal Expansion As eSc2RanksExpansion,
                                         ByVal Bracket As eSc2RanksBracket,
                                         ByVal League As eSc2RanksLeague,
-                                        ByVal TopCount As Int16,
+                                        ByVal TopCount As Int32,
                                         ByVal Callback As AsyncCallback,
                                         Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
                                         Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
@@ -399,7 +399,7 @@ Namespace SC2Ranks.API
                                     ByVal Expansion As eSc2RanksExpansion,
                                     ByVal Bracket As eSc2RanksBracket,
                                     ByVal League As eSc2RanksLeague,
-                                    ByVal TopCount As Int16,
+                                    ByVal TopCount As Int32,
                                     <Out()> ByRef Result As Sc2RanksDivisionListResult,
                                     Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
                                     Optional ByVal IgnoreCache As Boolean = False) As Exception
@@ -419,7 +419,7 @@ Namespace SC2Ranks.API
                                          ByVal Expansion As eSc2RanksExpansion,
                                          ByVal Bracket As eSc2RanksBracket,
                                          ByVal League As eSc2RanksLeague,
-                                         ByVal TopCount As Int16,
+                                         ByVal TopCount As Int32,
                                          ByVal Callback As AsyncCallback,
                                          Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
                                          Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
@@ -504,8 +504,8 @@ Namespace SC2Ranks.API
                                            ByVal League As eSc2RanksLeague,
                                            <Out()> ByRef Result As Sc2RanksCustomDivisionTeamsResult,
                                            Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
-                                           Optional ByVal Limit As Int16 = MaxRequestLimit,
-                                           Optional ByVal Page As Int16 = 1,
+                                           Optional ByVal Limit As Int32 = MaxRequestLimit,
+                                           Optional ByVal Page As Int32 = 1,
                                            Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
       Dim PostData As New StringBuilder
@@ -526,8 +526,8 @@ Namespace SC2Ranks.API
                                                 ByVal League As eSc2RanksLeague,
                                                 ByVal Callback As AsyncCallback,
                                                 Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
-                                                Optional ByVal Limit As Int16 = MaxRequestLimit,
-                                                Optional ByVal Page As Int16 = 1,
+                                                Optional ByVal Limit As Int32 = MaxRequestLimit,
+                                                Optional ByVal Page As Int32 = 1,
                                                 Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
       Dim PostData As New StringBuilder
 
@@ -550,8 +550,8 @@ Namespace SC2Ranks.API
     Public Function GetCustomDivisionCharacters(ByVal DivisionID As String,
                                                 ByVal Region As eSc2RanksRegion,
                                                 <Out()> ByRef Result As Sc2RanksCustomDivisionCharactersResult,
-                                                Optional ByVal Limit As Int16 = MaxRequestLimit,
-                                                Optional ByVal Page As Int16 = 1,
+                                                Optional ByVal Limit As Int32 = MaxRequestLimit,
+                                                Optional ByVal Page As Int32 = 1,
                                                 Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
       Dim PostData As New StringBuilder
@@ -567,8 +567,8 @@ Namespace SC2Ranks.API
                                                      ByVal DivisionID As String,
                                                      ByVal Region As eSc2RanksRegion,
                                                      ByVal Callback As AsyncCallback,
-                                                     Optional ByVal Limit As Int16 = MaxRequestLimit,
-                                                     Optional ByVal Page As Int16 = 1,
+                                                     Optional ByVal Limit As Int32 = MaxRequestLimit,
+                                                     Optional ByVal Page As Int32 = 1,
                                                      Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
       Dim PostData As New StringBuilder
 

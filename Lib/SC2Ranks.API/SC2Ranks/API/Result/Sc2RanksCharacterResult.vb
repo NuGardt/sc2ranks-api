@@ -48,7 +48,7 @@ Namespace SC2Ranks.API.Result
     Private m_Url As String
     Private m_ReplayUrl As String
     Private m_VodUrl As String
-    Private m_AchievementPoints As Int16
+    Private m_AchievementPoints As Int32
     Private m_UpdatedAt As Int64
     Private m_SwarmLevels As Sc2RanksSwarmLevelElement
     Private m_RegionRaw As String
@@ -106,11 +106,11 @@ Namespace SC2Ranks.API.Result
     End Property
 
     <DataMember(name := "achievement_points")>
-    Public Property AchievementPoints As Int16
+    Public Property AchievementPoints As Int32
       Get
         Return Me.m_AchievementPoints
       End Get
-      Set(ByVal Value As Int16)
+      Set(ByVal Value As Int32)
         Me.m_AchievementPoints = Value
       End Set
     End Property

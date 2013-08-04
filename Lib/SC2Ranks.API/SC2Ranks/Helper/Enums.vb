@@ -38,7 +38,7 @@ Namespace SC2Ranks.Helper
       '-
     End Sub
 
-    Public Shared Function BracketRawToBracket(ByVal Bracket As Int16,
+    Public Shared Function BracketRawToBracket(ByVal Bracket As Int32,
                                                ByVal Random As Boolean) As eSc2RanksBracket
       Dim Erg As eSc2RanksBracket
 

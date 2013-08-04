@@ -63,11 +63,11 @@ Namespace SC2Ranks.API.Result.Element
     Private m_ExpansionRaw As String
     Private m_LeagueRaw As String
     Private m_LastGameAt As Int64
-    Private m_BracketRaw As Int16
+    Private m_BracketRaw As Int32
     Private m_Random As Boolean
-    Private m_Points As Int16
-    Private m_Wins As Int16
-    Private m_Losses As Int16
+    Private m_Points As Int32
+    Private m_Wins As Int32
+    Private m_Losses As Int32
     Private m_WinRatio As Double
     Private m_Division As Sc2RanksCharacterDivisionElement
     Private m_Rankings As Sc2RanksRankingElement
@@ -169,11 +169,11 @@ Namespace SC2Ranks.API.Result.Element
     End Property
 
     <DataMember(name := "bracket")>
-    Private Property BracketRaw As Int16
+    Private Property BracketRaw As Int32
       Get
         Return Me.m_BracketRaw
       End Get
-      Set(ByVal Value As Int16)
+      Set(ByVal Value As Int32)
         Me.m_BracketRaw = Value
       End Set
     End Property
@@ -196,31 +196,31 @@ Namespace SC2Ranks.API.Result.Element
     End Property
 
     <DataMember(name := "points")>
-    Public Property Points As Int16
+    Public Property Points As Int32
       Get
         Return Me.m_Points
       End Get
-      Private Set(ByVal Value As Int16)
+      Private Set(ByVal Value As Int32)
         Me.m_Points = Value
       End Set
     End Property
 
     <DataMember(name := "wins")>
-    Public Property Wins As Int16
+    Public Property Wins As Int32
       Get
         Return Me.m_Wins
       End Get
-      Private Set(ByVal Value As Int16)
+      Private Set(ByVal Value As Int32)
         Me.m_Wins = Value
       End Set
     End Property
 
     <DataMember(name := "losses")>
-    Public Property Losses As Int16
+    Public Property Losses As Int32
       Get
         Return Me.m_Losses
       End Get
-      Private Set(ByVal Value As Int16)
+      Private Set(ByVal Value As Int32)
         Me.m_Losses = Value
       End Set
     End Property

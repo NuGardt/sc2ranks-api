@@ -28,9 +28,9 @@ Namespace SC2Ranks.API.Result.Element
     '  "terran": 0
     '},
 
-    Private m_Zerg As Int16
-    Private m_Protoss As Int16
-    Private m_Terran As Int16
+    Private m_Zerg As Int32
+    Private m_Protoss As Int32
+    Private m_Terran As Int32
 
     Public Sub New()
       Me.m_Zerg = Nothing
@@ -39,31 +39,31 @@ Namespace SC2Ranks.API.Result.Element
     End Sub
 
     <DataMember(name := "zerg")>
-    Public Property Zerg As Int16
+    Public Property Zerg As Int32
       Get
         Return Me.m_Zerg
       End Get
-      Private Set(ByVal Value As Int16)
+      Private Set(ByVal Value As Int32)
         Me.m_Zerg = Value
       End Set
     End Property
 
     <DataMember(name := "protoss")>
-    Public Property Protoss As Int16
+    Public Property Protoss As Int32
       Get
         Return Me.m_Protoss
       End Get
-      Private Set(ByVal Value As Int16)
+      Private Set(ByVal Value As Int32)
         Me.m_Protoss = Value
       End Set
     End Property
 
     <DataMember(name := "terran")>
-    Public Property Terran As Int16
+    Public Property Terran As Int32
       Get
         Return Me.m_Terran
       End Get
-      Private Set(ByVal Value As Int16)
+      Private Set(ByVal Value As Int32)
         Me.m_Terran = Value
       End Set
     End Property

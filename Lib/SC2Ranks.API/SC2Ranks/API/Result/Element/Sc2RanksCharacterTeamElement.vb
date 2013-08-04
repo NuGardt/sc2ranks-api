@@ -69,7 +69,7 @@ Namespace SC2Ranks.API.Result.Element
     Private m_Wins As Int16
     Private m_Losses As Int16
     Private m_WinRatio As Double
-    Private m_Division As Sc2RanksDivisionElement
+    Private m_Division As Sc2RanksCharacterDivisionElement
     Private m_Rankings As Sc2RanksRankingElement
     Private m_Characters() As Sc2RanksCharacterElement
 
@@ -236,11 +236,11 @@ Namespace SC2Ranks.API.Result.Element
     End Property
 
     <DataMember(name := "division")>
-    Public Property Division As Sc2RanksDivisionElement
+    Public Property Division As Sc2RanksCharacterDivisionElement
       Get
         Return Me.m_Division
       End Get
-      Private Set(ByVal Value As Sc2RanksDivisionElement)
+      Private Set(ByVal Value As Sc2RanksCharacterDivisionElement)
         Me.m_Division = Value
       End Set
     End Property

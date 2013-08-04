@@ -22,7 +22,7 @@ Imports System.Text
 
 Namespace SC2Ranks.API.Result
   <DataContract()>
-  Public Class Sc2RanksCustomDivisionsResult
+  Public Class Sc2RanksCustomDivisionListResult
     Inherits Sc2RanksBaseResult
     Implements IList(Of Sc2RanksCustomDivisionResult)
 

@@ -23,7 +23,7 @@ Namespace SC2Ranks.UnitTest.Characters.GetCharacters
       Me.OnCompletion = OnCompletion
 
       If (Me.Ex Is Nothing) Then
-        Dim Response As Sc2RanksCharactersResult = Nothing
+        Dim Response As Sc2RanksCharacterListResult = Nothing
 
         Dim Characters As New List(Of Sc2RanksBulkCharacter)
         Call Characters.Add(New Sc2RanksBulkCharacter([Const].Region, [Const].BattleNetID))
@@ -34,7 +34,7 @@ Namespace SC2Ranks.UnitTest.Characters.GetCharacters
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksCharactersResult)("GetCharacters", Me.Ex, Response)
+            Me.m_Result = Helper.CheckResult(Of Sc2RanksCharacterListResult)("GetCharacters", Me.Ex, Response)
           End If
         End If
       End If

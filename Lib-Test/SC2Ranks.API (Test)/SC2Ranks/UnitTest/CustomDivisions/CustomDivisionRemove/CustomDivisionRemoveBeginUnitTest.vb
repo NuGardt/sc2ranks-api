@@ -44,7 +44,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionRemove
     End Function
 
     Public Sub [End](Optional Result As IAsyncResult = Nothing) Implements IUnitTestCase.[End]
-      Dim Response As Sc2RanksCustomDivisionManageResult = Nothing
+      Dim Response As Sc2RanksCustomDivisionManageListResult = Nothing
 
       Me.Ex = Me.Service.CustomDivisionRemoveEnd(Result, Nothing, Response)
 
@@ -52,7 +52,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionRemove
         If Response.HasError Then
           Me.Ex = New Exception(Response.Error)
         Else
-          Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionManageResult)("CustomDivisionRemoveBegin", Me.Ex, Response)
+          Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionManageListResult)("CustomDivisionRemoveBegin", Me.Ex, Response)
         End If
       End If
     End Sub

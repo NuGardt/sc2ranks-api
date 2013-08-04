@@ -22,7 +22,7 @@ Imports System.Text
 
 Namespace SC2Ranks.API.Result
   <DataContract()>
-  Public Class Sc2RanksCharactersResult
+  Public Class Sc2RanksCharacterListResult
     Inherits Sc2RanksBaseResult
     Implements IList(Of Sc2RanksCharacterResult)
 

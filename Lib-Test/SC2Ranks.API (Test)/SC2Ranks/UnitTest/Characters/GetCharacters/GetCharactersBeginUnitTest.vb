@@ -43,7 +43,7 @@ Namespace SC2Ranks.UnitTest.Characters.GetCharacters
     End Function
 
     Public Sub [End](Optional Result As IAsyncResult = Nothing) Implements IUnitTestCase.[End]
-      Dim Response As Sc2RanksCharactersResult = Nothing
+      Dim Response As Sc2RanksCharacterListResult = Nothing
 
       Me.Ex = Me.Service.GetCharactersEnd(Result, Nothing, Response)
 
@@ -51,7 +51,7 @@ Namespace SC2Ranks.UnitTest.Characters.GetCharacters
         If Response.HasError Then
           Me.Ex = New Exception(Response.Error)
         Else
-          Me.m_Result = Helper.CheckResult(Of Sc2RanksCharactersResult)("GetCharactersBegin", Me.Ex, Response)
+          Me.m_Result = Helper.CheckResult(Of Sc2RanksCharacterListResult)("GetCharactersBegin", Me.Ex, Response)
         End If
       End If
     End Sub

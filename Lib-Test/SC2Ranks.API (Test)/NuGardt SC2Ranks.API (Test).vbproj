@@ -116,6 +116,8 @@
     <Compile Include="SC2Ranks\UnitTest\CustomDivisions\CustomDivisionAdd\CustomDivisionAddUnitTest.vb" />
     <Compile Include="SC2Ranks\UnitTest\CustomDivisions\CustomDivisionRemove\CustomDivisionRemoveBeginUnitTest.vb" />
     <Compile Include="SC2Ranks\UnitTest\CustomDivisions\CustomDivisionRemove\CustomDivisionRemoveUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\Divisions\GetDivisionsTop\GetDivisionsTopBeginUnitTest.vb" />
+    <Compile Include="SC2Ranks\UnitTest\Divisions\GetDivisionsTop\GetDivisionsUnitTest.vb" />
     <Compile Include="SC2Ranks\UnitTest\Rankings\GetRankingsTop\GetRankingsTopBeginUnitTest.vb" />
     <Compile Include="SC2Ranks\UnitTest\Rankings\GetRankingsTop\GetRankingsUnitTest.vb" />
     <Compile Include="SC2Ranks\UnitTest\Characters\SearchCharacterTeams\SearchCharacterTeamsUnitTest.vb" />
@@ -148,7 +150,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SC2Ranks\UnitTest\Clans\" />
-    <Folder Include="SC2Ranks\UnitTest\Divisions\" />
     <Folder Include="SC2Ranks\UnitTest\Teams\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

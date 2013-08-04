@@ -44,7 +44,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionAdd
     End Function
 
     Public Sub [End](Optional Result As IAsyncResult = Nothing) Implements IUnitTestCase.[End]
-      Dim Response As Sc2RanksCustomDivisionManageResult = Nothing
+      Dim Response As Sc2RanksCustomDivisionManageListResult = Nothing
 
       Me.Ex = Me.Service.CustomDivisionAddEnd(Result, Nothing, Response)
 
@@ -52,7 +52,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionAdd
         If Response.HasError Then
           Me.Ex = New Exception(Response.Error)
         Else
-          Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionManageResult)("CustomDivisionAddBegin", Me.Ex, Response)
+          Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionManageListResult)("CustomDivisionAddBegin", Me.Ex, Response)
         End If
       End If
     End Sub

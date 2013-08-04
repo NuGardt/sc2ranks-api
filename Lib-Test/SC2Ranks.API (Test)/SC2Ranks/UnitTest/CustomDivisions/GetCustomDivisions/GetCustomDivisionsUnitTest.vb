@@ -23,7 +23,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisions
       Me.OnCompletion = OnCompletion
 
       If (Me.Ex Is Nothing) Then
-        Dim Response As Sc2RanksCustomDivisionsResult = Nothing
+        Dim Response As Sc2RanksCustomDivisionListResult = Nothing
 
         Me.Ex = Me.Service.GetCustomDivisions(Response)
 
@@ -31,7 +31,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisions
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionsResult)("GetCustomDivisions", Me.Ex, Response)
+            Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionListResult)("GetCustomDivisions", Me.Ex, Response)
           End If
         End If
       End If

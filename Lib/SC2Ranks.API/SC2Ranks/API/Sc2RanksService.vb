@@ -278,7 +278,7 @@ Namespace SC2Ranks.API
 #Region "Function GetCharacters"
 
     Public Function GetCharacters(ByVal Characters As IList(Of Sc2RanksBulkCharacter),
-                                  <Out()> ByRef Result As Sc2RanksCharactersResult,
+                                  <Out()> ByRef Result As Sc2RanksCharacterListResult,
                                   Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
       Dim PostData As New StringBuilder
@@ -295,7 +295,7 @@ Namespace SC2Ranks.API
         Next d
       End If
 
-      Result = QueryAndParse(Of Sc2RanksCharactersResult, Sc2RanksCharacterResult, IList(Of Sc2RanksCharacterResult))(eRequestMethod.Post, String.Format(BaseUrlFormat, "bulk/characters", Me.m_ApiKey), PostData.ToString(), Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of Sc2RanksCharacterListResult, Sc2RanksCharacterResult, IList(Of Sc2RanksCharacterResult))(eRequestMethod.Post, String.Format(BaseUrlFormat, "bulk/characters", Me.m_ApiKey), PostData.ToString(), Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -323,8 +323,8 @@ Namespace SC2Ranks.API
 
     Public Function GetCharactersEnd(ByVal Result As IAsyncResult,
                                      <Out()> ByRef Key As Object,
-                                     <Out()> ByRef Response As Sc2RanksCharactersResult) As Exception
-      Return QueryAndParseEnd(Of Sc2RanksCharactersResult, Sc2RanksCharacterResult, IList(Of Sc2RanksCharacterResult))(Result, Key, Response)
+                                     <Out()> ByRef Response As Sc2RanksCharacterListResult) As Exception
+      Return QueryAndParseEnd(Of Sc2RanksCharacterListResult, Sc2RanksCharacterResult, IList(Of Sc2RanksCharacterResult))(Result, Key, Response)
     End Function
 
 #End Region
@@ -391,17 +391,63 @@ Namespace SC2Ranks.API
 
 #Region "API Divisions"
 
+#Region "Function GetRankingsTop"
+
+    Public Function GetDivisionsTop(ByVal RankRegion As eSc2RanksRankRegion,
+                                    ByVal Expansion As eSc2RanksExpansion,
+                                    ByVal Bracket As eSc2RanksBracket,
+                                    ByVal League As eSc2RanksLeague,
+                                    ByVal TopCount As Int16,
+                                    <Out()> ByRef Result As Sc2RanksDivisionListResult,
+                                    Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
+                                    Optional ByVal IgnoreCache As Boolean = False) As Exception
+      Dim Ex As Exception = Nothing
+      Dim PostData As New StringBuilder
+
+      Call PostData.AppendFormat("&rank_region={0}&expansion={1}&bracket={2}&league={3}&limit={4}", Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), TopCount.ToString())
+      If (Race.HasValue) Then PostData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
+
+      Result = QueryAndParse(Of Sc2RanksDivisionListResult, Sc2RanksDivisionElement, IList(Of Sc2RanksDivisionElement))(eRequestMethod.Post, String.Format(BaseUrlFormat, "divisions", Me.m_ApiKey), PostData.ToString(), Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
+
+      Return Ex
+    End Function
+
+    Public Function GetDivisionsTopBegin(ByVal Key As Object,
+                                         ByVal RankRegion As eSc2RanksRankRegion,
+                                         ByVal Expansion As eSc2RanksExpansion,
+                                         ByVal Bracket As eSc2RanksBracket,
+                                         ByVal League As eSc2RanksLeague,
+                                         ByVal TopCount As Int16,
+                                         ByVal Callback As AsyncCallback,
+                                         Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
+                                         Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
+      Dim PostData As New StringBuilder
+
+      Call PostData.AppendFormat("&rank_region={0}&expansion={1}&bracket={2}&league={3}&limit={4}", Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), TopCount.ToString())
+      If (Race.HasValue) Then PostData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
+
+      Return QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, "divisions", Me.m_ApiKey), PostData.ToString(), IgnoreCache, Me.CacheConfig.SearchBasePlayerCacheDuration, Callback)
+    End Function
+
+    Public Function GetDivisionsTopEnd(ByVal Result As IAsyncResult,
+                                       <Out()> ByRef Key As Object,
+                                       <Out()> ByRef Response As Sc2RanksDivisionListResult) As Exception
+      Return QueryAndParseEnd(Of Sc2RanksDivisionListResult, Sc2RanksDivisionElement, IList(Of Sc2RanksDivisionElement))(Result, Key, Response)
+    End Function
+
+#End Region
+
 #End Region
 
 #Region "API Custom Divisions"
 
 #Region "Function GetCustomDivisions"
 
-    Public Function GetCustomDivisions(<Out()> ByRef Result As Sc2RanksCustomDivisionsResult,
+    Public Function GetCustomDivisions(<Out()> ByRef Result As Sc2RanksCustomDivisionListResult,
                                        Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
 
-      Result = QueryAndParse(Of Sc2RanksCustomDivisionsResult, Sc2RanksCustomDivisionResult, IList(Of Sc2RanksCustomDivisionResult))(eRequestMethod.Get, String.Format(BaseUrlFormat, "custom-divisions", Me.m_ApiKey), Nothing, Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of Sc2RanksCustomDivisionListResult, Sc2RanksCustomDivisionResult, IList(Of Sc2RanksCustomDivisionResult))(eRequestMethod.Get, String.Format(BaseUrlFormat, "custom-divisions", Me.m_ApiKey), Nothing, Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -414,8 +460,8 @@ Namespace SC2Ranks.API
 
     Public Function GetCustomDivisionsEnd(ByVal Result As IAsyncResult,
                                           <Out()> ByRef Key As Object,
-                                          <Out()> ByRef Response As Sc2RanksCustomDivisionsResult) As Exception
-      Return QueryAndParseEnd(Of Sc2RanksCustomDivisionsResult, Sc2RanksCustomDivisionResult, IList(Of Sc2RanksCustomDivisionResult))(Result, Key, Response)
+                                          <Out()> ByRef Response As Sc2RanksCustomDivisionListResult) As Exception
+      Return QueryAndParseEnd(Of Sc2RanksCustomDivisionListResult, Sc2RanksCustomDivisionResult, IList(Of Sc2RanksCustomDivisionResult))(Result, Key, Response)
     End Function
 
 #End Region
@@ -533,7 +579,7 @@ Namespace SC2Ranks.API
 
     Public Function CustomDivisionAdd(ByVal DivisionID As String,
                                       ByVal Characters As IList(Of Sc2RanksBulkCharacter),
-                                      <Out()> ByRef Result As Sc2RanksCustomDivisionManageResult,
+                                      <Out()> ByRef Result As Sc2RanksCustomDivisionManageListResult,
                                       Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
       Dim PostData As New StringBuilder
@@ -550,7 +596,7 @@ Namespace SC2Ranks.API
         Next d
       End If
 
-      Result = QueryAndParse(Of Sc2RanksCustomDivisionManageResult, Sc2RanksCustomDivisionManageElement, IList(Of Sc2RanksCustomDivisionManageElement))(eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("custom-divisions/manage/{0}", DivisionID), Me.m_ApiKey), PostData.ToString(), Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of Sc2RanksCustomDivisionManageListResult, Sc2RanksCustomDivisionManageElement, IList(Of Sc2RanksCustomDivisionManageElement))(eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("custom-divisions/manage/{0}", DivisionID), Me.m_ApiKey), PostData.ToString(), Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -579,8 +625,8 @@ Namespace SC2Ranks.API
 
     Public Function CustomDivisionAddEnd(ByVal Result As IAsyncResult,
                                          <Out()> ByRef Key As Object,
-                                         <Out()> ByRef Response As Sc2RanksCustomDivisionManageResult) As Exception
-      Return QueryAndParseEnd(Of Sc2RanksCustomDivisionManageResult, Sc2RanksCustomDivisionManageElement, IList(Of Sc2RanksCustomDivisionManageElement))(Result, Key, Response)
+                                         <Out()> ByRef Response As Sc2RanksCustomDivisionManageListResult) As Exception
+      Return QueryAndParseEnd(Of Sc2RanksCustomDivisionManageListResult, Sc2RanksCustomDivisionManageElement, IList(Of Sc2RanksCustomDivisionManageElement))(Result, Key, Response)
     End Function
 
 #End Region
@@ -589,7 +635,7 @@ Namespace SC2Ranks.API
 
     Public Function CustomDivisionRemove(ByVal DivisionID As String,
                                          ByVal Characters As IList(Of Sc2RanksBulkCharacter),
-                                         <Out()> ByRef Result As Sc2RanksCustomDivisionManageResult,
+                                         <Out()> ByRef Result As Sc2RanksCustomDivisionManageListResult,
                                          Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
       Dim PostData As New StringBuilder
@@ -606,7 +652,7 @@ Namespace SC2Ranks.API
         Next d
       End If
 
-      Result = QueryAndParse(Of Sc2RanksCustomDivisionManageResult, Sc2RanksCustomDivisionManageElement, IList(Of Sc2RanksCustomDivisionManageElement))(eRequestMethod.Delete, String.Format(BaseUrlFormat, String.Format("custom-divisions/manage/{0}", DivisionID), Me.m_ApiKey), PostData.ToString(), Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
+      Result = QueryAndParse(Of Sc2RanksCustomDivisionManageListResult, Sc2RanksCustomDivisionManageElement, IList(Of Sc2RanksCustomDivisionManageElement))(eRequestMethod.Delete, String.Format(BaseUrlFormat, String.Format("custom-divisions/manage/{0}", DivisionID), Me.m_ApiKey), PostData.ToString(), Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -635,8 +681,8 @@ Namespace SC2Ranks.API
 
     Public Function CustomDivisionRemoveEnd(ByVal Result As IAsyncResult,
                                             <Out()> ByRef Key As Object,
-                                            <Out()> ByRef Response As Sc2RanksCustomDivisionManageResult) As Exception
-      Return QueryAndParseEnd(Of Sc2RanksCustomDivisionManageResult, Sc2RanksCustomDivisionManageElement, IList(Of Sc2RanksCustomDivisionManageElement))(Result, Key, Response)
+                                            <Out()> ByRef Response As Sc2RanksCustomDivisionManageListResult) As Exception
+      Return QueryAndParseEnd(Of Sc2RanksCustomDivisionManageListResult, Sc2RanksCustomDivisionManageElement, IList(Of Sc2RanksCustomDivisionManageElement))(Result, Key, Response)
     End Function
 
 #End Region

@@ -23,7 +23,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionAdd
       Me.OnCompletion = OnCompletion
 
       If (Me.Ex Is Nothing) Then
-        Dim Response As Sc2RanksCustomDivisionManageResult = Nothing
+        Dim Response As Sc2RanksCustomDivisionManageListResult = Nothing
         Dim Characters As New List(Of Sc2RanksBulkCharacter)
 
         Call Characters.Add(New Sc2RanksBulkCharacter([Const].Region, [Const].BattleNetID))
@@ -34,7 +34,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionAdd
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionManageResult)("CustomDivisionAdd", Me.Ex, Response)
+            Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionManageListResult)("CustomDivisionAdd", Me.Ex, Response)
           End If
         End If
       End If

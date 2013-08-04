@@ -2,8 +2,8 @@
 Imports NuGardt.UnitTest
 Imports NuGardt.SC2Ranks.API.Result
 
-Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionRemove
-  Public Class CustomDivisionRemoveUnitTest
+Namespace SC2Ranks.UnitTest.Divisions.GetDivisionsTop
+  Public Class GetDivisionsTopUnitTest
     Implements IUnitTestCase
 
     Private OnCompletion As AsyncCallback
@@ -23,18 +23,15 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionRemove
       Me.OnCompletion = OnCompletion
 
       If (Me.Ex Is Nothing) Then
-        Dim Response As Sc2RanksCustomDivisionManageListResult = Nothing
-        Dim Characters As New List(Of Sc2RanksBulkCharacter)
+        Dim Response As Sc2RanksDivisionListResult = Nothing
 
-        Call Characters.Add(New Sc2RanksBulkCharacter([Const].Region, [Const].BattleNetID))
-
-        Me.Ex = Me.Service.CustomDivisionRemove([Const].ManageCustomDivisionID, Characters, Response)
+        Me.Ex = Me.Service.GetDivisionsTop([Const].RankRegion, [Const].Expansion, [Const].Bracket, [Const].League, 5, Response)
 
         If (Ex Is Nothing) Then
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionManageListResult)("CustomDivisionRemove", Me.Ex, Response)
+            Me.m_Result = Helper.CheckResult(Of Sc2RanksDivisionListResult)("GetDivisionsTop", Me.Ex, Response)
           End If
         End If
       End If
@@ -68,7 +65,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionRemove
 
     Public ReadOnly Property Name As String Implements IUnitTestCase.Name
       Get
-        Return "SC2Ranks API: CustomDivisionRemove"
+        Return "SC2Ranks API: GetDivisionsTop"
       End Get
     End Property
 

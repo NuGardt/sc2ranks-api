@@ -25,7 +25,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisions
       If (Ex IsNot Nothing) Then
         Call Me.OnCompletion.Invoke(Nothing)
       Else
-        Call Me.Service.GetCustomDivisionsBegin(Nothing, EndCallback)
+        Call Me.Service.GetCustomDivisionListBegin(Nothing, EndCallback)
       End If
     End Sub
 
@@ -42,7 +42,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisions
     Public Sub [End](Optional Result As IAsyncResult = Nothing) Implements IUnitTestCase.[End]
       Dim Response As Sc2RanksCustomDivisionListResult = Nothing
 
-      Me.Ex = Me.Service.GetCustomDivisionsEnd(Result, Nothing, Response)
+      Me.Ex = Me.Service.GetCustomDivisionListEnd(Result, Nothing, Response)
 
       If (Ex Is Nothing) Then
         If Response.HasError Then

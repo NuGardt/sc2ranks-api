@@ -25,7 +25,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisions
       If (Me.Ex Is Nothing) Then
         Dim Response As Sc2RanksCustomDivisionListResult = Nothing
 
-        Me.Ex = Me.Service.GetCustomDivisions(Response)
+        Me.Ex = Me.Service.GetCustomDivisionList(Response)
 
         If (Ex Is Nothing) Then
           If Response.HasError Then

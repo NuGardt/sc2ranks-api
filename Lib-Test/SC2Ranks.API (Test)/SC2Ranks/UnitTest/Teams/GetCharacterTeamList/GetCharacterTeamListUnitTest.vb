@@ -2,8 +2,8 @@
 Imports NuGardt.UnitTest
 Imports NuGardt.SC2Ranks.API.Result
 
-Namespace SC2Ranks.UnitTest.Characters.GetCharacterTeams
-  Public Class GetCharacterTeamsUnitTest
+Namespace SC2Ranks.UnitTest.Teams.GetCharacterTeamList
+  Public Class GetCharacterTeamListUnitTest
     Implements IUnitTestCase
 
     Private OnCompletion As AsyncCallback
@@ -23,15 +23,18 @@ Namespace SC2Ranks.UnitTest.Characters.GetCharacterTeams
       Me.OnCompletion = OnCompletion
 
       If (Me.Ex Is Nothing) Then
-        Dim Response As Sc2RanksCharacterTeamsResult = Nothing
+        Dim Response As Sc2RanksCharacterTeamListResult = Nothing
 
-        Me.Ex = Me.Service.GetCharacterTeams([Const].Region, [Const].BattleNetID, [Const].Expansion, [Const].Bracket, [Const].League, Response)
+        Dim Characters As New List(Of Sc2RanksBulkCharacter)
+        Call Characters.Add(New Sc2RanksBulkCharacter([Const].Region, [Const].BattleNetID))
+
+        Me.Ex = Me.Service.GetCharacterTeamList(Characters, [Const].RankRegion, [Const].Expansion, [Const].Bracket, [Const].League, Response)
 
         If (Ex Is Nothing) Then
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksCharacterTeamsResult)("GetCharacterTeams", Me.Ex, Response)
+            Me.m_Result = Helper.CheckResult(Of Sc2RanksCharacterTeamListResult)("GetCharacterTeamList", Me.Ex, Response)
           End If
         End If
       End If
@@ -65,7 +68,7 @@ Namespace SC2Ranks.UnitTest.Characters.GetCharacterTeams
 
     Public ReadOnly Property Name As String Implements IUnitTestCase.Name
       Get
-        Return "SC2Ranks API: GetCharacterTeams"
+        Return "SC2Ranks API: GetCharacterTeamList"
       End Get
     End Property
 

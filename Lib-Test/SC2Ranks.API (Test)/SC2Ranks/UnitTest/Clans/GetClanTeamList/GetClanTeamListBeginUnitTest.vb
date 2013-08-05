@@ -2,8 +2,8 @@
 Imports NuGardt.UnitTest
 Imports NuGardt.SC2Ranks.API.Result
 
-Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionTeams
-  Public Class GetCustomDivisionTeamsUnitTest
+Namespace SC2Ranks.UnitTest.Clans.GetClanTeamList
+  Public Class GetClanTeamListBeginUnitTest
     Implements IUnitTestCase
 
     Private OnCompletion As AsyncCallback
@@ -22,21 +22,17 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionTeams
                      Optional Report As IUnitTestCase.procReport = Nothing) Implements IUnitTestCase.Start
       Me.OnCompletion = OnCompletion
 
-      If (Me.Ex Is Nothing) Then
-        Dim Response As Sc2RanksCustomDivisionTeamsResult = Nothing
-
-        Me.Ex = Me.Service.GetCustomDivisionTeamList([Const].CustomDivisionID, [Const].RankRegion, [Const].Expansion, [Const].Bracket, [Const].League, Response)
-
-        If (Ex Is Nothing) Then
-          If Response.HasError Then
-            Me.Ex = New Exception(Response.Error)
-          Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionTeamsResult)("GetCustomDivisionTeams", Me.Ex, Response)
-          End If
-        End If
+      If (Ex IsNot Nothing) Then
+        Call Me.OnCompletion.Invoke(Nothing)
+      Else
+        Call Me.Service.GetClanTeamListBegin(Nothing, [Const].RankRegion, [Const].ClanTag, [Const].Expansion, [Const].Bracket, [Const].League, EndCallback)
       End If
+    End Sub
 
-      Call Me.OnCompletion.Invoke(Nothing)
+    Private ReadOnly EndCallback As AsyncCallback = AddressOf iEndCallback
+
+    Private Sub iEndCallback(ByVal Result As IAsyncResult)
+      Call OnCompletion.Invoke(Result)
     End Sub
 
     Public Function Abort() As Boolean Implements IUnitTestCase.Abort
@@ -44,7 +40,17 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionTeams
     End Function
 
     Public Sub [End](Optional Result As IAsyncResult = Nothing) Implements IUnitTestCase.[End]
-      '-
+      Dim Response As Sc2RanksClanTeamListResult = Nothing
+
+      Me.Ex = Me.Service.GetClanTeamListEnd(Result, Nothing, Response)
+
+      If (Ex Is Nothing) Then
+        If Response.HasError Then
+          Me.Ex = New Exception(Response.Error)
+        Else
+          Me.m_Result = Helper.CheckResult(Of Sc2RanksClanTeamListResult)("GetClanTeamListBegin", Me.Ex, Response)
+        End If
+      End If
     End Sub
 
     Public Sub Dispose() Implements IUnitTestCase.Dispose
@@ -65,7 +71,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionTeams
 
     Public ReadOnly Property Name As String Implements IUnitTestCase.Name
       Get
-        Return "SC2Ranks API: GetCustomDivisionTeams"
+        Return "SC2Ranks API: GetClanTeamListBegin"
       End Get
     End Property
 

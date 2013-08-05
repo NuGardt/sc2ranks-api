@@ -25,7 +25,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionTeams
       If (Ex IsNot Nothing) Then
         Call Me.OnCompletion.Invoke(Nothing)
       Else
-        Call Me.Service.GetCustomDivisionTeamsBegin(Nothing, [Const].CustomDivisionID, [Const].RankRegion, [Const].Expansion, [Const].Bracket, [Const].League, EndCallback)
+        Call Me.Service.GetCustomDivisionTeamListBegin(Nothing, [Const].CustomDivisionID, [Const].RankRegion, [Const].Expansion, [Const].Bracket, [Const].League, EndCallback)
       End If
     End Sub
 
@@ -42,7 +42,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionTeams
     Public Sub [End](Optional Result As IAsyncResult = Nothing) Implements IUnitTestCase.[End]
       Dim Response As Sc2RanksCustomDivisionTeamsResult = Nothing
 
-      Me.Ex = Me.Service.GetCustomDivisionTeamsEnd(Result, Nothing, Response)
+      Me.Ex = Me.Service.GetCustomDivisionTeamListEnd(Result, Nothing, Response)
 
       If (Ex Is Nothing) Then
         If Response.HasError Then

@@ -22,11 +22,16 @@ Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionCharacters
 Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionTeams
 Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisions
 Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.GetCustomDivision
+Imports NuGardt.SC2Ranks.UnitTest.Divisions.GetDivisionTeamList
 Imports NuGardt.SC2Ranks.UnitTest.Divisions.GetDivision
 Imports NuGardt.SC2Ranks.UnitTest.Divisions.GetDivisionsTop
 Imports NuGardt.SC2Ranks.UnitTest.Rankings.GetRankingsTop
+Imports NuGardt.SC2Ranks.UnitTest.Clans.GetClanTeamList
+Imports NuGardt.SC2Ranks.UnitTest.Clans.GetClanCharacterList
+Imports NuGardt.SC2Ranks.UnitTest.Clans.GetClan
+Imports NuGardt.SC2Ranks.UnitTest.Teams.GetCharacterTeamList
 Imports NuGardt.SC2Ranks.UnitTest.Characters.GetCharacters
-Imports NuGardt.SC2Ranks.UnitTest.Characters.GetCharacterTeams
+Imports NuGardt.SC2Ranks.UnitTest.Characters.GetTeamCharacterList
 Imports NuGardt.SC2Ranks.UnitTest.Characters.GetCharacter
 Imports NuGardt.SC2Ranks.UnitTest.BaseData.GetData
 Imports NuGardt.UnitTest
@@ -90,8 +95,8 @@ Namespace SC2Ranks
       Call TestCases.Enqueue(New GetCharacterBeginUnitTest) 'Tested 2013-08-03: Ok
       Call TestCases.Enqueue(New GetCharacterUnitTest) 'Tested 2013-08-03: Ok
 
-      Call TestCases.Enqueue(New GetCharacterTeamsBeginUnitTest) 'Tested 2013-08-03: Ok
-      Call TestCases.Enqueue(New GetCharacterTeamsUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetTeamCharacterListBeginUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetTeamCharacterListUnitTest) 'Tested 2013-08-03: Ok
 
       Call TestCases.Enqueue(New SearchCharacterTeamsBeginUnitTest) 'Tested 2013-08-03: Ok
       Call TestCases.Enqueue(New SearchCharacterTeamsUnitTest) 'Tested 2013-08-03: Ok
@@ -100,8 +105,18 @@ Namespace SC2Ranks
       Call TestCases.Enqueue(New GetCharactersUnitTest) 'Tested 2013-08-03: Ok
 
       '-Teams
+      Call TestCases.Enqueue(New GetCharacterTeamListBeginUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetCharacterTeamListUnitTest) 'Tested 2013-08-03: Ok
 
       '-Clans
+      Call TestCases.Enqueue(New GetClanBeginUnitTest) 'Tested 2013-08-04: Ok
+      Call TestCases.Enqueue(New GetClanUnitTest) 'Tested 2013-08-04: Ok
+
+      Call TestCases.Enqueue(New GetClanCharacterListBeginUnitTest) 'Tested 2013-08-04: Ok
+      Call TestCases.Enqueue(New GetClanCharacterListUnitTest) 'Tested 2013-08-04: Ok
+
+      Call TestCases.Enqueue(New GetClanTeamListBeginUnitTest) 'Tested 2013-08-04: Ok
+      Call TestCases.Enqueue(New GetClanTeamListUnitTest) 'Tested 2013-08-04: Ok
 
       '-Rankings
       Call TestCases.Enqueue(New GetRankingsTopBeginUnitTest) 'Tested 2013-08-04: Ok
@@ -113,6 +128,9 @@ Namespace SC2Ranks
 
       Call TestCases.Enqueue(New GetDivisionBeginUnitTest) 'Tested 2013-08-04: Ok
       Call TestCases.Enqueue(New GetDivisionUnitTest) 'Tested 2013-08-04: Ok
+
+      Call TestCases.Enqueue(New GetDivisionTeamListBeginUnitTest) 'Tested 2013-08-04: Ok
+      Call TestCases.Enqueue(New GetDivisionTeamListUnitTest) 'Tested 2013-08-04: Ok
 
       '-Custom Divisions
       Call TestCases.Enqueue(New GetCustomDivisionBeginUnitTest) 'Tested 2013-08-03: Ok

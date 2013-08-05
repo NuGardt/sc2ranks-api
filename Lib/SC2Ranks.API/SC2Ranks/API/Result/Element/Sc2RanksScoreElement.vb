@@ -20,38 +20,50 @@ Imports System.Text
 
 Namespace SC2Ranks.API.Result.Element
   <DataContract()>
-  Public Class Sc2RanksCharacterDivisionElement
-    '"division": {
-    '  "id": "51fad92d4970cf8401000006",
-    '  "rank": 199
-    '},
+  Public Class Sc2RanksScoreElement
+    '"scores": {
+    '  "top": 11,
+    '  "avg": 21,
+    '  "sum": 31
+    '}
 
-    Private m_ID As String
-    Private m_Rank As Nullable(Of Double)
+    Private m_Top As Int32
+    Private m_Avg As Int32
+    Private m_Sum As Int32
 
     Public Sub New()
-      Me.m_ID = Nothing
-      Me.m_Rank = Nothing
+      Me.m_Top = Nothing
+      Me.m_Avg = Nothing
+      Me.m_Sum = Nothing
     End Sub
 
-    <DataMember(name := "id")>
-    Public Property ID As String
+    <DataMember(name := "top")>
+    Public Property Top As Int32
       Get
-        Return Me.m_ID
+        Return Me.m_Top
       End Get
-      Private Set(ByVal Value As String)
-        Me.m_ID = Value
+      Private Set(ByVal Value As Int32)
+        Me.m_Top = Value
       End Set
     End Property
 
-    'ToDo: Problem under Mono using Nullable(of Int32) (Workaround with Double)
-    <DataMember(name := "rank")>
-    Public Property Rank As Nullable(Of Double)
+    <DataMember(name := "avg")>
+    Public Property Average As Int32
       Get
-        Return Me.m_Rank
+        Return Me.m_Avg
       End Get
-      Set(ByVal Value As Nullable(Of Double))
-        Me.m_Rank = Value
+      Private Set(ByVal Value As Int32)
+        Me.m_Avg = Value
+      End Set
+    End Property
+
+    <DataMember(name := "sum")>
+    Public Property Sum As Int32
+      Get
+        Return Me.m_Sum
+      End Get
+      Private Set(ByVal Value As Int32)
+        Me.m_Sum = Value
       End Set
     End Property
 
@@ -59,8 +71,9 @@ Namespace SC2Ranks.API.Result.Element
       Dim SB As New StringBuilder
 
       With SB
-        Call .AppendFormat("ID: {0}{1}", Me.ID.ToString(), vbCrLf)
-        If Me.Rank.HasValue Then Call .AppendFormat("Rank: {0}{1}", Me.Rank.Value.ToString(), vbCrLf)
+        Call .AppendFormat("Top: {0}{1}", Me.Top.ToString(), vbCrLf)
+        Call .AppendFormat("Average: {0}{1}", Me.Average.ToString(), vbCrLf)
+        Call .AppendFormat("Sum: {0}{1}", Me.Sum.ToString(), vbCrLf)
       End With
 
       Return SB.ToString

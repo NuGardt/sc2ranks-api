@@ -20,7 +20,7 @@ Imports System.Text
 
 Namespace SC2Ranks.API.Result
   <DataContract()>
-  Public Class Sc2RanksCustomDivisionCharactersResult
+  Public Class Sc2RanksCustomDivisionCharacterListResult
     Inherits Sc2RanksCustomDivisionResult
 
     Private m_Characters() As Sc2RanksCharacterResult

@@ -25,7 +25,7 @@ Namespace SC2Ranks.UnitTest.Characters.SearchCharacterTeams
       If (Ex IsNot Nothing) Then
         Call Me.OnCompletion.Invoke(Nothing)
       Else
-        Call Me.Service.SearchCharacterTeamsBegin(Nothing, [Const].Name, eSc2RanksMatchType.Excact, [Const].RankRegion, eSc2RanksExpansion.HotS, eSc2RanksBracket._1V1, eSc2RanksLeague.All, EndCallback)
+        Call Me.Service.SearchCharacterTeamListBegin(Nothing, [Const].Name, eSc2RanksMatchType.Excact, [Const].RankRegion, eSc2RanksExpansion.HotS, eSc2RanksBracket._1V1, eSc2RanksLeague.All, EndCallback)
       End If
     End Sub
 
@@ -40,15 +40,15 @@ Namespace SC2Ranks.UnitTest.Characters.SearchCharacterTeams
     End Function
 
     Public Sub [End](Optional Result As IAsyncResult = Nothing) Implements IUnitTestCase.[End]
-      Dim Response As Sc2RanksCharacterTeamsResult = Nothing
+      Dim Response As Sc2RanksTeamCharacterListResult = Nothing
 
-      Me.Ex = Me.Service.SearchCharacterTeamsEnd(Result, Nothing, Response)
+      Me.Ex = Me.Service.SearchCharacterTeamListEnd(Result, Nothing, Response)
 
       If (Ex Is Nothing) Then
         If Response.HasError Then
           Me.Ex = New Exception(Response.Error)
         Else
-          Me.m_Result = Helper.CheckResult(Of Sc2RanksCharacterTeamsResult)("SearchCharacterTeamsBegin", Me.Ex, Response)
+          Me.m_Result = Helper.CheckResult(Of Sc2RanksTeamCharacterListResult)("SearchCharacterTeamsBegin", Me.Ex, Response)
         End If
       End If
     End Sub

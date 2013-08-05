@@ -28,7 +28,7 @@ Namespace SC2Ranks.UnitTest.Characters.GetCharacters
         Dim Characters As New List(Of Sc2RanksBulkCharacter)
         Call Characters.Add(New Sc2RanksBulkCharacter([Const].Region, [Const].BattleNetID))
 
-        Me.Ex = Me.Service.GetCharacters(Characters, Response)
+        Me.Ex = Me.Service.GetCharacterList(Characters, Response)
 
         If (Ex Is Nothing) Then
           If Response.HasError Then

@@ -16,6 +16,7 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Namespace SC2Ranks.API
+  <Obsolete()>
   Public Class CacheConfig
     Implements ICacheConfig
 

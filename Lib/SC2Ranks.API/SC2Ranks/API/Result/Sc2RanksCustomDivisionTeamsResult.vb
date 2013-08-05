@@ -24,7 +24,7 @@ Namespace SC2Ranks.API.Result
   Public Class Sc2RanksCustomDivisionTeamsResult
     Inherits Sc2RanksCustomDivisionResult
 
-    Private m_Teams() As Sc2RanksCharacterTeamElement
+    Private m_Teams() As Sc2RanksTeamCharacterListElement
 
     ''' <summary>
     ''' Constructor.
@@ -37,11 +37,11 @@ Namespace SC2Ranks.API.Result
 #Region "Properties"
 
     <DataMember(name := "teams")>
-    Public Property Teams As Sc2RanksCharacterTeamElement()
+    Public Property Teams As Sc2RanksTeamCharacterListElement()
       Get
         Return Me.m_Teams
       End Get
-      Private Set(ByVal Value As Sc2RanksCharacterTeamElement())
+      Private Set(ByVal Value As Sc2RanksTeamCharacterListElement())
         Me.m_Teams = Value
       End Set
     End Property

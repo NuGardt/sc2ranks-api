@@ -23,9 +23,9 @@ Imports System.Text
 
 Namespace SC2Ranks.API.Result
   <DataContract()>
-  Public Class Sc2RanksCharacterTeamsResult
+  Public Class Sc2RanksTeamCharacterListResult
     Inherits Sc2RanksBaseResult
-    Implements IList(Of Sc2RanksCharacterTeamElement)
+    Implements IList(Of Sc2RanksTeamCharacterListElement)
 
     '[
     '  {
@@ -102,70 +102,70 @@ Namespace SC2Ranks.API.Result
     '  }
     ']
 
-    Private ReadOnly m_List As New List(Of Sc2RanksCharacterTeamElement)
+    Private ReadOnly m_List As New List(Of Sc2RanksTeamCharacterListElement)
 
     Public Sub New()
       Call MyBase.New()
 
-      Me.m_List = New List(Of Sc2RanksCharacterTeamElement)()
+      Me.m_List = New List(Of Sc2RanksTeamCharacterListElement)()
     End Sub
 
-    Public Sub Add(ByVal Item As Sc2RanksCharacterTeamElement) Implements ICollection(Of Sc2RanksCharacterTeamElement).Add
+    Public Sub Add(ByVal Item As Sc2RanksTeamCharacterListElement) Implements ICollection(Of Sc2RanksTeamCharacterListElement).Add
       Call Me.m_List.Add(Item)
     End Sub
 
-    Public Sub Clear() Implements ICollection(Of Sc2RanksCharacterTeamElement).Clear
+    Public Sub Clear() Implements ICollection(Of Sc2RanksTeamCharacterListElement).Clear
       Call Me.m_List.Clear()
     End Sub
 
-    Public Function Contains(ByVal Item As Sc2RanksCharacterTeamElement) As Boolean Implements ICollection(Of Sc2RanksCharacterTeamElement).Contains
+    Public Function Contains(ByVal Item As Sc2RanksTeamCharacterListElement) As Boolean Implements ICollection(Of Sc2RanksTeamCharacterListElement).Contains
       Return Me.m_List.Contains(Item)
     End Function
 
-    Public Sub CopyTo(ByVal Array() As Sc2RanksCharacterTeamElement,
-                      ByVal ArrayIndex As Integer) Implements ICollection(Of Sc2RanksCharacterTeamElement).CopyTo
+    Public Sub CopyTo(ByVal Array() As Sc2RanksTeamCharacterListElement,
+                      ByVal ArrayIndex As Integer) Implements ICollection(Of Sc2RanksTeamCharacterListElement).CopyTo
       Call Me.m_List.CopyTo(Array, ArrayIndex)
     End Sub
 
-    Public ReadOnly Property Count As Integer Implements ICollection(Of Sc2RanksCharacterTeamElement).Count
+    Public ReadOnly Property Count As Integer Implements ICollection(Of Sc2RanksTeamCharacterListElement).Count
       Get
         Return Me.m_List.Count
       End Get
     End Property
 
-    Public ReadOnly Property IsReadOnly As Boolean Implements ICollection(Of Sc2RanksCharacterTeamElement).IsReadOnly
+    Public ReadOnly Property IsReadOnly As Boolean Implements ICollection(Of Sc2RanksTeamCharacterListElement).IsReadOnly
       Get
         Return False
       End Get
     End Property
 
-    Public Function Remove(ByVal Item As Sc2RanksCharacterTeamElement) As Boolean Implements ICollection(Of Sc2RanksCharacterTeamElement).Remove
+    Public Function Remove(ByVal Item As Sc2RanksTeamCharacterListElement) As Boolean Implements ICollection(Of Sc2RanksTeamCharacterListElement).Remove
       Return Me.m_List.Remove(Item)
     End Function
 
-    Public Function GetEnumerator() As IEnumerator(Of Sc2RanksCharacterTeamElement) Implements IEnumerable(Of Sc2RanksCharacterTeamElement).GetEnumerator
+    Public Function GetEnumerator() As IEnumerator(Of Sc2RanksTeamCharacterListElement) Implements IEnumerable(Of Sc2RanksTeamCharacterListElement).GetEnumerator
       Return Me.m_List.GetEnumerator()
     End Function
 
-    Public Function IndexOf(ByVal Item As Sc2RanksCharacterTeamElement) As Integer Implements IList(Of Sc2RanksCharacterTeamElement).IndexOf
+    Public Function IndexOf(ByVal Item As Sc2RanksTeamCharacterListElement) As Integer Implements IList(Of Sc2RanksTeamCharacterListElement).IndexOf
       Return Me.m_List.IndexOf(Item)
     End Function
 
     Public Sub Insert(ByVal Index As Integer,
-                      ByVal Item As Sc2RanksCharacterTeamElement) Implements IList(Of Sc2RanksCharacterTeamElement).Insert
+                      ByVal Item As Sc2RanksTeamCharacterListElement) Implements IList(Of Sc2RanksTeamCharacterListElement).Insert
       Call Me.m_List.Insert(Index, Item)
     End Sub
 
-    Default Public Property Item(ByVal Index As Integer) As Sc2RanksCharacterTeamElement Implements IList(Of Sc2RanksCharacterTeamElement).Item
+    Default Public Property Item(ByVal Index As Integer) As Sc2RanksTeamCharacterListElement Implements IList(Of Sc2RanksTeamCharacterListElement).Item
       Get
         Return Me.m_List.Item(Index)
       End Get
-      Set(ByVal Value As Sc2RanksCharacterTeamElement)
+      Set(ByVal Value As Sc2RanksTeamCharacterListElement)
         Me.m_List.Item(Index) = Value
       End Set
     End Property
 
-    Public Sub RemoveAt(ByVal Index As Integer) Implements IList(Of Sc2RanksCharacterTeamElement).RemoveAt
+    Public Sub RemoveAt(ByVal Index As Integer) Implements IList(Of Sc2RanksTeamCharacterListElement).RemoveAt
       Call Me.m_List.RemoveAt(Index)
     End Sub
 

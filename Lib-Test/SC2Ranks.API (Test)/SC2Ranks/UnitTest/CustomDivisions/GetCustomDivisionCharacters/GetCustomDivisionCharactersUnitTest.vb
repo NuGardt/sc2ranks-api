@@ -23,15 +23,15 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionCharacters
       Me.OnCompletion = OnCompletion
 
       If (Me.Ex Is Nothing) Then
-        Dim Response As Sc2RanksCustomDivisionCharactersResult = Nothing
+        Dim Response As Sc2RanksCustomDivisionCharacterListResult = Nothing
 
-        Me.Ex = Me.Service.GetCustomDivisionCharacters([Const].CustomDivisionID, [Const].Region, Response)
+        Me.Ex = Me.Service.GetCustomDivisionCharacterList([Const].CustomDivisionID, [Const].Region, Response)
 
         If (Ex Is Nothing) Then
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionCharactersResult)("GetCustomDivisionCharacters", Me.Ex, Response)
+            Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionCharacterListResult)("GetCustomDivisionCharacters", Me.Ex, Response)
           End If
         End If
       End If

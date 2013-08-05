@@ -23,15 +23,15 @@ Namespace SC2Ranks.UnitTest.BaseData.GetData
       Me.OnCompletion = OnCompletion
 
       If (Me.Ex Is Nothing) Then
-        Dim Response As Sc2RanksDataResult = Nothing
+        Dim Response As Sc2RanksBaseDataResult = Nothing
 
-        Me.Ex = Me.Service.GetData(Response)
+        Me.Ex = Me.Service.GetBaseData(Response)
 
         If (Ex Is Nothing) Then
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksDataResult)("GetData", Me.Ex, Response)
+            Me.m_Result = Helper.CheckResult(Of Sc2RanksBaseDataResult)("GetData", Me.Ex, Response)
           End If
         End If
       End If

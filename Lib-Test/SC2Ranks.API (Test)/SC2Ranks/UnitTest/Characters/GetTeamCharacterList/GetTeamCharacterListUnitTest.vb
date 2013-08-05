@@ -2,8 +2,8 @@
 Imports NuGardt.UnitTest
 Imports NuGardt.SC2Ranks.API.Result
 
-Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionTeams
-  Public Class GetCustomDivisionTeamsUnitTest
+Namespace SC2Ranks.UnitTest.Characters.GetTeamCharacterList
+  Public Class GetTeamCharacterListUnitTest
     Implements IUnitTestCase
 
     Private OnCompletion As AsyncCallback
@@ -23,15 +23,15 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionTeams
       Me.OnCompletion = OnCompletion
 
       If (Me.Ex Is Nothing) Then
-        Dim Response As Sc2RanksCustomDivisionTeamsResult = Nothing
+        Dim Response As Sc2RanksTeamCharacterListResult = Nothing
 
-        Me.Ex = Me.Service.GetCustomDivisionTeamList([Const].CustomDivisionID, [Const].RankRegion, [Const].Expansion, [Const].Bracket, [Const].League, Response)
+        Me.Ex = Me.Service.GetTeamCharacterList([Const].Region, [Const].BattleNetID, [Const].Expansion, [Const].Bracket, [Const].League, Response)
 
         If (Ex Is Nothing) Then
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionTeamsResult)("GetCustomDivisionTeams", Me.Ex, Response)
+            Me.m_Result = Helper.CheckResult(Of Sc2RanksTeamCharacterListResult)("GetTeamCharacterList", Me.Ex, Response)
           End If
         End If
       End If
@@ -65,7 +65,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionTeams
 
     Public ReadOnly Property Name As String Implements IUnitTestCase.Name
       Get
-        Return "SC2Ranks API: GetCustomDivisionTeams"
+        Return "SC2Ranks API: GetTeamCharacterList"
       End Get
     End Property
 

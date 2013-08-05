@@ -21,7 +21,7 @@ Imports System.Text
 
 Namespace SC2Ranks.API.Result
   <DataContract()>
-  Public Class Sc2RanksDataResult
+  Public Class Sc2RanksBaseDataResult
     Inherits Sc2RanksBaseResult
     '{
     '  "leagues": {
@@ -158,71 +158,71 @@ Namespace SC2Ranks.API.Result
 #Region "Properties"
 
     <DataMember(Name := "leagues")>
-    Private Property Leagues As Sc2RanksLeaguesElement
+    Public Property Leagues As Sc2RanksLeaguesElement
       Get
         Return Me.m_Leagues
       End Get
-      Set(ByVal Value As Sc2RanksLeaguesElement)
+      Private Set(ByVal Value As Sc2RanksLeaguesElement)
         Me.m_Leagues = Value
       End Set
     End Property
 
     <DataMember(Name := "regions")>
-    Private Property Regions As Sc2RanksRegionsElement
+    Public Property Regions As Sc2RanksRegionsElement
       Get
         Return Me.m_Regions
       End Get
-      Set(ByVal Value As Sc2RanksRegionsElement)
+      Private Set(ByVal Value As Sc2RanksRegionsElement)
         Me.m_Regions = Value
       End Set
     End Property
 
     <DataMember(Name := "rank_regions")>
-    Private Property RankRegions As Sc2RanksRankRegionsElement
+    Public Property RankRegions As Sc2RanksRankRegionsElement
       Get
         Return Me.m_RankRegions
       End Get
-      Set(ByVal Value As Sc2RanksRankRegionsElement)
+      Private Set(ByVal Value As Sc2RanksRankRegionsElement)
         Me.m_RankRegions = Value
       End Set
     End Property
 
     <DataMember(Name := "expansions")>
-    Private Property Expansions As Sc2RanksExpansionsElement
+    Public Property Expansions As Sc2RanksExpansionsElement
       Get
         Return Me.m_Expansions
       End Get
-      Set(ByVal Value As Sc2RanksExpansionsElement)
+      Private Set(ByVal Value As Sc2RanksExpansionsElement)
         Me.m_Expansions = Value
       End Set
     End Property
 
     <DataMember(Name := "races")>
-    Private Property Races As Sc2RanksRacesElement
+    Public Property Races As Sc2RanksRacesElement
       Get
         Return Me.m_Races
       End Get
-      Set(ByVal Value As Sc2RanksRacesElement)
+      Private Set(ByVal Value As Sc2RanksRacesElement)
         Me.m_Races = Value
       End Set
     End Property
 
     <DataMember(Name := "brackets")>
-    Private Property Brackets As Sc2RanksBracketsElement
+    Public Property Brackets As Sc2RanksBracketsElement
       Get
         Return Me.m_Brackets
       End Get
-      Set(ByVal Value As Sc2RanksBracketsElement)
+      Private Set(ByVal Value As Sc2RanksBracketsElement)
         Me.m_Brackets = Value
       End Set
     End Property
 
     <DataMember(Name := "season")>
-    Private Property Season As Sc2RanksSeasonElement
+    Public Property Season As Sc2RanksSeasonElement
       Get
         Return Me.m_Season
       End Get
-      Set(ByVal Value As Sc2RanksSeasonElement)
+      Private Set(ByVal Value As Sc2RanksSeasonElement)
         Me.m_Season = Value
       End Set
     End Property

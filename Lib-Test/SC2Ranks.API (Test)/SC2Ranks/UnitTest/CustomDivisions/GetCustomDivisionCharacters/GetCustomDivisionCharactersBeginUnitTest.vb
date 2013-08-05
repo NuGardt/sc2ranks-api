@@ -25,7 +25,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionCharacters
       If (Ex IsNot Nothing) Then
         Call Me.OnCompletion.Invoke(Nothing)
       Else
-        Call Me.Service.GetCustomDivisionCharactersBegin(Nothing, [Const].CustomDivisionID, [Const].Region, EndCallback)
+        Call Me.Service.GetCustomDivisionCharacterListBegin(Nothing, [Const].CustomDivisionID, [Const].Region, EndCallback)
       End If
     End Sub
 
@@ -40,15 +40,15 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionCharacters
     End Function
 
     Public Sub [End](Optional Result As IAsyncResult = Nothing) Implements IUnitTestCase.[End]
-      Dim Response As Sc2RanksCustomDivisionCharactersResult = Nothing
+      Dim Response As Sc2RanksCustomDivisionCharacterListResult = Nothing
 
-      Me.Ex = Me.Service.GetCustomDivisionCharactersEnd(Result, Nothing, Response)
+      Me.Ex = Me.Service.GetCustomDivisionCharacterListEnd(Result, Nothing, Response)
 
       If (Ex Is Nothing) Then
         If Response.HasError Then
           Me.Ex = New Exception(Response.Error)
         Else
-          Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionCharactersResult)("GetCustomDivisionCharactersBegin", Me.Ex, Response)
+          Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionCharacterListResult)("GetCustomDivisionCharactersBegin", Me.Ex, Response)
         End If
       End If
     End Sub

@@ -23,7 +23,7 @@ Namespace SC2Ranks.UnitTest.Rankings.GetRankingsTop
       Me.OnCompletion = OnCompletion
 
       If (Me.Ex Is Nothing) Then
-        Dim Response As Sc2RanksCharacterTeamsResult = Nothing
+        Dim Response As Sc2RanksTeamCharacterListResult = Nothing
 
         Me.Ex = Me.Service.GetRankingsTop([Const].RankRegion, [Const].Expansion, [Const].Bracket, [Const].League, 5, Response)
 
@@ -31,7 +31,7 @@ Namespace SC2Ranks.UnitTest.Rankings.GetRankingsTop
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksCharacterTeamsResult)("GetRankingsTop", Me.Ex, Response)
+            Me.m_Result = Helper.CheckResult(Of Sc2RanksTeamCharacterListResult)("GetRankingsTop", Me.Ex, Response)
           End If
         End If
       End If

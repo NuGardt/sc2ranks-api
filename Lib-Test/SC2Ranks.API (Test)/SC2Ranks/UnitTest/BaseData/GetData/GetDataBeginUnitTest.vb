@@ -25,7 +25,7 @@ Namespace SC2Ranks.UnitTest.BaseData.GetData
       If (Ex IsNot Nothing) Then
         Call Me.OnCompletion.Invoke(Nothing)
       Else
-        Call Me.Service.GetDataBegin(Nothing, EndCallback)
+        Call Me.Service.GetBaseDataBegin(Nothing, EndCallback)
       End If
     End Sub
 
@@ -40,15 +40,15 @@ Namespace SC2Ranks.UnitTest.BaseData.GetData
     End Function
 
     Public Sub [End](Optional Result As IAsyncResult = Nothing) Implements IUnitTestCase.[End]
-      Dim Response As Sc2RanksDataResult = Nothing
+      Dim Response As Sc2RanksBaseDataResult = Nothing
 
-      Me.Ex = Me.Service.GetDataEnd(Result, Nothing, Response)
+      Me.Ex = Me.Service.GetBaseDataEnd(Result, Nothing, Response)
 
       If (Ex Is Nothing) Then
         If Response.HasError Then
           Me.Ex = New Exception(Response.Error)
         Else
-          Me.m_Result = Helper.CheckResult(Of Sc2RanksDataResult)("GetDataBegin", Me.Ex, Response)
+          Me.m_Result = Helper.CheckResult(Of Sc2RanksBaseDataResult)("GetDataBegin", Me.Ex, Response)
         End If
       End If
     End Sub

@@ -21,7 +21,7 @@ Imports System.Text
 
 Namespace SC2Ranks.API.Result.Element
   <DataContract()>
-  Public Class Sc2RanksCharacterTeamElement
+  Public Class Sc2RanksTeamElement
     '{
     '  "url": "http://www.sc2ranks.com/team/am/11004161722/frozz",
     '  "rank_region": "am",
@@ -41,20 +41,6 @@ Namespace SC2Ranks.API.Result.Element
     '  "rankings": {
     '    "world": 1,
     '    "region": 1
-    '  },
-    '  "characters": [
-    '    {
-    '      "replay_url": "http://www.sc2ranks.com/character/us/4161722/frozz/replays",
-    '      "vod_url": "http://www.sc2ranks.com/character/us/4161722/frozz/vods",
-    '      "url": "http://www.sc2ranks.com/character/us/4161722/frozz/hots/1v1",
-    '      "race": "zerg",
-    '      "region": "us",
-    '      "bnet_id": 4161722,
-    '      "name": "frozz",
-    '      "clan": {
-    '        "url": "http://www.sc2ranks.com/clan/us/Monty",
-    '        "tag": "Monty"
-    '      }
     '  }
     '},
 
@@ -71,7 +57,6 @@ Namespace SC2Ranks.API.Result.Element
     Private m_WinRatio As Double
     Private m_Division As Sc2RanksCharacterDivisionElement
     Private m_Rankings As Sc2RanksRankingElement
-    Private m_Characters() As Sc2RanksCharacterElement
 
     Public Sub New()
       Me.m_Url = Nothing
@@ -87,7 +72,6 @@ Namespace SC2Ranks.API.Result.Element
       Me.m_WinRatio = Nothing
       Me.m_Division = Nothing
       Me.m_Rankings = Nothing
-      Me.m_Characters = Nothing
     End Sub
 
     <DataMember(name := "url")>
@@ -255,16 +239,6 @@ Namespace SC2Ranks.API.Result.Element
       End Set
     End Property
 
-    <DataMember(name := "characters")>
-    Public Property Characters As Sc2RanksCharacterElement()
-      Get
-        Return Me.m_Characters
-      End Get
-      Private Set(ByVal Value As Sc2RanksCharacterElement())
-        Me.m_Characters = Value
-      End Set
-    End Property
-
     Public Overrides Function ToString() As String
       Dim SB As New StringBuilder
 
@@ -279,15 +253,8 @@ Namespace SC2Ranks.API.Result.Element
         Call .AppendFormat("Wins: {0}{1}", Me.Wins.ToString(), vbCrLf)
         Call .AppendFormat("Losses: {0}{1}", Me.Losses.ToString(), vbCrLf)
         Call .AppendFormat("Win Ratio: {0}{1}", Me.WinRatio.ToString(), vbCrLf)
-        Call .AppendFormat("Division: {0}{1}", Me.Division.ToString(), vbCrLf)
-        Call .AppendFormat("Rankings: {0}{1}", Me.Rankings.ToString(), vbCrLf)
-        Call .AppendFormat("Characters: {0}", vbCrLf)
-        If (Me.m_Characters IsNot Nothing) Then
-          Dim dMax As Int32 = Me.m_Characters.Count - 1
-          For i As Int32 = 0 To dMax
-            Call .AppendFormat("Character (#{0}): {1}{2}", i.ToString(), Me.m_Characters(i).ToString, vbCrLf)
-          Next i
-        End If
+        If (Me.Division IsNot Nothing) Then Call .AppendFormat("Division: {0}{1}", Me.Division.ToString(), vbCrLf)
+        If (Me.Rankings IsNot Nothing) Then Call .AppendFormat("Rankings: {0}{1}", Me.Rankings.ToString(), vbCrLf)
       End With
 
       Return SB.ToString

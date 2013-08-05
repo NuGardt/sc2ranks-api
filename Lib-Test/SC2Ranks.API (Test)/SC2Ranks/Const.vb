@@ -22,12 +22,13 @@ Namespace SC2Ranks
     Public Const Name As String = "OomJan"
     Public Const BattleNetID As Int64 = 1770249
     Public Const Region As eSc2RanksRegion = eSc2RanksRegion.EU
-    Public Const RankRegion As eSc2RanksRankRegion = eSc2RanksRankRegion.Global
+    Public Const RankRegion As eSc2RanksRankRegion = eSc2RanksRankRegion.EU
     Public Const League As eSc2RanksLeague = eSc2RanksLeague.All
     Public Const Expansion As eSc2RanksExpansion = eSc2RanksExpansion.HotS
     Public Const Bracket As eSc2RanksBracket = eSc2RanksBracket._1V1
     Public Const CustomDivisionID As String = "51e882c969d5386f5900cac4"
     Public Const ManageCustomDivisionID As String = "51e945ea69d5380d9c000002"
     Public Const DivisionID As String = "51be5370f92276d0221b9296"
+    Public Const ClanTag As String = "HwC"
   End Class
 End Namespace

@@ -23,15 +23,15 @@ Namespace SC2Ranks.UnitTest.Characters.SearchCharacterTeams
       Me.OnCompletion = OnCompletion
 
       If (Me.Ex Is Nothing) Then
-        Dim Response As Sc2RanksCharacterTeamsResult = Nothing
+        Dim Response As Sc2RanksTeamCharacterListResult = Nothing
 
-        Me.Ex = Me.Service.SearchCharacterTeams([Const].Name, eSc2RanksMatchType.Excact, [Const].RankRegion, eSc2RanksExpansion.HotS, eSc2RanksBracket._1V1, eSc2RanksLeague.All, Response)
+        Me.Ex = Me.Service.SearchCharacterTeamList([Const].Name, eSc2RanksMatchType.Excact, [Const].RankRegion, eSc2RanksExpansion.HotS, eSc2RanksBracket._1V1, eSc2RanksLeague.All, Response)
 
         If (Ex Is Nothing) Then
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksCharacterTeamsResult)("SearchCharacterTeams", Me.Ex, Response)
+            Me.m_Result = Helper.CheckResult(Of Sc2RanksTeamCharacterListResult)("SearchCharacterTeams", Me.Ex, Response)
           End If
         End If
       End If

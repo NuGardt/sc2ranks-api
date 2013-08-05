@@ -40,7 +40,7 @@ Namespace SC2Ranks.UnitTest.Rankings.GetRankingsTop
     End Function
 
     Public Sub [End](Optional Result As IAsyncResult = Nothing) Implements IUnitTestCase.[End]
-      Dim Response As Sc2RanksCharacterTeamsResult = Nothing
+      Dim Response As Sc2RanksTeamCharacterListResult = Nothing
 
       Me.Ex = Me.Service.GetRankingsTopEnd(Result, Nothing, Response)
 
@@ -48,7 +48,7 @@ Namespace SC2Ranks.UnitTest.Rankings.GetRankingsTop
         If Response.HasError Then
           Me.Ex = New Exception(Response.Error)
         Else
-          Me.m_Result = Helper.CheckResult(Of Sc2RanksCharacterTeamsResult)("GetRankingsTopBegin", Me.Ex, Response)
+          Me.m_Result = Helper.CheckResult(Of Sc2RanksTeamCharacterListResult)("GetRankingsTopBegin", Me.Ex, Response)
         End If
       End If
     End Sub

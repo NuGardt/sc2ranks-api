@@ -20,9 +20,6 @@ Imports System.Runtime.Serialization
 
 Namespace SC2Ranks.Helper
   Public NotInheritable Class Enums
-    'Public Shared CustomDivisionActionBuffer As EnumBuffer(Of eCustomDivisionAction, EnumMemberAttribute) = New EnumBuffer(Of eCustomDivisionAction, EnumMemberAttribute)
-    'Public Shared SearchTypeBuffer As EnumBuffer(Of eSearchType, EnumMemberAttribute) = New EnumBuffer(Of eSearchType, EnumMemberAttribute)
-
     Public Shared MatchTypeBuffer As EnumBuffer(Of eSc2RanksMatchType, EnumMemberAttribute) = New EnumBuffer(Of eSc2RanksMatchType, EnumMemberAttribute)
     Public Shared RankRegionBuffer As EnumBuffer(Of eSc2RanksRankRegion, EnumMemberAttribute) = New EnumBuffer(Of eSc2RanksRankRegion, EnumMemberAttribute)
     Public Shared RegionBuffer As EnumBuffer(Of eSc2RanksRegion, EnumMemberAttribute) = New EnumBuffer(Of eSc2RanksRegion, EnumMemberAttribute)

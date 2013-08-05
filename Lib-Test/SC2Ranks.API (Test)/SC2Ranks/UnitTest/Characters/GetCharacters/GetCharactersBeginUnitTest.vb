@@ -28,7 +28,7 @@ Namespace SC2Ranks.UnitTest.Characters.GetCharacters
         Dim Characters As New List(Of Sc2RanksBulkCharacter)
         Call Characters.Add(New Sc2RanksBulkCharacter([Const].Region, [Const].BattleNetID))
 
-        Call Me.Service.GetCharactersBegin(Nothing, Characters, EndCallback)
+        Call Me.Service.GetCharacterListBegin(Nothing, Characters, EndCallback)
       End If
     End Sub
 
@@ -45,7 +45,7 @@ Namespace SC2Ranks.UnitTest.Characters.GetCharacters
     Public Sub [End](Optional Result As IAsyncResult = Nothing) Implements IUnitTestCase.[End]
       Dim Response As Sc2RanksCharacterListResult = Nothing
 
-      Me.Ex = Me.Service.GetCharactersEnd(Result, Nothing, Response)
+      Me.Ex = Me.Service.GetCharacterListEnd(Result, Nothing, Response)
 
       If (Ex Is Nothing) Then
         If Response.HasError Then

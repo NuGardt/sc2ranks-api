@@ -2,8 +2,8 @@
 Imports NuGardt.UnitTest
 Imports NuGardt.SC2Ranks.API.Result
 
-Namespace SC2Ranks.UnitTest.Characters.GetCharacterTeams
-  Public Class GetCharacterTeamsBeginUnitTest
+Namespace SC2Ranks.UnitTest.Divisions.GetDivisionTeamList
+  Public Class GetDivisionTeamListUnitTest
     Implements IUnitTestCase
 
     Private OnCompletion As AsyncCallback
@@ -22,17 +22,21 @@ Namespace SC2Ranks.UnitTest.Characters.GetCharacterTeams
                      Optional Report As IUnitTestCase.procReport = Nothing) Implements IUnitTestCase.Start
       Me.OnCompletion = OnCompletion
 
-      If (Ex IsNot Nothing) Then
-        Call Me.OnCompletion.Invoke(Nothing)
-      Else
-        Call Me.Service.GetCharacterTeamsBegin(Nothing, [Const].Region, [Const].BattleNetID, [Const].Expansion, [Const].Bracket, [Const].League, EndCallback)
+      If (Me.Ex Is Nothing) Then
+        Dim Response As Sc2RanksDivisionTeamsListResult = Nothing
+
+        Me.Ex = Me.Service.GetDivisionTeamList([Const].DivisionID, Response)
+
+        If (Ex Is Nothing) Then
+          If Response.HasError Then
+            Me.Ex = New Exception(Response.Error)
+          Else
+            Me.m_Result = Helper.CheckResult(Of Sc2RanksDivisionResult)("GetDivisionTeamList", Me.Ex, Response)
+          End If
+        End If
       End If
-    End Sub
 
-    Private ReadOnly EndCallback As AsyncCallback = AddressOf iEndCallback
-
-    Private Sub iEndCallback(ByVal Result As IAsyncResult)
-      Call OnCompletion.Invoke(Result)
+      Call Me.OnCompletion.Invoke(Nothing)
     End Sub
 
     Public Function Abort() As Boolean Implements IUnitTestCase.Abort
@@ -40,17 +44,7 @@ Namespace SC2Ranks.UnitTest.Characters.GetCharacterTeams
     End Function
 
     Public Sub [End](Optional Result As IAsyncResult = Nothing) Implements IUnitTestCase.[End]
-      Dim Response As Sc2RanksCharacterTeamsResult = Nothing
-
-      Me.Ex = Me.Service.GetCharacterTeamsEnd(Result, Nothing, Response)
-
-      If (Ex Is Nothing) Then
-        If Response.HasError Then
-          Me.Ex = New Exception(Response.Error)
-        Else
-          Me.m_Result = Helper.CheckResult(Of Sc2RanksCharacterTeamsResult)("GetCharacterTeamsBegin", Me.Ex, Response)
-        End If
-      End If
+      '-
     End Sub
 
     Public Sub Dispose() Implements IUnitTestCase.Dispose
@@ -71,7 +65,7 @@ Namespace SC2Ranks.UnitTest.Characters.GetCharacterTeams
 
     Public ReadOnly Property Name As String Implements IUnitTestCase.Name
       Get
-        Return "SC2Ranks API: GetCharacterTeamsBegin"
+        Return "SC2Ranks API: GetDivisionTeamList"
       End Get
     End Property
 

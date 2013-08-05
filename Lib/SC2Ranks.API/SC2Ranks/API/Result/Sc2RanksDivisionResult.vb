@@ -270,7 +270,7 @@ Namespace SC2Ranks.API.Result
         Call .AppendFormat("Rank Region: {0}{1}", Me.RankRegion.ToString(), vbCrLf)
         Call .AppendFormat("Expansion: {0}{1}", Me.Expansion.ToString(), vbCrLf)
         Call .AppendFormat("League: {0}{1}", Me.League.ToString(), vbCrLf)
-        Call .AppendFormat("Breacket: {0}{1}", Me.Bracket.ToString(), vbCrLf)
+        Call .AppendFormat("Bracket: {0}{1}", Me.Bracket.ToString(), vbCrLf)
         Call .AppendFormat("Character Count: {0}{1}", Me.CharacterCount.ToString(), vbCrLf)
         Call .AppendFormat("Average Points: {0}{1}", Me.AveragePoints.ToString(), vbCrLf)
         Call .AppendFormat("Average Wins: {0}{1}", Me.AverageWins.ToString(), vbCrLf)
@@ -278,7 +278,6 @@ Namespace SC2Ranks.API.Result
         Call .AppendFormat("Average Games: {0}{1}", Me.AverageGames.ToString(), vbCrLf)
         Call .AppendFormat("Average Win Ratio: {0}{1}", Me.AverageWinRatio.ToString(), vbCrLf)
         Call .AppendFormat("Updated At: {0}{1}", Me.UpdatedAt.ToString(), vbCrLf)
-
       End With
 
       Return SB.ToString

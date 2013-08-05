@@ -20,38 +20,50 @@ Imports System.Text
 
 Namespace SC2Ranks.API.Result.Element
   <DataContract()>
-  Public Class Sc2RanksCharacterDivisionElement
-    '"division": {
-    '  "id": "51fad92d4970cf8401000006",
-    '  "rank": 199
-    '},
+  Public Class Sc2RanksPaginationElement
+    '"pagination": {
+    '  "limit": 10,
+    '  "offset": 0,
+    '  "total": 5
+    '}
 
-    Private m_ID As String
-    Private m_Rank As Nullable(Of Double)
+    Private m_Limit As Int32
+    Private m_Offset As Int32
+    Private m_Total As Int32
 
     Public Sub New()
-      Me.m_ID = Nothing
-      Me.m_Rank = Nothing
+      Me.m_Limit = Nothing
+      Me.m_Offset = Nothing
+      Me.m_Total = Nothing
     End Sub
 
-    <DataMember(name := "id")>
-    Public Property ID As String
+    <DataMember(name := "limit")>
+    Public Property Limit As Int32
       Get
-        Return Me.m_ID
+        Return Me.m_Limit
       End Get
-      Private Set(ByVal Value As String)
-        Me.m_ID = Value
+      Private Set(ByVal Value As Int32)
+        Me.m_Limit = Value
       End Set
     End Property
 
-    'ToDo: Problem under Mono using Nullable(of Int32) (Workaround with Double)
-    <DataMember(name := "rank")>
-    Public Property Rank As Nullable(Of Double)
+    <DataMember(name := "offset")>
+    Public Property Offset As Int32
       Get
-        Return Me.m_Rank
+        Return Me.m_Offset
       End Get
-      Set(ByVal Value As Nullable(Of Double))
-        Me.m_Rank = Value
+      Private Set(ByVal Value As Int32)
+        Me.m_Offset = Value
+      End Set
+    End Property
+
+    <DataMember(name := "total")>
+    Public Property Total As Int32
+      Get
+        Return Me.m_Total
+      End Get
+      Private Set(ByVal Value As Int32)
+        Me.m_Total = Value
       End Set
     End Property
 
@@ -59,8 +71,9 @@ Namespace SC2Ranks.API.Result.Element
       Dim SB As New StringBuilder
 
       With SB
-        Call .AppendFormat("ID: {0}{1}", Me.ID.ToString(), vbCrLf)
-        If Me.Rank.HasValue Then Call .AppendFormat("Rank: {0}{1}", Me.Rank.Value.ToString(), vbCrLf)
+        Call .AppendFormat("Limit: {0}{1}", Me.Limit.ToString(), vbCrLf)
+        Call .AppendFormat("Offset: {0}{1}", Me.Offset.ToString(), vbCrLf)
+        Call .AppendFormat("Total: {0}{1}", Me.Total.ToString(), vbCrLf)
       End With
 
       Return SB.ToString

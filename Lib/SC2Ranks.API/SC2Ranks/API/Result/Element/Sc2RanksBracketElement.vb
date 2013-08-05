@@ -36,7 +36,7 @@ Namespace SC2Ranks.API.Result.Element
     End Sub
 
     <DataMember(name := "bracket")>
-    Private Property BracketRaw As Int32
+    Protected Property BracketRaw As Int32
       Get
         Return Me.m_BracketRaw
       End Get
@@ -46,7 +46,7 @@ Namespace SC2Ranks.API.Result.Element
     End Property
 
     <DataMember(name := "random")>
-    Private Property Random As Boolean
+    Protected Property Random As Boolean
       Get
         Return Me.m_Random
       End Get

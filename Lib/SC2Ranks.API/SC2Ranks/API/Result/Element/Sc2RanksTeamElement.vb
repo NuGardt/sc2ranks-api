@@ -85,7 +85,7 @@ Namespace SC2Ranks.API.Result.Element
     End Property
 
     <DataMember(name := "rank_region")>
-    Private Property RankRegionRaw As String
+    Protected Property RankRegionRaw As String
       Get
         Return Me.m_RankRegionRaw
       End Get
@@ -102,7 +102,7 @@ Namespace SC2Ranks.API.Result.Element
     End Property
 
     <DataMember(name := "expansion")>
-    Public Property ExpansionRaw As String
+    Protected Property ExpansionRaw As String
       Get
         Return Me.m_ExpansionRaw
       End Get
@@ -119,7 +119,7 @@ Namespace SC2Ranks.API.Result.Element
     End Property
 
     <DataMember(name := "league")>
-    Private Property LeagueRaw As String
+    Protected Property LeagueRaw As String
       Get
         Return Me.m_LeagueRaw
       End Get
@@ -153,7 +153,7 @@ Namespace SC2Ranks.API.Result.Element
     End Property
 
     <DataMember(name := "bracket")>
-    Private Property BracketRaw As Int32
+    Protected Property BracketRaw As Int32
       Get
         Return Me.m_BracketRaw
       End Get
@@ -163,7 +163,7 @@ Namespace SC2Ranks.API.Result.Element
     End Property
 
     <DataMember(name := "random")>
-    Private Property Random As Boolean
+    Protected Property Random As Boolean
       Get
         Return Me.m_Random
       End Get
@@ -245,10 +245,20 @@ Namespace SC2Ranks.API.Result.Element
       With SB
         Call .AppendFormat("URL: {0}{1}", Me.Url, vbCrLf)
         Call .AppendFormat("Rank Region: {0}{1}", Me.RankRegion.ToString(), vbCrLf)
+        'HACK:
+        Call .AppendFormat("Rank Region RAW: {0}{1}", Me.m_RankRegionRaw, vbCrLf)
+
         Call .AppendFormat("Expansion: {0}{1}", Me.Expansion.ToString(), vbCrLf)
         Call .AppendFormat("League: {0}{1}", Me.League.ToString(), vbCrLf)
+        'HACK:
+        Call .AppendFormat("League RAW: {0}{1}", Me.m_LeagueRaw, vbCrLf)
+
         Call .AppendFormat("Last Game At: {0}{1}", Me.LastGameAt.ToString(), vbCrLf)
         Call .AppendFormat("Bracket: {0}{1}", Me.Bracket.ToString(), vbCrLf)
+        'HACK
+        Call .AppendFormat("Bracket RAW: {0}{1}", Me.m_BracketRaw, vbCrLf)
+        Call .AppendFormat("Bracket RANDOM: {0}{1}", Me.m_Random, vbCrLf)
+
         Call .AppendFormat("Points: {0}{1}", Me.Points.ToString(), vbCrLf)
         Call .AppendFormat("Wins: {0}{1}", Me.Wins.ToString(), vbCrLf)
         Call .AppendFormat("Losses: {0}{1}", Me.Losses.ToString(), vbCrLf)

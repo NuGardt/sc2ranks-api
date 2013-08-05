@@ -88,69 +88,68 @@ Namespace SC2Ranks
       Call Trace.WriteLine("")
 
       '-Base Data
-      Call TestCases.Enqueue(New GetDataBeginUnitTest) 'Tested 2013-08-03: Ok
-      Call TestCases.Enqueue(New GetDataUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetDataBeginUnitTest) 'Tested 2013-08-05: Ok
+      Call TestCases.Enqueue(New GetDataUnitTest) 'Tested 2013-08-05: Ok
 
       '-Characters
-      Call TestCases.Enqueue(New GetCharacterBeginUnitTest) 'Tested 2013-08-03: Ok
-      Call TestCases.Enqueue(New GetCharacterUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetCharacterBeginUnitTest) 'Tested 2013-08-05: Ok
+      Call TestCases.Enqueue(New GetCharacterUnitTest) 'Tested 2013-08-05: Ok
 
-      Call TestCases.Enqueue(New GetTeamCharacterListBeginUnitTest) 'Tested 2013-08-03: Ok
-      Call TestCases.Enqueue(New GetTeamCharacterListUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetTeamCharacterListBeginUnitTest) 'Tested 2013-08-05: Ok
+      Call TestCases.Enqueue(New GetTeamCharacterListUnitTest) 'Tested 2013-08-05: Ok
 
-      Call TestCases.Enqueue(New SearchCharacterTeamsBeginUnitTest) 'Tested 2013-08-03: Ok
-      Call TestCases.Enqueue(New SearchCharacterTeamsUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New SearchCharacterTeamsBeginUnitTest) 'Tested 2013-08-05: Ok
+      Call TestCases.Enqueue(New SearchCharacterTeamsUnitTest) 'Tested 2013-08-05: Ok
 
-      Call TestCases.Enqueue(New GetCharactersBeginUnitTest) 'Tested 2013-08-03: Ok
-      Call TestCases.Enqueue(New GetCharactersUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetCharactersBeginUnitTest) 'Tested 2013-08-05: Ok
+      Call TestCases.Enqueue(New GetCharactersUnitTest) 'Tested 2013-08-05: Ok
 
       '-Teams
-      Call TestCases.Enqueue(New GetCharacterTeamListBeginUnitTest) 'Tested 2013-08-03: Ok
-      Call TestCases.Enqueue(New GetCharacterTeamListUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetCharacterTeamListBeginUnitTest) 'Tested 2013-08-05: Ok
+      Call TestCases.Enqueue(New GetCharacterTeamListUnitTest) 'Tested 2013-08-05: Ok
 
       '-Clans
-      Call TestCases.Enqueue(New GetClanBeginUnitTest) 'Tested 2013-08-04: Ok
-      Call TestCases.Enqueue(New GetClanUnitTest) 'Tested 2013-08-04: Ok
+      Call TestCases.Enqueue(New GetClanBeginUnitTest) 'Tested 2013-08-05: Ok
+      Call TestCases.Enqueue(New GetClanUnitTest) 'Tested 2013-08-05: Ok
 
-      Call TestCases.Enqueue(New GetClanCharacterListBeginUnitTest) 'Tested 2013-08-04: Ok
-      Call TestCases.Enqueue(New GetClanCharacterListUnitTest) 'Tested 2013-08-04: Ok
+      Call TestCases.Enqueue(New GetClanCharacterListBeginUnitTest) 'Tested 2013-08-05: Ok
+      Call TestCases.Enqueue(New GetClanCharacterListUnitTest) 'Tested 2013-08-05: Ok
 
-      Call TestCases.Enqueue(New GetClanTeamListBeginUnitTest) 'Tested 2013-08-04: Ok
-      Call TestCases.Enqueue(New GetClanTeamListUnitTest) 'Tested 2013-08-04: Ok
+      Call TestCases.Enqueue(New GetClanTeamListBeginUnitTest) 'Tested 2013-08-05: Ok
+      Call TestCases.Enqueue(New GetClanTeamListUnitTest) 'Tested 2013-08-05: Ok
 
       '-Rankings
-      Call TestCases.Enqueue(New GetRankingsTopBeginUnitTest) 'Tested 2013-08-04: Ok
-      Call TestCases.Enqueue(New GetRankingsTopUnitTest) 'Tested 2013-08-04: Ok
+      Call TestCases.Enqueue(New GetRankingsTopBeginUnitTest) 'Tested 2013-08-05: Ok
+      Call TestCases.Enqueue(New GetRankingsTopUnitTest) 'Tested 2013-08-05: Ok
 
       '-Divisions
-      Call TestCases.Enqueue(New GetDivisionsTopBeginUnitTest) 'Tested 2013-08-04: Ok
-      Call TestCases.Enqueue(New GetDivisionsTopUnitTest) 'Tested 2013-08-04: Ok
+      Call TestCases.Enqueue(New GetDivisionsTopBeginUnitTest) 'Tested 2013-08-05: Ok
+      Call TestCases.Enqueue(New GetDivisionsTopUnitTest) 'Tested 2013-08-05: Ok
 
-      Call TestCases.Enqueue(New GetDivisionBeginUnitTest) 'Tested 2013-08-04: Ok
-      Call TestCases.Enqueue(New GetDivisionUnitTest) 'Tested 2013-08-04: Ok
+      Call TestCases.Enqueue(New GetDivisionBeginUnitTest) 'Tested 2013-08-05: Ok
+      Call TestCases.Enqueue(New GetDivisionUnitTest) 'Tested 2013-08-05: Ok
 
-      Call TestCases.Enqueue(New GetDivisionTeamListBeginUnitTest) 'Tested 2013-08-04: Ok
-      Call TestCases.Enqueue(New GetDivisionTeamListUnitTest) 'Tested 2013-08-04: Ok
+      Call TestCases.Enqueue(New GetDivisionTeamListBeginUnitTest) 'Tested 2013-08-05: Ok
+      Call TestCases.Enqueue(New GetDivisionTeamListUnitTest) 'Tested 2013-08-05: Ok
 
       '-Custom Divisions
-      Call TestCases.Enqueue(New GetCustomDivisionBeginUnitTest) 'Tested 2013-08-03: Ok
-      Call TestCases.Enqueue(New GetCustomDivisionUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetCustomDivisionBeginUnitTest) 'Tested 2013-08-05: Ok
+      Call TestCases.Enqueue(New GetCustomDivisionUnitTest) 'Tested 2013-08-05: Ok
 
-      Call TestCases.Enqueue(New GetCustomDivisionsBeginUnitTest) 'Tested 2013-08-03: Ok
-      Call TestCases.Enqueue(New GetCustomDivisionsUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetCustomDivisionsBeginUnitTest) 'Tested 2013-08-05: Ok
+      Call TestCases.Enqueue(New GetCustomDivisionsUnitTest) 'Tested 2013-08-05: Ok
 
-      Call TestCases.Enqueue(New GetCustomDivisionTeamsBeginUnitTest) 'Tested 2013-08-03: Ok
-      Call TestCases.Enqueue(New GetCustomDivisionTeamsUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetCustomDivisionTeamsBeginUnitTest) 'Tested 2013-08-05: Ok
+      Call TestCases.Enqueue(New GetCustomDivisionTeamsUnitTest) 'Tested 2013-08-05: Ok
 
-      Call TestCases.Enqueue(New GetCustomDivisionCharactersBeginUnitTest) 'Tested 2013-08-03: Ok
-      Call TestCases.Enqueue(New GetCustomDivisionCharactersUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New GetCustomDivisionCharactersBeginUnitTest) 'Tested 2013-08-05: Ok
+      Call TestCases.Enqueue(New GetCustomDivisionCharactersUnitTest) 'Tested 2013-08-05: Ok
 
-      Call TestCases.Enqueue(New CustomDivisionAddBeginUnitTest) 'Tested 2013-08-03: Ok
-      Call TestCases.Enqueue(New CustomDivisionAddUnitTest) 'Tested 2013-08-03: Ok
+      Call TestCases.Enqueue(New CustomDivisionAddBeginUnitTest) 'Tested 2013-08-05: Ok
+      Call TestCases.Enqueue(New CustomDivisionAddUnitTest) 'Tested 2013-08-05: Ok
 
-      'DELETE does not support PostData? Further investigation required
-      Call TestCases.Enqueue(New CustomDivisionRemoveBeginUnitTest) 'Tested 2013-08-03': FAIL
-      Call TestCases.Enqueue(New CustomDivisionRemoveUnitTest) 'Tested 2013-08-03: FAIL
+      Call TestCases.Enqueue(New CustomDivisionRemoveBeginUnitTest) 'Tested 2013-08-05': Ok
+      Call TestCases.Enqueue(New CustomDivisionRemoveUnitTest) 'Tested 2013-08-05: Ok
 
       Call TestingBegin()
 
@@ -167,8 +166,6 @@ Namespace SC2Ranks
 
       Call Trace.Close()
       Call Trace.Dispose()
-
-      'Call Console.ReadKey()
     End Sub
 
     Public Sub TestingBegin()

@@ -107,7 +107,7 @@ Namespace SC2Ranks.API.Result
     End Property
 
     <DataMember(name := "rank_region")>
-    Private Property RankRegionRaw As String
+    Protected Property RankRegionRaw As String
       Get
         Return Me.m_RankRegionRaw
       End Get
@@ -124,7 +124,7 @@ Namespace SC2Ranks.API.Result
     End Property
 
     <DataMember(name := "expansion")>
-    Private Property ExpansionRaw As String
+    Protected Property ExpansionRaw As String
       Get
         Return Me.m_ExpansionRaw
       End Get
@@ -141,7 +141,7 @@ Namespace SC2Ranks.API.Result
     End Property
 
     <DataMember(name := "league")>
-    Private Property LeagueRaw As String
+    Protected Property LeagueRaw As String
       Get
         Return Me.m_LeagueRaw
       End Get
@@ -158,7 +158,7 @@ Namespace SC2Ranks.API.Result
     End Property
 
     <DataMember(name := "bracket")>
-    Private Property BracketRaw As Int32
+    Protected Property BracketRaw As Int32
       Get
         Return Me.m_BracketRaw
       End Get
@@ -168,7 +168,7 @@ Namespace SC2Ranks.API.Result
     End Property
 
     <DataMember(name := "random")>
-    Private Property Random As Boolean
+    Protected Property Random As Boolean
       Get
         Return Me.m_Random
       End Get

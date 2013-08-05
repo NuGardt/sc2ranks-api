@@ -87,7 +87,7 @@ Namespace SC2Ranks.API.Result.Element
     End Property
 
     <DataMember(name := "race")>
-    Private Property RaceRaw As String
+    Protected Property RaceRaw As String
       Get
         Return Me.m_RaceRaw
       End Get
@@ -104,7 +104,7 @@ Namespace SC2Ranks.API.Result.Element
     End Property
 
     <DataMember(name := "region")>
-    Private Property RegionRaw As String
+    Protected Property RegionRaw As String
       Get
         Return Me.m_RegionRaw
       End Get

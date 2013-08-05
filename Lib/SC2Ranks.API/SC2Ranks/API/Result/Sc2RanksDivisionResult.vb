@@ -58,7 +58,6 @@ Namespace SC2Ranks.API.Result
     Private m_AverageWinRatio As Double
     Private m_UpdateAt As Int64
 
-    'ToDO: Sc2RanksDivisionElement
     Public Sub New()
       Me.m_ID = Nothing
       Me.m_Url = Nothing

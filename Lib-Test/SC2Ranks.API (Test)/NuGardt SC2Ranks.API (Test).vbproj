@@ -145,6 +145,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Lib\API.Helper.JSON\NuGardt.API.Helper.Json.vbproj">
+      <Project>{f437be50-a3cd-40cd-9fb1-d2069460024a}</Project>
+      <Name>NuGardt.API.Helper.Json</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Lib\SC2Ranks.API\NuGardt.SC2Ranks.API.vbproj">
       <Project>{3054F387-8A8C-4C4A-8330-A64FC23C3D14}</Project>
       <Name>NuGardt  SC2Ranks.API</Name>

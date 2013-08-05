@@ -111,8 +111,6 @@
     <Compile Include="SC2Ranks\API\eSc2RanksExpansion.vb" />
     <Compile Include="SC2Ranks\API\eSc2RanksBracket.vb" />
     <Compile Include="SC2Ranks\API\ICacheConfig.vb" />
-    <Compile Include="SC2Ranks\API\Cache\CacheRequestEntry.vb" />
-    <Compile Include="SC2Ranks\API\Cache\CacheRequest.vb" />
     <Compile Include="SC2Ranks\API\eSc2RanksMatchType.vb" />
     <Compile Include="SC2Ranks\API\eSc2RanksRankRegion.vb" />
     <Compile Include="SC2Ranks\API\Result\Sc2RanksDivisionResult.vb" />
@@ -168,6 +166,12 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\API.Helper.JSON\NuGardt.API.Helper.Json.vbproj">
+      <Project>{f437be50-a3cd-40cd-9fb1-d2069460024a}</Project>
+      <Name>NuGardt.API.Helper.Json</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

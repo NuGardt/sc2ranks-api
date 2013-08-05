@@ -16,6 +16,8 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Imports System.Runtime.Serialization
+Imports System.Net
+Imports NuGardt.API.Helper.JSON
 
 Namespace SC2Ranks.API.Result
   ''' <summary>
@@ -24,9 +26,12 @@ Namespace SC2Ranks.API.Result
   ''' <remarks></remarks>
   <DataContract()>
   Public MustInherit Class Sc2RanksBaseResult
+    Inherits BaseResult
+
+    Private Const HeaderCreditsLeft As String = "X-Credits-Left"
+    Private Const HeaderCreditsUsed As String = "X-Credits-Used"
+
     Private m_Error As String
-    Private m_CacheExpires As Nullable(Of DateTime)
-    Private m_ResponseRaw As String
 
     Private m_CreditsLeft As Int32
     Private m_CreditsUsed As Int32
@@ -36,9 +41,9 @@ Namespace SC2Ranks.API.Result
     ''' </summary>
     ''' <remarks></remarks>
     Public Sub New()
+      Call MyBase.New()
+
       Me.m_Error = Nothing
-      Me.m_CacheExpires = Nothing
-      Me.m_ResponseRaw = Nothing
 
       Me.m_CreditsLeft = Nothing
       Me.m_CreditsUsed = Nothing
@@ -75,38 +80,6 @@ Namespace SC2Ranks.API.Result
       End Get
     End Property
 
-    ''' <summary>
-    ''' Returns the date when the cached data expires. The cache is from the API and not SC2Ranks.
-    ''' </summary>
-    ''' <value></value>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    <IgnoreDataMember()>
-    Public Property CacheExpires As Nullable(Of DateTime)
-      Get
-        Return Me.m_CacheExpires
-      End Get
-      Friend Set(ByVal Value As Nullable(Of DateTime))
-        Me.m_CacheExpires = Value
-      End Set
-    End Property
-
-    ''' <summary>
-    ''' Returns the raw response from the server. Usually in JSON format.
-    ''' </summary>
-    ''' <value></value>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    <IgnoreDataMember()>
-    Public Property ResponseRaw As String
-      Get
-        Return Me.m_ResponseRaw
-      End Get
-      Friend Set(ByVal Value As String)
-        Me.m_ResponseRaw = Value
-      End Set
-    End Property
-
     <IgnoreDataMember()>
     Public Property CreditsLeft As Int32
       Get
@@ -128,5 +101,12 @@ Namespace SC2Ranks.API.Result
     End Property
 
 #End Region
+
+    Protected Overrides Sub ReadHeader(Headers As WebHeaderCollection)
+      If (Headers IsNot Nothing) Then
+        Call Int32.TryParse(Headers.Get(HeaderCreditsLeft), Me.m_CreditsLeft)
+        Call Int32.TryParse(Headers.Get(HeaderCreditsUsed), Me.m_CreditsUsed)
+      End If
+    End Sub
   End Class
 End Namespace

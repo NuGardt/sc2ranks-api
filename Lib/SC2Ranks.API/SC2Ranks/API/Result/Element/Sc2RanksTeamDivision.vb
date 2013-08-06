@@ -44,7 +44,7 @@ Namespace SC2Ranks.API.Result.Element
       End Set
     End Property
 
-    'ToDo: Problem under Mono using Nullable(of Int32) ("rank":null) ("rank":16)
+    'Hack: Problem under Mono using Nullable(of Int32) ("rank":null) ("rank":16)
     <DataMember(name := "rank")>
     Protected Property RankRaw As String
       Get

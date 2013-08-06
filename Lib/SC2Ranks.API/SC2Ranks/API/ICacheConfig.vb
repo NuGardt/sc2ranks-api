@@ -16,29 +16,43 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Namespace SC2Ranks.API
-  <Obsolete()>
   Public Interface ICacheConfig
-    'ToDo: Redo ICacheConfig for new commands
-    Property SearchBasePlayerCacheDuration As TimeSpan
+    Property GetBaseDataCacheDuration As TimeSpan
 
-    Property GetBasePlayerByCharacterCodeCacheDuration As TimeSpan
+    Property GetCharacterCacheDuration As TimeSpan
 
-    Property GetBasePlayerByBattleNetIDCacheDuration As TimeSpan
+    Property GetCharacterTeamsListCacheDuration As TimeSpan
 
-    Property GetBaseTeamByCharacterCodeCacheDuration As TimeSpan
+    Property SearchCharacterTeamListCacheDuration As TimeSpan
 
-    Property GetBaseTeamByBattleNetIDCacheDuration As TimeSpan
+    Property GetCharacterListCacheDuration As TimeSpan
 
-    Property GetTeamByCharacterCodeCacheDuration As TimeSpan
+    Property GetCharacterTeamListCacheDuration As TimeSpan
 
-    Property GetTeamByBattleNetIDCacheDuration As TimeSpan
+    Property GetClanCacheDuration As TimeSpan
+
+    Property GetClanCharacterListCacheDuration As TimeSpan
+
+    Property GetClanTeamListCacheDuration As TimeSpan
+
+    Property GetRankingsTopCacheDuration As TimeSpan
+
+    Property GetDivisionsTopCacheDuration As TimeSpan
+
+    Property GetDivisionCacheDuration As TimeSpan
+
+    Property GetDivisionTeamsTopCacheDuration As TimeSpan
+
+    Property GetCustomDivisionsCacheDuration As TimeSpan
 
     Property GetCustomDivisionCacheDuration As TimeSpan
 
-    Property GetBasePlayersCharCacheDuration As TimeSpan
+    Property GetCustomDivisionTeamListCacheDuration As TimeSpan
 
-    Property GetBasePlayersTeamCacheDuration As TimeSpan
+    Property GetCustomDivisionCharacterListCacheDuration As TimeSpan
 
-    Property GetBonusPoolsCacheDuration As TimeSpan
+    Property CustomDivisionAddCacheDuration As TimeSpan
+
+    Property CustomDivisionRemoveCacheDuration As TimeSpan
   End Interface
 End Namespace

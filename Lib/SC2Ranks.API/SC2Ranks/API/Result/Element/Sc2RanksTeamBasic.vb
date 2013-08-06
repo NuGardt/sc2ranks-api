@@ -1,5 +1,4 @@
-﻿
-' NuGardt SC2Ranks API
+﻿' NuGardt SC2Ranks API
 ' Copyright (C) 2011-2013 NuGardt Software
 ' http://www.nugardt.com
 '
@@ -246,20 +245,10 @@ Namespace SC2Ranks.API.Result.Element
       With SB
         Call .AppendFormat("URL: {0}{1}", Me.Url, vbCrLf)
         Call .AppendFormat("Rank Region: {0}{1}", Me.RankRegion.ToString(), vbCrLf)
-        'HACK:
-        Call .AppendFormat("Rank Region RAW: {0}{1}", Me.m_RankRegionRaw, vbCrLf)
-
         Call .AppendFormat("Expansion: {0}{1}", Me.Expansion.ToString(), vbCrLf)
         Call .AppendFormat("League: {0}{1}", Me.League.ToString(), vbCrLf)
-        'HACK:
-        Call .AppendFormat("League RAW: {0}{1}", Me.m_LeagueRaw, vbCrLf)
-
         Call .AppendFormat("Last Game At: {0}{1}", Me.LastGameAt.ToString(), vbCrLf)
         Call .AppendFormat("Bracket: {0}{1}", Me.Bracket.ToString(), vbCrLf)
-        'HACK
-        Call .AppendFormat("Bracket RAW: {0}{1}", Me.m_BracketRaw, vbCrLf)
-        Call .AppendFormat("Bracket RANDOM: {0}{1}", Me.m_Random, vbCrLf)
-
         Call .AppendFormat("Points: {0}{1}", Me.Points.ToString(), vbCrLf)
         Call .AppendFormat("Wins: {0}{1}", Me.Wins.ToString(), vbCrLf)
         Call .AppendFormat("Losses: {0}{1}", Me.Losses.ToString(), vbCrLf)

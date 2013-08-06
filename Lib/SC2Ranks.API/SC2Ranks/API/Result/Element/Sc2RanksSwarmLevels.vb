@@ -1,5 +1,4 @@
-﻿
-' NuGardt SC2Ranks API
+﻿' NuGardt SC2Ranks API
 ' Copyright (C) 2011-2013 NuGardt Software
 ' http://www.nugardt.com
 '

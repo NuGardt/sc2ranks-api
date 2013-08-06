@@ -16,122 +16,196 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Namespace SC2Ranks.API
-  <Obsolete()>
   Public Class CacheConfig
     Implements ICacheConfig
 
-    'ToDo: New Cache Config needed
-    Public Shared ReadOnly DefaultSearchBasePlayerCacheDuration As TimeSpan = TimeSpan.FromMinutes(30)
-    Public Const DefaultSearchBasePlayerCacheDurationString As String = "00:30:00"
-    Public Shared ReadOnly DefaultGetBasePlayerByCharacterCodeCacheDuration As TimeSpan = TimeSpan.FromHours(1)
-    Public Const DefaultGetBasePlayerByCharacterCodeCacheDurationString As String = "01:00:00"
-    Public Shared ReadOnly DefaultGetBasePlayerByBattleNetIDCacheDuration As TimeSpan = TimeSpan.FromHours(1)
-    Public Const DefaultGetBasePlayerByBattleNetIDCacheDurationString As String = "01:00:00"
-    Public Shared ReadOnly DefaultGetBaseTeamByCharacterCodeCacheDuration As TimeSpan = TimeSpan.FromHours(3)
-    Public Const DefaultGetBaseTeamByCharacterCodeCacheDurationString As String = "03:00:00"
-    Public Shared ReadOnly DefaultGetBaseTeamByBattleNetIDCacheDuration As TimeSpan = TimeSpan.FromHours(3)
-    Public Const DefaultGetBaseTeamByBattleNetIDCacheDurationString As String = "03:00:00"
-    Public Shared ReadOnly DefaultGetTeamByCharacterCodeCacheDuration As TimeSpan = TimeSpan.FromHours(6)
-    Public Const DefaultGetTeamByCharacterCodeCacheDurationString As String = "06:00:00"
-    Public Shared ReadOnly DefaultGetTeamByBattleNetIDCacheDuration As TimeSpan = TimeSpan.FromHours(6)
-    Public Const DefaultGetTeamByBattleNetIDCacheDurationString As String = "06:00:00"
-    Public Shared ReadOnly DefaultGetCustomDivisionCacheDuration As TimeSpan = TimeSpan.FromHours(12)
-    Public Const DefaultGetCustomDivisionCacheDurationString As String = "12:00:00"
-    Public Shared ReadOnly DefaultGetBasePlayersCharCacheDuration As TimeSpan = TimeSpan.FromHours(1)
-    Public Const DefaultGetBasePlayersCharCacheDurationString As String = "01:00:00"
-    Public Shared ReadOnly DefaultGetBasePlayersTeamCacheDuration As TimeSpan = TimeSpan.FromHours(3)
-    Public Const DefaultGetBasePlayersTeamCacheDurationString As String = "03:00:00"
-    Public Shared ReadOnly DefaultGetBonusPoolsCacheDuration As TimeSpan = TimeSpan.FromHours(0)
-    Public Const DefaultGetBonusPoolsCacheDurationString As String = "00:00:00"
+    Public Shared ReadOnly DefaultGetBaseDataCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Shared ReadOnly DefaultGetCharacterCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Shared ReadOnly DefaultGetCharacterTeamsListCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Shared ReadOnly DefaultSearchCharacterTeamListCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Shared ReadOnly DefaultGetCharacterListCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Shared ReadOnly DefaultGetCharacterTeamListCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Shared ReadOnly DefaultGetClanCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Shared ReadOnly DefaultGetClanCharacterListCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Shared ReadOnly DefaultGetClanTeamListCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Shared ReadOnly DefaultGetRankingsTopCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Shared ReadOnly DefaultGetDivisionsTopCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Shared ReadOnly DefaultGetDivisionCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Shared ReadOnly DefaultGetDivisionTeamsTopCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Shared ReadOnly DefaultGetCustomDivisionsCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Shared ReadOnly DefaultGetCustomDivisionCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Shared ReadOnly DefaultGetCustomDivisionTeamListCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Shared ReadOnly DefaultGetCustomDivisionCharacterListCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Shared ReadOnly DefaultCustomDivisionAddCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Shared ReadOnly DefaultCustomDivisionRemoveCacheDuration As TimeSpan = TimeSpan.FromHours(2)
 
-    Private m_SearchBasePlayerCacheDuration As TimeSpan
-    Private m_GetBasePlayerByCharacterCodeCacheDuration As TimeSpan
-    Private m_GetBasePlayerByBattleNetIDCacheDuration As TimeSpan
-    Private m_GetBaseTeamByCharacterCodeCacheDuration As TimeSpan
-    Private m_GetBaseTeamByBattleNetIDCacheDuration As TimeSpan
-    Private m_GetTeamByCharacterCodeCacheDuration As TimeSpan
-    Private m_GetTeamByBattleNetIDCacheDuration As TimeSpan
+    Private m_GetBaseDataCacheDuration As TimeSpan
+    Private m_GetCharacterCacheDuration As TimeSpan
+    Private m_GetCharacterTeamsListCacheDuration As TimeSpan
+    Private m_SearchCharacterTeamListCacheDuration As TimeSpan
+    Private m_GetCharacterListCacheDuration As TimeSpan
+    Private m_GetCharacterTeamListCacheDuration As TimeSpan
+    Private m_GetClanCacheDuration As TimeSpan
+    Private m_GetClanCharacterListCacheDuration As TimeSpan
+    Private m_GetClanTeamListCacheDuration As TimeSpan
+    Private m_GetRankingsTopCacheDuration As TimeSpan
+    Private m_GetDivisionsTopCacheDuration As TimeSpan
+    Private m_GetDivisionCacheDuration As TimeSpan
+    Private m_GetDivisionTeamsTopCacheDuration As TimeSpan
+    Private m_GetCustomDivisionsCacheDuration As TimeSpan
     Private m_GetCustomDivisionCacheDuration As TimeSpan
-    Private m_GetBasePlayersCharCacheDuration As TimeSpan
-    Private m_GetBasePlayersTeamCacheDuration As TimeSpan
-    Private m_GetBonusPoolsCacheDuration As TimeSpan
+    Private m_GetCustomDivisionTeamListCacheDuration As TimeSpan
+    Private m_GetCustomDivisionCharacterListCacheDuration As TimeSpan
+    Private m_CustomDivisionAddCacheDuration As TimeSpan
+    Private m_CustomDivisionRemoveCacheDuration As TimeSpan
 
     Public Sub New()
-      Me.m_SearchBasePlayerCacheDuration = DefaultSearchBasePlayerCacheDuration
-      Me.m_GetBasePlayerByCharacterCodeCacheDuration = DefaultGetBasePlayerByCharacterCodeCacheDuration
-      Me.m_GetBasePlayerByBattleNetIDCacheDuration = DefaultGetBasePlayerByBattleNetIDCacheDuration
-      Me.m_GetBaseTeamByCharacterCodeCacheDuration = DefaultGetBaseTeamByCharacterCodeCacheDuration
-      Me.m_GetBaseTeamByBattleNetIDCacheDuration = DefaultGetBaseTeamByBattleNetIDCacheDuration
-      Me.m_GetTeamByCharacterCodeCacheDuration = DefaultGetTeamByCharacterCodeCacheDuration
-      Me.m_GetTeamByBattleNetIDCacheDuration = DefaultGetTeamByBattleNetIDCacheDuration
+      Me.m_GetBaseDataCacheDuration = DefaultGetBaseDataCacheDuration
+      Me.m_GetCharacterCacheDuration = DefaultGetCharacterCacheDuration
+      Me.m_GetCharacterTeamsListCacheDuration = DefaultGetCharacterTeamsListCacheDuration
+      Me.m_SearchCharacterTeamListCacheDuration = DefaultSearchCharacterTeamListCacheDuration
+      Me.m_GetCharacterListCacheDuration = DefaultGetCharacterListCacheDuration
+      Me.m_GetCharacterTeamListCacheDuration = DefaultGetCharacterTeamListCacheDuration
+      Me.m_GetClanCacheDuration = DefaultGetClanCacheDuration
+      Me.m_GetClanCharacterListCacheDuration = DefaultGetClanCharacterListCacheDuration
+      Me.m_GetClanTeamListCacheDuration = DefaultGetClanTeamListCacheDuration
+      Me.m_GetRankingsTopCacheDuration = DefaultGetRankingsTopCacheDuration
+      Me.m_GetDivisionsTopCacheDuration = DefaultGetDivisionsTopCacheDuration
+      Me.m_GetDivisionCacheDuration = DefaultGetDivisionCacheDuration
+      Me.m_GetDivisionTeamsTopCacheDuration = DefaultGetDivisionTeamsTopCacheDuration
+      Me.m_GetCustomDivisionsCacheDuration = DefaultGetCustomDivisionsCacheDuration
       Me.m_GetCustomDivisionCacheDuration = DefaultGetCustomDivisionCacheDuration
-      Me.m_GetBasePlayersCharCacheDuration = DefaultGetBasePlayersCharCacheDuration
-      Me.m_GetBasePlayersTeamCacheDuration = DefaultGetBasePlayersTeamCacheDuration
-      Me.m_GetBonusPoolsCacheDuration = DefaultGetBonusPoolsCacheDuration
+      Me.m_GetCustomDivisionTeamListCacheDuration = DefaultGetCustomDivisionTeamListCacheDuration
+      Me.m_GetCustomDivisionCharacterListCacheDuration = DefaultGetCustomDivisionCharacterListCacheDuration
+      Me.m_CustomDivisionAddCacheDuration = DefaultCustomDivisionAddCacheDuration
+      Me.m_CustomDivisionRemoveCacheDuration = DefaultCustomDivisionRemoveCacheDuration
     End Sub
 
 #Region "Properties"
 
-    Public Property GetBasePlayerByBattleNetIDCacheDuration As TimeSpan Implements ICacheConfig.GetBasePlayerByBattleNetIDCacheDuration
+    Public Property GetBaseDataCacheDuration As TimeSpan Implements ICacheConfig.GetBaseDataCacheDuration
       Get
-        Return Me.m_GetBasePlayerByBattleNetIDCacheDuration
+        Return Me.m_GetBaseDataCacheDuration
       End Get
       Set(ByVal Value As TimeSpan)
-        Me.m_GetBasePlayerByBattleNetIDCacheDuration = Value
+        Me.m_GetBaseDataCacheDuration = Value
       End Set
     End Property
 
-    Public Property GetBasePlayerByCharacterCodeCacheDuration As TimeSpan Implements ICacheConfig.GetBasePlayerByCharacterCodeCacheDuration
+    Public Property GetCharacterCacheDuration As TimeSpan Implements ICacheConfig.GetCharacterCacheDuration
       Get
-        Return Me.m_GetBasePlayerByCharacterCodeCacheDuration
+        Return Me.m_GetCharacterCacheDuration
       End Get
       Set(ByVal Value As TimeSpan)
-        Me.m_GetBasePlayerByCharacterCodeCacheDuration = Value
+        Me.m_GetCharacterCacheDuration = Value
       End Set
     End Property
 
-    Public Property GetBasePlayersCharCacheDuration As TimeSpan Implements ICacheConfig.GetBasePlayersCharCacheDuration
+    Public Property GetCharacterTeamsListCacheDuration As TimeSpan Implements ICacheConfig.GetCharacterTeamsListCacheDuration
       Get
-        Return Me.m_GetBasePlayersCharCacheDuration
+        Return Me.m_GetCharacterTeamsListCacheDuration
       End Get
       Set(ByVal Value As TimeSpan)
-        Me.m_GetBasePlayersCharCacheDuration = Value
+        Me.m_GetCharacterTeamsListCacheDuration = Value
       End Set
     End Property
 
-    Public Property GetBasePlayersTeamCacheDuration As TimeSpan Implements ICacheConfig.GetBasePlayersTeamCacheDuration
+    Public Property SearchCharacterTeamListCacheDuration As TimeSpan Implements ICacheConfig.SearchCharacterTeamListCacheDuration
       Get
-        Return Me.m_GetBasePlayersTeamCacheDuration
+        Return Me.m_SearchCharacterTeamListCacheDuration
       End Get
       Set(ByVal Value As TimeSpan)
-        Me.m_GetBasePlayersTeamCacheDuration = Value
+        Me.m_SearchCharacterTeamListCacheDuration = Value
       End Set
     End Property
 
-    Public Property GetBaseTeamByCharacterCodeCacheDuration As TimeSpan Implements ICacheConfig.GetBaseTeamByCharacterCodeCacheDuration
+    Public Property GetCharacterListCacheDuration As TimeSpan Implements ICacheConfig.GetCharacterListCacheDuration
       Get
-        Return Me.m_GetBaseTeamByCharacterCodeCacheDuration
+        Return Me.m_GetCharacterListCacheDuration
       End Get
       Set(ByVal Value As TimeSpan)
-        Me.m_GetBaseTeamByCharacterCodeCacheDuration = Value
+        Me.m_GetCharacterListCacheDuration = Value
       End Set
     End Property
 
-    Public Property GetBaseTeamByBattleNetIDCacheDuration As TimeSpan Implements ICacheConfig.GetBaseTeamByBattleNetIDCacheDuration
+    Public Property GetCharacterTeamListCacheDuration As TimeSpan Implements ICacheConfig.GetCharacterTeamListCacheDuration
       Get
-        Return Me.m_GetBaseTeamByBattleNetIDCacheDuration
+        Return Me.m_GetCharacterTeamListCacheDuration
       End Get
       Set(ByVal Value As TimeSpan)
-        Me.m_GetBaseTeamByBattleNetIDCacheDuration = Value
+        Me.m_GetCharacterTeamListCacheDuration = Value
       End Set
     End Property
 
-    Public Property GetBonusPoolsCacheDuration As TimeSpan Implements ICacheConfig.GetBonusPoolsCacheDuration
+    Public Property GetClanCacheDuration As TimeSpan Implements ICacheConfig.GetClanCacheDuration
       Get
-        Return Me.m_GetBonusPoolsCacheDuration
+        Return Me.m_GetClanCacheDuration
       End Get
       Set(ByVal Value As TimeSpan)
-        Me.m_GetBonusPoolsCacheDuration = Value
+        Me.m_GetClanCacheDuration = Value
+      End Set
+    End Property
+
+    Public Property GetClanCharacterListCacheDuration As TimeSpan Implements ICacheConfig.GetClanCharacterListCacheDuration
+      Get
+        Return Me.m_GetClanCharacterListCacheDuration
+      End Get
+      Set(ByVal Value As TimeSpan)
+        Me.m_GetClanCharacterListCacheDuration = Value
+      End Set
+    End Property
+
+    Public Property GetClanTeamListCacheDuration As TimeSpan Implements ICacheConfig.GetClanTeamListCacheDuration
+      Get
+        Return Me.m_GetClanTeamListCacheDuration
+      End Get
+      Set(ByVal Value As TimeSpan)
+        Me.m_GetClanTeamListCacheDuration = Value
+      End Set
+    End Property
+
+    Public Property GetRankingsTopCacheDuration As TimeSpan Implements ICacheConfig.GetRankingsTopCacheDuration
+      Get
+        Return Me.m_GetRankingsTopCacheDuration
+      End Get
+      Set(ByVal Value As TimeSpan)
+        Me.m_GetRankingsTopCacheDuration = Value
+      End Set
+    End Property
+
+    Public Property GetDivisionsTopCacheDuration As TimeSpan Implements ICacheConfig.GetDivisionsTopCacheDuration
+      Get
+        Return Me.m_GetDivisionsTopCacheDuration
+      End Get
+      Set(ByVal Value As TimeSpan)
+        Me.m_GetDivisionsTopCacheDuration = Value
+      End Set
+    End Property
+
+    Public Property GetDivisionCacheDuration As TimeSpan Implements ICacheConfig.GetDivisionCacheDuration
+      Get
+        Return Me.m_GetDivisionCacheDuration
+      End Get
+      Set(ByVal Value As TimeSpan)
+        Me.m_GetDivisionCacheDuration = Value
+      End Set
+    End Property
+
+    Public Property GetDivisionTeamsTopCacheDuration As TimeSpan Implements ICacheConfig.GetDivisionTeamsTopCacheDuration
+      Get
+        Return Me.m_GetDivisionTeamsTopCacheDuration
+      End Get
+      Set(ByVal Value As TimeSpan)
+        Me.m_GetDivisionTeamsTopCacheDuration = Value
+      End Set
+    End Property
+
+    Public Property GetCustomDivisionsCacheDuration As TimeSpan Implements ICacheConfig.GetCustomDivisionsCacheDuration
+      Get
+        Return Me.m_GetCustomDivisionsCacheDuration
+      End Get
+      Set(ByVal Value As TimeSpan)
+        Me.m_GetCustomDivisionsCacheDuration = Value
       End Set
     End Property
 
@@ -144,30 +218,39 @@ Namespace SC2Ranks.API
       End Set
     End Property
 
-    Public Property GetTeamByBattleNetIDCacheDuration As TimeSpan Implements ICacheConfig.GetTeamByBattleNetIDCacheDuration
+    Public Property GetCustomDivisionTeamListCacheDuration As TimeSpan Implements ICacheConfig.GetCustomDivisionTeamListCacheDuration
       Get
-        Return Me.m_GetTeamByBattleNetIDCacheDuration
+        Return Me.m_GetCustomDivisionTeamListCacheDuration
       End Get
       Set(ByVal Value As TimeSpan)
-        Me.m_GetTeamByBattleNetIDCacheDuration = Value
+        Me.m_GetCustomDivisionTeamListCacheDuration = Value
       End Set
     End Property
 
-    Public Property GetTeamByCharacterCodeCacheDuration As TimeSpan Implements ICacheConfig.GetTeamByCharacterCodeCacheDuration
+    Public Property GetCustomDivisionCharacterListCacheDuration As TimeSpan Implements ICacheConfig.GetCustomDivisionCharacterListCacheDuration
       Get
-        Return Me.m_GetTeamByCharacterCodeCacheDuration
+        Return Me.m_GetCustomDivisionCharacterListCacheDuration
       End Get
       Set(ByVal Value As TimeSpan)
-        Me.m_GetTeamByCharacterCodeCacheDuration = Value
+        Me.m_GetCustomDivisionCharacterListCacheDuration = Value
       End Set
     End Property
 
-    Public Property SearchBasePlayerCacheDuration As TimeSpan Implements ICacheConfig.SearchBasePlayerCacheDuration
+    Public Property CustomDivisionAddCacheDuration As TimeSpan Implements ICacheConfig.CustomDivisionAddCacheDuration
       Get
-        Return Me.m_SearchBasePlayerCacheDuration
+        Return Me.m_CustomDivisionAddCacheDuration
       End Get
       Set(ByVal Value As TimeSpan)
-        Me.m_SearchBasePlayerCacheDuration = Value
+        Me.m_CustomDivisionAddCacheDuration = Value
+      End Set
+    End Property
+
+    Public Property CustomDivisionRemoveCacheDuration As TimeSpan Implements ICacheConfig.CustomDivisionRemoveCacheDuration
+      Get
+        Return Me.m_CustomDivisionRemoveCacheDuration
+      End Get
+      Set(ByVal Value As TimeSpan)
+        Me.m_CustomDivisionRemoveCacheDuration = Value
       End Set
     End Property
 

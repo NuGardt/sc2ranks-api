@@ -80,7 +80,7 @@ Namespace SC2Ranks.API.Result.Element
     '  }
     '}
 
-    Private m_Characters() As Sc2RanksCharacterExtendedResult
+    Private m_Characters() As Sc2RanksCharacterExtended
     Private m_Pagination As Sc2RanksPagination
 
     ''' <summary>
@@ -95,11 +95,11 @@ Namespace SC2Ranks.API.Result.Element
 #Region "Properties"
 
     <DataMember(Name := "characters")>
-    Public Property Characters As Sc2RanksCharacterExtendedResult()
+    Public Property Characters As Sc2RanksCharacterExtended()
       Get
         Return Me.m_Characters
       End Get
-      Private Set(ByVal Value As Sc2RanksCharacterExtendedResult())
+      Private Set(ByVal Value As Sc2RanksCharacterExtended())
         Me.m_Characters = Value
       End Set
     End Property

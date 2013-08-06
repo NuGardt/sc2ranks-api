@@ -23,7 +23,7 @@ Imports System.Text
 Namespace SC2Ranks.API.Result.Element
   <DataContract()>
   Public Class Sc2RanksCharacterExtendedList
-    Implements IList(Of Sc2RanksCharacterExtendedResult)
+    Implements IList(Of Sc2RanksCharacterExtended)
 
     '[
     '  {
@@ -57,70 +57,70 @@ Namespace SC2Ranks.API.Result.Element
     '  }
     ']
 
-    Private ReadOnly m_List As New List(Of Sc2RanksCharacterExtendedResult)
+    Private ReadOnly m_List As New List(Of Sc2RanksCharacterExtended)
 
     Public Sub New()
       Call MyBase.New()
 
-      Me.m_List = New List(Of Sc2RanksCharacterExtendedResult)()
+      Me.m_List = New List(Of Sc2RanksCharacterExtended)()
     End Sub
 
-    Public Sub Add(ByVal Item As Sc2RanksCharacterExtendedResult) Implements ICollection(Of Sc2RanksCharacterExtendedResult).Add
+    Public Sub Add(ByVal Item As Sc2RanksCharacterExtended) Implements ICollection(Of Sc2RanksCharacterExtended).Add
       Call Me.m_List.Add(Item)
     End Sub
 
-    Public Sub Clear() Implements ICollection(Of Sc2RanksCharacterExtendedResult).Clear
+    Public Sub Clear() Implements ICollection(Of Sc2RanksCharacterExtended).Clear
       Call Me.m_List.Clear()
     End Sub
 
-    Public Function Contains(ByVal Item As Sc2RanksCharacterExtendedResult) As Boolean Implements ICollection(Of Sc2RanksCharacterExtendedResult).Contains
+    Public Function Contains(ByVal Item As Sc2RanksCharacterExtended) As Boolean Implements ICollection(Of Sc2RanksCharacterExtended).Contains
       Return Me.m_List.Contains(Item)
     End Function
 
-    Public Sub CopyTo(ByVal Array() As Sc2RanksCharacterExtendedResult,
-                      ByVal ArrayIndex As Integer) Implements ICollection(Of Sc2RanksCharacterExtendedResult).CopyTo
+    Public Sub CopyTo(ByVal Array() As Sc2RanksCharacterExtended,
+                      ByVal ArrayIndex As Integer) Implements ICollection(Of Sc2RanksCharacterExtended).CopyTo
       Call Me.m_List.CopyTo(Array, ArrayIndex)
     End Sub
 
-    Public ReadOnly Property Count As Integer Implements ICollection(Of Sc2RanksCharacterExtendedResult).Count
+    Public ReadOnly Property Count As Integer Implements ICollection(Of Sc2RanksCharacterExtended).Count
       Get
         Return Me.m_List.Count
       End Get
     End Property
 
-    Public ReadOnly Property IsReadOnly As Boolean Implements ICollection(Of Sc2RanksCharacterExtendedResult).IsReadOnly
+    Public ReadOnly Property IsReadOnly As Boolean Implements ICollection(Of Sc2RanksCharacterExtended).IsReadOnly
       Get
         Return False
       End Get
     End Property
 
-    Public Function Remove(ByVal Item As Sc2RanksCharacterExtendedResult) As Boolean Implements ICollection(Of Sc2RanksCharacterExtendedResult).Remove
+    Public Function Remove(ByVal Item As Sc2RanksCharacterExtended) As Boolean Implements ICollection(Of Sc2RanksCharacterExtended).Remove
       Return Me.m_List.Remove(Item)
     End Function
 
-    Public Function GetEnumerator() As IEnumerator(Of Sc2RanksCharacterExtendedResult) Implements IEnumerable(Of Sc2RanksCharacterExtendedResult).GetEnumerator
+    Public Function GetEnumerator() As IEnumerator(Of Sc2RanksCharacterExtended) Implements IEnumerable(Of Sc2RanksCharacterExtended).GetEnumerator
       Return Me.m_List.GetEnumerator()
     End Function
 
-    Public Function IndexOf(ByVal Item As Sc2RanksCharacterExtendedResult) As Integer Implements IList(Of Sc2RanksCharacterExtendedResult).IndexOf
+    Public Function IndexOf(ByVal Item As Sc2RanksCharacterExtended) As Integer Implements IList(Of Sc2RanksCharacterExtended).IndexOf
       Return Me.m_List.IndexOf(Item)
     End Function
 
     Public Sub Insert(ByVal Index As Integer,
-                      ByVal Item As Sc2RanksCharacterExtendedResult) Implements IList(Of Sc2RanksCharacterExtendedResult).Insert
+                      ByVal Item As Sc2RanksCharacterExtended) Implements IList(Of Sc2RanksCharacterExtended).Insert
       Call Me.m_List.Insert(Index, Item)
     End Sub
 
-    Default Public Property Item(ByVal Index As Integer) As Sc2RanksCharacterExtendedResult Implements IList(Of Sc2RanksCharacterExtendedResult).Item
+    Default Public Property Item(ByVal Index As Integer) As Sc2RanksCharacterExtended Implements IList(Of Sc2RanksCharacterExtended).Item
       Get
         Return Me.m_List.Item(Index)
       End Get
-      Set(ByVal Value As Sc2RanksCharacterExtendedResult)
+      Set(ByVal Value As Sc2RanksCharacterExtended)
         Me.m_List.Item(Index) = Value
       End Set
     End Property
 
-    Public Sub RemoveAt(ByVal Index As Integer) Implements IList(Of Sc2RanksCharacterExtendedResult).RemoveAt
+    Public Sub RemoveAt(ByVal Index As Integer) Implements IList(Of Sc2RanksCharacterExtended).RemoveAt
       Call Me.m_List.RemoveAt(Index)
     End Sub
 

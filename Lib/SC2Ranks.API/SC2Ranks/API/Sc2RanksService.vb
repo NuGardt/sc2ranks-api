@@ -451,7 +451,7 @@ Namespace SC2Ranks.API
         Next d
       End If
 
-      Result = Me.Query.QueryAndParse(Of Sc2RanksGetCharacterListResult, Sc2RanksCharacterExtendedResult, IList(Of Sc2RanksCharacterExtendedResult))(eRequestMethod.Post, String.Format(BaseUrlFormat, "bulk/characters", Me.m_ApiKey), RequestData.ToString(), Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
+      Result = Me.Query.QueryAndParse(Of Sc2RanksGetCharacterListResult, Sc2RanksCharacterExtended, IList(Of Sc2RanksCharacterExtended))(eRequestMethod.Post, String.Format(BaseUrlFormat, "bulk/characters", Me.m_ApiKey), RequestData.ToString(), Me.CacheConfig.SearchBasePlayerCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -497,7 +497,7 @@ Namespace SC2Ranks.API
     Public Function GetCharacterListEnd(ByVal AsyncResult As IAsyncResult,
                                         <Out()> ByRef Key As Object,
                                         <Out()> ByRef Result As Sc2RanksGetCharacterListResult) As Exception
-      Return Me.Query.QueryAndParseEnd(Of Sc2RanksGetCharacterListResult, Sc2RanksCharacterExtendedResult, IList(Of Sc2RanksCharacterExtendedResult))(AsyncResult, Key, Result)
+      Return Me.Query.QueryAndParseEnd(Of Sc2RanksGetCharacterListResult, Sc2RanksCharacterExtended, IList(Of Sc2RanksCharacterExtended))(AsyncResult, Key, Result)
     End Function
 
 #End Region

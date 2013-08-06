@@ -21,7 +21,7 @@ Imports System.Text
 
 Namespace SC2Ranks.API.Result.Element
   <DataContract()>
-  Public Class Sc2RanksCharacterExtendedResult
+  Public Class Sc2RanksCharacterExtended
     '{
     '  "replay_url": "http://www.sc2ranks.com/character/us/4161722/frozz/replays",
     '  "vod_url": "http://www.sc2ranks.com/character/us/4161722/frozz/vods",

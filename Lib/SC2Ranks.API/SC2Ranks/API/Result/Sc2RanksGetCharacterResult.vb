@@ -5,7 +5,7 @@ Imports System.Runtime.Serialization
 
 Namespace SC2Ranks.API.Result
   Public Class Sc2RanksGetCharacterResult
-    Inherits Sc2RanksCharacterExtendedResult
+    Inherits Sc2RanksCharacterExtended
     Implements ISc2RanksBaseResult
 
     Private m_Error As String

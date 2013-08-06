@@ -15,7 +15,7 @@ Namespace SC2Ranks.UnitTest.Characters.GetCharacter
     Public Sub Initialize() Implements IUnitTestCase.Initialize
       Me.m_Result = Nothing
 
-      Me.Ex = Sc2RanksService.CreateInstance(My.Resources.ApiKey, Nothing, Nothing, Service)
+      Me.Ex = Sc2RanksService.CreateInstance(My.Resources.ApiKey, Service)
     End Sub
 
     Public Sub Start(ByVal OnCompletion As AsyncCallback,
@@ -23,7 +23,7 @@ Namespace SC2Ranks.UnitTest.Characters.GetCharacter
       Me.OnCompletion = OnCompletion
 
       If (Me.Ex Is Nothing) Then
-        Dim Response As Sc2RanksCharacterResult = Nothing
+        Dim Response As Sc2RanksGetCharacterResult = Nothing
 
         Me.Ex = Me.Service.GetCharacter([Const].Region, [Const].BattleNetID, Response)
 
@@ -31,7 +31,7 @@ Namespace SC2Ranks.UnitTest.Characters.GetCharacter
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksCharacterResult)("GetCharacter", Me.Ex, Response)
+            Me.m_Result = Helper.CheckResult(Of Sc2RanksGetCharacterResult)("GetCharacter", Me.Ex, Response)
           End If
         End If
       End If

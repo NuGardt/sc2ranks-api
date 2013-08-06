@@ -15,7 +15,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivision
     Public Sub Initialize() Implements IUnitTestCase.Initialize
       Me.m_Result = Nothing
 
-      Me.Ex = Sc2RanksService.CreateInstance(My.Resources.ApiKey, Nothing, Nothing, Service)
+      Me.Ex = Sc2RanksService.CreateInstance(My.Resources.ApiKey, Service)
     End Sub
 
     Public Sub Start(ByVal OnCompletion As AsyncCallback,
@@ -23,7 +23,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivision
       Me.OnCompletion = OnCompletion
 
       If (Me.Ex Is Nothing) Then
-        Dim Response As Sc2RanksCustomDivisionResult = Nothing
+        Dim Response As Sc2RanksGetCustomDivisionResult = Nothing
 
         Me.Ex = Me.Service.GetCustomDivision([Const].CustomDivisionID, Response)
 
@@ -31,7 +31,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivision
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionResult)("GetCustomDivision", Me.Ex, Response)
+            Me.m_Result = Helper.CheckResult(Of Sc2RanksGetCustomDivisionResult)("GetCustomDivision", Me.Ex, Response)
           End If
         End If
       End If

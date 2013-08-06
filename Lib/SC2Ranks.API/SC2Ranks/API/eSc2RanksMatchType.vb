@@ -20,14 +20,18 @@ Imports NuGardt.SC2Ranks.Helper
 
 Namespace SC2Ranks.API
   ''' <summary>
-  ''' Realm Regions
+  ''' Search match type.
   ''' </summary>
   ''' <remarks></remarks>
   <DataContract(Name := "region")>
   Public Enum eSc2RanksMatchType
 
-    <EnumMember(Value := "all")>
-    <Notation("All")>
+    ''' <summary>
+    ''' Exact search.
+    ''' </summary>
+    ''' <remarks></remarks>
+    <EnumMember(Value := "exact")>
+    <Notation("Exact")>
     Excact
   End Enum
 End Namespace

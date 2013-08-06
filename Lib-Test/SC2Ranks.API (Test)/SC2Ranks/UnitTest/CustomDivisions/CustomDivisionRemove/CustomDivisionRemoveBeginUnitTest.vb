@@ -15,7 +15,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionRemove
     Public Sub Initialize() Implements IUnitTestCase.Initialize
       Me.m_Result = Nothing
 
-      Me.Ex = Sc2RanksService.CreateInstance(My.Resources.ApiKey, Nothing, Nothing, Service)
+      Me.Ex = Sc2RanksService.CreateInstance(My.Resources.ApiKey, Service)
     End Sub
 
     Public Sub Start(ByVal OnCompletion As AsyncCallback,
@@ -25,9 +25,9 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionRemove
       If (Ex IsNot Nothing) Then
         Call Me.OnCompletion.Invoke(Nothing)
       Else
-        Dim Characters As New List(Of Sc2RanksBulkCharacter)
+        Dim Characters As New List(Of Sc2RanksCharacterSimple)
 
-        Call Characters.Add(New Sc2RanksBulkCharacter([Const].Region, [Const].BattleNetID))
+        Call Characters.Add(New Sc2RanksCharacterSimple([Const].Region, [Const].BattleNetID))
 
         Call Me.Service.CustomDivisionRemoveBegin(Nothing, [Const].ManageCustomDivisionID, Characters, EndCallback)
       End If
@@ -44,7 +44,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionRemove
     End Function
 
     Public Sub [End](Optional Result As IAsyncResult = Nothing) Implements IUnitTestCase.[End]
-      Dim Response As Sc2RanksCustomDivisionManageListResult = Nothing
+      Dim Response As Sc2RanksCustomDivisionRemoveResult = Nothing
 
       Me.Ex = Me.Service.CustomDivisionRemoveEnd(Result, Nothing, Response)
 
@@ -52,7 +52,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionRemove
         If Response.HasError Then
           Me.Ex = New Exception(Response.Error)
         Else
-          Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionManageListResult)("CustomDivisionRemoveBegin", Me.Ex, Response)
+          Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionRemoveResult)("CustomDivisionRemoveBegin", Me.Ex, Response)
         End If
       End If
     End Sub

@@ -20,38 +20,38 @@ Imports NuGardt.SC2Ranks.Helper
 
 Namespace SC2Ranks.API
   ''' <summary>
-  ''' Races
+  ''' Races in StarCraft II.
   ''' </summary>
   ''' <remarks></remarks>
   <DataContract(Name := "race")>
   Public Enum eSc2RanksRace
 
     ''' <summary>
-    ''' Protoss
+    ''' Protoss.
     ''' </summary>
     ''' <remarks></remarks>
     <EnumMember(Value := "protoss")>
     <Notation("Protoss")>
-    Protoss = 1
+    Protoss
 
     ''' <summary>
-    ''' Terran
+    ''' Terran.
     ''' </summary>
     ''' <remarks></remarks>
     <EnumMember(Value := "terran")>
     <Notation("Terran")>
-    Terran = 2
+    Terran
 
     ''' <summary>
-    ''' Zerg
+    ''' Zerg.
     ''' </summary>
     ''' <remarks></remarks>
     <EnumMember(Value := "zerg")>
     <Notation("Zerg")>
-    Zerg = 3
+    Zerg
 
     ''' <summary>
-    ''' Random
+    ''' Random.
     ''' </summary>
     ''' <remarks></remarks>
     <EnumMember(Value := "random")>

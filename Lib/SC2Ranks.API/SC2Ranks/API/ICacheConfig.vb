@@ -18,6 +18,7 @@
 Namespace SC2Ranks.API
   <Obsolete()>
   Public Interface ICacheConfig
+    'ToDo: Redo ICacheConfig for new commands
     Property SearchBasePlayerCacheDuration As TimeSpan
 
     Property GetBasePlayerByCharacterCodeCacheDuration As TimeSpan

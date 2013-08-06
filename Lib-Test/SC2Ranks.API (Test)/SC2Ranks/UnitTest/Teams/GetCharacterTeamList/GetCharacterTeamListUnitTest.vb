@@ -15,7 +15,7 @@ Namespace SC2Ranks.UnitTest.Teams.GetCharacterTeamList
     Public Sub Initialize() Implements IUnitTestCase.Initialize
       Me.m_Result = Nothing
 
-      Me.Ex = Sc2RanksService.CreateInstance(My.Resources.ApiKey, Nothing, Nothing, Service)
+      Me.Ex = Sc2RanksService.CreateInstance(My.Resources.ApiKey, Service)
     End Sub
 
     Public Sub Start(ByVal OnCompletion As AsyncCallback,
@@ -23,10 +23,10 @@ Namespace SC2Ranks.UnitTest.Teams.GetCharacterTeamList
       Me.OnCompletion = OnCompletion
 
       If (Me.Ex Is Nothing) Then
-        Dim Response As Sc2RanksCharacterTeamListResult = Nothing
+        Dim Response As Sc2RanksGetCharacterTeamListResult = Nothing
 
-        Dim Characters As New List(Of Sc2RanksBulkCharacter)
-        Call Characters.Add(New Sc2RanksBulkCharacter([Const].Region, [Const].BattleNetID))
+        Dim Characters As New List(Of Sc2RanksCharacterSimple)
+        Call Characters.Add(New Sc2RanksCharacterSimple([Const].Region, [Const].BattleNetID))
 
         Me.Ex = Me.Service.GetCharacterTeamList(Characters, [Const].RankRegion, [Const].Expansion, [Const].Bracket, [Const].League, Response)
 
@@ -34,7 +34,7 @@ Namespace SC2Ranks.UnitTest.Teams.GetCharacterTeamList
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksCharacterTeamListResult)("GetCharacterTeamList", Me.Ex, Response)
+            Me.m_Result = Helper.CheckResult(Of Sc2RanksGetCharacterTeamListResult)("GetCharacterTeamList", Me.Ex, Response)
           End If
         End If
       End If

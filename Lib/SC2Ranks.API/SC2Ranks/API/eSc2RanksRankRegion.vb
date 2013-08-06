@@ -20,7 +20,7 @@ Imports NuGardt.SC2Ranks.Helper
 
 Namespace SC2Ranks.API
   ''' <summary>
-  ''' Realm Regions
+  ''' Rank Regions.
   ''' </summary>
   ''' <remarks></remarks>
   <DataContract(Name := "rank_region")>
@@ -61,7 +61,7 @@ Namespace SC2Ranks.API
     ''' Korea/Taiwan
     ''' </summary>
     ''' <remarks></remarks>
-    <EnumMember(Value := "Fea")>
+    <EnumMember(Value := "fea")>
     <Notation("Korea/Taiwan")>
     Fea
 

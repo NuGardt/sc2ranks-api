@@ -34,9 +34,9 @@ Namespace SC2Ranks
     ''' <param name="Ex"></param>
     ''' <param name="Response"></param>
     ''' <remarks></remarks>
-    Public Shared Function CheckResult(Of T As Sc2RanksBaseResult)(ByVal Description As String,
-                                                                   <Out> ByRef Ex As Exception,
-                                                                   ByVal Response As T) As String
+    Public Shared Function CheckResult(Of T As ISc2RanksBaseResult)(ByVal Description As String,
+                                                                    <Out> ByRef Ex As Exception,
+                                                                    ByVal Response As T) As String
       Ex = Nothing
       Dim SB As New StringBuilder
 

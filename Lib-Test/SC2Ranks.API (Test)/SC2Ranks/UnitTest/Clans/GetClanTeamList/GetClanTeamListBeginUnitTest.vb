@@ -15,7 +15,7 @@ Namespace SC2Ranks.UnitTest.Clans.GetClanTeamList
     Public Sub Initialize() Implements IUnitTestCase.Initialize
       Me.m_Result = Nothing
 
-      Me.Ex = Sc2RanksService.CreateInstance(My.Resources.ApiKey, Nothing, Nothing, Service)
+      Me.Ex = Sc2RanksService.CreateInstance(My.Resources.ApiKey, Service)
     End Sub
 
     Public Sub Start(ByVal OnCompletion As AsyncCallback,
@@ -40,7 +40,7 @@ Namespace SC2Ranks.UnitTest.Clans.GetClanTeamList
     End Function
 
     Public Sub [End](Optional Result As IAsyncResult = Nothing) Implements IUnitTestCase.[End]
-      Dim Response As Sc2RanksClanTeamListResult = Nothing
+      Dim Response As Sc2RanksGetClanTeamListResult = Nothing
 
       Me.Ex = Me.Service.GetClanTeamListEnd(Result, Nothing, Response)
 
@@ -48,7 +48,7 @@ Namespace SC2Ranks.UnitTest.Clans.GetClanTeamList
         If Response.HasError Then
           Me.Ex = New Exception(Response.Error)
         Else
-          Me.m_Result = Helper.CheckResult(Of Sc2RanksClanTeamListResult)("GetClanTeamListBegin", Me.Ex, Response)
+          Me.m_Result = Helper.CheckResult(Of Sc2RanksGetClanTeamListResult)("GetClanTeamListBegin", Me.Ex, Response)
         End If
       End If
     End Sub

@@ -15,7 +15,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionAdd
     Public Sub Initialize() Implements IUnitTestCase.Initialize
       Me.m_Result = Nothing
 
-      Me.Ex = Sc2RanksService.CreateInstance(My.Resources.ApiKey, Nothing, Nothing, Service)
+      Me.Ex = Sc2RanksService.CreateInstance(My.Resources.ApiKey, Service)
     End Sub
 
     Public Sub Start(ByVal OnCompletion As AsyncCallback,
@@ -25,9 +25,9 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionAdd
       If (Ex IsNot Nothing) Then
         Call Me.OnCompletion.Invoke(Nothing)
       Else
-        Dim Characters As New List(Of Sc2RanksBulkCharacter)
+        Dim Characters As New List(Of Sc2RanksCharacterSimple)
 
-        Call Characters.Add(New Sc2RanksBulkCharacter([Const].Region, [Const].BattleNetID))
+        Call Characters.Add(New Sc2RanksCharacterSimple([Const].Region, [Const].BattleNetID))
 
         Call Me.Service.CustomDivisionAddBegin(Nothing, [Const].ManageCustomDivisionID, Characters, EndCallback)
       End If
@@ -44,7 +44,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionAdd
     End Function
 
     Public Sub [End](Optional Result As IAsyncResult = Nothing) Implements IUnitTestCase.[End]
-      Dim Response As Sc2RanksCustomDivisionManageListResult = Nothing
+      Dim Response As Sc2RanksCustomDivisionAddResult = Nothing
 
       Me.Ex = Me.Service.CustomDivisionAddEnd(Result, Nothing, Response)
 
@@ -52,7 +52,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionAdd
         If Response.HasError Then
           Me.Ex = New Exception(Response.Error)
         Else
-          Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionManageListResult)("CustomDivisionAddBegin", Me.Ex, Response)
+          Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionAddResult)("CustomDivisionAddBegin", Me.Ex, Response)
         End If
       End If
     End Sub

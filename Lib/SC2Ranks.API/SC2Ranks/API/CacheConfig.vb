@@ -20,6 +20,7 @@ Namespace SC2Ranks.API
   Public Class CacheConfig
     Implements ICacheConfig
 
+    'ToDo: New Cache Config needed
     Public Shared ReadOnly DefaultSearchBasePlayerCacheDuration As TimeSpan = TimeSpan.FromMinutes(30)
     Public Const DefaultSearchBasePlayerCacheDurationString As String = "00:30:00"
     Public Shared ReadOnly DefaultGetBasePlayerByCharacterCodeCacheDuration As TimeSpan = TimeSpan.FromHours(1)

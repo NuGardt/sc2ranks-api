@@ -20,14 +20,14 @@ Imports NuGardt.SC2Ranks.Helper
 
 Namespace SC2Ranks.API
   ''' <summary>
-  ''' Realm Regions
+  ''' Regions.
   ''' </summary>
   ''' <remarks></remarks>
   <DataContract(Name := "region")>
   Public Enum eSc2RanksRegion
 
     ''' <summary>
-    ''' All Regions
+    ''' All Regions.
     ''' </summary>
     ''' <remarks></remarks>
     <EnumMember(Value := "global")>
@@ -35,7 +35,7 @@ Namespace SC2Ranks.API
     [Global]
 
     ''' <summary>
-    ''' Americas
+    ''' Americas.
     ''' </summary>
     ''' <remarks></remarks>
     <EnumMember(Value := "am")>
@@ -43,7 +43,7 @@ Namespace SC2Ranks.API
     AM
 
     ''' <summary>
-    ''' European Union
+    ''' European Union.
     ''' </summary>
     ''' <remarks></remarks>
     <EnumMember(Value := "eu")>
@@ -51,7 +51,7 @@ Namespace SC2Ranks.API
     EU
 
     ''' <summary>
-    ''' South-Korea
+    ''' South-Korea.
     ''' </summary>
     ''' <remarks></remarks>
     <EnumMember(Value := "kr")>
@@ -59,7 +59,7 @@ Namespace SC2Ranks.API
     KR
 
     ''' <summary>
-    ''' Taiwan
+    ''' Taiwan.
     ''' </summary>
     ''' <remarks></remarks>
     <EnumMember(Value := "tw")>
@@ -67,7 +67,7 @@ Namespace SC2Ranks.API
     TW
 
     ''' <summary>
-    ''' South-East-Asia
+    ''' South-East-Asia.
     ''' </summary>
     ''' <remarks></remarks>
     <EnumMember(Value := "sea")>
@@ -83,19 +83,23 @@ Namespace SC2Ranks.API
     CN
 
     ''' <summary>
-    ''' United States
+    ''' United States of America.
     ''' </summary>
     ''' <remarks></remarks>
     <EnumMember(Value := "us")>
     <Notation("United States")>
     US
 
+    ''' <summary>
+    ''' Korea/Taiwan.
+    ''' </summary>
+    ''' <remarks></remarks>
     <EnumMember(Value := "fea")>
     <Notation("FEA")>
     FEA
 
     ''' <summary>
-    ''' Latin America
+    ''' Latin America.
     ''' </summary>
     ''' <remarks></remarks>
     <EnumMember(Value := "la")>
@@ -103,7 +107,7 @@ Namespace SC2Ranks.API
     LA
 
     ''' <summary>
-    ''' North-America
+    ''' North-America.
     ''' </summary>
     ''' <remarks></remarks>
     <EnumMember(Value := "na")>

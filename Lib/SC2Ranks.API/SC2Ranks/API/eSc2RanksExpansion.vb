@@ -20,7 +20,7 @@ Imports NuGardt.SC2Ranks.Helper
 
 Namespace SC2Ranks.API
   ''' <summary>
-  ''' Expansion
+  ''' Expansion of StarCraft II.
   ''' </summary>
   ''' <remarks></remarks>
   <DataContract(Name := "expansion")>

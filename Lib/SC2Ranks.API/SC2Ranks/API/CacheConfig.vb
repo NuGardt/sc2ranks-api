@@ -20,24 +20,43 @@ Namespace SC2Ranks.API
     Implements ICacheConfig
 
     Public Shared ReadOnly DefaultGetBaseDataCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultGetBaseDataCacheDurationString As String = "02:00:00"
     Public Shared ReadOnly DefaultGetCharacterCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultGetCharacterCacheDurationString As String = "02:00:00"
     Public Shared ReadOnly DefaultGetCharacterTeamsListCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultGetCharacterTeamsListCacheDurationString As String = "02:00:00"
     Public Shared ReadOnly DefaultSearchCharacterTeamListCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultSearchCharacterTeamListCacheDurationString As String = "02:00:00"
     Public Shared ReadOnly DefaultGetCharacterListCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultGetCharacterListCacheDurationString As String = "02:00:00"
     Public Shared ReadOnly DefaultGetCharacterTeamListCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultGetCharacterTeamListCacheDurationString As String = "02:00:00"
     Public Shared ReadOnly DefaultGetClanCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultGetClanCacheDurationString As String = "02:00:00"
     Public Shared ReadOnly DefaultGetClanCharacterListCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultGetClanCharacterListCacheDurationString As String = "02:00:00"
     Public Shared ReadOnly DefaultGetClanTeamListCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultGetClanTeamListCacheDurationString As String = "02:00:00"
     Public Shared ReadOnly DefaultGetRankingsTopCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultGetRankingsTopCacheDurationString As String = "02:00:00"
     Public Shared ReadOnly DefaultGetDivisionsTopCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultGetDivisionsTopCacheDurationString As String = "02:00:00"
     Public Shared ReadOnly DefaultGetDivisionCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultGetDivisionCacheDurationString As String = "02:00:00"
     Public Shared ReadOnly DefaultGetDivisionTeamsTopCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultGetDivisionTeamsTopCacheDurationString As String = "02:00:00"
     Public Shared ReadOnly DefaultGetCustomDivisionsCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultGetCustomDivisionsCacheDurationString As String = "02:00:00"
     Public Shared ReadOnly DefaultGetCustomDivisionCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultGetCustomDivisionCacheDurationString As String = "02:00:00"
     Public Shared ReadOnly DefaultGetCustomDivisionTeamListCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultGetCustomDivisionTeamListCacheDurationString As String = "02:00:00"
     Public Shared ReadOnly DefaultGetCustomDivisionCharacterListCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultGetCustomDivisionCharacterListCacheDurationString As String = "02:00:00"
     Public Shared ReadOnly DefaultCustomDivisionAddCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultCustomDivisionAddCacheDurationString As String = "02:00:00"
     Public Shared ReadOnly DefaultCustomDivisionRemoveCacheDuration As TimeSpan = TimeSpan.FromHours(2)
+    Public Const DefaultCustomDivisionRemoveCacheDurationString As String = "02:00:00"
 
     Private m_GetBaseDataCacheDuration As TimeSpan
     Private m_GetCharacterCacheDuration As TimeSpan

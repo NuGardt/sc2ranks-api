@@ -66,11 +66,11 @@ Namespace SC2Ranks.API.Result.Element
     End Function
 
     Public Sub CopyTo(ByVal Array() As Sc2RanksLeagueDivision,
-                      ByVal ArrayIndex As Integer) Implements ICollection(Of Sc2RanksLeagueDivision).CopyTo
+                      ByVal ArrayIndex As Int32) Implements ICollection(Of Sc2RanksLeagueDivision).CopyTo
       Call Me.m_List.CopyTo(Array, ArrayIndex)
     End Sub
 
-    Public ReadOnly Property Count As Integer Implements ICollection(Of Sc2RanksLeagueDivision).Count
+    Public ReadOnly Property Count As Int32 Implements ICollection(Of Sc2RanksLeagueDivision).Count
       Get
         Return Me.m_List.Count
       End Get
@@ -90,16 +90,16 @@ Namespace SC2Ranks.API.Result.Element
       Return Me.m_List.GetEnumerator()
     End Function
 
-    Public Function IndexOf(ByVal Item As Sc2RanksLeagueDivision) As Integer Implements IList(Of Sc2RanksLeagueDivision).IndexOf
+    Public Function IndexOf(ByVal Item As Sc2RanksLeagueDivision) As Int32 Implements IList(Of Sc2RanksLeagueDivision).IndexOf
       Return Me.m_List.IndexOf(Item)
     End Function
 
-    Public Sub Insert(ByVal Index As Integer,
+    Public Sub Insert(ByVal Index As Int32,
                       ByVal Item As Sc2RanksLeagueDivision) Implements IList(Of Sc2RanksLeagueDivision).Insert
       Call Me.m_List.Insert(Index, Item)
     End Sub
 
-    Default Public Property Item(ByVal Index As Integer) As Sc2RanksLeagueDivision Implements IList(Of Sc2RanksLeagueDivision).Item
+    Default Public Property Item(ByVal Index As Int32) As Sc2RanksLeagueDivision Implements IList(Of Sc2RanksLeagueDivision).Item
       Get
         Return Me.m_List.Item(Index)
       End Get
@@ -108,7 +108,7 @@ Namespace SC2Ranks.API.Result.Element
       End Set
     End Property
 
-    Public Sub RemoveAt(ByVal Index As Integer) Implements IList(Of Sc2RanksLeagueDivision).RemoveAt
+    Public Sub RemoveAt(ByVal Index As Int32) Implements IList(Of Sc2RanksLeagueDivision).RemoveAt
       Call Me.m_List.RemoveAt(Index)
     End Sub
 

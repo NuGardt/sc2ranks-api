@@ -18,10 +18,10 @@
 Imports System.Runtime.InteropServices
 Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
-Imports NuGardt.SC2Ranks.API.Result
+Imports NuGardt.Yourls.API.Result
 Imports System.Text
 
-Namespace SC2Ranks
+Namespace Yourls.API.UnitTest
   Public NotInheritable Class Helper
 
 #Region "Function CheckResult"
@@ -34,9 +34,9 @@ Namespace SC2Ranks
     ''' <param name="Ex"></param>
     ''' <param name="Response"></param>
     ''' <remarks></remarks>
-    Public Shared Function CheckResult(Of T As ISc2RanksBaseResult)(ByVal Description As String,
-                                                                    <Out> ByRef Ex As Exception,
-                                                                    ByVal Response As T) As String
+    Public Shared Function CheckResult(Of T As IYourlsBaseResult)(ByVal Description As String,
+                                                                  <Out> ByRef Ex As Exception,
+                                                                  ByVal Response As T) As String
       Ex = Nothing
       Dim SB As New StringBuilder
 
@@ -47,8 +47,11 @@ Namespace SC2Ranks
       Call SB.AppendLine("=====")
 
       If (Response IsNot Nothing) Then
-        If TypeOf Response Is IEnumerable Then
-          With DirectCast(Response, IEnumerable).GetEnumerator()
+        Dim tResponse As IEnumerable
+        tResponse = TryCast(Response, IEnumerable)
+
+        If (tResponse IsNot Nothing) Then
+          With tResponse.GetEnumerator()
             Call .Reset()
 
             Do While .MoveNext()
@@ -168,7 +171,7 @@ Namespace SC2Ranks
                     If .IsEqual Then
                       If (Not ShowOnlyMismatches) Then Call SB.AppendLine(String.Format("{0}: {1} = {2}", Key, .A, .B))
                     Else
-                      Call SB.AppendLine(String.Format("{0}: {1} <> {2} <<< Mismatch", Key, .A, .B))
+                      Call SB.AppendLine(String.Format("{0}: {1} ({2}) <> {3} ({4}) <<< Mismatch", Key, .A, DirectCast(.A, JValue).Type.ToString(), .B, DirectCast(.B, JValue).Type.ToString().ToString()))
                       MismatchCount += 1
                     End If
                   End With

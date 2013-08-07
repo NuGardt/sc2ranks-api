@@ -55,6 +55,7 @@ Namespace SC2Ranks.API.Result.Element
       End Set
     End Property
 
+    <IgnoreDataMember()>
     Public ReadOnly Property Rank() As Nullable(Of Int32)
       Get
         Dim tRank As Int32 = Nothing

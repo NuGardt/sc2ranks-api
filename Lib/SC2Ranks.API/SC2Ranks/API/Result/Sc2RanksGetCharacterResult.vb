@@ -15,10 +15,10 @@
 ' You should have received a copy of the GNU General Public License
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
+Imports System.Runtime.Serialization
 Imports System.Net
 Imports NuGardt.API.Helper.JSON
 Imports NuGardt.SC2Ranks.API.Result.Element
-Imports System.Runtime.Serialization
 
 Namespace SC2Ranks.API.Result
   <DataContract()>
@@ -53,7 +53,7 @@ Namespace SC2Ranks.API.Result
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    <DataMember(Name:="error", EmitDefaultValue:=False)>
+    <DataMember(Name := "error", EmitDefaultValue := False)>
     Public Property [Error]() As String
       Get
         Return Me.m_Error

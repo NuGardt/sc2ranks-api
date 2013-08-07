@@ -51,6 +51,7 @@ Namespace SC2Ranks.API.Result.Element
       Dim SB As New StringBuilder
 
       With SB
+        Call .Append(MyBase.ToString())
         Call .AppendFormat("Characters: {0}", vbCrLf)
         If (Me.Characters IsNot Nothing) Then
           Dim dMax As Int32 = Me.Characters.Count - 1

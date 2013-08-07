@@ -38,8 +38,8 @@ Namespace SC2Ranks.API
     ''' <summary>
     ''' Maximum request limit.
     ''' </summary>
-    ''' <remarks>Although most commands support a limit of 50 the lowest common mean is used.</remarks>
-    Public Const MaxRequestLimit As Int32 = 10
+    ''' <remarks></remarks>
+    Public Const MaxRequestLimit As Int32 = 50
 
     ''' <summary>
     ''' Base URL to access the SC2Ranks.com API.

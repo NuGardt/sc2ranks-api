@@ -21,6 +21,7 @@ Imports NuGardt.SC2Ranks.API.Result.Element
 Imports System.Runtime.Serialization
 
 Namespace SC2Ranks.API.Result
+  <DataContract()>
   Public Class Sc2RanksGetBaseDataResult
     Inherits Sc2RanksBaseData
     Implements ISc2RanksBaseResult
@@ -52,7 +53,7 @@ Namespace SC2Ranks.API.Result
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    <DataMember(Name := "error", EmitDefaultValue := False)>
+    <DataMember(Name:="error", EmitDefaultValue:=False)>
     Public Property [Error]() As String
       Get
         Return Me.m_Error

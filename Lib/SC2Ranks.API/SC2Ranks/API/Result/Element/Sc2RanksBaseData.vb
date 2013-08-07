@@ -231,13 +231,13 @@ Namespace SC2Ranks.API.Result.Element
       Dim SB As New StringBuilder
 
       With SB
-        Call .AppendFormat("Leagues: {0}", Me.Leagues.ToString())
-        Call .AppendFormat("Regions: {0}", Me.Regions.ToString())
-        Call .AppendFormat("Rank Regions: {0}", Me.RankRegions.ToString())
-        Call .AppendFormat("Expansions: {0}", Me.Expansions.ToString())
-        Call .AppendFormat("Races: {0}", Me.Races.ToString())
-        Call .AppendFormat("Brackets: {0}", Me.Brackets.ToString())
-        Call .AppendFormat("Season: {0}", Me.Season.ToString())
+        If (Me.Leagues IsNot Nothing) Then Call .AppendFormat("Leagues: {0}", Me.Leagues.ToString())
+        If (Me.Regions IsNot Nothing) Then Call .AppendFormat("Regions: {0}", Me.Regions.ToString())
+        If (Me.RankRegions IsNot Nothing) Then Call .AppendFormat("Rank Regions: {0}", Me.RankRegions.ToString())
+        If (Me.Expansions IsNot Nothing) Then Call .AppendFormat("Expansions: {0}", Me.Expansions.ToString())
+        If (Me.Races IsNot Nothing) Then Call .AppendFormat("Races: {0}", Me.Races.ToString())
+        If (Me.Brackets IsNot Nothing) Then Call .AppendFormat("Brackets: {0}", Me.Brackets.ToString())
+        If (Me.Season IsNot Nothing) Then Call .AppendFormat("Season: {0}", Me.Season.ToString())
       End With
 
       Return SB.ToString

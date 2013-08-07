@@ -18,10 +18,10 @@
 Imports System.Runtime.InteropServices
 Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
-Imports NuGardt.Yourls.API.Result
+Imports NuGardt.SC2Ranks.API.Result
 Imports System.Text
 
-Namespace Yourls.API.UnitTest
+Namespace SC2Ranks
   Public NotInheritable Class Helper
 
 #Region "Function CheckResult"
@@ -34,9 +34,9 @@ Namespace Yourls.API.UnitTest
     ''' <param name="Ex"></param>
     ''' <param name="Response"></param>
     ''' <remarks></remarks>
-    Public Shared Function CheckResult(Of T As IYourlsBaseResult)(ByVal Description As String,
-                                                                  <Out> ByRef Ex As Exception,
-                                                                  ByVal Response As T) As String
+    Public Shared Function CheckResult(Of T As ISc2RanksBaseResult)(ByVal Description As String,
+                                                                    <Out> ByRef Ex As Exception,
+                                                                    ByVal Response As T) As String
       Ex = Nothing
       Dim SB As New StringBuilder
 

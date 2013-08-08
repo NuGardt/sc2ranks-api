@@ -48,7 +48,7 @@ Namespace SC2Ranks.UnitTest.Rankings.GetRankingsTop
         If Response.HasError Then
           Me.Ex = New Exception(Response.Error)
         Else
-          Me.m_Result = Helper.CheckResult(Of Sc2RanksGetRankingsTopResult)("GetRankingsTopBegin", Me.Ex, Response)
+          Me.m_Result = Helper(Of Sc2RanksGetRankingsTopResult).CheckResult("GetRankingsTopBegin", Me.Ex, Response)
         End If
       End If
     End Sub

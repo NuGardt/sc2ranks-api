@@ -34,7 +34,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionRemove
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksCustomDivisionRemoveResult)("CustomDivisionRemove", Me.Ex, Response)
+            Me.m_Result = Helper(Of Sc2RanksCustomDivisionRemoveResult).CheckResult("CustomDivisionRemove", Me.Ex, Response)
           End If
         End If
       End If

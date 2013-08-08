@@ -16,35 +16,35 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Imports System.Runtime.InteropServices
+Imports System.Text
 Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 Imports NuGardt.SC2Ranks.API.Result
-Imports System.Text
 
 Namespace SC2Ranks
-  Public NotInheritable Class Helper
+  Public NotInheritable Class Helper(Of T As ISc2RanksBaseResult)
 
 #Region "Function CheckResult"
 
     ''' <summary>
-    '''   Checks the response and parsed object for accuracy.
+    ''' Checks the response and parsed object for accuracy.
     ''' </summary>
-    ''' <typeparam name="T"></typeparam>
     ''' <param name="Description"></param>
     ''' <param name="Ex"></param>
     ''' <param name="Response"></param>
     ''' <remarks></remarks>
-    Public Shared Function CheckResult(Of T As ISc2RanksBaseResult)(ByVal Description As String,
-                                                                    <Out> ByRef Ex As Exception,
-                                                                    ByVal Response As T) As String
+    Public Shared Function CheckResult(ByVal Description As String,
+                                       <Out> ByRef Ex As Exception,
+                                       ByVal Response As T,
+                                       Optional ShowOnlyMismatches As Boolean = True,
+                                       Optional TreatSoftFailAsFail As Boolean = False) As String
       Ex = Nothing
       Dim SB As New StringBuilder
 
       Call SB.AppendLine(Description)
       Call SB.AppendLine(New String("="c, Description.Length))
 
-      Call SB.AppendLine("Class")
-      Call SB.AppendLine("=====")
+      Call SB.AppendLine("Class:")
 
       If (Response IsNot Nothing) Then
         Dim tResponse As IEnumerable
@@ -62,12 +62,11 @@ Namespace SC2Ranks
           Call SB.AppendLine(Response.ToString)
         End If
 
-        Call SB.AppendLine("JSON Raw")
-        Call SB.AppendLine("========")
+        Call SB.AppendLine("JSON Raw:")
         Call SB.AppendLine(Response.ResponseRaw)
         Call SB.AppendLine("")
 
-        If (Not SanityCheck(Of T)(SB, Response.ResponseRaw, Response)) Then
+        If (Not SanityCheck(SB, Response.ResponseRaw, Response, ShowOnlyMismatches, TreatSoftFailAsFail)) Then
           If Response.CacheExpires.HasValue Then
             Call SB.AppendLine("Result: FAIL (cached): Sanity check")
           Else
@@ -91,22 +90,23 @@ Namespace SC2Ranks
     End Function
 
     ''' <summary>
-    '''   Compare the JSON response to the parsed data.
+    ''' Compare the JSON response to the parsed data.
     ''' </summary>
-    ''' <typeparam name="T">Type of class.</typeparam>
     ''' <param name="SB"></param>
     ''' <param name="ResponseRaw">JSON response.</param>
     ''' <param name="Obj">Parsed object.</param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Private Shared Function SanityCheck(Of T)(ByVal SB As StringBuilder,
-                                              ByVal ResponseRaw As String,
-                                              ByVal Obj As T) As Boolean
+    Private Shared Function SanityCheck(ByVal SB As StringBuilder,
+                                        ByVal ResponseRaw As String,
+                                        ByVal Obj As T,
+                                        Optional ShowOnlyMismatches As Boolean = True,
+                                        Optional TreatSoftFailAsFail As Boolean = False) As Boolean
       Dim ResponseReSerialized As String
 
       ResponseReSerialized = JsonConvert.SerializeObject(Obj, Formatting.None)
 
-      Return CompareJson(SB, ResponseRaw, ResponseReSerialized)
+      Return CompareJson(SB, ResponseRaw, ResponseReSerialized, ShowOnlyMismatches, TreatSoftFailAsFail)
     End Function
 
 #Region "Function CompareJson"
@@ -125,7 +125,8 @@ Namespace SC2Ranks
     Private Shared Function CompareJson(ByVal SB As StringBuilder,
                                         ByVal A As String,
                                         ByVal B As String,
-                                        Optional ShowOnlyMismatches As Boolean = True) As Boolean
+                                        Optional ShowOnlyMismatches As Boolean = True,
+                                        Optional TreatSoftFailAsFail As Boolean = False) As Boolean
 
       If (A IsNot Nothing) AndAlso (B IsNot Nothing) Then
         Dim MismatchCount As Int32 = 0
@@ -171,8 +172,12 @@ Namespace SC2Ranks
                     If .IsEqual Then
                       If (Not ShowOnlyMismatches) Then Call SB.AppendLine(String.Format("{0}: {1} = {2}", Key, .A, .B))
                     Else
-                      Call SB.AppendLine(String.Format("{0}: {1} ({2}) <> {3} ({4}) <<< Mismatch", Key, .A, DirectCast(.A, JValue).Type.ToString(), .B, DirectCast(.B, JValue).Type.ToString().ToString()))
-                      MismatchCount += 1
+                      If .IsEqualString() AndAlso (Not TreatSoftFailAsFail) Then
+                        Call SB.AppendLine(String.Format("{0}: {1} ({2}) <> {3} ({4}) <<< Soft Fail: Data Type mismatch", Key, .A, DirectCast(.A, JValue).Type.ToString(), .B, DirectCast(.B, JValue).Type.ToString()))
+                      Else
+                        Call SB.AppendLine(String.Format("{0}: {1} ({2}) <> {3} ({4}) <<< Fail: Data mismatch", Key, .A, DirectCast(.A, JValue).Type.ToString(), .B, DirectCast(.B, JValue).Type.ToString()))
+                        MismatchCount += 1
+                      End If
                     End If
                   End With
                 End If
@@ -238,18 +243,28 @@ Namespace SC2Ranks
           If B IsNot Nothing Then
             'B = Something
 
-            If (TypeOf A Is JValue) AndAlso (TypeOf B Is JValue) Then
-              With DirectCast(B, JValue)
-                If (.Type = JTokenType.Float) Then
-                  ' Doubles are formatted differently in ResponseRaw so I adjust here
-                  Return String.Equals(A.ToString(), .ToString())
-                Else
-                  Return A.Equals(B)
-                End If
-              End With
-            Else
-              Return A.Equals(B)
-            End If
+            Return A.Equals(B)
+          Else
+            'B = Nothing
+            Return False
+          End If
+        ElseIf B IsNot Nothing Then
+          'A = Nothing, B = Something
+          Return False
+        Else
+          'A = Nothing, B = Nothing
+          Return True
+        End If
+      End Function
+
+      Public Function IsEqualString() As Boolean
+        If A IsNot Nothing Then
+          'A = Something
+
+          If B IsNot Nothing Then
+            'B = Something
+
+            Return String.Equals(A.ToString(), B.ToString(), StringComparison.InvariantCultureIgnoreCase)
           Else
             'B = Nothing
             Return False

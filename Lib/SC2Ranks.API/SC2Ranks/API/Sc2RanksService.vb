@@ -170,7 +170,7 @@ Namespace SC2Ranks.API
     Public Function GetBaseDataBegin(ByVal Key As Object,
                                      ByVal Callback As AsyncCallback,
                                      Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Get, String.Format(BaseUrlFormat, "data", Me.m_ApiKey), Nothing, IgnoreCache, Me.CacheConfig.GetBaseDataCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Get, String.Format(BaseUrlFormat, "data", Me.m_ApiKey), Nothing, Callback, IgnoreCache, Me.CacheConfig.GetBaseDataCacheDuration)
     End Function
 
     ''' <summary>
@@ -230,7 +230,7 @@ Namespace SC2Ranks.API
                                       ByVal BattleNetID As Int32,
                                       ByVal Callback As AsyncCallback,
                                       Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Get, String.Format(BaseUrlFormat, String.Format("characters/{0}/{1}", Enums.RegionBuffer.GetValue(Region), BattleNetID.ToString()), Me.m_ApiKey), Nothing, IgnoreCache, Me.CacheConfig.GetCharacterCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Get, String.Format(BaseUrlFormat, String.Format("characters/{0}/{1}", Enums.RegionBuffer.GetValue(Region), BattleNetID.ToString()), Me.m_ApiKey), Nothing, Callback, IgnoreCache, Me.CacheConfig.GetCharacterCacheDuration)
     End Function
 
     ''' <summary>
@@ -311,7 +311,7 @@ Namespace SC2Ranks.API
       Call RequestData.AppendFormat("expansion={0}&bracket={1}&league={2}", Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League))
       If (Race.HasValue) Then RequestData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
 
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("characters/teams/{0}/{1}", Enums.RegionBuffer.GetValue(Region), BattleNetID.ToString()), Me.m_ApiKey), RequestData.ToString(), IgnoreCache, Me.CacheConfig.GetCharacterTeamsListCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("characters/teams/{0}/{1}", Enums.RegionBuffer.GetValue(Region), BattleNetID.ToString()), Me.m_ApiKey), RequestData.ToString(), Callback, IgnoreCache, Me.CacheConfig.GetCharacterTeamsListCacheDuration)
     End Function
 
     ''' <summary>
@@ -404,7 +404,7 @@ Namespace SC2Ranks.API
       Call RequestData.AppendFormat("name={0}&match={1}&rank_region={2}&expansion={3}&bracket={4}&league={5}&page={6}&limit={7}", Name, Enums.MatchTypeBuffer.GetValue(Match), Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), Page.ToString(), Limit.ToString())
       If (Race.HasValue) Then RequestData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
 
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, "characters/search", Me.m_ApiKey), RequestData.ToString(), IgnoreCache, Me.CacheConfig.SearchCharacterTeamListCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, "characters/search", Me.m_ApiKey), RequestData.ToString(), Callback, IgnoreCache, Me.CacheConfig.SearchCharacterTeamListCacheDuration)
     End Function
 
     ''' <summary>
@@ -483,7 +483,7 @@ Namespace SC2Ranks.API
         Next d
       End If
 
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, "bulk/characters", Me.m_ApiKey), RequestData.ToString(), IgnoreCache, Me.CacheConfig.GetCharacterListCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, "bulk/characters", Me.m_ApiKey), RequestData.ToString(), Callback, IgnoreCache, Me.CacheConfig.GetCharacterListCacheDuration)
     End Function
 
     ''' <summary>
@@ -588,7 +588,7 @@ Namespace SC2Ranks.API
         Next d
       End If
 
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, "bulk/teams", Me.m_ApiKey), RequestData.ToString(), IgnoreCache, Me.CacheConfig.GetCharacterTeamListCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, "bulk/teams", Me.m_ApiKey), RequestData.ToString(), Callback, IgnoreCache, Me.CacheConfig.GetCharacterTeamListCacheDuration)
     End Function
 
     ''' <summary>
@@ -659,7 +659,7 @@ Namespace SC2Ranks.API
 
       If (Bracket.HasValue) Then Call RequestData.AppendFormat("bracket={0}", Enums.BracketBuffer.GetValue(Bracket.Value))
 
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("clans/{0}/{1}", Enums.RankRegionBuffer.GetValue(RankRegion), Tag), Me.m_ApiKey), RequestData.ToString(), IgnoreCache, Me.CacheConfig.GetClanCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("clans/{0}/{1}", Enums.RankRegionBuffer.GetValue(RankRegion), Tag), Me.m_ApiKey), RequestData.ToString(), Callback, IgnoreCache, Me.CacheConfig.GetClanCacheDuration)
     End Function
 
     ''' <summary>
@@ -736,7 +736,7 @@ Namespace SC2Ranks.API
       Call RequestData.AppendFormat("limit={0}&page={1}", Limit.ToString(), Page.ToString())
       If (Bracket.HasValue) Then Call RequestData.AppendFormat("&bracket={0}", Enums.BracketBuffer.GetValue(Bracket.Value))
 
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("clans/characters/{0}/{1}", Enums.RankRegionBuffer.GetValue(RankRegion), Tag), Me.m_ApiKey), RequestData.ToString(), IgnoreCache, Me.CacheConfig.GetClanCharacterListCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("clans/characters/{0}/{1}", Enums.RankRegionBuffer.GetValue(RankRegion), Tag), Me.m_ApiKey), RequestData.ToString(), Callback, IgnoreCache, Me.CacheConfig.GetClanCharacterListCacheDuration)
     End Function
 
     ''' <summary>
@@ -825,7 +825,7 @@ Namespace SC2Ranks.API
       Call RequestData.AppendFormat("tag={0}&expansion={1}&bracket={2}&league={3}&limit={4}&page={5}", Tag, Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), Limit.ToString(), Page.ToString())
       If (Race.HasValue) Then Call RequestData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
 
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("clans/teams/{0}/{1}", Enums.RankRegionBuffer.GetValue(RankRegion), Tag), Me.m_ApiKey), RequestData.ToString(), IgnoreCache, Me.CacheConfig.GetClanTeamListCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("clans/teams/{0}/{1}", Enums.RankRegionBuffer.GetValue(RankRegion), Tag), Me.m_ApiKey), RequestData.ToString(), Callback, IgnoreCache, Me.CacheConfig.GetClanTeamListCacheDuration)
     End Function
 
     ''' <summary>
@@ -910,7 +910,7 @@ Namespace SC2Ranks.API
       Call RequestData.AppendFormat("rank_region={0}&expansion={1}&bracket={2}&league={3}&limit={4}", Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), TopCount.ToString())
       If (Race.HasValue) Then RequestData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
 
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, "rankings", Me.m_ApiKey), RequestData.ToString(), IgnoreCache, Me.CacheConfig.GetRankingsTopCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, "rankings", Me.m_ApiKey), RequestData.ToString(), Callback, IgnoreCache, Me.CacheConfig.GetRankingsTopCacheDuration)
     End Function
 
     ''' <summary>
@@ -995,7 +995,7 @@ Namespace SC2Ranks.API
       Call RequestData.AppendFormat("rank_region={0}&expansion={1}&bracket={2}&league={3}&limit={4}", Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), TopCount.ToString())
       If (Race.HasValue) Then RequestData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
 
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, "divisions", Me.m_ApiKey), RequestData.ToString(), IgnoreCache, Me.CacheConfig.GetDivisionsTopCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, "divisions", Me.m_ApiKey), RequestData.ToString(), Callback, IgnoreCache, Me.CacheConfig.GetDivisionsTopCacheDuration)
     End Function
 
     ''' <summary>
@@ -1049,7 +1049,7 @@ Namespace SC2Ranks.API
                                      ByVal Callback As AsyncCallback,
                                      Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
                                      Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("divisions/{0}", DivisionID), Me.m_ApiKey), Nothing, IgnoreCache, Me.CacheConfig.GetDivisionCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("divisions/{0}", DivisionID), Me.m_ApiKey), Nothing, Callback, IgnoreCache, Me.CacheConfig.GetDivisionCacheDuration)
     End Function
 
     ''' <summary>
@@ -1103,7 +1103,7 @@ Namespace SC2Ranks.API
                                              ByVal Callback As AsyncCallback,
                                              Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
                                              Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("divisions/teams/{0}", DivisionID), Me.m_ApiKey), Nothing, IgnoreCache, Me.CacheConfig.GetDivisionTeamsTopCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("divisions/teams/{0}", DivisionID), Me.m_ApiKey), Nothing, Callback, IgnoreCache, Me.CacheConfig.GetDivisionTeamsTopCacheDuration)
     End Function
 
     ''' <summary>
@@ -1155,7 +1155,7 @@ Namespace SC2Ranks.API
     Public Function GetCustomDivisionsBegin(ByVal Key As Object,
                                             ByVal Callback As AsyncCallback,
                                             Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Get, String.Format(BaseUrlFormat, "custom-divisions", Me.m_ApiKey), Nothing, IgnoreCache, Me.CacheConfig.GetCustomDivisionsCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Get, String.Format(BaseUrlFormat, "custom-divisions", Me.m_ApiKey), Nothing, Callback, IgnoreCache, Me.CacheConfig.GetCustomDivisionsCacheDuration)
     End Function
 
     ''' <summary>
@@ -1207,7 +1207,7 @@ Namespace SC2Ranks.API
                                            ByVal DivisionID As String,
                                            ByVal Callback As AsyncCallback,
                                            Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("custom-divisions/{0}", DivisionID), Me.m_ApiKey), Nothing, IgnoreCache, Me.CacheConfig.GetCustomDivisionCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("custom-divisions/{0}", DivisionID), Me.m_ApiKey), Nothing, Callback, IgnoreCache, Me.CacheConfig.GetCustomDivisionCacheDuration)
     End Function
 
     ''' <summary>
@@ -1296,7 +1296,7 @@ Namespace SC2Ranks.API
       Call RequestData.AppendFormat("rank_region={0}&expansion={1}&bracket={2}&league={3}&limit={4}&page={5}", Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), Limit.ToString(), Page.ToString())
       If (Race.HasValue) Then RequestData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
 
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("custom-divisions/teams/{0}", DivisionID), Me.m_ApiKey), RequestData.ToString(), IgnoreCache, Me.CacheConfig.GetCustomDivisionTeamListCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("custom-divisions/teams/{0}", DivisionID), Me.m_ApiKey), RequestData.ToString(), Callback, IgnoreCache, Me.CacheConfig.GetCustomDivisionTeamListCacheDuration)
     End Function
 
     ''' <summary>
@@ -1367,7 +1367,7 @@ Namespace SC2Ranks.API
 
       Call RequestData.AppendFormat("region={0}&limit={1}&page={2}", Enums.RegionBuffer.GetValue(Region), Limit.ToString(), Page.ToString())
 
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("custom-divisions/characters/{0}", DivisionID), Me.m_ApiKey), RequestData.ToString(), IgnoreCache, Me.CacheConfig.GetCustomDivisionCharacterListCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("custom-divisions/characters/{0}", DivisionID), Me.m_ApiKey), RequestData.ToString(), Callback, IgnoreCache, Me.CacheConfig.GetCustomDivisionCharacterListCacheDuration)
     End Function
 
     ''' <summary>
@@ -1450,7 +1450,7 @@ Namespace SC2Ranks.API
         Next d
       End If
 
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("custom-divisions/manage/{0}", DivisionID), Me.m_ApiKey), RequestData.ToString(), IgnoreCache, Me.CacheConfig.CustomDivisionAddCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("custom-divisions/manage/{0}", DivisionID), Me.m_ApiKey), RequestData.ToString(), Callback, IgnoreCache, Me.CacheConfig.CustomDivisionAddCacheDuration)
     End Function
 
     ''' <summary>
@@ -1533,7 +1533,7 @@ Namespace SC2Ranks.API
         Next d
       End If
 
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Delete, String.Format(BaseUrlFormat, String.Format("custom-divisions/manage/{0}", DivisionID), Me.m_ApiKey), RequestData.ToString(), IgnoreCache, Me.CacheConfig.CustomDivisionRemoveCacheDuration, Callback)
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Delete, String.Format(BaseUrlFormat, String.Format("custom-divisions/manage/{0}", DivisionID), Me.m_ApiKey), RequestData.ToString(), Callback, IgnoreCache, Me.CacheConfig.CustomDivisionRemoveCacheDuration)
     End Function
 
     ''' <summary>

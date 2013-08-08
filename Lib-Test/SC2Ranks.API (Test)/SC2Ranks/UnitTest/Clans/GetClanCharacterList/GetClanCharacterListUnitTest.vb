@@ -31,7 +31,7 @@ Namespace SC2Ranks.UnitTest.Clans.GetClanCharacterList
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksGetClanCharacterListResult)("GetClanCharacterList", Me.Ex, Response)
+            Me.m_Result = Helper(Of Sc2RanksGetClanCharacterListResult).CheckResult("GetClanCharacterList", Me.Ex, Response)
           End If
         End If
       End If

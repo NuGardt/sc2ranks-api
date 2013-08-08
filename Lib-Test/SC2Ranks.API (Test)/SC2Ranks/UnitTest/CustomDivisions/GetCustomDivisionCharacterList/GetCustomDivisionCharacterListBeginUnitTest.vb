@@ -48,7 +48,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionCharacterList
         If Response.HasError Then
           Me.Ex = New Exception(Response.Error)
         Else
-          Me.m_Result = Helper.CheckResult(Of Sc2RanksGetCustomDivisionCharacterListResult)("GetCustomDivisionCharactersBegin", Me.Ex, Response)
+          Me.m_Result = Helper(Of Sc2RanksGetCustomDivisionCharacterListResult).CheckResult("GetCustomDivisionCharactersBegin", Me.Ex, Response)
         End If
       End If
     End Sub

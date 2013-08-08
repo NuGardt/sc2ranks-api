@@ -48,7 +48,7 @@ Namespace SC2Ranks.UnitTest.Characters.GetCharacter
         If Response.HasError Then
           Me.Ex = New Exception(Response.Error)
         Else
-          Me.m_Result = Helper.CheckResult(Of Sc2RanksGetCharacterResult)("GetCharacterBegin", Me.Ex, Response)
+          Me.m_Result = Helper(Of Sc2RanksGetCharacterResult).CheckResult("GetCharacterBegin", Me.Ex, Response)
         End If
       End If
     End Sub

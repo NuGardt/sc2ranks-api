@@ -46,6 +46,8 @@ Namespace SC2Ranks
     Private TestingComplete As Boolean
     Private TestCases As Queue(Of IUnitTestCase)
     Private CacheStream As Stream
+    Private TestsDone As Int32
+    Private TestsSuccessful As Int32
 
     ''' <summary>
     ''' Start.
@@ -164,6 +166,16 @@ Namespace SC2Ranks
         Call CacheStream.Dispose()
       End If
 
+      Dim SucessRate As Double
+
+      If TestsDone <> 0 Then
+        SucessRate = ((TestsSuccessful / TestsDone) * 100)
+      Else
+        SucessRate = Double.NaN
+      End If
+
+      Call Trace.WriteLine(String.Format("{0} out of {1} successful ({2}%).", TestsSuccessful.ToString(), TestsDone.ToString(), SucessRate.ToString()))
+
       Call Trace.Close()
       Call Trace.Dispose()
     End Sub
@@ -228,6 +240,8 @@ Namespace SC2Ranks
         Call .End(TestCaseWrapper.Result)
 
         SyncLock LockObject
+          TestsDone += 1
+          If .Successfull Then TestsSuccessful += 1
           Call Trace.WriteLine(String.Format("Test: {0}", .Name))
           Call Trace.WriteLine(String.Format("Test Passed: {0}", .Successfull.ToString()))
           If (Not String.IsNullOrEmpty(.Result)) Then Call Trace.WriteLine(String.Format("Result: {0}", .Result))

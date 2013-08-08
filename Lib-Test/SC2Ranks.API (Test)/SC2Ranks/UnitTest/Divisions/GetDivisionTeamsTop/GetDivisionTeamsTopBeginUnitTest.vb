@@ -48,7 +48,7 @@ Namespace SC2Ranks.UnitTest.Divisions.GetDivisionTeamsTop
         If Response.HasError Then
           Me.Ex = New Exception(Response.Error)
         Else
-          Me.m_Result = Helper.CheckResult(Of Sc2RanksGetDivisionTeamsTopResult)("GetDivisionTeamListBegin", Me.Ex, Response)
+          Me.m_Result = Helper(Of Sc2RanksGetDivisionTeamsTopResult).CheckResult("GetDivisionTeamListBegin", Me.Ex, Response)
         End If
       End If
     End Sub

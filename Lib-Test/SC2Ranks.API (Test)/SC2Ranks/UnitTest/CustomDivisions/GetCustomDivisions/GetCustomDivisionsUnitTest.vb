@@ -31,7 +31,7 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisions
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksGetCustomDivisionsResult)("GetCustomDivisions", Me.Ex, Response)
+            Me.m_Result = Helper(Of Sc2RanksGetCustomDivisionsResult).CheckResult("GetCustomDivisions", Me.Ex, Response)
           End If
         End If
       End If

@@ -31,7 +31,7 @@ Namespace SC2Ranks.UnitTest.BaseData.GetBaseData
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper.CheckResult(Of Sc2RanksGetBaseDataResult)("GetBaseData", Me.Ex, Response)
+            Me.m_Result = Helper(Of Sc2RanksGetBaseDataResult).CheckResult("GetBaseData", Me.Ex, Response, TreatSoftFailAsFail:=False)
           End If
         End If
       End If

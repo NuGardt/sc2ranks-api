@@ -31,7 +31,7 @@ Namespace SC2Ranks.UnitTest.BaseData.GetBaseData
           If Response.HasError Then
             Me.Ex = New Exception(Response.Error)
           Else
-            Me.m_Result = Helper(Of Sc2RanksGetBaseDataResult).CheckResult("GetBaseData", Me.Ex, Response, TreatSoftFailAsFail:=False)
+            Me.m_Result = Helper(Of Sc2RanksGetBaseDataResult).CheckResult("GetBaseData", Me.Ex, Response, TreatSoftFailAsFail := False)
           End If
         End If
       End If
@@ -78,6 +78,18 @@ Namespace SC2Ranks.UnitTest.BaseData.GetBaseData
         Else
           Return Nothing
         End If
+      End Get
+    End Property
+
+    Public ReadOnly Property Enabled As Boolean Implements IUnitTestCase.Enabled
+      Get
+        Return True
+      End Get
+    End Property
+
+    Public ReadOnly Property GroupName As String Implements IUnitTestCase.GroupName
+      Get
+        Return "Sync"
       End Get
     End Property
   End Class

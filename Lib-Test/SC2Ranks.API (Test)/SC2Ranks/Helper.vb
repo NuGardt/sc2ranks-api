@@ -16,10 +16,10 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Imports System.Runtime.InteropServices
-Imports System.Text
 Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 Imports NuGardt.SC2Ranks.API.Result
+Imports System.Text
 
 Namespace SC2Ranks
   Public NotInheritable Class Helper(Of T As ISc2RanksBaseResult)

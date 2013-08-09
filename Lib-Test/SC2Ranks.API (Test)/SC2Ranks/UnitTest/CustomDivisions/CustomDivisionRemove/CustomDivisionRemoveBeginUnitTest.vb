@@ -90,5 +90,17 @@ Namespace SC2Ranks.UnitTest.CustomDivisions.CustomDivisionRemove
         End If
       End Get
     End Property
+
+    Public ReadOnly Property Enabled As Boolean Implements IUnitTestCase.Enabled
+      Get
+        Return False
+      End Get
+    End Property
+
+    Public ReadOnly Property GroupName As String Implements IUnitTestCase.GroupName
+      Get
+        Return "Async"
+      End Get
+    End Property
   End Class
 End Namespace

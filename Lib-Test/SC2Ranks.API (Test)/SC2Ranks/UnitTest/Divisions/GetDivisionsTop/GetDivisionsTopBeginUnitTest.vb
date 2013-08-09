@@ -25,7 +25,7 @@ Namespace SC2Ranks.UnitTest.Divisions.GetDivisionsTop
       If (Ex IsNot Nothing) Then
         Call Me.OnCompletion.Invoke(Nothing)
       Else
-        Call Me.Service.GetDivisionsTopBegin(Nothing, [Const].RankRegion, [Const].Expansion, [Const].Bracket, [Const].League, 5, EndCallback)
+        Call Me.Service.GetDivisionsTopBegin(Nothing, [Const].RankRegion, [Const].Expansion, [Const].Bracket, [Const].League, EndCallback, 5)
       End If
     End Sub
 

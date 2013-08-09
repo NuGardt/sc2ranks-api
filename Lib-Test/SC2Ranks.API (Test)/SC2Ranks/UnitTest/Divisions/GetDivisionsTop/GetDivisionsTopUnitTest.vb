@@ -25,7 +25,7 @@ Namespace SC2Ranks.UnitTest.Divisions.GetDivisionsTop
       If (Me.Ex Is Nothing) Then
         Dim Response As Sc2RanksGetDivisionsTopResult = Nothing
 
-        Me.Ex = Me.Service.GetDivisionsTop([Const].RankRegion, [Const].Expansion, [Const].Bracket, [Const].League, 5, Response)
+        Me.Ex = Me.Service.GetDivisionsTop([Const].RankRegion, [Const].Expansion, [Const].Bracket, [Const].League, Response, 5)
 
         If (Ex Is Nothing) Then
           If Response.HasError Then

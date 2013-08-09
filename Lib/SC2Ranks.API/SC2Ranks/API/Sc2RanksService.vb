@@ -42,6 +42,12 @@ Namespace SC2Ranks.API
     Public Const MaxRequestLimit As Int32 = 50
 
     ''' <summary>
+    ''' Maximum request limit for top listings.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Const MaxRequestTopLimit As Int32 = 10
+
+    ''' <summary>
     ''' Base URL to access the SC2Ranks.com API.
     ''' </summary>
     ''' <remarks></remarks>
@@ -355,7 +361,7 @@ Namespace SC2Ranks.API
                                             ByVal Bracket As eSc2RanksBracket,
                                             ByVal League As eSc2RanksLeague,
                                             <Out()> ByRef Result As Sc2RanksSearchCharacterTeamListResult,
-                                            Optional Race As Nullable(Of eSc2RanksRace) = Nothing,
+                                            Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
                                             Optional ByVal Limit As Int32 = MaxRequestLimit,
                                             Optional ByVal Page As Int32 = 1,
                                             Optional ByVal IgnoreCache As Boolean = False) As Exception
@@ -395,7 +401,7 @@ Namespace SC2Ranks.API
                                                  ByVal Bracket As eSc2RanksBracket,
                                                  ByVal League As eSc2RanksLeague,
                                                  ByVal Callback As AsyncCallback,
-                                                 Optional Race As Nullable(Of eSc2RanksRace) = Nothing,
+                                                 Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
                                                  Optional ByVal Limit As Int32 = MaxRequestLimit,
                                                  Optional ByVal Page As Int32 = 1,
                                                  Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
@@ -626,12 +632,12 @@ Namespace SC2Ranks.API
     Public Function GetClan(ByVal RankRegion As eSc2RanksRankRegion,
                             ByVal Tag As String,
                             <Out()> ByRef Result As Sc2RanksGetClanResult,
-                            Optional ByVal Bracket As Nullable(Of eSc2RanksBracket) = Nothing,
+                            Optional ByVal Bracket As eSc2RanksBracket = eSc2RanksBracket._1V1,
                             Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
       Dim RequestData As New StringBuilder
 
-      If (Bracket.HasValue) Then Call RequestData.AppendFormat("bracket={0}", Enums.BracketBuffer.GetValue(Bracket.Value))
+      Call RequestData.AppendFormat("bracket={0}", Enums.BracketBuffer.GetValue(Bracket))
 
       Result = Me.Query.QueryAndParse(Of Sc2RanksGetClanResult)(eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("clans/{0}/{1}", Enums.RankRegionBuffer.GetValue(RankRegion), Tag), Me.m_ApiKey), RequestData.ToString(), Me.CacheConfig.GetClanCacheDuration, IgnoreCache, Ex)
 
@@ -653,11 +659,11 @@ Namespace SC2Ranks.API
                                  ByVal RankRegion As eSc2RanksRankRegion,
                                  ByVal Tag As String,
                                  ByVal Callback As AsyncCallback,
-                                 Optional ByVal Bracket As Nullable(Of eSc2RanksBracket) = Nothing,
+                                 Optional ByVal Bracket As eSc2RanksBracket = eSc2RanksBracket._1V1,
                                  Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
       Dim RequestData As New StringBuilder
 
-      If (Bracket.HasValue) Then Call RequestData.AppendFormat("bracket={0}", Enums.BracketBuffer.GetValue(Bracket.Value))
+      Call RequestData.AppendFormat("bracket={0}", Enums.BracketBuffer.GetValue(Bracket))
 
       Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("clans/{0}/{1}", Enums.RankRegionBuffer.GetValue(RankRegion), Tag), Me.m_ApiKey), RequestData.ToString(), Callback, IgnoreCache, Me.CacheConfig.GetClanCacheDuration)
     End Function
@@ -857,8 +863,8 @@ Namespace SC2Ranks.API
     ''' <param name="Expansion"> The expansion set of StarCraft II.</param>
     ''' <param name="Bracket">The bracket to filter.</param>
     ''' <param name="League">The league to filter.</param>
-    ''' <param name="TopCount">The top amount of results to return. Cannot exceed <c>MaximumRequestLimit</c>.</param>
     ''' <param name="Result">Contains the result. Is <c>Nothing</c> if no data was received and the query timed out.</param>
+    ''' <param name="TopLimit">The top amount of results to return. Cannot exceed <see cref="MaxRequestTopLimit"/>.</param>
     ''' <param name="Race">Optional. Default is all races. Race to filter.</param>
     ''' <param name="IgnoreCache">Optional. Default is <c>False</c>. Ignores any cached data that might be available when caching is enabled.</param>
     ''' <returns>Return an <c>System.Exception</c> if an error occurred otherwise <c>Nothing</c>.</returns>
@@ -867,14 +873,14 @@ Namespace SC2Ranks.API
                                    ByVal Expansion As eSc2RanksExpansion,
                                    ByVal Bracket As eSc2RanksBracket,
                                    ByVal League As eSc2RanksLeague,
-                                   ByVal TopCount As Int32,
                                    <Out()> ByRef Result As Sc2RanksGetRankingsTopResult,
+                                   Optional ByVal TopLimit As Int32 = MaxRequestTopLimit,
                                    Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
                                    Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
       Dim RequestData As New StringBuilder
 
-      Call RequestData.AppendFormat("rank_region={0}&expansion={1}&bracket={2}&league={3}&limit={4}", Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), TopCount.ToString())
+      Call RequestData.AppendFormat("rank_region={0}&expansion={1}&bracket={2}&league={3}&limit={4}", Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), TopLimit.ToString())
       If (Race.HasValue) Then RequestData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
 
       Result = Me.Query.QueryAndParse(Of Sc2RanksGetRankingsTopResult, Sc2RanksTeamExtended, IList(Of Sc2RanksTeamExtended))(eRequestMethod.Post, String.Format(BaseUrlFormat, "rankings", Me.m_ApiKey), RequestData.ToString(), Me.CacheConfig.GetRankingsTopCacheDuration, IgnoreCache, Ex)
@@ -890,8 +896,8 @@ Namespace SC2Ranks.API
     ''' <param name="Expansion"> The expansion set of StarCraft II.</param>
     ''' <param name="Bracket">The bracket to filter.</param>
     ''' <param name="League">The league to filter.</param>
-    ''' <param name="TopCount">The top amount of results to return. Cannot exceed <c>MaximumRequestLimit</c>.</param>
     ''' <param name="Callback">Address of a method to call when a result is available.</param>
+    ''' <param name="TopLimit">The top amount of results to return. Cannot exceed <see cref="MaxRequestTopLimit"/>.</param>
     ''' <param name="Race">Optional. Default is all races. Race to filter.</param>
     ''' <param name="IgnoreCache">Optional. Default is <c>False</c>. Ignores any cached data that might be available when caching is enabled.</param>
     ''' <returns>Return an <c>System.Exception</c> if an error occurred otherwise <c>Nothing</c>.</returns>
@@ -901,13 +907,13 @@ Namespace SC2Ranks.API
                                         ByVal Expansion As eSc2RanksExpansion,
                                         ByVal Bracket As eSc2RanksBracket,
                                         ByVal League As eSc2RanksLeague,
-                                        ByVal TopCount As Int32,
                                         ByVal Callback As AsyncCallback,
+                                        Optional ByVal TopLimit As Int32 = MaxRequestTopLimit,
                                         Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
                                         Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
       Dim RequestData As New StringBuilder
 
-      Call RequestData.AppendFormat("rank_region={0}&expansion={1}&bracket={2}&league={3}&limit={4}", Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), TopCount.ToString())
+      Call RequestData.AppendFormat("rank_region={0}&expansion={1}&bracket={2}&league={3}&limit={4}", Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), TopLimit.ToString())
       If (Race.HasValue) Then RequestData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
 
       Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, "rankings", Me.m_ApiKey), RequestData.ToString(), Callback, IgnoreCache, Me.CacheConfig.GetRankingsTopCacheDuration)
@@ -942,8 +948,8 @@ Namespace SC2Ranks.API
     ''' <param name="Expansion"> The expansion set of StarCraft II.</param>
     ''' <param name="Bracket">The bracket to filter.</param>
     ''' <param name="League">The league to filter.</param>
-    ''' <param name="TopCount">The top amount of results to return. Cannot exceed <c>MaximumRequestLimit</c>.</param>
     ''' <param name="Result">Contains the result. Is <c>Nothing</c> if no data was received and the query timed out.</param>
+    ''' <param name="TopLimit">The top amount of results to return. Cannot exceed <see cref="MaxRequestTopLimit"/>.</param>
     ''' <param name="Race">Optional. Default is all races. Race to filter.</param>
     ''' <param name="IgnoreCache">Optional. Default is <c>False</c>. Ignores any cached data that might be available when caching is enabled.</param>
     ''' <returns>Return an <c>System.Exception</c> if an error occurred otherwise <c>Nothing</c>.</returns>
@@ -952,14 +958,14 @@ Namespace SC2Ranks.API
                                     ByVal Expansion As eSc2RanksExpansion,
                                     ByVal Bracket As eSc2RanksBracket,
                                     ByVal League As eSc2RanksLeague,
-                                    ByVal TopCount As Int32,
                                     <Out()> ByRef Result As Sc2RanksGetDivisionsTopResult,
+                                    Optional ByVal TopLimit As Int32 = MaxRequestTopLimit,
                                     Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
                                     Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
       Dim RequestData As New StringBuilder
 
-      Call RequestData.AppendFormat("rank_region={0}&expansion={1}&bracket={2}&league={3}&limit={4}", Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), TopCount.ToString())
+      Call RequestData.AppendFormat("rank_region={0}&expansion={1}&bracket={2}&league={3}&limit={4}", Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), TopLimit.ToString())
       If (Race.HasValue) Then RequestData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
 
       Result = Me.Query.QueryAndParse(Of Sc2RanksGetDivisionsTopResult, Sc2RanksLeagueDivision, IList(Of Sc2RanksLeagueDivision))(eRequestMethod.Post, String.Format(BaseUrlFormat, "divisions", Me.m_ApiKey), RequestData.ToString(), Me.CacheConfig.GetDivisionsTopCacheDuration, IgnoreCache, Ex)
@@ -975,8 +981,8 @@ Namespace SC2Ranks.API
     ''' <param name="Expansion"> The expansion set of StarCraft II.</param>
     ''' <param name="Bracket">The bracket to filter.</param>
     ''' <param name="League">The league to filter.</param>
-    ''' <param name="TopCount">The top amount of results to return. Cannot exceed <c>MaximumRequestLimit</c>.</param>
     ''' <param name="Callback">Address of a method to call when a result is available.</param>
+    ''' <param name="TopLimit">The top amount of results to return. Cannot exceed <see cref="MaxRequestTopLimit"/>.</param>
     ''' <param name="Race">Optional. Default is all races. Race to filter.</param>
     ''' <param name="IgnoreCache">Optional. Default is <c>False</c>. Ignores any cached data that might be available when caching is enabled.</param>
     ''' <returns>Returns the status of the asynchronous operation.</returns>
@@ -986,13 +992,13 @@ Namespace SC2Ranks.API
                                          ByVal Expansion As eSc2RanksExpansion,
                                          ByVal Bracket As eSc2RanksBracket,
                                          ByVal League As eSc2RanksLeague,
-                                         ByVal TopCount As Int32,
                                          ByVal Callback As AsyncCallback,
+                                         Optional ByVal TopLimit As Int32 = MaxRequestTopLimit,
                                          Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
                                          Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
       Dim RequestData As New StringBuilder
 
-      Call RequestData.AppendFormat("rank_region={0}&expansion={1}&bracket={2}&league={3}&limit={4}", Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), TopCount.ToString())
+      Call RequestData.AppendFormat("rank_region={0}&expansion={1}&bracket={2}&league={3}&limit={4}", Enums.RankRegionBuffer.GetValue(RankRegion), Enums.ExpansionBuffer.GetValue(Expansion), Enums.BracketBuffer.GetValue(Bracket), Enums.LeagueBuffer.GetValue(League), TopLimit.ToString())
       If (Race.HasValue) Then RequestData.AppendFormat("&race={0}", Enums.RacesBuffer.GetValue(Race.Value))
 
       Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, "divisions", Me.m_ApiKey), RequestData.ToString(), Callback, IgnoreCache, Me.CacheConfig.GetDivisionsTopCacheDuration)
@@ -1075,15 +1081,20 @@ Namespace SC2Ranks.API
     ''' </summary>
     ''' <param name="DivisionID">The division identifier.</param>
     ''' <param name="Result">Contains the result. Is <c>Nothing</c> if no data was received and the query timed out.</param>
+    ''' <param name="TopLimit">The top amount of results to return. Cannot exceed <see cref="MaxRequestTopLimit"/>.</param>
     ''' <param name="IgnoreCache">Optional. Default is <c>False</c>. Ignores any cached data that might be available when caching is enabled.</param>
     ''' <returns>Return an <c>System.Exception</c> if an error occurred otherwise <c>Nothing</c>.</returns>
     ''' <remarks></remarks>
     Public Function GetDivisionTeamsTop(ByVal DivisionID As String,
                                         <Out()> ByRef Result As Sc2RanksGetDivisionTeamsTopResult,
+                                        Optional ByVal TopLimit As Int32 = MaxRequestTopLimit,
                                         Optional ByVal IgnoreCache As Boolean = False) As Exception
       Dim Ex As Exception = Nothing
+      Dim RequestData As New StringBuilder
 
-      Result = Me.Query.QueryAndParse(Of Sc2RanksGetDivisionTeamsTopResult)(eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("divisions/teams/{0}", DivisionID), Me.m_ApiKey), Nothing, Me.CacheConfig.GetDivisionTeamsTopCacheDuration, IgnoreCache, Ex)
+      Call RequestData.AppendFormat("limit={0}", TopLimit.ToString())
+
+      Result = Me.Query.QueryAndParse(Of Sc2RanksGetDivisionTeamsTopResult)(eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("divisions/teams/{0}", DivisionID), Me.m_ApiKey), RequestData.ToString(), Me.CacheConfig.GetDivisionTeamsTopCacheDuration, IgnoreCache, Ex)
 
       Return Ex
     End Function
@@ -1094,16 +1105,20 @@ Namespace SC2Ranks.API
     ''' <param name="Key">Can contain anything. Useful for tracking asynchronous calls. Is returned when the End method is called.</param>
     ''' <param name="DivisionID">The division identifier.</param>
     ''' <param name="Callback">Address of a method to call when a result is available.</param>
-    ''' <param name="Race">Optional. Default is all races. Race to filter.</param>
+    ''' <param name="TopLimit">The top amount of results to return. Cannot exceed <see cref="MaxRequestTopLimit"/>.</param>
     ''' <param name="IgnoreCache">Optional. Default is <c>False</c>. Ignores any cached data that might be available when caching is enabled.</param>
     ''' <returns>Returns the status of the asynchronous operation.</returns>
     ''' <remarks></remarks>
     Public Function GetDivisionTeamsTopBegin(ByVal Key As Object,
                                              ByVal DivisionID As String,
                                              ByVal Callback As AsyncCallback,
-                                             Optional ByVal Race As Nullable(Of eSc2RanksRace) = Nothing,
+                                             Optional ByVal TopLimit As Int32 = MaxRequestTopLimit,
                                              Optional ByVal IgnoreCache As Boolean = False) As IAsyncResult
-      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("divisions/teams/{0}", DivisionID), Me.m_ApiKey), Nothing, Callback, IgnoreCache, Me.CacheConfig.GetDivisionTeamsTopCacheDuration)
+      Dim RequestData As New StringBuilder
+
+      Call RequestData.AppendFormat("limit={0}", TopLimit.ToString())
+
+      Return Me.Query.QueryAndParseBegin(Key, eRequestMethod.Post, String.Format(BaseUrlFormat, String.Format("divisions/teams/{0}", DivisionID), Me.m_ApiKey), RequestData.ToString(), Callback, IgnoreCache, Me.CacheConfig.GetDivisionTeamsTopCacheDuration)
     End Function
 
     ''' <summary>

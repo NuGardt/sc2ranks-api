@@ -113,6 +113,7 @@
     <Compile Include="SC2Ranks\API\ICacheConfig.vb" />
     <Compile Include="SC2Ranks\API\eSc2RanksMatchType.vb" />
     <Compile Include="SC2Ranks\API\eSc2RanksRankRegion.vb" />
+    <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksPortrait.vb" />
     <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksScores.vb" />
     <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksTeamBasic.vb" />
     <Compile Include="SC2Ranks\API\Result\Element\Sc2RanksCharacterExtendedWithTeams.vb" />

@@ -39,6 +39,11 @@ Namespace SC2Ranks.API.Result.Element
     '  "clan": {
     '    "url": "http://www.sc2ranks.com/clan/us/Monty",
     '    "tag": "Monty"
+    '  },
+    '  portrait: {
+    '    "file": 1,
+    '    "x": -2,
+    '    "y": -5
     '  }
     '}
 
@@ -52,6 +57,7 @@ Namespace SC2Ranks.API.Result.Element
     Private m_BattleNetID As Int64
     Private m_Name As String
     Private m_Clan As Sc2RanksClanBasic
+    Private m_Portrait As Sc2RanksPortrait
 
     ''' <summary>
     ''' Constructor.
@@ -68,6 +74,7 @@ Namespace SC2Ranks.API.Result.Element
       Me.m_BattleNetID = Nothing
       Me.m_Name = Nothing
       Me.m_Clan = Nothing
+      Me.m_Portrait = Nothing
     End Sub
 
 #Region "Properties"
@@ -195,6 +202,16 @@ Namespace SC2Ranks.API.Result.Element
       End Set
     End Property
 
+    <DataMember(name := "portrait", EmitDefaultValue := False)>
+    Public Property Portrait As Sc2RanksPortrait
+      Get
+        Return Me.m_Portrait
+      End Get
+      Set(ByVal Value As Sc2RanksPortrait)
+        Me.m_Portrait = Value
+      End Set
+    End Property
+
 #End Region
 
     Public Overrides Function ToString() As String
@@ -211,6 +228,7 @@ Namespace SC2Ranks.API.Result.Element
         Call .AppendFormat("Battle.net ID: {0}{1}", Me.BattleNetID.ToString(), vbCrLf)
         Call .AppendFormat("Name: {0}{1}", Me.Name, vbCrLf)
         If (Me.Clan IsNot Nothing) Then Call .AppendFormat("Clan: {0}{1}", Me.Clan.ToString(), vbCrLf)
+        If (Me.Portrait IsNot Nothing) Then Call .AppendFormat("Portrait: {0}{1}", Me.Portrait.ToString(), vbCrLf)
       End With
 
       Return SB.ToString

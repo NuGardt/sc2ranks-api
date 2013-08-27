@@ -174,7 +174,9 @@
     <Compile Include="SC2Ranks\Helper\EnumBuffer.vb" />
     <Compile Include="SC2Ranks\Helper\Enums.vb" />
     <Compile Include="SC2Ranks\API\Sc2RanksService.vb" />
+    <Compile Include="SC2Ranks\Helper\ePortrait.vb" />
     <Compile Include="SC2Ranks\Helper\NotationAttribute.vb" />
+    <Compile Include="SC2Ranks\Helper\Portrait.vb" />
     <Compile Include="SC2Ranks\Helper\TagAttribute.vb" />
   </ItemGroup>
   <ItemGroup>

@@ -16,26 +16,8 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '
 Imports System.IO
-Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.CustomDivisionRemove
-Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.CustomDivisionAdd
-Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionCharacterList
-Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisionTeamList
-Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.GetCustomDivisions
-Imports NuGardt.SC2Ranks.UnitTest.CustomDivisions.GetCustomDivision
-Imports NuGardt.SC2Ranks.UnitTest.Divisions.GetDivisionTeamsTop
 Imports NuGardt.SC2Ranks.UnitTest.Divisions.GetDivision
-Imports NuGardt.SC2Ranks.UnitTest.Divisions.GetDivisionsTop
-Imports NuGardt.SC2Ranks.UnitTest.Rankings.GetRankingsTop
-Imports NuGardt.SC2Ranks.UnitTest.Clans.GetClanTeamList
-Imports NuGardt.SC2Ranks.UnitTest.Clans.GetClanCharacterList
-Imports NuGardt.SC2Ranks.UnitTest.Clans.GetClan
-Imports NuGardt.SC2Ranks.UnitTest.Teams.GetCharacterTeamList
-Imports NuGardt.SC2Ranks.UnitTest.Characters.GetCharacterList
-Imports NuGardt.SC2Ranks.UnitTest.Characters.GetCharacterTeamsList
-Imports NuGardt.SC2Ranks.UnitTest.Characters.GetCharacter
-Imports NuGardt.SC2Ranks.UnitTest.BaseData.GetBaseData
 Imports NuGardt.UnitTest
-Imports NuGardt.SC2Ranks.UnitTest.Characters.SearchCharacterTeamList
 Imports System.Threading
 
 Namespace SC2Ranks

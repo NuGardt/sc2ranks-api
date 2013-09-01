@@ -43,6 +43,7 @@ Namespace SC2Ranks.UnitTest.Rankings.GetRankingsTop
       Dim Response As Sc2RanksGetRankingsTopResult = Nothing
 
       Me.Ex = Me.Service.GetRankingsTopEnd(Result, Nothing, Response)
+      If (Response IsNot Nothing) AndAlso (Response.Count > 0) Then [Const].DivisionID = Response.Item(0).Division.ID
 
       If (Ex Is Nothing) Then
         If Response.HasError Then

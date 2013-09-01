@@ -240,6 +240,36 @@ Namespace SC2Ranks.Helper
     Scout
 
     ''' <summary>
+    ''' TaurenMarine (Korea)
+    ''' </summary>
+    ''' <remarks></remarks>
+    TaurenMarineKorea
+
+    ''' <summary>
+    ''' NightElfBanshee (Korea)
+    ''' </summary>
+    ''' <remarks></remarks>
+    NightElfBansheeKorea
+
+    ''' <summary>
+    ''' DiabloMarine (Korea)
+    ''' </summary>
+    ''' <remarks></remarks>
+    DiabloMarineKorea
+
+    ''' <summary>
+    ''' WorgenMarine (Korea)
+    ''' </summary>
+    ''' <remarks></remarks>
+    WorgenMarineKorea
+
+    ''' <summary>
+    ''' GoblinMarine (Korea)
+    ''' </summary>
+    ''' <remarks></remarks>
+    GoblinMarineKorea
+
+    ''' <summary>
     ''' PanTerran Marine
     ''' </summary>
     ''' <remarks></remarks>
@@ -370,6 +400,12 @@ Namespace SC2Ranks.Helper
     ''' </summary>
     ''' <remarks></remarks>
     Narud
+
+    ''' <summary>
+    ''' Snake Marine
+    ''' </summary>
+    ''' <remarks></remarks>
+    SnakeMarine
 
     ''' <summary>
     ''' 15 Year Terran
@@ -604,6 +640,12 @@ Namespace SC2Ranks.Helper
     ''' </summary>
     ''' <remarks></remarks>
     Dragons
+
+    ''' <summary>
+    ''' Raynor Marine (China)
+    ''' </summary>
+    ''' <remarks></remarks>
+    RaynorMarineChina
 
     ''' <summary>
     ''' Urun

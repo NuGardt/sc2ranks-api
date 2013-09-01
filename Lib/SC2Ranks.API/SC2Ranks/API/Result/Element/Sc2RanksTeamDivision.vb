@@ -27,11 +27,11 @@ Namespace SC2Ranks.API.Result.Element
     '},
 
     Private m_ID As String
-    Private m_RankRaw As String
+    Private m_Rank As Nullable(Of Int32)
 
     Public Sub New()
       Me.m_ID = Nothing
-      Me.m_RankRaw = Nothing
+      Me.m_Rank = Nothing
     End Sub
 
     <DataMember(name := "id")>
@@ -44,28 +44,14 @@ Namespace SC2Ranks.API.Result.Element
       End Set
     End Property
 
-    'Hack: Problem under Mono using Nullable(of Int32) ("rank":null) ("rank":16)
-    <DataMember(name := "rank")>
-    Protected Property RankRaw As String
+    <DataMember(name := "rank", EmitDefaultValue := False)>
+    Public Property Rank As Nullable(Of Int32)
       Get
-        Return Me.m_RankRaw
+        Return Me.m_Rank
       End Get
-      Set(ByVal Value As String)
-        Me.m_RankRaw = Value
+      Set(ByVal Value As Nullable(Of Int32))
+        Me.m_Rank = Value
       End Set
-    End Property
-
-    <IgnoreDataMember()>
-    Public ReadOnly Property Rank() As Nullable(Of Int32)
-      Get
-        Dim tRank As Int32 = Nothing
-
-        If Int32.TryParse(Me.m_RankRaw, tRank) Then
-          Return tRank
-        Else
-          Return Nothing
-        End If
-      End Get
     End Property
 
     Public Overrides Function ToString() As String

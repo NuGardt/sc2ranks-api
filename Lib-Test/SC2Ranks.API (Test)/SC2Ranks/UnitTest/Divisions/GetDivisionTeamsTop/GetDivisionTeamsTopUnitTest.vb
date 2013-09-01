@@ -25,6 +25,12 @@ Namespace SC2Ranks.UnitTest.Divisions.GetDivisionTeamsTop
       If (Me.Ex Is Nothing) Then
         Dim Response As Sc2RanksGetDivisionTeamsTopResult = Nothing
 
+        If String.IsNullOrEmpty([Const].DivisionID) Then
+          Dim r As Sc2RanksGetRankingsTopResult = Nothing
+          Call Me.Service.GetRankingsTop([Const].RankRegion, [Const].Expansion, [Const].Bracket, [Const].League, r, 5)
+          If (r IsNot Nothing) AndAlso (r.Count > 0) Then [Const].DivisionID = r.Item(0).Division.ID
+        End If
+
         Me.Ex = Me.Service.GetDivisionTeamsTop([Const].DivisionID, Response)
 
         If (Ex Is Nothing) Then

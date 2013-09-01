@@ -152,15 +152,15 @@ Namespace SC2Ranks.Helper
             Case 0
               Select Case ColumnY
                 Case 0
-                  Result = ePortrait.Unknown 'ToDo: Missing Portrait Information (Collectors/Special Event) (Tauren Marine Korea)
+                  Result = ePortrait.TaurenMarineKorea
                 Case 1
-                  Result = ePortrait.Unknown 'ToDo: Missing Portrait Information (Collectors/Special Event) (Night Elf Banshee Korea)
+                  Result = ePortrait.NightElfBansheeKorea
                 Case 2
-                  Result = ePortrait.Unknown 'ToDo: Missing Portrait Information (Collectors/Special Event) (Diablo Marine Korea)
+                  Result = ePortrait.DiabloMarineKorea
                 Case 3
-                  Result = ePortrait.Unknown 'ToDo: Missing Portrait Information (Collectors/Special Event) (Worgen Marine Korea)
+                  Result = ePortrait.WorgenMarineKorea
                 Case 4
-                  Result = ePortrait.Unknown 'ToDo: Missing Portrait Information (Collectors/Special Event) (Goblin Marine Korea)
+                  Result = ePortrait.GoblinMarineKorea
                 Case 5
                   Result = ePortrait.PanTerranMarine
                 Case Else
@@ -228,7 +228,7 @@ Namespace SC2Ranks.Helper
                 Case 3
                   Result = ePortrait.Narud
                 Case 4
-                  Result = ePortrait.Unknown 'ToDo: Missing Portrait Information (Collectors/Special Event) (Snake Marine)
+                  Result = ePortrait.SnakeMarine
                 Case 5
                   Result = ePortrait.Year15Terran
                 Case Else
@@ -354,7 +354,7 @@ Namespace SC2Ranks.Helper
                 Case 4
                   Result = ePortrait.Dragons
                 Case 5
-                  Result = ePortrait.Unknown 'ToDo: Missing Portrait Information (Collectors/Special Event) (Raynor Marine China)
+                  Result = ePortrait.RaynorMarineChina
                 Case Else
                   Return New Exception("Unknown column.")
               End Select

@@ -607,7 +607,7 @@
       <param name="Result">Contains the result. Is <c>Nothing</c> if no data was received and the query timed out.</param>
       <returns>Return an <c>System.Exception</c> if an error occurred otherwise <c>Nothing</c>.</returns>
     </member>
-    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetClan(NuGardt.SC2Ranks.API.eSc2RanksRankRegion,System.String,NuGardt.SC2Ranks.API.Result.Sc2RanksGetClanResult@,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksBracket},System.Boolean)">
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetClan(NuGardt.SC2Ranks.API.eSc2RanksRankRegion,System.String,NuGardt.SC2Ranks.API.Result.Sc2RanksGetClanResult@,NuGardt.SC2Ranks.API.eSc2RanksBracket,System.Boolean)">
       <summary>
  Returns base clan data with the Clans scores based on the bracket.
  </summary>
@@ -618,7 +618,7 @@
       <param name="IgnoreCache">Optional. Default is <c>False</c>. Ignores any cached data that might be available when caching is enabled.</param>
       <returns>Return an <c>System.Exception</c> if an error occurred otherwise <c>Nothing</c>.</returns>
     </member>
-    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetClanBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,System.String,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksBracket},System.Boolean)">
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetClanBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,System.String,System.AsyncCallback,NuGardt.SC2Ranks.API.eSc2RanksBracket,System.Boolean)">
       <summary>
  Returns base clan data with the Clans scores based on the bracket.
  </summary>
@@ -876,7 +876,7 @@
       <param name="Result">Contains the result. Is <c>Nothing</c> if no data was received and the query timed out.</param>
       <returns>Return an <c>System.Exception</c> if an error occurred otherwise <c>Nothing</c>.</returns>
     </member>
-    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDivisionsTop(NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksGetDivisionsTopResult@,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)">
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDivisionsTop(NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,NuGardt.SC2Ranks.API.Result.Sc2RanksGetDivisionsTopResult@,System.Int32,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)">
       <summary>
  Returns the top limit divisions given the passed params. Unlike other APIs, this cannot be paginated and is intended to be used for showing mini ranking type of widgets and not for data collection. 
  </summary>
@@ -884,13 +884,13 @@
       <param name="Expansion"> The expansion set of StarCraft II.</param>
       <param name="Bracket">The bracket to filter.</param>
       <param name="League">The league to filter.</param>
-      <param name="TopCount">The top amount of results to return. Cannot exceed <c>MaximumRequestLimit</c>.</param>
       <param name="Result">Contains the result. Is <c>Nothing</c> if no data was received and the query timed out.</param>
+      <param name="TopLimit">The top amount of results to return. Cannot exceed <see cref="F:NuGardt.SC2Ranks.API.Sc2RanksService.MaxRequestTopLimit" />.</param>
       <param name="Race">Optional. Default is all races. Race to filter.</param>
       <param name="IgnoreCache">Optional. Default is <c>False</c>. Ignores any cached data that might be available when caching is enabled.</param>
       <returns>Return an <c>System.Exception</c> if an error occurred otherwise <c>Nothing</c>.</returns>
     </member>
-    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDivisionsTopBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)">
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDivisionsTopBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.AsyncCallback,System.Int32,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)">
       <summary>
  Returns the top limit divisions given the passed params. Unlike other APIs, this cannot be paginated and is intended to be used for showing mini ranking type of widgets and not for data collection. 
  </summary>
@@ -899,8 +899,8 @@
       <param name="Expansion"> The expansion set of StarCraft II.</param>
       <param name="Bracket">The bracket to filter.</param>
       <param name="League">The league to filter.</param>
-      <param name="TopCount">The top amount of results to return. Cannot exceed <c>MaximumRequestLimit</c>.</param>
       <param name="Callback">Address of a method to call when a result is available.</param>
+      <param name="TopLimit">The top amount of results to return. Cannot exceed <see cref="F:NuGardt.SC2Ranks.API.Sc2RanksService.MaxRequestTopLimit" />.</param>
       <param name="Race">Optional. Default is all races. Race to filter.</param>
       <param name="IgnoreCache">Optional. Default is <c>False</c>. Ignores any cached data that might be available when caching is enabled.</param>
       <returns>Returns the status of the asynchronous operation.</returns>
@@ -914,23 +914,24 @@
       <param name="Result">Contains the result. Is <c>Nothing</c> if no data was received and the query timed out.</param>
       <returns>Return an <c>System.Exception</c> if an error occurred otherwise <c>Nothing</c>.</returns>
     </member>
-    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDivisionTeamsTop(System.String,NuGardt.SC2Ranks.API.Result.Sc2RanksGetDivisionTeamsTopResult@,System.Boolean)">
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDivisionTeamsTop(System.String,NuGardt.SC2Ranks.API.Result.Sc2RanksGetDivisionTeamsTopResult@,System.Int32,System.Boolean)">
       <summary>
  Returns the top limit teams in the division. This cannot be paginated and is intended to be used for showing mini ranking type of widgets and not data collection.
  </summary>
       <param name="DivisionID">The division identifier.</param>
       <param name="Result">Contains the result. Is <c>Nothing</c> if no data was received and the query timed out.</param>
+      <param name="TopLimit">The top amount of results to return. Cannot exceed <see cref="F:NuGardt.SC2Ranks.API.Sc2RanksService.MaxRequestTopLimit" />.</param>
       <param name="IgnoreCache">Optional. Default is <c>False</c>. Ignores any cached data that might be available when caching is enabled.</param>
       <returns>Return an <c>System.Exception</c> if an error occurred otherwise <c>Nothing</c>.</returns>
     </member>
-    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDivisionTeamsTopBegin(System.Object,System.String,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)">
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetDivisionTeamsTopBegin(System.Object,System.String,System.AsyncCallback,System.Int32,System.Boolean)">
       <summary>
  Returns the top limit teams in the division. This cannot be paginated and is intended to be used for showing mini ranking type of widgets and not data collection.
  </summary>
       <param name="Key">Can contain anything. Useful for tracking asynchronous calls. Is returned when the End method is called.</param>
       <param name="DivisionID">The division identifier.</param>
       <param name="Callback">Address of a method to call when a result is available.</param>
-      <param name="Race">Optional. Default is all races. Race to filter.</param>
+      <param name="TopLimit">The top amount of results to return. Cannot exceed <see cref="F:NuGardt.SC2Ranks.API.Sc2RanksService.MaxRequestTopLimit" />.</param>
       <param name="IgnoreCache">Optional. Default is <c>False</c>. Ignores any cached data that might be available when caching is enabled.</param>
       <returns>Returns the status of the asynchronous operation.</returns>
     </member>
@@ -943,7 +944,7 @@
       <param name="Result">Contains the result. Is <c>Nothing</c> if no data was received and the query timed out.</param>
       <returns>Return an <c>System.Exception</c> if an error occurred otherwise <c>Nothing</c>.</returns>
     </member>
-    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetRankingsTop(NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,NuGardt.SC2Ranks.API.Result.Sc2RanksGetRankingsTopResult@,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)">
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetRankingsTop(NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,NuGardt.SC2Ranks.API.Result.Sc2RanksGetRankingsTopResult@,System.Int32,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)">
       <summary>
  Returns the top limit teams given the passed params. Unlike other APIs, this cannot be paginated and is intended to be used for showing mini ranking type of widgets and not for data collection. 
  </summary>
@@ -951,13 +952,13 @@
       <param name="Expansion"> The expansion set of StarCraft II.</param>
       <param name="Bracket">The bracket to filter.</param>
       <param name="League">The league to filter.</param>
-      <param name="TopCount">The top amount of results to return. Cannot exceed <c>MaximumRequestLimit</c>.</param>
       <param name="Result">Contains the result. Is <c>Nothing</c> if no data was received and the query timed out.</param>
+      <param name="TopLimit">The top amount of results to return. Cannot exceed <see cref="F:NuGardt.SC2Ranks.API.Sc2RanksService.MaxRequestTopLimit" />.</param>
       <param name="Race">Optional. Default is all races. Race to filter.</param>
       <param name="IgnoreCache">Optional. Default is <c>False</c>. Ignores any cached data that might be available when caching is enabled.</param>
       <returns>Return an <c>System.Exception</c> if an error occurred otherwise <c>Nothing</c>.</returns>
     </member>
-    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetRankingsTopBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.Int32,System.AsyncCallback,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)">
+    <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.GetRankingsTopBegin(System.Object,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,System.AsyncCallback,System.Int32,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Boolean)">
       <summary>
  Returns the top limit teams given the passed params. Unlike other APIs, this cannot be paginated and is intended to be used for showing mini ranking type of widgets and not for data collection. 
  </summary>
@@ -966,8 +967,8 @@
       <param name="Expansion"> The expansion set of StarCraft II.</param>
       <param name="Bracket">The bracket to filter.</param>
       <param name="League">The league to filter.</param>
-      <param name="TopCount">The top amount of results to return. Cannot exceed <c>MaximumRequestLimit</c>.</param>
       <param name="Callback">Address of a method to call when a result is available.</param>
+      <param name="TopLimit">The top amount of results to return. Cannot exceed <see cref="F:NuGardt.SC2Ranks.API.Sc2RanksService.MaxRequestTopLimit" />.</param>
       <param name="Race">Optional. Default is all races. Race to filter.</param>
       <param name="IgnoreCache">Optional. Default is <c>False</c>. Ignores any cached data that might be available when caching is enabled.</param>
       <returns>Return an <c>System.Exception</c> if an error occurred otherwise <c>Nothing</c>.</returns>
@@ -984,6 +985,11 @@
     <member name="F:NuGardt.SC2Ranks.API.Sc2RanksService.MaxRequestLimit">
       <summary>
  Maximum request limit.
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.API.Sc2RanksService.MaxRequestTopLimit">
+      <summary>
+ Maximum request limit for top listings.
  </summary>
     </member>
     <member name="M:NuGardt.SC2Ranks.API.Sc2RanksService.SearchCharacterTeamList(System.String,NuGardt.SC2Ranks.API.eSc2RanksMatchType,NuGardt.SC2Ranks.API.eSc2RanksRankRegion,NuGardt.SC2Ranks.API.eSc2RanksExpansion,NuGardt.SC2Ranks.API.eSc2RanksBracket,NuGardt.SC2Ranks.API.eSc2RanksLeague,NuGardt.SC2Ranks.API.Result.Sc2RanksSearchCharacterTeamListResult@,System.Nullable{NuGardt.SC2Ranks.API.eSc2RanksRace},System.Int32,System.Int32,System.Boolean)">
@@ -1725,6 +1731,7 @@
     <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterExtended.BattleNetID"></member>
     <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterExtended.Clan"></member>
     <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterExtended.Name"></member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterExtended.Portrait"></member>
     <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterExtended.Region"></member>
     <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterExtended.ReplayUrl"></member>
     <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksCharacterExtended.SwarmLevels"></member>
@@ -2020,6 +2027,20 @@
     <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksPagination.Offset"></member>
     <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksPagination.ToString"></member>
     <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksPagination.Total"></member>
+    <member name="T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksPortrait"></member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksPortrait.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>NuGardt.SC2Ranks.API.Result.Element.Sc2RanksPortrait</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksPortrait.File"></member>
+    <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksPortrait.ToString"></member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksPortrait.X"></member>
+    <member name="P:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksPortrait.Y"></member>
     <member name="T:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRacesDefinition"></member>
     <member name="M:NuGardt.SC2Ranks.API.Result.Element.Sc2RanksRacesDefinition.#ctor">
       <summary>
@@ -2286,6 +2307,872 @@
     <member name="F:NuGardt.SC2Ranks.Helper.Enums.RankRegionBuffer"></member>
     <member name="F:NuGardt.SC2Ranks.Helper.Enums.RegionBuffer"></member>
     <member name="F:NuGardt.SC2Ranks.Helper.Enums.RegionNotationBuffer"></member>
+    <member name="T:NuGardt.SC2Ranks.Helper.ePortrait"></member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Unknown">
+      <summary>
+ Unknown
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Kachinsky">
+      <summary>
+ Kachinsky
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Cade">
+      <summary>
+ Cade
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Thatcher">
+      <summary>
+ Thatcher
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Hall">
+      <summary>
+ Hall
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.TigerMarine">
+      <summary>
+ Tiger Marine
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.PandaMarine">
+      <summary>
+ Panda Marine
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.GeneralWarfield">
+      <summary>
+ General Warfield
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.JimRaynor">
+      <summary>
+ Jim Raynor
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.ArcturusMengsk">
+      <summary>
+ Arcturus Mengsk
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.SarahKerrigan">
+      <summary>
+ Sarah Kerrigan
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.KateLockwell">
+      <summary>
+ Kate Lockwell
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.RorySwann">
+      <summary>
+ Rory Swann
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.EgonStetmann">
+      <summary>
+ Egon Stetmann
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Hill">
+      <summary>
+ Hill
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Adjutant">
+      <summary>
+ Adjutant
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.DrArielHanson">
+      <summary>
+ Dr. Ariel Hanson
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.GabrielTosh">
+      <summary>
+ Gabriel Tosh
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.MattHorner">
+      <summary>
+ Matt Horner
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.TychusFindlay">
+      <summary>
+ Tychus Findlay
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Zeratul">
+      <summary>
+ Zeratul
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.ValerianMengsk">
+      <summary>
+ Valerian Mengsk
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Spectre">
+      <summary>
+ Spectre
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.RaynorMarine">
+      <summary>
+ Raynor Marine
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.TaurenMarine">
+      <summary>
+ Tauren Marine
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.NightElfBanshee">
+      <summary>
+ Night Elf Banshee
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.DiabloMarine">
+      <summary>
+ Diablo Marine
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.SCV">
+      <summary>
+ SCV
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Firebat">
+      <summary>
+ Firebat
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Vulture">
+      <summary>
+ Vulture
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Hellion">
+      <summary>
+ Hellion
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Medic">
+      <summary>
+ Medic
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.SpartanCompany">
+      <summary>
+ Spartan Company
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Wraith">
+      <summary>
+ Wraith
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Diamondback">
+      <summary>
+ Diamondback
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Probe">
+      <summary>
+ Probe
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Scout">
+      <summary>
+ Scout
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.TaurenMarineKorea">
+      <summary>
+ TaurenMarine (Korea)
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.NightElfBansheeKorea">
+      <summary>
+ NightElfBanshee (Korea)
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.DiabloMarineKorea">
+      <summary>
+ DiabloMarine (Korea)
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.WorgenMarineKorea">
+      <summary>
+ WorgenMarine (Korea)
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.GoblinMarineKorea">
+      <summary>
+ GoblinMarine (Korea)
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.PanTerranMarine">
+      <summary>
+ PanTerran Marine
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.WizardTemplar">
+      <summary>
+ Wizard Templar
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.TyraelMarine">
+      <summary>
+ Tyrael Marine
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.WitchDoctorZergling">
+      <summary>
+ Witch Doctor Zergling
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.StarCraftMaster">
+      <summary>
+ StarCraft II Master
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.NightElfTemplar">
+      <summary>
+ Night Elf Templar
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.InfestedOrc">
+      <summary>
+ Infested Orc
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.OverlordOfTerror">
+      <summary>
+ Overlord Of Terror
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.BansheeQueen">
+      <summary>
+ Banshee Queen
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.InfestedPanTerran">
+      <summary>
+ Infested PanTerran
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.PrinceValerian">
+      <summary>
+ Prince Valerian
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Zagara">
+      <summary>
+ Zagara
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Lasarra">
+      <summary>
+ Lasarra
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Dehaka">
+      <summary>
+ Dehaka
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.InfestedStukov">
+      <summary>
+ InfestedStukov
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.MiraHorner">
+      <summary>
+ Mira Horner
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.PrimalQueen">
+      <summary>
+ Primal Queen
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Izsha">
+      <summary>
+ Izsha
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Abathur">
+      <summary>
+ Abathur
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.GhostKerrigan">
+      <summary>
+ Ghost Kerrigan
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Zurvan">
+      <summary>
+ Zurvan
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Narud">
+      <summary>
+ Narud
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.SnakeMarine">
+      <summary>
+ Snake Marine
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Year15Terran">
+      <summary>
+ 15 Year Terran
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Year15Protoss">
+      <summary>
+ 15 Year Protoss
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Year15Zerg">
+      <summary>
+ 15 Year Zerg
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.SpawningPoolParty">
+      <summary>
+ Spawning Pool Party
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Ghost">
+      <summary>
+ Ghost
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Thor">
+      <summary>
+ Thor
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Battlecruiser">
+      <summary>
+ Battlecruiser
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Nova">
+      <summary>
+ Nova
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Zealot">
+      <summary>
+ Zealot
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Stalker">
+      <summary>
+ Stalker
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Phoenix">
+      <summary>
+ Phoenix
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Immortal">
+      <summary>
+ Immortal
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.VoidRay">
+      <summary>
+ Void Ray
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Colossus">
+      <summary>
+ Colossus
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Carrier">
+      <summary>
+ Carrier
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Tassadar">
+      <summary>
+ Tassadar
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Reaper">
+      <summary>
+ Reaper
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Sentry">
+      <summary>
+ Sentry
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Overseer">
+      <summary>
+ Overseer
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Viking">
+      <summary>
+ Viking
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.HighTemplar">
+      <summary>
+ High Templar
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Mutalisk">
+      <summary>
+ Mutalisk
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Banshee">
+      <summary>
+ Banshee
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.HybridDestroyer">
+      <summary>
+ Hybrid Destroyer
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.DarkVoice">
+      <summary>
+ Dark Voice
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Urubu">
+      <summary>
+ Urubu
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Lyote">
+      <summary>
+ Lyote
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Automaton2000">
+      <summary>
+ Automaton 2000
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Orlan">
+      <summary>
+ Orlan
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.WolfMarine">
+      <summary>
+ Wolf Marine
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.MurlocMarine">
+      <summary>
+ Murloc Marine
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.WorgenMarine">
+      <summary>
+ Worgen Marine
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.GoblinMarine">
+      <summary>
+ Goblin Marine
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.ZealotChef">
+      <summary>
+ Zealot Chef
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Stank">
+      <summary>
+ Stank
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Ornatus">
+      <summary>
+ Ornatus
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.FacebookCorpsMembers">
+      <summary>
+ Facebook Corps Members
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.LionMarines">
+      <summary>
+ Lion Marines
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Dragons">
+      <summary>
+ Dragons
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.RaynorMarineChina">
+      <summary>
+ Raynor Marine (China)
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Urun">
+      <summary>
+ Urun
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Nyon">
+      <summary>
+ Nyon
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Executor">
+      <summary>
+ Executor
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Mohandar">
+      <summary>
+ Mohandar
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Selendis">
+      <summary>
+ Selendis
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Artanis">
+      <summary>
+ Artanis
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Drone">
+      <summary>
+ Drone
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.InfestedColonist">
+      <summary>
+ Infested Colonist
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.InfestedMarine">
+      <summary>
+ Infested Marine
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Corruptor">
+      <summary>
+ Corruptor
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Abberation">
+      <summary>
+ Abberation
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.BroodLord">
+      <summary>
+ Brood Lord
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Overmind">
+      <summary>
+ Overmind
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Leviathan">
+      <summary>
+ Leviathan
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Overlord">
+      <summary>
+ Overlord
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.HydraliskMarine">
+      <summary>
+ Hydralisk Marine
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.ZerataiDarkTemplar">
+      <summary>
+ Zer 'atai Dark Templar
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Goliath">
+      <summary>
+ Goliath
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.LenassaDarkTemplar">
+      <summary>
+ Lenassa Dark Templar
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.MiraHan">
+      <summary>
+ Mira Han
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Archon">
+      <summary>
+ Archon
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.HybridReaver">
+      <summary>
+ Hybrid Reaver
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Predator">
+      <summary>
+ Predator
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Zergling">
+      <summary>
+ Zergling
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Roach">
+      <summary>
+ Roach
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Baneling">
+      <summary>
+ Baneling
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Hydralisk">
+      <summary>
+ Hydralisk
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Queen">
+      <summary>
+ Queen
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Infestor">
+      <summary>
+ Infestor
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Ultralisk">
+      <summary>
+ Ultralisk
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.QueenOfBlades">
+      <summary>
+ Queen of Blades
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Marine">
+      <summary>
+ Marine
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Marauder">
+      <summary>
+ Marauder
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Medivac">
+      <summary>
+ Medivac
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.SiegeTank">
+      <summary>
+ Siege Tank
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level3Zealot">
+      <summary>
+ Level 3 Zealot
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level8Sentry">
+      <summary>
+ Level 8 Sentry
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level5Stalker">
+      <summary>
+ Level 5 Stalker
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level11Immortal">
+      <summary>
+ Level 11 Immortal
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level14Oracle">
+      <summary>
+ Level 14 Oracle
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level17HighTemplar">
+      <summary>
+ Level 17 High Templar
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level21Tempest">
+      <summary>
+ Level 21 Tempest
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level23Colossus">
+      <summary>
+ Level 23 Colossus
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level27Carrier">
+      <summary>
+ Level 27 Carrier
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level29Zeratul">
+      <summary>
+ Level 29 Zeratul
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level3Marine">
+      <summary>
+ Level 3 Marine
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level5Marauder">
+      <summary>
+ Level 5 Marauder
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level8Hellbat">
+      <summary>
+ Level 8 Hellbat
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level11WidowMine">
+      <summary>
+ Level 11 Widow Mine
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level14Medivac">
+      <summary>
+ Level 14 Medivac
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level17Banshee">
+      <summary>
+ Level 17 Banshee
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level21Ghost">
+      <summary>
+ Level 21 Ghost
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level23Thor">
+      <summary>
+ Level 23 Thor
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level27Battlecruiser">
+      <summary>
+ Level 27 Battlecruiser
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level29Raynor">
+      <summary>
+ Level 29 Raynor
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level11Locust">
+      <summary>
+ Level 11 Locust
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level3Zergling">
+      <summary>
+ Level 3 Zergling
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level5Roach">
+      <summary>
+ Level 5 Roach
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level8Hydralisk">
+      <summary>
+ Level 8 Hydralisk
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level14SwarmHost">
+      <summary>
+ Level 14 Swarm Host
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level17Infestor">
+      <summary>
+ Level 17 Infestor
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level21Viper">
+      <summary>
+ Level 21 Viper
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level23BroodLord">
+      <summary>
+ Level 23 Brood Lord
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level27Ultralisk">
+      <summary>
+ Level 27 Ultralisk
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Level29Kerrigan">
+      <summary>
+ Level 29 Kerrigan
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Beta30Tempest">
+      <summary>
+ Beta 30 Tempest
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Beta30Warhound">
+      <summary>
+ Beta 30 Warhound
+ </summary>
+    </member>
+    <member name="F:NuGardt.SC2Ranks.Helper.ePortrait.Beta30Viper">
+      <summary>
+ Beta 30 Viper
+ </summary>
+    </member>
     <member name="T:NuGardt.SC2Ranks.Helper.NotationAttribute">
       <summary>
  Attribute for Notation.
@@ -2302,6 +3189,9 @@
     </member>
     <member name="M:NuGardt.SC2Ranks.Helper.NotationAttribute.ToString"></member>
     <member name="F:NuGardt.SC2Ranks.Helper.NotationAttribute.Value"></member>
+    <member name="T:NuGardt.SC2Ranks.Helper.Portrait"></member>
+    <member name="M:NuGardt.SC2Ranks.Helper.Portrait.GetPortraitDetails(NuGardt.SC2Ranks.API.Result.Element.Sc2RanksPortrait,NuGardt.SC2Ranks.Helper.ePortrait@)"></member>
+    <member name="M:NuGardt.SC2Ranks.Helper.Portrait.GetPortraitDetails(System.Int32,System.Int32,System.Int32,NuGardt.SC2Ranks.Helper.ePortrait@)"></member>
     <member name="T:NuGardt.SC2Ranks.Helper.TagAttribute">
       <summary>
  Attribute for field tag.

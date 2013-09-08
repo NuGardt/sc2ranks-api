@@ -27,9 +27,9 @@ Namespace SC2Ranks.API.Result.Element
     '  "sum": 31
     '}
 
-    Private m_Top As Int32
-    Private m_Avg As Int32
-    Private m_Sum As Int32
+    Private m_Top As String
+    Private m_Avg As String
+    Private m_Sum As String
 
     Public Sub New()
       Me.m_Top = Nothing
@@ -38,42 +38,78 @@ Namespace SC2Ranks.API.Result.Element
     End Sub
 
     <DataMember(name := "top")>
-    Public Property Top As Int32
+    Private Property iTop As String
       Get
         Return Me.m_Top
       End Get
-      Private Set(ByVal Value As Int32)
+      Set(ByVal Value As String)
         Me.m_Top = Value
       End Set
     End Property
 
+    <IgnoreDataMember()>
+    Public ReadOnly Property Top As Nullable(Of Int32)
+      Get
+        Dim tTop As Int32
+        If Int32.TryParse(Me.m_Top, tTop) Then
+          Return tTop
+        Else
+          Return Nothing
+        End If
+      End Get
+    End Property
+
     <DataMember(name := "avg")>
-    Public Property Average As Int32
+    Private Property iAverage As String
       Get
         Return Me.m_Avg
       End Get
-      Private Set(ByVal Value As Int32)
+      Set(ByVal Value As String)
         Me.m_Avg = Value
       End Set
     End Property
 
+    <IgnoreDataMember()>
+    Public ReadOnly Property Average As Nullable(Of Int32)
+      Get
+        Dim tAvg As Int32
+        If Int32.TryParse(Me.m_Avg, tAvg) Then
+          Return tAvg
+        Else
+          Return Nothing
+        End If
+      End Get
+    End Property
+
     <DataMember(name := "sum")>
-    Public Property Sum As Int32
+    Private Property iSum As String
       Get
         Return Me.m_Sum
       End Get
-      Private Set(ByVal Value As Int32)
+      Set(ByVal Value As String)
         Me.m_Sum = Value
       End Set
+    End Property
+
+    <IgnoreDataMember()>
+    Public ReadOnly Property Sum As Nullable(Of Int32)
+      Get
+        Dim tSum As Int32
+        If Int32.TryParse(Me.m_Sum, tSum) Then
+          Return tSum
+        Else
+          Return Nothing
+        End If
+      End Get
     End Property
 
     Public Overrides Function ToString() As String
       Dim SB As New StringBuilder
 
       With SB
-        Call .AppendFormat("Top: {0}{1}", Me.Top.ToString(), vbCrLf)
-        Call .AppendFormat("Average: {0}{1}", Me.Average.ToString(), vbCrLf)
-        Call .AppendFormat("Sum: {0}{1}", Me.Sum.ToString(), vbCrLf)
+        If (Me.Top.HasValue) Then Call .AppendFormat("Top: {0}{1}", Me.Top.Value.ToString(), vbCrLf)
+        If (Me.Average.HasValue) Then Call .AppendFormat("Average: {0}{1}", Me.Average.Value.ToString(), vbCrLf)
+        If (Me.Sum.HasValue) Then Call .AppendFormat("Sum: {0}{1}", Me.Sum.Value.ToString(), vbCrLf)
       End With
 
       Return SB.ToString
